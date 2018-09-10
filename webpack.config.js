@@ -1,6 +1,7 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack');
 
 module.exports = {
     mode: 'development',
@@ -8,6 +9,13 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'js/main.js'
+    },
+    devServer: {
+        contentBase: "./",
+        inline: true,
+        port: 8080,
+        compress: false,
+        hot: true
     },
     module: {
         rules: [
@@ -21,6 +29,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
+                exclude: /node_modules/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
@@ -42,6 +51,7 @@ module.exports = {
             // both options are optional
             filename: 'css/[name].[hash].css',
             chunkFilename: 'css/[id].[hash].css',
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
