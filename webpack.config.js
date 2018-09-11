@@ -1,6 +1,7 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const copyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
@@ -17,10 +18,12 @@ module.exports = {
         compress: false,
         hot: true
     },
+    devtools: 'source-map',
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
                 loader: 'babel-loader'
             },
             {
@@ -52,6 +55,12 @@ module.exports = {
             filename: 'css/[name].[hash].css',
             chunkFilename: 'css/[id].[hash].css',
         }),
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        // new copyWebpackPlugin([
+        //     {
+        //         from: path.resolve(__dirname, 'src/static'),
+        //         to: path.resolve(__dirname, 'dist/static')
+        //     }
+        // ])
     ]
 }

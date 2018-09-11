@@ -1,33 +1,28 @@
 import React from 'react';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
+import Content from '../content/index.js';
+import About from '../about/index.js';
 import './index.scss';
-
-class List extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render () {
-        return (
-            <ul className="nav-list">
-                <li className="list-item" onClick={this.addClassName}>
-                    <a href="#">内容</a>
-                </li>
-                <li className="list-item">
-                    <a href="#">关于我</a>
-                </li>
-            </ul>
-        );
-    }
-}
 
 class Header extends React.Component {
     render () {
         return (
-            <header className="header">
-                <a link="#" className="logo">
-                    <img src="../../../static/favicon.png"/>
-                </a>
-                <List />
-            </header>
+            <BrowserRouter>
+                <div>
+                    <header className="header">
+                        <a link="#" className="logo">
+                            <img src="../../static/favicon.png"/>
+                        </a>
+                        <ul className="nav-list">
+                            <li className="list-item"><Link to="/content">内容</Link></li>
+                            <li className="list-item"><Link to="/about">关于</Link></li>
+                        </ul>
+                    </header>
+                    <Route exact path="/" component={Content}/>
+                    <Route path="/content" component={Content}/>
+                    <Route path="/about" component={About}/>
+                </div>
+            </BrowserRouter>
         )
     }
 }
