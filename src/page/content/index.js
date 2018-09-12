@@ -55,13 +55,15 @@ class Content extends React.Component {
         return (
             <section className="content">
                 <SideBar navList={this.state.navList}/>
-                    <div className="content-right">
-                        <Switch>
-                            <Route path='/content/one' component={ContentOne}></Route>
-                            <Route path='/content/two' component={ContentTwo}></Route>
-                        </Switch>
-                    </div>
-                </section>                 
+                <div className="content-right">
+                    <Switch>
+                        <Route exact path="/" component={ContentOne}></Route>
+                        <Route path='/content/one' component={ContentOne}></Route>
+                        <Route path='/content/two' component={ContentTwo}></Route>
+                        <Route path="/content" component={ContentOne}></Route>
+                    </Switch>
+                </div>
+            </section>                 
         )
     }
 }

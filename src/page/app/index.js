@@ -13,9 +13,11 @@ class App extends React.Component {
                 <div className="app">
                     <Header />
                     <main className="main">
-                        <Route exact path="/" component={Content}></Route>
-                        <Route path="/content" component={Content}></Route>
-                        <Route path="/about" component={About}></Route>
+                        <Switch>
+                            <Route exact path="/" component={Content}></Route>
+                            <Route path="/content" component={Content}></Route>
+                            <Route path="/about" component={About}></Route>
+                        </Switch>
                     </main>
                 </div>
             </HashRouter>
