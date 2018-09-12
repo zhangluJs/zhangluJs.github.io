@@ -18,7 +18,6 @@ module.exports = {
         compress: false,
         hot: true
     },
-    devtools: 'source-map',
     module: {
         rules: [
             {

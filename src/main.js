@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './common/css/reset.scss';
 
 
-import Home from './page/home/index.js';
+import App from './page/app/index.js';
 
 ReactDOM.render(
-    <Home />,
+    <App />,
     document.getElementById('root')
 )

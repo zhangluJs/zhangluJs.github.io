@@ -1,11 +1,11 @@
 .header {
-    padding: 20px 100px;
+    width: 100%;
+    height: 60px;
     overflow: hidden;
+    background: #409eff;
     .logo {
         float: left;
-        img {
-            height: 60px;
-        }
+        height: 60px;
     }
     .nav-list {
         float: right;
@@ -14,14 +14,21 @@
             float: left;
             margin-left: 20px;
             font-size: 16px;
-            line-height: 1.4;
+            line-height: 60px;
             padding-bottom: 3px;
+            color: #fff;
+            border-bottom: 2px solid transparent;
             &:hover {
-                border-bottom: 2px solid #42b983;
+                border-bottom: 2px solid #fff;
             }
             &:acitve {
-                border-bottom: 2px solid #42b983;
+                border-bottom: 2px solid #fff;
             }
         }
+    }
+    .active-item {
+        color: #fff;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #fff;
     }
 }

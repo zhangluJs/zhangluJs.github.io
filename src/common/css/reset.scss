@@ -1,3 +1,10 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-weight: normal;
+}
 body {
     padding: 0;
     margin: 0;
@@ -14,4 +21,10 @@ a {
     color: #2c3e50;
     text-decoration: none;
     background-color: transparent;
+}
+.container {
+    width: 1024px;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
 }
