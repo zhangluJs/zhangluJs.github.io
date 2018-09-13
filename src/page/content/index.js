@@ -1,14 +1,15 @@
 import React from 'react';
-import {HashRouter, Route, NavLink, Switch} from 'react-router-dom';
+import {HashRouter, Route, NavLink, Switch, Redirect} from 'react-router-dom';
 import './index.scss'
 import ContentOne from '../content-one/index.js';
 import ContentTwo from '../content-two/index.js';
+import ContentThree from '../content-three/index.js';
 
 function SideBar(props) {
     let menu = props.navList.map(item => {
         let list = item.list.map((key, index) => {
             return (
-                <li key={index}><NavLink to={key.path}>{key.name}</NavLink></li>
+                <li key={index}><NavLink to={key.path} activeClassName='active-class'>{key.name}</NavLink></li>
             )
         })
         return (
@@ -60,7 +61,8 @@ class Content extends React.Component {
                         <Route exact path="/" component={ContentOne}></Route>
                         <Route path='/content/one' component={ContentOne}></Route>
                         <Route path='/content/two' component={ContentTwo}></Route>
-                        <Route path="/content" component={ContentOne}></Route>
+                        <Route path='/content/three' component={ContentThree}></Route>
+                        <Redirect from='/content' to='/content/one'></Redirect>
                     </Switch>
                 </div>
             </section>                 

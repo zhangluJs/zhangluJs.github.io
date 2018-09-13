@@ -14,9 +14,10 @@ class App extends React.Component {
                     <Header />
                     <main className="main">
                         <Switch>
-                            <Route exact path="/" component={Content}></Route>
+                            {/* <Route exact path="/" component={Content}></Route> */}
                             <Route path="/content" component={Content}></Route>
                             <Route path="/about" component={About}></Route>
+                            <Redirect from='/' to='/content/one'></Redirect>
                         </Switch>
                     </main>
                 </div>
