@@ -30,6 +30,14 @@ module.exports = {
                 loader: 'url-loader'
             },
             {
+                test: /\.css$/,
+                loader: 'style-loader!css-loader'
+            },
+            {   
+                test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/,
+                loader: "file-loader"
+            },
+            {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [

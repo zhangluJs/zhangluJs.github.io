@@ -1,0 +1,21 @@
+.content-one {
+    .input-item {
+        margin-bottom: 20px;
+    }
+    input {
+        margin: 10px;
+        outline: none;
+    }
+    input[type="text"] {
+        width: 200px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        padding: 10px;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid #ccc;
+    }
+}
