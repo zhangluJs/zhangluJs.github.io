@@ -11,6 +11,7 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: 'js/main.js'
     },
+    devtool:"source-map",
     devServer: {
         contentBase: "./",
         inline: true,

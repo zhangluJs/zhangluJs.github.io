@@ -1,11 +1,12 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import { connect } from 'react-redux';
 import './index.scss';
 
 class Header extends React.Component {
     render () {
         return (
-            <header className="header">
+            <header className="header" style={{ background : this.props.themeColor }}>
                 <div className="container">
                     <img className="logo" src="../../../static/favicon.png"/>
                     <ul className="nav-list">
@@ -17,5 +18,12 @@ class Header extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        themeColor: state.themeColor
+    }
+}
+Header = connect(mapStateToProps)(Header)
 
 export default Header;
