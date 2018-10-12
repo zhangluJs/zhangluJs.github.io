@@ -9,7 +9,7 @@ class ContentTwo extends React.Component {
         this.state = { themeColor: '' }
     }
     
-      // dispatch action 去改变颜色
+    // dispatch action 去改变颜色
     handleSwitchColor (color) {
         if (this.props.onSwitchColor) {
             this.props.onSwitchColor(color)
@@ -18,25 +18,29 @@ class ContentTwo extends React.Component {
     render () {
         return (
             <div>
-                <button 
+                <Button 
                     style={{ color: this.props.themeColor }}
                     onClick={this.handleSwitchColor.bind(this,'red')}>
                     Red
-                </button>
-                <button 
+                </Button>
+                <Button 
                     style={{ color: this.props.themeColor }}
                     onClick={this.handleSwitchColor.bind(this,'blue')}>
                     Blue
-                </button>
+                </Button>
+                <Button 
+                    style={{ color: this.props.themeColor}}
+                    onClick={this.handleSwitchColor.bind(this, '#409eff')}>
+                    默认颜色
+                </Button>
             </div>
-            // <div>第二年的经历学劲没那么大了，然后就开始工作了。<Button>123</Button></div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-      themeColor: state.themeColor
+        themeColor: state.themeColor
     }
   }
 const mapDispatchToProps = (dispatch) => {

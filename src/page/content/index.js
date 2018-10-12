@@ -5,11 +5,13 @@ import ContentOne from '../content-one/index.js';
 import ContentTwo from '../content-two/index.js';
 import ContentThree from '../content-three/index.js';
 
+import {connect} from 'react-redux';
+
 function SideBar(props) {
     let menu = props.navList.map(item => {
         let list = item.list.map((key, index) => {
             return (
-                <li key={index}><NavLink to={key.path} activeClassName='active-class'>{key.name}</NavLink></li>
+                <li key={index}><NavLink to={key.path} activeClassName='active-class' style={{color: props.color}}>{key.name}</NavLink></li>
             )
         })
         return (
@@ -55,7 +57,7 @@ class Content extends React.Component {
     render () {
         return (
             <section className="content">
-                <SideBar navList={this.state.navList}/>
+                <SideBar navList={this.state.navList} color={this.props.themeColor}/>
                 <div className="content-right">
                     <Switch>
                         <Route exact path="/" component={ContentOne}></Route>
@@ -69,5 +71,13 @@ class Content extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        themeColor: state.themeColor
+    }
+}
+
+Content = connect(mapStateToProps)(Content);
 
 export default Content;
