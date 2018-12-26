@@ -1,8 +1,9 @@
 const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const copyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -52,7 +53,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new htmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'index.html',
             inject: 'body'
@@ -64,11 +65,12 @@ module.exports = {
             chunkFilename: 'css/[id].[hash].css',
         }),
         new webpack.HotModuleReplacementPlugin(),
-        // new copyWebpackPlugin([
-        //     {
-        //         from: path.resolve(__dirname, 'src/static'),
-        //         to: path.resolve(__dirname, 'dist/static')
-        //     }
-        // ])
+        new CleanWebpackPlugin(['dist']),
+        new CopyWebpackPlugin([
+            {
+                from: path.join(__dirname, '/src/static'),
+                to: path.join(__dirname, '/dist/static')
+            }
+        ])
     ]
 }

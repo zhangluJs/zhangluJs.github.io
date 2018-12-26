@@ -1,5 +1,6 @@
 /**
  * @file 头部
+ * @author zhanglu
  */
 
 import React from 'react';
@@ -28,7 +29,7 @@ class Header extends React.Component {
                 background: this.props.themeColor
             }}>
                 <div className='container'>
-                    <img className='logo' src='../../../static/favicon.png'/>
+                    <img className='logo' src='static/favicon.png'/>
                     <ul className='nav-list'>
                         <li className='list-item'><NavLink to='/content' activeClassName='active-item'>内容</NavLink></li>
                         <li className='list-item'><NavLink to='/about' activeClassName='active-item'>关于我</NavLink></li>
@@ -41,7 +42,7 @@ class Header extends React.Component {
                     </ul>
                 </div>
             </header>
-            );
+        );
     }
 }
 
