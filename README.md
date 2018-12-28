@@ -22,3 +22,9 @@
 
 * 2018/12/27
     * 这一个多月折腾的vue个人项目终于上线了，是自己第一个个人上线的项目，还是很开心的。不过目前有一些小瑕疵，但是我已经很满足了。访问[地址](http://zhangluupup.top:3000/#/)。  现在折腾一下这个react项目，昨天刚把webpack配置项改好，虽然很简单，但是dev、build都已经没问题了:+1:。
+    ![vue-demo](./src/static/vue-demo-index.png)
+    ![vue-demo](./src/static/vue-demo-cart.png)
+    ![vue-demo](./src/static/vue-demo-address.png)
+    ![vue-demo](./src/static/vue-demo-addnewaddress.png)
+    ![vue-demo](./src/static/vue-demo-orderconfirm.png)
+    ![vue-demo](./src/static/vue-demo-ordersuccess.png)
