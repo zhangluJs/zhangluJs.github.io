@@ -2,7 +2,7 @@
   "name": "react-project",
   "version": "1.0.0",
   "description": "使用webpack构建工具，配合react来做一个个人项目。主要是用来学习",
-  "main": "index.js",
+  "author": "zhanglu",
   "scripts": {
     "dev": "webpack-dev-server --inline",
     "build": "webpack --config ./webpack.config.js --mode development"
@@ -47,7 +47,6 @@
     "type": "git",
     "url": "git+https://github.com/zhangluJs/react-project.git"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/zhangluJs/react-project/issues"
