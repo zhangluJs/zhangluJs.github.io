@@ -1,6 +1,10 @@
+/**
+ * @file one-page
+ */
+
 import React from 'react';
 import './index.scss';
-class ContentOne extends React.Component {
+export default class ContentOne extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -9,7 +13,7 @@ class ContentOne extends React.Component {
             sex: 'men',
             checkbox: ['土豆'],
             select: 'lime'
-        }
+        };
 
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,11 +26,16 @@ class ContentOne extends React.Component {
         let value = e.target.value;
         this.setState({
             value
-        })
+        });
     }
 
     handleSubmit() {
-        let {select, sex, checkbox, value} = this.state;
+        let {
+            select,
+            sex,
+            checkbox,
+            value
+        } = this.state;
         console.log(value, sex, checkbox, select);
     }
 
@@ -34,9 +43,8 @@ class ContentOne extends React.Component {
         let value = e.target.value;
         this.setState({
             sex: value
-        })
+        });
     }
-
 
     handleCheckbox(e) {
         let {value, checked} = e.target;
@@ -44,23 +52,28 @@ class ContentOne extends React.Component {
         let list = this.state.checkbox;
         if (checked && index === -1) {
             list.push(value);
-        } else {
+        }
+        else {
             list.splice(index, 1);
         }
         this.setState({
             checkbox: list
-        })
+        });
     }
 
     handleSelect(e) {
         let value = e.target.value;
         this.setState({
             select: value
-        })
+        });
     }
 
-    render () {
-        const {value, sex, checkbox} = this.state;
+    render() {
+        const {
+            value,
+            sex,
+            checkbox
+        } = this.state;
         const list = ['白菜', '土豆', '香菜'];
         return (
             <div className='content-one'>
@@ -77,11 +90,21 @@ class ContentOne extends React.Component {
                     性别：
                     <label>
                         男：
-                        <input type='radio' value='men' name='sex' checked={sex === 'men'} onChange={this.handleRadio} />
+                        <input
+                            type='radio'
+                            value='men'
+                            name='sex'
+                            checked={sex === 'men'}
+                            onChange={this.handleRadio} />
                     </label>
                     <label>
                         女：
-                        <input type='radio' value='women' name='sex' checked={sex === 'women'} onChange={this.handleRadio} />
+                        <input
+                            type='radio'
+                            value='women'
+                            name='sex'
+                            checked={sex === 'women'}
+                            onChange={this.handleRadio} />
                     </label>
                 </div>
                 <div className='input-item'>
@@ -91,22 +114,24 @@ class ContentOne extends React.Component {
                             return (
                                 <label key={index}>
                                     {item}
-                                    <input type='checkbox' value={item} checked={checkbox.indexOf(item) !== -1} onChange={this.handleCheckbox}/>
+                                    <input
+                                        type='checkbox'
+                                        value={item}
+                                        checked={checkbox.indexOf(item) !== -1}
+                                        onChange={this.handleCheckbox}/>
                                 </label>
-                            )
+                            );
                         })
                     }
                 </div>
-                <div className='input-item'>
-                    <select value={this.state.select} onChange={this.handleSelect}>
-                        <option value='limt'>limt</option>
-                        <option value='group'>ground</option>
-                    </select>
+                    <div className='input-item'>
+                        <select value={this.state.select} onChange={this.handleSelect}>
+                            <option value='limt'>limt</option>
+                            <option value='group'>ground</option>
+                        </select>
+                    </div>
+                    <button onClick={this.handleSubmit}>submit</button>
                 </div>
-                <button onClick={this.handleSubmit}>submit</button>  
-            </div>
-        )
+            );
     }
 }
-
-export default ContentOne;
