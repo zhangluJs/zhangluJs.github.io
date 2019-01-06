@@ -1,6 +1,15 @@
+/**
+ * @file 主体容器
+ */
 import React from 'react';
-import {HashRouter, Route, NavLink, Switch, Redirect} from 'react-router-dom';
-import './index.scss'
+import {
+    HashRouter,
+    Route,
+    NavLink,
+    Switch,
+    Redirect
+} from 'react-router-dom';
+import './index.scss';
 import ContentOne from '../content-one/index.js';
 import ContentTwo from '../content-two/index.js';
 import ContentThree from '../content-three/index.js';
@@ -11,9 +20,17 @@ function SideBar(props) {
     let menu = props.navList.map(item => {
         let list = item.list.map((key, index) => {
             return (
-                <li key={index}><NavLink to={key.path} activeClassName='active-class' style={{color: props.color}}>{key.name}</NavLink></li>
-            )
-        })
+                <li key={index}>
+                    <NavLink
+                        to={key.path}
+                        activeClassName='active-class'
+                        style={{
+                            color: props.color
+                        }}>
+                    {key.name}
+                </NavLink></li>
+            );
+        });
         return (
             <div key={item.name}>
                 <p>{item.name}</p>
@@ -21,13 +38,13 @@ function SideBar(props) {
                     {list}
                 </ul>
             </div>
-        )
-    })
+        );
+    });
     return (
-        <div className="sidebar-wrap">
+        <div className='sidebar-wrap'>
             {menu}
         </div>
-    )
+        );
 }
 
 class Content extends React.Component {
@@ -49,34 +66,34 @@ class Content extends React.Component {
                     }]
                 }
             ]
-        }
+        };
     }
     componentDidMount() {
-        console.log('这里是content')
+        console.log('这里是content');
     }
-    render () {
+    render() {
         return (
-            <section className="content">
+            <section className='content'>
                 <SideBar navList={this.state.navList} color={this.props.themeColor}/>
-                <div className="content-right">
+                <div className='content-right'>
                     <Switch>
-                        <Route exact path="/" component={ContentOne}></Route>
+                        <Route exact path='/' component={ContentOne}></Route>
                         <Route path='/content/one' component={ContentOne}></Route>
                         <Route path='/content/two' component={ContentTwo}></Route>
                         <Route path='/content/three' component={ContentThree}></Route>
                         <Redirect from='/content' to='/content/one'></Redirect>
                     </Switch>
                 </div>
-            </section>                 
-        )
+            </section>
+        );
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         themeColor: state.themeColor
-    }
-}
+    };
+};
 
 Content = connect(mapStateToProps)(Content);
 
