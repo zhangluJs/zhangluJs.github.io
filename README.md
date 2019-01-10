@@ -2,6 +2,21 @@
 使用webpack构建工具，配合react来做一个个人项目。主要是用来学习
 
 
+## Build Setup
+
+``` bash
+# install dependencies
+$ npm install
+
+# serve with hot reload at localhost:8080
+$ npm run dev
+
+# build for production with minification
+$ npm run build
+
+```
+
+
 * 2018/09/10
     * 主要对配置文件进行了调整。由于不小心使用了webpack4，也就是最新版（原谅我的单纯,install时的洒脱），趟了许多坑。比如在将css样式抽离一个文件出来的时候，之前webpack支持的extract-webpack-plugin已经被启用了，查了好多资料才发现现在使用的是mini-css-extract-plugin，并且写法上也有些不同，虽然以前没有配置过。在配置babel这个loader的时候，由于babel版本与webpack版本不兼容，又是查了许多资料后才发现是babel版本太高了，将babel-loader从8.0.2降至7.1.4、将babel-preset-env从1.7降至1.6.1问题迎刃而解。在使用某个工具的时候尽量使用成熟稳定的版本，避免使用beta版本，避免当小白鼠。
 
