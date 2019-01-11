@@ -1,10 +1,16 @@
+/**
+ * @file 学习 react-redux
+ */
+
 const themeReducer = (state, action) => {
-    switch(action.type) {
-        case 'CHANGE_COLOR' :
+    switch (action.type) {
+        case 'CHANGE_COLOR':
             return {...state, themeColor: action.themeColor};
-        default: 
-            return {themeColor: '#409eff'}
+        default:
+            return {
+                themeColor: '#409eff'
+            };
     }
-}
+};
 
 export default themeReducer;
