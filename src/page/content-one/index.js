@@ -124,14 +124,14 @@ export default class ContentOne extends React.Component {
                         })
                     }
                 </div>
-                    <div className='input-item'>
-                        <select value={this.state.select} onChange={this.handleSelect}>
-                            <option value='limt'>limt</option>
-                            <option value='group'>ground</option>
-                        </select>
-                    </div>
-                    <button onClick={this.handleSubmit}>submit</button>
+                <div className='input-item'>
+                    <select value={this.state.select} onChange={this.handleSelect}>
+                        <option value='limt'>limt</option>
+                        <option value='group'>ground</option>
+                    </select>
                 </div>
-            );
+                <button onClick={this.handleSubmit}>submit</button>
+            </div>
+        );
     }
 }

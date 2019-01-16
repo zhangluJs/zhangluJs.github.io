@@ -44,7 +44,7 @@ function SideBar(props) {
         <div className='sidebar-wrap'>
             {menu}
         </div>
-        );
+    );
 }
 
 class Content extends React.Component {
