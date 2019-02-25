@@ -8,7 +8,6 @@
         box-sizing: border-box;
         background: #fafafa;
         li {
-            padding-left: 20px;
             box-sizing: border-box;
             line-height: 40px;
             color: #303133;
@@ -21,16 +20,21 @@
                 display: block;
                 width: 100%;
                 height: 100%;
+                box-sizing: border-box;
+                padding-left: 20px;
+                border-left: 2px solid transparent;
             }
         }
     }
     .content-right {
         flex: 1;
-        padding: 10px;
+        padding: 30px;
+        background: #fff;
         box-sizing: border-box;
         box-shadow: 0 0 8px rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5);
     }
     .active-class {
-        color: #409eff;
+        border-left: 2px solid #409eff!important;
+        background: #ecf5ff;
     }
 }

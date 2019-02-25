@@ -53,7 +53,7 @@ class Content extends React.Component {
         this.state = {
             navList: [
                 {
-                    name: '经历',
+                    name: '',
                     list: [{
                         name: '第一年',
                         path: '/content/one'
