@@ -1,0 +1,212 @@
+@import './color.scss';
+
+.container {
+    width: 1140px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    color: $ldeep-blue;
+}
+.header-anchor {
+    display: none;
+}
+pre {
+    padding: 1.2em !important;
+    margin: 1.2em 0 !important;
+    border-radius: 5px;
+    background: #282c34;
+    code {
+        color: $light-grey;
+        background-color: transparent;
+        padding-left: 0;
+    }
+}
+
+code {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace !important;
+    line-height: 1.4;
+    color: $ldeep-grey;
+    background-color: $lrare-blue;
+    border-radius: 3px;
+    padding: 1px 4px;
+    font-size: 14px;
+}
+
+p,
+ul,
+ol {
+    line-height: 1.65;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #dfdfdf;
+}
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+.custom-block {
+    position: relative;
+
+    &:before {
+      content: "!";
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      left: -15px;
+      top: 15px;
+      text-align: center;
+      line-height: 25px;
+      border-radius: 50%;
+      color: $white;
+    }
+
+    &.tip,
+    &.warning,
+    &.danger {
+        padding: .1rem 1.5rem;
+        margin: 1rem 0;
+        border-left: .3rem solid;
+    }
+
+    &.tip {
+        background-color: $slight-grey;
+        border-color: $deep-green;
+
+        &:before {
+            background-color: $deep-green;
+        }
+    }
+
+    &.warning {
+        background-color: $rare-yellow;
+        border-color: $deep-yellow;
+        color:  $deep-yellow;
+
+        &:before {
+            background-color: $deep-yellow;
+        }
+    }
+
+    &.danger {
+        background-color: $rare-red;
+        border-color: $deep-red;
+        color: $deep-red;
+
+        &:before {
+            background-color: $deep-red;
+        }
+    }
+}
+
+blockquote {
+    background: #f5f2f0;
+    padding: 1em;
+    margin: 2em;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    border-radius: 1em;
+    border-width: 3px solid #e0dfcc;
+    text-shadow: 0 1px white;
+    overflow: auto;
+    p {
+        margin: 0;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    max-width: 100%;
+
+    tr {
+        border-top: 1px solid $llight-grey;
+
+        &:nth-child(2n) {
+            background-color: $blight-grey;
+        }
+    }
+
+    th,
+    td {
+        border: 1px solid $llight-grey;
+        padding: 0.6em 1em;
+    }
+}
+
+.doc-content {
+    .header-anchor {
+        font-size: 0.85em;
+        float: left;
+        margin-left: -0.8em;
+        padding-right: 0.23em;
+        margin-top: 0.125em;
+        opacity: 0;
+        text-decoration: none;
+        color: $deep-blue;
+        cursor: pointer;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        color: $head-font-color;
+        margin: .65em 0;
+
+        &:hover .header-anchor {
+            opacity: 1;
+        }
+    }
+
+    p {
+        margin: 1.6em 0;
+    }
+
+    ol, ul, dl {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    img {
+        vertical-align: middle;
+        max-width: calc(100% - 50px);
+        border: 0;
+        border-radius: 4px;
+        margin: 0 25px;
+        box-shadow: 0px 8px 16px $grey;
+    }
+}
+
+/*过渡效果*/
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .2s
+}
+
+.fade-enter,
+.fade-leave-to /* .fade-leave-active below version 2.1.8 */
+{
+    opacity: 0
+}
+
+// particlejs
+.particles-js-canvas-el {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+}

@@ -1,16 +1,12 @@
 html,
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0 !important;
-    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "SimSun", sans-serif;
-    font-size: 14px;
-    background-color: #f0f2f5;
-}
-
-* {
     margin: 0;
     padding: 0;
+    font-family: PingFangSC-Light,'helvetica neue','hiragino sans gb',tahoma,'microsoft yahei ui','microsoft yahei',simsun,sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
 }
 
 a {
@@ -47,13 +43,4 @@ h4,
 h5,
 h6 {
     font-weight: normal;
-}
-
-em,
-i {
-    font-style: normal;
-}
-.container {
-    width: 1200px;
-    margin: 0 auto;
 }

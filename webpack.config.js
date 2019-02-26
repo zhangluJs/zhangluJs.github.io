@@ -65,6 +65,11 @@ module.exports = {
                     },
                     'sass-loader'
                 ]
+            },
+            {
+                test: /\.md$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader!markdown-it-react-loader'
             }
         ]
     },

@@ -3,13 +3,15 @@
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './common/css/reset.scss';
-import App from './page/app/index.js';
+import './common/css/index.scss';
+import 'highlight.js/styles/atom-one-dark.css';
 
+import ReactDOM from 'react-dom';
+import App from './page/app/index.js';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import themeReducer from './reducer';
+
 
 const store = createStore(themeReducer);
 

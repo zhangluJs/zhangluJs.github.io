@@ -21,7 +21,9 @@ export default class App extends React.Component {
         return (
             <HashRouter>
                 <div className='app'>
-                    <Header />
+                    <Switch>
+                        <Route path="/:place" component={Header} />
+                    </Switch>
                     <main className='main'>
                         <Switch>
                             {/* <Route exact path="/" component={Content}></Route> */}

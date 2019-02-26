@@ -12,7 +12,7 @@ import {
 import './index.scss';
 import ContentOne from '../content-one/index.js';
 import ContentTwo from '../content-two/index.js';
-import ContentThree from '../content-three/index.js';
+import ContentThree from '../content-three/index.md';
 
 import {connect} from 'react-redux';
 
@@ -23,12 +23,10 @@ function SideBar(props) {
                 <li key={index}>
                     <NavLink
                         to={key.path}
-                        activeClassName='active-class'
-                        style={{
-                            color: props.color
-                        }}>
-                    {key.name}
-                </NavLink></li>
+                        activeClassName='active-class'>
+                        {key.name}
+                    </NavLink>
+                </li>
             );
         });
         return (
@@ -73,7 +71,7 @@ class Content extends React.Component {
     }
     render() {
         return (
-            <section className='content'>
+            <section className='content container'>
                 <SideBar navList={this.state.navList} color={this.props.themeColor}/>
                 <div className='content-right'>
                     <Switch>
