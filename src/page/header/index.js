@@ -26,11 +26,13 @@ class Header extends React.Component {
         return (
             <header className='header'>
                 <div className='container'>
-                    <img className='logo' src='static/favicon.png'/>
-                    <ul className='nav-list'>
-                        <li className='list-item'><NavLink to='/content' activeClassName='active-item'>内容</NavLink></li>
-                        <li className='list-item'><NavLink to='/about' activeClassName='active-item'>关于我</NavLink></li>
-                    </ul>
+                    <a href="/" className="logo" title="zhanglu">
+                        <img src='static/favicon.png'/>
+                    </a>
+                    <nav className="nav-list">
+                        <NavLink to='/content' activeClassName='active-item'>内容</NavLink>
+                        <NavLink to='/about' activeClassName='active-item'>关于</NavLink>
+                    </nav>
                 </div>
             </header>
         );
