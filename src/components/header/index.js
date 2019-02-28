@@ -24,13 +24,13 @@ class Header extends React.Component {
 
     render() {
         return (
-            <header className='header'>
+            <header className='nav-header'>
                 <div className='container'>
                     <a href="/" className="logo" title="zhanglu">
-                        <img src='static/favicon.png'/>
+                        <img src='static/img/favicon.png'/>
                     </a>
                     <nav className="nav-list">
-                        <NavLink to='/content' activeClassName='active-item'>内容</NavLink>
+                        <NavLink to='/home' activeClassName='active-item'>首页</NavLink>
                         <NavLink to='/about' activeClassName='active-item'>关于</NavLink>
                     </nav>
                 </div>

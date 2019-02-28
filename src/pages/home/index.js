@@ -3,8 +3,8 @@
  */
 
 import React from 'react';
-import Banner from '../banner/index.js';
-import Articlelist from '../article-list/index.js';
+import Banner from '../../components/banner/index.js';
+import Articlelist from '../../components/article-list/index.js';
 
 import './index.scss';
 

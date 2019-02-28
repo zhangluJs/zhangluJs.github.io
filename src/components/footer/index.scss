@@ -1,0 +1,40 @@
+.nav-footer {
+    position: relative;
+    padding: 40px;
+    .copyright {
+        display: inline;
+        font-size: 12px;
+        color: #777;
+        a {
+            display: inline-block;
+            margin-left: 10px;
+            color: #4183c4;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .github-icon {
+        position: absolute;
+        top: 38px;
+        left: 50%;
+        text-align: center;
+        span {
+            font-size: 24px;
+            color: #ccc;
+            &:hover {
+                color: #bbb;
+            }
+        }
+    }
+    .bank-top {
+        float: right;
+        font-size: 12px;
+        color: #4183c4;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
