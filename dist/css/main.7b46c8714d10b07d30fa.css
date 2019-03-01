@@ -247,30 +247,62 @@ h6 {
   .doc table td:first-child, .doc table th:first-child {
     border-left: none; }
 
-.header {
+.nav-header {
   width: 100%;
   height: 60px;
   z-index: 103;
   color: #fff;
   background: #4183c4; }
-  .header .logo {
+  .nav-header .logo {
     float: left; }
-    .header .logo img {
+    .nav-header .logo img {
       height: 60px; }
-  .header .nav-list {
+  .nav-header .nav-list {
     float: right;
     line-height: 60px; }
-    .header .nav-list a {
+    .nav-header .nav-list a {
       display: inline-block;
       margin-left: 1.25rem;
       font-size: 1rem;
       color: rgba(255, 255, 255, 0.5); }
-      .header .nav-list a:hover {
+      .nav-header .nav-list a:hover {
         color: #fff; }
-  .header .el-color-picker__trigger {
+  .nav-header .el-color-picker__trigger {
     margin-top: 12px; }
-  .header .el-color-picker__panel {
+  .nav-header .el-color-picker__panel {
     right: 20px; }
+
+.nav-footer {
+  position: relative;
+  padding: 40px; }
+  .nav-footer .copyright {
+    display: inline;
+    font-size: 12px;
+    color: #777; }
+    .nav-footer .copyright a {
+      display: inline-block;
+      margin-left: 10px;
+      color: #4183c4;
+      text-decoration: none; }
+      .nav-footer .copyright a:hover {
+        text-decoration: underline; }
+  .nav-footer .github-icon {
+    position: absolute;
+    top: 38px;
+    left: 50%;
+    text-align: center; }
+    .nav-footer .github-icon span {
+      font-size: 24px;
+      color: #ccc; }
+      .nav-footer .github-icon span:hover {
+        color: #bbb; }
+  .nav-footer .bank-top {
+    float: right;
+    font-size: 12px;
+    color: #4183c4;
+    text-decoration: none; }
+    .nav-footer .bank-top:hover {
+      text-decoration: underline; }
 
 .banner {
   background: #4183c4;
@@ -326,4 +358,4 @@ h6 {
 
 
 
-/*# sourceMappingURL=main.e3052d754d8a9fe030d3.css.map*/
+/*# sourceMappingURL=main.7b46c8714d10b07d30fa.css.map*/
