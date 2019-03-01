@@ -37,12 +37,12 @@ $ npm run build
 
 * 2018/12/27
     * 这一个多月折腾的vue个人项目终于上线了，是自己第一个个人上线的项目，还是很开心的。不过目前有一些小瑕疵，但是我已经很满足了:+1。访问[地址](http://zhangluupup.top:3000/#/)。:。
-    ![vue-demo](./src/static/vue-demo-index.png)
-    ![vue-demo](./src/static/vue-demo-cart.png)
-    ![vue-demo](./src/static/vue-demo-address.png)
-    ![vue-demo](./src/static/vue-demo-addnewaddress.png)
-    ![vue-demo](./src/static/vue-demo-orderconfirm.png)
-    ![vue-demo](./src/static/vue-demo-ordersuccess.png)
+    ![vue-demo](./src/static/img/vue-demo-index.png)
+    ![vue-demo](./src/static/img/vue-demo-cart.png)
+    ![vue-demo](./src/static/img/vue-demo-address.png)
+    ![vue-demo](./src/static/img/vue-demo-addnewaddress.png)
+    ![vue-demo](./src/static/img/vue-demo-orderconfirm.png)
+    ![vue-demo](./src/static/img/vue-demo-ordersuccess.png)
 
 * 2019/2/26
     * 这几天不是很忙，又折腾了一下这个react项目，打算把以前写在乱七八糟地方的东西整理一下，放在这个项目中以markdown的形式保存下来。修改了一下项目里的配置还有一些明显的bug，比如head导航的activeClassName不激活的问题，使用这个文章的提供的方法修复了[https://www.cnblogs.com/wenruo/p/10321456.html](https://www.cnblogs.com/wenruo/p/10321456.html)。具体的样式就先这样吧，也没多余的时间折腾，有空了在好好改改。

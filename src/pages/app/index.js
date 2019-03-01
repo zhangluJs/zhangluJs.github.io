@@ -9,10 +9,14 @@ import {
     Switch,
     Redirect
 } from 'react-router-dom';
-import Header from '../header/index.js';
+import Header from '../../components/header/index.js';
+import Footer from '../../components/footer/index.js';
 import Home from '../home/index.js';
 import About from '../about/index.js';
 import ContentThree from '../content-three/index.md';
+import DomEvent from '../../markdown/domevent.md';
+import objectModel from '../../markdown/object-model.md';
+import http from '../../markdown/http.md';
 
 import './index.scss';
 
@@ -29,10 +33,14 @@ export default class App extends React.Component {
                             {/* <Route exact path="/" component={Content}></Route> */}
                             <Route path='/home' component={Home}></Route>
                             <Route path='/about' component={About}></Route>
+                            <Route path='/object-model' component={objectModel}></Route>
+                            <Route path='/dom-event' component={DomEvent}></Route>
+                            <Route path='/http' component={http}></Route>
                             <Route path='/three' component={ContentThree}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>
+                    <Footer></Footer>
                 </div>
             </HashRouter>
         );
