@@ -16,9 +16,6 @@ export default class footer extends React.Component {
                         <NavLink to="/home">首页</NavLink>
                         <NavLink to="/home">关于</NavLink>
                     </p>
-                    <a href="https://github.com/zhangluJs" target="_self" className="github-icon">
-                        <span className="iconfont icon-github"></span>
-                    </a>
                     <a className="bank-top" href="javascript:window.scrollTo(0,0)">TOP</a>
                 </div>
             </footer>

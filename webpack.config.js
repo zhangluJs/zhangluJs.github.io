@@ -22,7 +22,7 @@ module.exports = {
     // 项目build后的文件地址
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'js/main.js'
+        filename: 'js/main.[hash].js'
     },
 
     // 开发时助于debugger
