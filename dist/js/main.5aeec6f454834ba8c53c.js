@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "7b46c8714d10b07d30fa";
+/******/ 	var hotCurrentHash = "5aeec6f454834ba8c53c";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -68051,6 +68051,119 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
+/***/ "./src/components/arrow-up/index.js":
+/*!******************************************!*\
+  !*** ./src/components/arrow-up/index.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(/*! ./index.scss */ "./src/components/arrow-up/index.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 返回顶部
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+var ArrowUp = function (_React$Component) {
+    _inherits(ArrowUp, _React$Component);
+
+    function ArrowUp(props) {
+        _classCallCheck(this, ArrowUp);
+
+        var _this = _possibleConstructorReturn(this, (ArrowUp.__proto__ || Object.getPrototypeOf(ArrowUp)).call(this, props));
+
+        _this.state = {
+            isShow: false
+        };
+        _this.scrollTop = _this.scrollTop.bind(_this);
+        return _this;
+    }
+
+    _createClass(ArrowUp, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var self = this;
+            function scrollFn() {
+                var scrollY = window.scrollY;
+                var isShow = false;
+                if (scrollY > 256) {
+                    isShow = true;
+                } else {
+                    isShow = false;
+                }
+                self.setState({
+                    isShow: isShow
+                });
+            }
+
+            function throttle(method, context) {
+                clearTimeout(method.tId);
+                method.tId = setTimeout(function () {
+                    method.call(context);
+                }, 500);
+            }
+
+            window.addEventListener('scroll', function () {
+                throttle(scrollFn, window);
+            });
+        }
+    }, {
+        key: 'scrollTop',
+        value: function scrollTop() {
+            window.scrollTo(0, 0);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var isShow = this.state.isShow;
+            return _react2.default.createElement(
+                'div',
+                {
+                    className: 'arrow-up',
+                    style: { display: isShow ? 'block' : 'none' },
+                    onClick: this.scrollTop },
+                _react2.default.createElement('span', { className: 'iconfont icon-huidaodingbu' })
+            );
+        }
+    }]);
+
+    return ArrowUp;
+}(_react2.default.Component);
+
+exports.default = ArrowUp;
+
+/***/ }),
+
+/***/ "./src/components/arrow-up/index.scss":
+/*!********************************************!*\
+  !*** ./src/components/arrow-up/index.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "./src/components/article-list/index.js":
 /*!**********************************************!*\
   !*** ./src/components/article-list/index.js ***!
@@ -68095,6 +68208,31 @@ var ArticleList = function (_React$Component) {
 
         _this.state = {
             list: [{
+                name: 'webpack',
+                path: '/webpack',
+                description: '\u5728\u521A\u5F00\u59CB\u5DE5\u4F5C\u65F6\uFF0C\u63A5\u89E6\u5230\u4E86\u4E00\u4E9B\u6784\u5EFA\u5DE5\u5177\uFF0C\u6BD4\u5982gulp\u3001grunt\u8FD8\u6709webpack\u3002\u4F46\u5F53\u65F6\u603B\u662F\u5F04\u4E0D\u660E\u767D\u5B83\u4EEC\u7684\u5177\u4F53\u6982\u5FF5\u3002\n                    \u540E\u6765\u901A\u8FC7\u5728\u5DE5\u4F5C\u4E2D\u7684\u6162\u6162\u63A5\u89E6\u4EE5\u53CA\u5076\u5C14\u6839\u636E\u9879\u76EE\u9700\u8981\u6765\u4FEE\u6539\u5176\u4E2D\u7684\u67D0\u4E9B\u914D\u7F6E\u624D\u6E10\u6E10\u660E\u767D\u4E86\u5B83\u4EEC\u7684\u4F5C\u7528\u3002\n                    \u5728\u5DE5\u4F5C\u65F6\u59CB\u81EA\u5DF1\u59CB\u7EC8\u6CA1\u6709\u5B8C\u6574\u8D1F\u8D23\u8FC7\u4E00\u4E2A\u9879\u76EE\u7684\u4ECE\u65E0\u5230\u6709\uFF0C\u6240\u4EE5\u5229\u7528\u7A7A\u4F59\u65F6\u95F4\u597D\u597D\u5543\u4E86\u5543\u76EE\u524D\u76F8\u5BF9\u8F83\u706B\u7684webpack\u3002',
+                date: '工具 / 学习'
+            }, {
+                name: 'NVM',
+                path: '/nvm',
+                description: '\u5728\u65E5\u5E38\u5DE5\u4F5C\u4E2D\uFF0C\u6211\u4EEC\u624B\u5934\u7ECF\u5E38\u4F1A\u5E76\u884C\u591A\u4E2A\u9879\u76EE\uFF0C\u800C\u4E14\u5404\u4E2A\u9879\u76EE\u4E4B\u95F4\u6240\u4F7F\u7528\u7684node\u7248\u672C\u53C8\u662F\u4E0D\u540C\u7684\uFF0C\n                    \u4E3A\u4E86\u89E3\u51B3\u8FD9\u4E2A\u95EE\u9898\u5C31\u9700\u8981\u6211\u4EEC\u4F7F\u7528\u4E0D\u540C\u7248\u672C\u7684node\u6765\u5206\u522B\u5BF9\u5E94\u4E0D\u540C\u7684\u9879\u76EE\u8FDB\u884C\u5DE5\u4F5C\uFF0C\u4ECA\u5929\u63A5\u89E6\u5230\u4E86\u4E00\u4E2A\u7BA1\u7406node\u7248\u672C\u7684\u5DE5\u5177\uFF0Cnvm\u3002',
+                date: '工具 / 学习'
+            }, {
+                name: '前端性能优化',
+                path: '/fe-performance',
+                description: '\u5BF9\u4E8E\u524D\u7AEF\u7684\u6027\u80FD\u8BDD\u9898\uFF0C\u4ECE\u6765\u90FD\u6CA1\u6709\u65AD\u7EDD\u8FC7\u3002\u56E0\u4E3A\u8FD9\u4E2A\u4E1C\u897F\u6CA1\u6709\u6700\u597D\uFF0C\u53EA\u6709\u66F4\u597D\u3002\u800C\u4E14\u5F80\u5F80\u4E5F\u662F\u4E1A\u52A1\u7684\n                    \u7E41\u6742\u7A0B\u5EA6\u53BB\u51B3\u5B9A\u4F18\u5316\u7A0B\u5EA6\u7684\u3002\u4F5C\u4E3A\u4E00\u4E2A\u524D\u7AEF\u5F00\u53D1\u8005\uFF0C\u6027\u80FD\u662F\u6211\u4EEC\u5173\u6CE8\u7684\u6307\u6807\u3002\u5B83\u76F4\u63A5\u5F71\u54CD\u7740\u6211\u4EEC\u7684\u7528\u6237\uFF0C\u540C\u65F6\u4E5F\u5F71\u54CD\u7740\u4EA7\u54C1\u672C\u8EAB\u3002',
+                date: '个人笔记 / 学习'
+            }, {
+                name: '正则表达式',
+                path: '/regexp',
+                description: 'RegExp \u662F\u6B63\u5219\u8868\u8FBE\u5F0F\u7684\u7F29\u5199\u3002\u5F53\u68C0\u7D22\u67D0\u4E2A\u6587\u672C\u65F6\uFF0C\u53EF\u4EE5\u4F7F\u7528\u4E00\u79CD\u6A21\u5F0F\u6765\u63CF\u8FF0\u8981\u68C0\u7D22\n                    \u7684\u5185\u5BB9\u3002RegExp \u5C31\u662F\u8FD9\u79CD\u6A21\u5F0F\u3002\u7B80\u5355\u7684\u6A21\u5F0F\u53EF\u4EE5\u662F\u4E00\u4E2A\u5355\u72EC\u7684\u5B57\u7B26\u3002\u66F4\u590D\u6742\u7684\u6A21\u5F0F\u5305\u62EC\u4E86\u66F4\u591A\u7684\u5B57\u7B26\uFF0C\n                    \u5E76\u53EF\u7528\u4E8E\u89E3\u6790\u3001\u683C\u5F0F\u68C0\u67E5\u3001\u66FF\u6362\u7B49\u7B49\u3002\u53EF\u4EE5\u89C4\u5B9A\u5B57\u7B26\u4E32\u4E2D\u7684\u68C0\u7D22\u4F4D\u7F6E\uFF0C\u4EE5\u53CA\u8981\u68C0\u7D22\u7684\u5B57\u7B26\u7C7B\u578B\u7B49\u7B49\u3002\u7B80\u5355\u7684\u5B66\u4E00\u5B66\u6B63\u5219\u8868\u8FBE\u5F0F',
+                date: '个人笔记 / 学习'
+            }, {
+                name: '浏览器缓存',
+                path: '/cache',
+                description: '\u6D4F\u89C8\u5668\u7F13\u5B58\u5C31\u662F\u628A\u4E00\u4E2A\u5DF2\u7ECF\u8BF7\u6C42\u8FC7\u7684Web\u8D44\u6E90\uFF08\u5982html\u9875\u9762\uFF0C\u56FE\u7247\uFF0Cjs\uFF0C\u6570\u636E\u7B49\uFF09\u62F7\u8D1D\u4E00\u4EFD\u526F\u672C\u50A8\u5B58\u5728\n                    \u6D4F\u89C8\u5668\u4E2D\u3002\u7F13\u5B58\u4F1A\u6839\u636E\u8FDB\u6765\u7684\u8BF7\u6C42\u4FDD\u5B58\u8F93\u51FA\u5185\u5BB9\u7684\u526F\u672C\u3002\u5F53\u4E0B\u4E00\u4E2A\u8BF7\u6C42\u6765\u5230\u7684\u65F6\u5019\uFF0C\u5982\u679C\u662F\u76F8\u540C\u7684URL\uFF0C\u7F13\u5B58\u4F1A\u6839\u636E\u7F13\n                    \u5B58\u673A\u5236\u51B3\u5B9A\u662F\u76F4\u63A5\u4F7F\u7528\u526F\u672C\u54CD\u5E94\u8BBF\u95EE\u8BF7\u6C42\uFF0C\u8FD8\u662F\u5411\u6E90\u670D\u52A1\u5668\u518D\u6B21\u53D1\u9001\u8BF7\u6C42\u3002',
+                date: '个人笔记 / 学习'
+            }, {
                 name: 'HTTP',
                 path: '/http',
                 description: 'HTTP--Hyper Text Transfer Protocol\uFF0C\u8D85\u6587\u672C\u4F20\u8F93\u534F\u8BAE\uFF0C\u662F\u4E00\u79CD\u5EFA\u7ACB\u5728TCP\u4E0A\u7684\u65E0\u72B6\u6001\u8FDE\u63A5\uFF0C\n                    \u6574\u4E2A\u57FA\u672C\u7684\u5DE5\u4F5C\u6D41\u7A0B\u662F\u5BA2\u6237\u7AEF\u53D1\u9001\u4E00\u4E2AHTTP\u8BF7\u6C42\uFF0C\u8BF4\u660E\u5BA2\u6237\u7AEF\u60F3\u8981\u8BBF\u95EE\u7684\u8D44\u6E90\u548C\u8BF7\u6C42\u7684\u52A8\u4F5C\uFF0C\u670D\u52A1\u7AEF\u6536\u5230\u8BF7\u6C42\u4E4B\u540E\uFF0C\n                    \u670D\u52A1\u7AEF\u5F00\u59CB\u5904\u7406\u8BF7\u6C42\uFF0C\u5E76\u6839\u636E\u8BF7\u6C42\u505A\u51FA\u76F8\u5E94\u7684\u52A8\u4F5C\u8BBF\u95EE\u670D\u52A1\u5668\u8D44\u6E90\uFF0C\u6700\u540E\u901A\u8FC7\u53D1\u9001HTTP\u54CD\u5E94\u628A\u7ED3\u679C\u8FD4\u56DE\u7ED9\u5BA2\u6237\u7AEF\u3002\n                    \u5176\u4E2D\u4E00\u4E2A\u8BF7\u6C42\u7684\u5F00\u59CB\u5230\u4E00\u4E2A\u54CD\u5E94\u7684\u7ED3\u675F\u79F0\u4E3A\u4E8B\u52A1\uFF0C\u5F53\u4E00\u4E2A\u4E8B\u7269\u7ED3\u675F\u540E\u8FD8\u4F1A\u5728\u670D\u52A1\u7AEF\u6DFB\u52A0\u4E00\u6761\u65E5\u5FD7\u6761\u76EE\u3002',
@@ -68110,10 +68248,10 @@ var ArticleList = function (_React$Component) {
                 description: 'HTML DOM 事件允许Javascript在HTML文档元素中注册不同事件处理程序。事件通常与函数结合使用，函数不会在事件发生前被执行！ (如用户点击按钮)。',
                 date: '个人笔记 / 技术'
             }, {
-                name: '第三年',
+                name: 'example',
                 path: '/three',
-                description: '这里先写点啥占个位置',
-                date: '2018/06/06'
+                description: 'example',
+                date: 'markdown'
             }]
         };
         return _this;
@@ -68249,12 +68387,8 @@ var Banner = function (_React$Component) {
                         _react2.default.createElement(
                             'span',
                             { className: 'banner-icon' },
-                            _react2.default.createElement('span', { className: 'iconfont icon-github' }),
-                            _react2.default.createElement(
-                                'a',
-                                { href: 'https://github.com/zhangluJs', target: '_block' },
-                                'zhangluJs'
-                            )
+                            _react2.default.createElement('span', { className: 'iconfont icon-snail' }),
+                            '\u4E00\u6B65\u4E00\u6B65\u6162\u6162\u722C'
                         )
                     )
                 )
@@ -68346,11 +68480,6 @@ var footer = function (_React$Component) {
                             { to: '/home' },
                             '\u5173\u4E8E'
                         )
-                    ),
-                    _react2.default.createElement(
-                        'a',
-                        { href: 'https://github.com/zhangluJs', target: '_self', className: 'github-icon' },
-                        _react2.default.createElement('span', { className: 'iconfont icon-github' })
                     ),
                     _react2.default.createElement(
                         'a',
@@ -68554,6 +68683,215 @@ _reactDom2.default.render(_react2.default.createElement(
     { store: store },
     _react2.default.createElement(_index2.default, null)
 ), document.getElementById('root'));
+
+/***/ }),
+
+/***/ "./src/markdown/cache.md":
+/*!*******************************!*\
+  !*** ./src/markdown/cache.md ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'h1',
+                    { id: 'http-huan-cun' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#http-huan-cun', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' HTTP\u7F13\u5B58'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6D4F\u89C8\u5668\u7F13\u5B58\u5C31\u662F\u628A\u4E00\u4E2A\u5DF2\u7ECF\u8BF7\u6C42\u8FC7\u7684Web\u8D44\u6E90\uFF08\u5982html\u9875\u9762\uFF0C\u56FE\u7247\uFF0Cjs\uFF0C\u6570\u636E\u7B49\uFF09\u62F7\u8D1D\u4E00\u4EFD\u526F\u672C\u50A8\u5B58\u5728\u6D4F\u89C8\u5668\u4E2D\u3002\u7F13\u5B58\u4F1A\u6839\u636E\u8FDB\u6765\u7684\u8BF7\u6C42\u4FDD\u5B58\u8F93\u51FA\u5185\u5BB9\u7684\u526F\u672C\u3002\u5F53\u4E0B\u4E00\u4E2A\u8BF7\u6C42\u6765\u5230\u7684\u65F6\u5019\uFF0C\u5982\u679C\u662F\u76F8\u540C\u7684URL\uFF0C\u7F13\u5B58\u4F1A\u6839\u636E\u7F13\u5B58\u673A\u5236\u51B3\u5B9A\u662F\u76F4\u63A5\u4F7F\u7528\u526F\u672C\u54CD\u5E94\u8BBF\u95EE\u8BF7\u6C42\uFF0C\u8FD8\u662F\u5411\u6E90\u670D\u52A1\u5668\u518D\u6B21\u53D1\u9001\u8BF7\u6C42\u3002'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u4E3A\u4EC0\u4E48\u4F7F\u7528\u7F13\u5B58'
+                    )
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        '\u51CF\u5C11\u7F51\u7EDC\u5E26\u5BBD\u6D88\u8017',
+                        _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                                'li',
+                                null,
+                                '\u65E0\u8BBA\u5BF9\u4E0E\u7F51\u7AD9\u8FD0\u8425\u8005\u6216\u8005\u7528\u6237\uFF0C\u5E26\u5BBD\u90FD\u4EE3\u8868\u7740\u91D1\u94B1\uFF0C\u8FC7\u591A\u7684\u5E26\u5BBD\u6D88\u8017\uFF0C\u53EA\u4F1A\u4FBF\u5B9C\u4E86\u7F51\u7EDC\u8FD0\u8425\u5546\u3002\u5F53web\u7F13\u5B58\u526F\u672C\u88AB\u4F7F\u7528\u65F6\uFF0C\u53EA\u4F1A\u4EA7\u751F\u5F88\u5C0F\u7684\u7F51\u7EDC\u6D41\u91CF\uFF0C\u53EF\u4EE5\u6709\u6548\u964D\u4F4E\u7F51\u7EDC\u6210\u672C\u3002'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        '\u964D\u4F4E\u670D\u52A1\u5668\u538B\u529B',
+                        _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                                'li',
+                                null,
+                                '\u7528\u6237\u53EF\u4EE5\u91CD\u590D\u7684\u4F7F\u7528\u672C\u5730\u7684\u7F13\u5B58\uFF0C\u51CF\u5C11\u5BF9\u670D\u52A1\u5668\u7684\u8BF7\u6C42\uFF0C\u95F4\u63A5\u51CF\u5C11\u4E86\u5BF9\u670D\u52A1\u5668\u7684\u538B\u529B\u3002'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        '\u51CF\u5C11\u7F51\u7EDC\u5EF6\u8FDF\uFF0C\u63D0\u9AD8\u52A0\u8F7D\u901F\u5EA6',
+                        _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                                'li',
+                                null,
+                                '\u7F13\u5B58\u7684\u4F7F\u7528\u80FD\u591F\u660E\u663E\u52A0\u5FEB\u7F51\u9875\u7684\u6253\u5F00\u901F\u5EA6\uFF0C\u8FBE\u5230\u66F4\u597D\u7684\u4F53\u9A8C\u3002'
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        'http\u7F13\u5B58'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'http\u7F13\u5B58\u5206\u4E3A\u4E24\u79CD\uFF0C\u4E00\u79CD\u662F\u534F\u5546\u7F13\u5B58\u3001\u53E6\u4E00\u79CD\u662F\u5F3A\u5236\u7F13\u5B58\u3002'
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u5F3A\u5236\u7F13\u5B58\uFF1A\u6D4F\u89C8\u5668\u53D1\u9001\u7F51\u7EDC\u8BF7\u6C42\uFF0C\u901A\u8FC7\u54CD\u5E94\u5934\u7684expires\u6216cache-control\u5B57\u6BB5\u6765\u5224\u65AD\u662F\u5426\u547D\u4E2D\u4E86\u5F3A\u5236\u7F13\u5B58\u3002\u5982\u679C\u547D\u4E2D\uFF0C\u5219\u672C\u6B21\u8BF7\u6C42\u5C31\u4E0D\u4F1A\u4E0E\u670D\u52A1\u5668\u8FDB\u884C\u901A\u4FE1\u3002',
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                '\u6CE8\u610F\uFF1A\u5982\u679C\u540C\u65F6\u5B58\u5728expires\u4E0Ecache-control\uFF0Ccache-control\u4F18\u5148\u7EA7\u66F4\u9AD8\u4E00\u4E9B'
+                            ),
+                            '\u3002'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'expires\uFF1A\u4F1A\u8BBE\u7F6E\u4E00\u4E2A\u8FC7\u671F\u65F6\u95F4\uFF0C\u5982\u679C\u8D85\u8FC7\u4E86\u8BE5\u65F6\u95F4\u5C31\u4F1A\u91CD\u4EB2\u8BF7\u6C42\u670D\u52A1\u5668\uFF0C\u5426\u5219\u4F7F\u7528\u7F13\u5B58\u8D44\u6E90\u3002expires\u662FHTTP1.0\u4E2D\u7684\u6807\u51C6\uFF0C\u73B0\u5728\u66F4\u503E\u5411\u4E0E\u4F7F\u7528HTTP1.1\u4E2D\u7684cache-control\u3002'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'cache-control\uFF1A\u901A\u8FC7\u4E0D\u540C\u5B57\u6BB5\u6765\u54CD\u5E94\u4E0D\u540C\u7684\u7ED3\u679C\u3002pubilc\uFF08\u53EF\u4EE5\u88AB\u6240\u6709\u7684\u7528\u6237\u7F13\u5B58\uFF0C\u5305\u62EC\u7EC8\u7AEF\u7528\u6237\u548CCDN\u7B49\u4E2D\u95F4\u4EE3\u7406\u670D\u52A1\u5668\u3002\uFF09\u3001private\uFF08\u53EA\u7528\u88AB\u7528\u6237\u7EC8\u7AEF\u7684\u6D4F\u89C8\u5668\u7F13\u5B58\uFF0C\u4E0D\u80FD\u88ABCDN\u7B49\u4E2D\u7EE7\u7F13\u5B58\u670D\u52A1\u5668\u5BF9\u5176\u7F13\u5B58\uFF09\u3001no-store\uFF08\u7981\u6B62\u7F13\u5B58\uFF0C\u6BCF\u6B21\u90FD\u4F1A\u5411\u670D\u52A1\u5668\u91CD\u65B0\u53D1\u8D77\u8BF7\u6C42\uFF0C\u6BCF\u6B21\u90FD\u4F1A\u4E0B\u8F7D\u5B8C\u6574\u7684\u8D44\u6E90\uFF09\u3001max-age\uFF08\u8BA1\u7B97\u51FA\u4E00\u4E2A\u8D44\u6E90\u8FC7\u671F\u65F6\u95F4\uFF0C\u518D\u62FF\u8FD9\u4E2A\u8FC7\u671F\u65F6\u95F4\u4E0E\u5F53\u524D\u65F6\u95F4\u6BD4\u8F83\uFF0C\u5982\u679C\u5728\u8FC7\u671F\u65F6\u95F4\u4E4B\u524D\u5219\u4F7F\u7528\u7F13\u5B58\uFF0C\u5426\u5219\u91CD\u65B0\u8BF7\u6C42\uFF09\u3001no-cache\uFF08\u4E0D\u4F7F\u7528\u672C\u5730\u7F13\u5B58\u3002\u9700\u8981\u4F7F\u7528\u7F13\u5B58\u534F\u5546\uFF0C\u5148\u4E0E\u670D\u52A1\u5668\u786E\u8BA4\u8FD4\u56DE\u7684\u54CD\u5E94\u662F\u5426\u88AB\u66F4\u6539\uFF0C\u5982\u679C\u54CD\u5E94\u5B58\u5728ETag\uFF0C\u90A3\u4E48\u8BF7\u6C42\u7684\u65F6\u5019\u5C31\u4F1A\u4E0E\u670D\u52A1\u7AEF\u8FDB\u884C\u9A8C\u8BC1\uFF0C\u5982\u679C\u8D44\u6E90\u672A\u88AB\u4FEE\u6539\uFF0C\u5219\u53EF\u4EE5\u907F\u514D\u91CD\u65B0\u4E0B\u8F7D\uFF09\u3002'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u534F\u5546\u7F13\u5B58\uFF1A\u534F\u5546\u7F13\u5B58\u90FD\u662F\u7531\u670D\u52A1\u5668\u6765\u786E\u5B9A\u7F13\u5B58\u662F\u5426\u53EF\u7528\uFF0C\u6240\u4EE5\u5BA2\u6237\u7AEF\u9700\u8981\u4E0E\u670D\u52A1\u5668\u7AEF\u901A\u8FC7\u67D0\u79CD\u6807\u8BC6\u6765\u8FDB\u884C\u901A\u4FE1\uFF0C\u4ECE\u800C\u8BA9\u670D\u52A1\u5668\u5224\u65AD\u8BF7\u6C42\u662F\u5426\u53EF\u4EE5\u7F13\u5B58\u8BBF\u95EE\u3002\u4E3B\u8981\u6D89\u53CA\u5230\u4E0B\u9762\u4E24\u7EC4\u5934\u90E8\u5B57\u6BB5\uFF0C\u8FD9\u4E24\u7EC4\u642D\u6863\u90FD\u662F\u6210\u5BF9\u51FA\u73B0\u7684\uFF0C\u5373\u7B2C\u4E00\u6B21\u8BF7\u6C42\u7684\u54CD\u5E94\u5934\u5E26\u4E0A\u67D0\u4E2A\u5B57\u6BB5\uFF08last-Modified\u6216\u8005ETag\uFF09\uFF0C\u5219\u540E\u7EED\u8BF7\u6C42\u5219\u4E5F\u4F1A\u5E26\u4E0A\u76F8\u5E94\u7684\u5B57\u6BB5\uFF08if-Modified-since\u6216\u8005if-Mone-Match\uFF09\uFF0C\u82E5\u54CD\u5E94\u5934\u6CA1\u6709last-Modified\u6216\u8005ETag\uFF0C\u5219\u8BF7\u6C42\u5934\u4E5F\u4E0D\u4F1A\u6709\u76F8\u5E94\u7684\u5B57\u6BB5\u3002'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Last-Modified/If-Modified-Since\uFF1A\u4E8C\u8005\u7684\u503C\u90FD\u662FGMT\u683C\u5F0F\u7684\u65F6\u95F4\u5B57\u7B26\u4E32\u3002\u5728\u6D4F\u89C8\u5668\u7B2C\u4E00\u6B21\u53D1\u9001\u8BF7\u6C42\u65F6\uFF0Cresponse\u7684\u5934\u90E8\u4F1A\u5E26\u4E0Alast-Modified\uFF0C\u4E5F\u5C31\u662F\u8D44\u6E90\u6700\u540E\u4E00\u6B21\u4FEE\u6539\u65F6\u95F4\u3002\u4E0B\u6B21\u4E00\u6B21\u6D4F\u89C8\u5668\u53D1\u9001\u8BF7\u6C42\u65F6\uFF0Crequest\u5934\u90E8\u4F1A\u5C06\u8FD9\u4E2A\u65F6\u95F4\u4E0A\uFF0C\u670D\u52A1\u5668\u7AEF\u8FDB\u884C\u5224\u65AD\u6765\u51B3\u5B9A\u662F\u5426\u8FD4\u56DE\u65B0\u7684\u8D44\u6E90\uFF0C\u5982\u679C\u8BE5\u65F6\u95F4\u6CA1\u6709\u8FC7\u671F\u5219\u8FD4\u56DE304 Not Modified\uFF0C\u6D4F\u89C8\u5668\u6536\u5230304\u7684\u54CD\u5E94\u540E\uFF0C\u5C31\u4F1A\u4ECE\u7F13\u5B58\u4E2D\u8BFB\u53D6\u3002\u5982\u679C\u8FC7\u671F\u4E86\uFF0C\u670D\u52A1\u5668\u7AEF\u8FD4\u56DE\u65B0\u7684\u8D44\u6E90\uFF0C\u5E76\u4E14\u8FD4\u56DE\u4E00\u4E2A\u65B0\u7684last-Modified\u65F6\u95F4\u3002'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Etag/If-None-Match\uFF1A\u8FD9\u4E24\u4E2A\u503C\u662F\u7531\u670D\u52A1\u5668\u751F\u6210\u7684\u6BCF\u4E2A\u8D44\u6E90\u7684\u552F\u4E00\u6807\u8BC6\u5B57\u7B26\u4E32\uFF0C\u53EA\u8981\u8D44\u6E90\u6709\u53D8\u5316\u5C31\u8FD9\u4E2A\u503C\u5C31\u4F1A\u6539\u53D8\uFF1B\u5176\u5224\u65AD\u8FC7\u7A0B\u4E0ELast-Modified/If-Modified-Since\u7C7B\u4F3C\uFF0C\u4E0ELast-Modified\u4E0D\u4E00\u6837\u7684\u662F\uFF0C\u5F53\u670D\u52A1\u5668\u8FD4\u56DE304 Not Modified\u7684\u54CD\u5E94\u65F6\uFF0C\u7531\u4E8EETag\u91CD\u65B0\u751F\u6210\u8FC7\uFF0Cresponse header\u4E2D\u8FD8\u4F1A\u628A\u8FD9\u4E2AETag\u8FD4\u56DE\uFF0C\u5373\u4F7F\u8FD9\u4E2AETag\u8DDF\u4E4B\u524D\u7684\u6CA1\u6709\u53D8\u5316\u3002'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                'Last-Modified\u4E0EETag\u662F\u53EF\u4EE5\u4E00\u8D77\u4F7F\u7528\u7684\uFF0C\u670D\u52A1\u5668\u4F1A\u4F18\u5148\u9A8C\u8BC1ETag\uFF0C\u4E00\u81F4\u7684\u60C5\u51B5\u4E0B\uFF0C\u624D\u4F1A\u7EE7\u7EED\u6BD4\u5BF9Last-Modified\uFF0C\u6700\u540E\u624D\u51B3\u5B9A\u662F\u5426\u8FD4\u56DE304\u3002'
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
 
 /***/ }),
 
@@ -68895,6 +69233,296 @@ var MarkdownItReactComponent = function (_React$Component) {
                     'p',
                     null,
                     '...'
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
+
+/***/ }),
+
+/***/ "./src/markdown/fe-performance.md":
+/*!****************************************!*\
+  !*** ./src/markdown/fe-performance.md ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'h1',
+                    { id: 'qian-duan-xing-neng-you-hua' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#qian-duan-xing-neng-you-hua', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' \u524D\u7AEF\u6027\u80FD\u4F18\u5316'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u524D\u7AEF\u662F\u5E9E\u5927\u7684\uFF0C\u5305\u62EC HTML\u3001 CSS\u3001 Javascript\u3001Image \u3001Flash\u7B49\u7B49\u5404\u79CD\u5404\u6837\u7684\u8D44\u6E90\u3002\u524D\u7AEF\u4F18\u5316\u662F\u590D\u6742\u7684\uFF0C\u9488\u5BF9\u65B9\u65B9\u9762\u9762\u7684\u8D44\u6E90\u90FD\u6709\u4E0D\u540C\u7684\u65B9\u5F0F\u3002\u90A3\u4E48\uFF0C\u524D\u7AEF\u4F18\u5316\u7684\u76EE\u7684\u662F\u4EC0\u4E48 ?'
+                    )
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u4ECE\u7528\u6237\u89D2\u5EA6\u800C\u8A00\uFF0C\u4F18\u5316\u80FD\u591F\u8BA9\u9875\u9762\u52A0\u8F7D\u5F97\u66F4\u5FEB\u3001\u5BF9\u7528\u6237\u7684\u64CD\u4F5C\u54CD\u5E94\u5F97\u66F4\u53CA\u65F6\uFF0C\u80FD\u591F\u7ED9\u7528\u6237\u63D0\u4F9B\u66F4\u4E3A\u53CB\u597D\u7684\u4F53\u9A8C\u3002'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u4ECE\u670D\u52A1\u5546\u89D2\u5EA6\u800C\u8A00\uFF0C\u4F18\u5316\u80FD\u591F\u51CF\u5C11\u9875\u9762\u8BF7\u6C42\u6570\u3001\u6216\u8005\u51CF\u5C0F\u8BF7\u6C42\u6240\u5360\u5E26\u5BBD\uFF0C\u80FD\u591F\u8282\u7701\u53EF\u89C2\u7684\u8D44\u6E90\u3002'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u603B\u4E4B\uFF0C\u6070\u5F53\u7684\u4F18\u5316\u4E0D\u4EC5\u80FD\u591F\u6539\u5584\u7AD9\u70B9\u7684\u7528\u6237\u4F53\u9A8C\u5E76\u4E14\u80FD\u591F\u8282\u7701\u76F8\u5F53\u7684\u8D44\u6E90\u5229\u7528\u3002'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u524D\u7AEF\u4F18\u5316\u7684\u9014\u5F84\u6709\u5F88\u591A\uFF0C\u6309\u7C92\u5EA6\u5927\u81F4\u53EF\u4EE5\u5206\u4E3A\u4E24\u7C7B\uFF0C\u7B2C\u4E00\u7C7B\u662F\u9875\u9762\u7EA7\u522B\u7684\u4F18\u5316\uFF0C\u4F8B\u5982 HTTP\u8BF7\u6C42\u6570\u3001\u811A\u672C\u7684\u65E0\u963B\u585E\u52A0\u8F7D\u3001\u5185\u8054\u811A\u672C\u7684\u4F4D\u7F6E\u4F18\u5316\u7B49 ;\u7B2C\u4E8C\u7C7B\u5219\u662F\u4EE3\u7801\u7EA7\u522B\u7684\u4F18\u5316\uFF0C\u4F8B\u5982 Javascript\u4E2D\u7684DOM \u64CD\u4F5C\u4F18\u5316\u3001CSS\u9009\u62E9\u7B26\u4F18\u5316\u3001\u56FE\u7247\u4F18\u5316\u4EE5\u53CA HTML\u7ED3\u6784\u4F18\u5316\u7B49\u7B49\u3002'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'h3',
+                    { id: 'jian-shaohttp-qing-qiu' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#jian-shaohttp-qing-qiu', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' \u51CF\u5C11http\u8BF7\u6C42'
+                ),
+                _react2.default.createElement(
+                    'blockquote',
+                    null,
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '\u6BCF\u4E2A\u8BF7\u6C42\u90FD\u662F\u6709\u6210\u672C\u7684\uFF0C\u65E2\u5305\u542B\u65F6\u95F4\u6210\u672C\u4E5F\u5305\u542B\u8D44\u6E90\u6210\u672C\u3002\u4E00\u4E2A\u5B8C\u6574\u7684\u8BF7\u6C42\u90FD\u9700\u8981\u7ECF\u8FC7 DNS\u5BFB\u5740\u3001\u4E0E\u670D\u52A1\u5668\u5EFA\u7ACB\u8FDE\u63A5\u3001\u53D1\u9001\u6570\u636E\u3001\u7B49\u5F85\u670D\u52A1\u5668\u54CD\u5E94\u3001\u63A5\u6536\u6570\u636E\u8FD9\u6837\u4E00\u4E2A \u201C\u6F2B\u957F\u201D \u800C\u590D\u6742\u7684\u8FC7\u7A0B\u3002\u65F6\u95F4\u6210\u672C\u5C31\u662F\u7528\u6237\u9700\u8981\u770B\u5230\u6216\u8005 \u201C\u611F\u53D7\u201D \u5230\u8FD9\u4E2A\u8D44\u6E90\u662F\u5FC5\u987B\u8981\u7B49\u5F85\u8FD9\u4E2A\u8FC7\u7A0B\u7ED3\u675F\u7684\uFF0C\u8D44\u6E90\u4E0A\u7531\u4E8E\u6BCF\u4E2A\u8BF7\u6C42\u90FD\u9700\u8981\u643A\u5E26\u6570\u636E\uFF0C\u56E0\u6B64\u6BCF\u4E2A\u8BF7\u6C42\u90FD\u9700\u8981\u5360\u7528\u5E26\u5BBD\u3002\u53E6\u5916\uFF0C\u7531\u4E8E\u6D4F\u89C8\u5668\u8FDB\u884C\u5E76\u53D1\u8BF7\u6C42\u7684\u8BF7\u6C42\u6570\u662F\u6709\u4E0A\u9650\u7684 (\u5177\u4F53\u53C2\u89C1\u6B64\u5904 )\uFF0C\u56E0\u6B64\u8BF7\u6C42\u6570\u591A\u4E86\u4EE5\u540E\uFF0C\u6D4F\u89C8\u5668\u9700\u8981\u5206\u6279\u8FDB\u884C\u8BF7\u6C42\uFF0C\u56E0\u6B64\u4F1A\u589E\u52A0\u7528\u6237\u7684\u7B49\u5F85\u65F6\u95F4\uFF0C\u4F1A\u7ED9\u7528\u6237\u9020\u6210\u7AD9\u70B9\u901F\u5EA6\u6162\u8FD9\u6837\u4E00\u4E2A\u5370\u8C61\uFF0C\u5373\u4F7F\u53EF\u80FD\u7528\u6237\u80FD\u770B\u5230\u7684\u7B2C\u4E00\u5C4F\u7684\u8D44\u6E90\u90FD\u5DF2\u7ECF\u8BF7\u6C42\u5B8C\u4E86\uFF0C\u4F46\u662F\u6D4F\u89C8\u5668\u7684\u8FDB\u5EA6\u6761\u4F1A\u4E00\u76F4\u5B58\u5728\u3002'
+                    )
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u5408\u7406\u4F7F\u7528http\u7F13\u5B58',
+                            _react2.default.createElement(
+                                'a',
+                                { href: '/#/cache' },
+                                '\u8FD9\u7BC7\u6587\u7AE0\u603B\u7ED3\u4E86\u4E00\u4E0B'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u8D44\u6E90\u5408\u5E76\u4E0E\u538B\u7F29'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u53EF\u4EE5\u5C06\u591A\u4E2Acss\u6587\u4EF6\u6216\u8005js\u6587\u4EF6\u5408\u5E76\u4E3A\u4E00\u4E2A\u3002\u8D44\u6E90\u7684\u5408\u5E76\u53EF\u4EE5\u6709\u6548\u7684\u51CF\u5C11\u8BF7\u6C42\u6B21\u6570\uFF0C\u63D0\u9AD8\u7528\u6237\u4F53\u9A8C\u3002'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'CSS \u96EA\u78A7\u56FE'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u5C06\u591A\u4E2A\u56FE\u6807\u5408\u5E76\u6210\u4E3A\u4E00\u4E2Aimg\uFF0C\u901A\u8FC7\u63A7\u5236background-position\u6765\u5C55\u793A\u4E0D\u540C\u7684\u533A\u57DF\uFF0C\u8FD9\u4E5F\u662F\u51CF\u5C11\u8BF7\u6C42\u7684\u4E00\u79CD\u65B9\u5F0F'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Lazy Load Image'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u8FD9\u6761\u7B56\u7565\u5B9E\u9645\u4E0A\u5E76\u4E0D\u4E00\u5B9A\u80FD\u51CF\u5C11 HTTP\u8BF7\u6C42\u6570\uFF0C\u4F46\u662F\u5374\u80FD\u5728\u67D0\u4E9B\u6761\u4EF6\u4E0B\u6216\u8005\u9875\u9762\u521A\u52A0\u8F7D\u65F6\u51CF\u5C11 HTTP\u8BF7\u6C42\u6570\u3002\u5BF9\u4E8E\u56FE\u7247\u800C\u8A00\uFF0C\u5728\u9875\u9762\u521A\u52A0\u8F7D\u7684\u65F6\u5019\u53EF\u4EE5\u53EA\u52A0\u8F7D\u7B2C\u4E00\u5C4F\uFF0C\u5F53\u7528\u6237\u7EE7\u7EED\u5F80\u540E\u6EDA\u5C4F\u7684\u65F6\u5019\u624D\u52A0\u8F7D\u540E\u7EED\u7684\u56FE\u7247\u3002\u8FD9\u6837\u4E00\u6765\uFF0C\u5047\u5982\u7528\u6237\u53EA\u5BF9\u7B2C\u4E00\u5C4F\u7684\u5185\u5BB9\u611F\u5174\u8DA3\u65F6\uFF0C\u90A3\u5269\u4F59\u7684\u56FE\u7247\u8BF7\u6C42\u5C31\u90FD\u8282\u7701\u4E86\u3002'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'CSS\u653E\u5728\u5934\u90E8JS\u653E\u5728\u5E95\u90E8'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u5982\u679C\u5C06 CSS\u653E\u5728\u5176\u4ED6\u5730\u65B9\u6BD4\u5982 BODY\u4E2D\uFF0C\u5219\u6D4F\u89C8\u5668\u6709\u53EF\u80FD\u8FD8\u672A\u4E0B\u8F7D\u548C\u89E3\u6790\u5230 CSS\u5C31\u5DF2\u7ECF\u5F00\u59CB\u6E32\u67D3\u9875\u9762\u4E86\uFF0C\u8FD9\u5C31\u5BFC\u81F4\u9875\u9762\u7531\u65E0 CSS\u72B6\u6001\u8DF3\u8F6C\u5230 CSS\u72B6\u6001\uFF0C\u7528\u6237\u4F53\u9A8C\u6BD4\u8F83\u7CDF\u7CD5\u3002\u9664\u6B64\u4E4B\u5916\uFF0C\u6709\u4E9B\u6D4F\u89C8\u5668\u4F1A\u5728 CSS\u4E0B\u8F7D\u5B8C\u6210\u540E\u624D\u5F00\u59CB\u6E32\u67D3\u9875\u9762\uFF0C\u5982\u679C CSS\u653E\u5728\u9760\u4E0B\u7684\u4F4D\u7F6E\u5219\u4F1A\u5BFC\u81F4\u6D4F\u89C8\u5668\u5C06\u6E32\u67D3\u65F6\u95F4\u63A8\u8FDF\u3002\u5916\u94FE\u811A\u672C\u5728\u52A0\u8F7D\u65F6\u4F1A\u963B\u585E\u5176\u4ED6\u8D44\u6E90\uFF0C\u4F8B\u5982\u5728\u811A\u672C\u52A0\u8F7D\u5B8C\u6210\u4E4B\u524D\uFF0C\u5B83\u540E\u9762\u7684\u56FE\u7247\u3001\u6837\u5F0F\u4EE5\u53CA\u5176\u4ED6\u811A\u672C\u90FD\u5904\u4E8E\u963B\u585E\u72B6\u6001\uFF0C\u76F4\u5230\u811A\u672C\u52A0\u8F7D\u5B8C\u6210\u540E\u624D\u4F1A\u5F00\u59CB\u52A0\u8F7D\u3002\u5982\u679C\u5C06\u811A\u672C\u653E\u5728\u6BD4\u8F83\u9760\u524D\u7684\u4F4D\u7F6E\uFF0C\u5219\u4F1A\u5F71\u54CD\u6574\u4E2A\u9875\u9762\u7684\u52A0\u8F7D\u901F\u5EA6\u4ECE\u800C\u5F71\u54CD\u7528\u6237\u4F53\u9A8C\u3002\u89E3\u51B3\u8FD9\u4E00\u95EE\u9898\u7684\u65B9\u6CD5\u6709\u5F88\u591A\uFF0C\u800C\u6700\u7B80\u5355\u7684\u65B9\u6CD5\u5C31\u662F\u5C06\u811A\u672C\u5C3D\u53EF\u80FD\u7684\u5F80\u540E\u632A\uFF0C\u51CF\u5C11\u5BF9\u5E76\u53D1\u4E0B\u8F7D\u7684\u5F71\u54CD\u3002'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u907F\u514DDOM\u64CD\u4F5C'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'DOM\u64CD\u4F5C\u5E94\u8BE5\u662F\u811A\u672C\u4E2D\u6700\u8017\u6027\u80FD\u7684\u4E00\u7C7B\u64CD\u4F5C\uFF0C\u5982\u679C\u53EF\u4EE5\u7528css\u6765\u6EE1\u8DB3\u7684\u8BDD\u5E94\u8BE5\u5C3D\u91CF\u4F7F\u7528css\u800C\u4E0D\u662Fjs\u3002'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'css\u9009\u62E9\u5668'
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u5728\u5927\u591A\u6570\u4EBA\u7684\u89C2\u5FF5\u4E2D\uFF0C\u90FD\u89C9\u5F97\u6D4F\u89C8\u5668\u5BF9 CSS\u9009\u62E9\u7B26\u7684\u89E3\u6790\u5F0F\u4ECE\u5DE6\u5F80\u53F3\u8FDB\u884C\u7684\uFF0C\u4F8B\u5982'
+                        ),
+                        _react2.default.createElement(
+                            'pre',
+                            null,
+                            _react2.default.createElement(
+                                'code',
+                                { className: 'language-css' },
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'hljs-selector-id' },
+                                    '#toc'
+                                ),
+                                ' ',
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'hljs-selector-tag' },
+                                    'A'
+                                ),
+                                ' ',
+                                '{',
+                                ' ',
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'hljs-attribute' },
+                                    'color'
+                                ),
+                                ': ',
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'hljs-number' },
+                                    '#444'
+                                ),
+                                '; ',
+                                '}',
+                                _react2.default.createElement('br', null)
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u8FD9\u6837\u4E00\u4E2A\u9009\u62E9\u7B26\uFF0C\u5982\u679C\u662F\u4ECE\u5DE6\u5F80\u53F3\u89E3\u6790\u5219\u6548\u7387\u4F1A\u5F88\u9AD8\uFF0C\u56E0\u4E3A\u7B2C\u4E00\u4E2A ID\u9009\u62E9\u57FA\u672C\u4E0A\u5C31\u628A\u67E5\u627E\u7684\u8303\u56F4\u9650\u5B9A\u4E86\uFF0C\u4F46\u5B9E\u9645\u4E0A\u6D4F\u89C8\u5668\u5BF9\u9009\u62E9\u7B26\u7684\u89E3\u6790\u662F\u4ECE\u53F3\u5F80\u5DE6\u8FDB\u884C\u7684\u3002\u5982\u4E0A\u9762\u7684\u9009\u62E9\u7B26\uFF0C\u6D4F\u89C8\u5668\u5FC5\u987B\u904D\u5386\u67E5\u627E\u6BCF\u4E00\u4E2A A\u6807\u7B7E\u7684\u7956\u5148\u8282\u70B9\uFF0C\u6548\u7387\u5E76\u4E0D\u50CF\u4E4B\u524D\u60F3\u8C61\u7684\u90A3\u6837\u9AD8\u3002\u6839\u636E\u6D4F\u89C8\u5668\u7684\u8FD9\u4E00\u884C\u4E3A\u7279\u70B9\uFF0C\u5728\u5199\u9009\u62E9\u7B26\u7684\u65F6\u5019\u9700\u8981\u6CE8\u610F\u5F88\u591A\u4E8B\u9879\u3002'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '\u5173\u4E8E\u6027\u80FD\u4F18\u5316\u7684\u4E1C\u897F\u8FD8\u6709\u5F88\u591A\u5F88\u591A\uFF0C\u9700\u8981\u5728\u5DE5\u4F5C\u4E0E\u5B66\u4E60\u4E2D\u6162\u6162\u6765\u603B\u7ED3\u3002'
+                    )
                 )
             );
         }
@@ -69574,6 +70202,208 @@ exports.default = MarkdownItReactComponent;
 
 /***/ }),
 
+/***/ "./src/markdown/nvm.md":
+/*!*****************************!*\
+  !*** ./src/markdown/nvm.md ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'h1',
+                    { id: 'nvm' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#nvm', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' NVM'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5728\u5F00\u53D1\u4E2D\uFF0C\u6709\u65F6\u5019\u5BF9node\u7684\u7248\u672C\u6709\u8981\u6C42\uFF0C\u6709\u65F6\u5019\u9700\u8981\u5207\u6362\u5230\u6307\u5B9A\u7684node\u7248\u672C\u6765\u91CD\u73B0\u95EE\u9898\u7B49\u3002\u9047\u5230\u8FD9\u79CD\u9700\u6C42\u7684\u65F6\u5019\uFF0C\u6211\u4EEC\u9700\u8981\u80FD\u591F\u7075\u6D3B\u7684\u5207\u6362node\u7248\u672C\u3002 \u8FD9\u91CC\u6211\u4EEC\u4F7F\u7528nvm\u5DE5\u5177\u6765\u7BA1\u7406\u591A\u7248\u672Cnode\u3002'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u5B89\u88C5'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'curl\u65B9\u5F0F'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-shell' },
+                        'curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'wget\u65B9\u5F0F\uFF08\u6211\u4F7F\u7528\u7684\u662F\u8FD9\u79CD\u65B9\u5F0F\uFF09'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-shell' },
+                        'wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        '\u4E0B\u8F7D\u5B8C\u6BD5\u540E\u67E5\u770Bnvm\u7248\u672C\u53F7\u3002\u5982\u679C\u663E\u793A\u7248\u672C\u53F7\u5219\u4EE3\u8868\u6210\u529F\uFF0C\u5426\u5219\u5931\u8D25\u3002\u6211\u8FD9\u91CC\u5F88\u987A\u5229\uFF0C\u6CA1\u6709\u9047\u5230\u5B98\u7F51\u4E0A\u8BF4\u7684\u4E00\u4E9B\u95EE\u9898\u3002'
+                    )
+                ),
+                _react2.default.createElement(
+                    'blockquote',
+                    null,
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'command -v nvm'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    { start: '2' },
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        '\u5F00\u59CB\u5B89\u88C5node'
+                    )
+                ),
+                _react2.default.createElement(
+                    'blockquote',
+                    null,
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '\u4F7F\u7528\u547D\u4EE4\u4E0B\u8F7D\u9700\u8981\u7684\u7248\u672C',
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'nvm install <version>'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    { start: '3' },
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        '\u4F7F\u7528',
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'nvm use <version>'
+                        ),
+                        '\u6765\u8FDB\u884C\u7248\u672C\u5207\u6362\uFF0C\u6211\u5728\u5207\u6362\u7684\u65F6\u5019\u4E0D\u8BB0\u5F97\u90FD\u4E0B\u8F7D\u4E86\u54EA\u4E9B\u7248\u672C\uFF0C\u4E8E\u662Fuse\u540E\u5C1D\u8BD5\u6309\u4E86tab\u952E\uFF0C\u679C\u7136\u7ED9\u51FA\u4E86\u5DF2\u7ECF\u5B89\u88C5\u8FC7\u7684\u7248\u672C\u53F7\u3002\u540E\u6765\u53D1\u73B0\u4E5F\u6709\u73B0\u6210\u7684',
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'nvm ls'
+                        ),
+                        '\u547D\u4EE4\u6765\u4E13\u95E8\u67E5\u770B\u5DF2\u6709node\u7684\u7248\u672C\u3002'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u5176\u4ED6\u7684\u66F4\u591A\u77E5\u8BC6\u9700\u8981\u53C2\u8003',
+                        _react2.default.createElement(
+                            'a',
+                            { href: 'https://github.com/creationix/nvm/blob/master/README.md' },
+                            'https://github.com/creationix/nvm/blob/master/README.md'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
+
+/***/ }),
+
 /***/ "./src/markdown/object-model.md":
 /*!**************************************!*\
   !*** ./src/markdown/object-model.md ***!
@@ -69821,6 +70651,1169 @@ exports.default = MarkdownItReactComponent;
 
 /***/ }),
 
+/***/ "./src/markdown/regexp.md":
+/*!********************************!*\
+  !*** ./src/markdown/regexp.md ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'h1',
+                    { id: 'zheng-ze-biao-da-shi' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#zheng-ze-biao-da-shi', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' \u6B63\u5219\u8868\u8FBE\u5F0F'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u6B63\u5219\u5BF9\u8C61\u53CA\u5176\u5C5E\u6027'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6B63\u5219\u5BF9\u8C61\u662FJS\u7684\u5185\u7F6E\u5BF9\u8C61\uFF0C\u548CMath\u4EE5\u53CAArray\u4E00\u6837\uFF0C\u4E0D\u9700\u8981\u7B2C\u4E09\u65B9\u5E93\u7684\u652F\u6301\uFF0C\u901A\u5E38\u6211\u4EEC\u91C7\u53D6\u4E24\u79CD\u65B9\u5F0F\u6765\u5B9A\u4E49\u4E00\u4E2A\u8868\u8FBE\u5F0F\u5BF9\u8C61'
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        '\u6784\u9020\u51FD\u6570\u65B9\u5F0F'
+                    )
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'var'
+                        ),
+                        ' reg = ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'new'
+                        ),
+                        ' regExp(',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'abc\''
+                        ),
+                        ', ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'ig\''
+                        ),
+                        ');',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    { start: '2' },
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        '\u5B57\u9762\u91CF'
+                    )
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'var'
+                        ),
+                        ' reg = ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-regexp' },
+                            '/abc/ig'
+                        ),
+                        ';',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u6B63\u5219\u7684\u65B9\u6CD5'
+                    )
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'test'
+                        ),
+                        '\u8BE5\u65B9\u6CD5\u7528\u4E8E\u68C0\u6D4B\u6B63\u5219\u662F\u5426\u4E0E\u67D0\u4E2A\u5B57\u7B26\u4E32\u5339\u914D\uFF0C\u5982\u679C\u5339\u914D\u5C31\u8FD4\u56DEtrue\uFF0C\u5426\u5219\u8FD4\u56DEfalse\u3002'
+                    )
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        '/^\\d+&/.test(\'123\'); //true',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    { start: '2' },
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'exec/match'
+                        ),
+                        '\u8FD9\u4E24\u4E2A\u65B9\u6CD5\u5728\u5339\u914D\u6210\u529F\u65F6\u90FD\u4F1A\u8FD4\u56DE\u6570\u7EC4\uFF0C\u5728\u6CA1\u6709\u5339\u914D\u4E0A\u65F6\u8FD4\u56DE\u7684\u90FD\u662Fnull\uFF0C\u5728\u6CA1\u6709\u6DF1\u5165\u4E86\u89E3\u4E24\u8005\u4F7F\u7528\u89C4\u5219\u65F6\uFF0C\u4F1A\u4EE5\u4E3A\u4F7F\u7528\u89C4\u5219\u662F\u4E00\u6837\u7684\u3002\u4E3B\u8981\u7684\u533A\u522B\u51FA\u73B0\u5728\u5206\u7EC4\u4E0E\u5168\u5C40\u5339\u914D\u4E0A\u3002',
+                        _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                                'li',
+                                null,
+                                _react2.default.createElement(
+                                    'code',
+                                    null,
+                                    'match'
+                                ),
+                                '\uFF1Astr.match(reg)'
+                            ),
+                            _react2.default.createElement(
+                                'li',
+                                null,
+                                _react2.default.createElement(
+                                    'code',
+                                    null,
+                                    'exec'
+                                ),
+                                '\uFF1Areg.exec(reg)'
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u6B63\u5219\u4FEE\u9970\u7B26'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'i'
+                    ),
+                    '\uFF1A\u5FFD\u7565\u5927\u5C0F\u5199',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'ignoreCase'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'm'
+                    ),
+                    '\uFF1A\u591A\u884C\u5339\u914D',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'multiline'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'g'
+                    ),
+                    '\uFF1A\u5168\u5C40\u5339\u914D',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'globe'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u6B63\u5219\u8868\u8FBE\u5F0F\u6A21\u5F0F'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '\\d'
+                    ),
+                    '\uFF1A\u5339\u914D\u6570\u5B57'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '\\D'
+                    ),
+                    '\uFF1A\u5339\u914D\u9664\u4E86\u6570\u5B57'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '\\w'
+                    ),
+                    '\uFF1A\u5339\u914D\u6570\u5B57\u5B57\u6BCD\u4E0B\u5212\u7EBF'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '\\W'
+                    ),
+                    '\uFF1A\u5339\u914D\u9664\u4E86\u6570\u5B57\u5B57\u6BCD\u4E0B\u5212\u7EBF'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '\\b'
+                    ),
+                    '\uFF1A\u5355\u8BCD\u8FB9\u754C'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '\\s'
+                    ),
+                    '\uFF1A\u7A7A\u683C'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '.'
+                    ),
+                    '\uFF1A\u9664\u4E86\u7A7A\u683C\u7684\u4EFB\u610F\u5B57\u7B26'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '[...]'
+                    ),
+                    '\uFF1A\u5339\u914D\u4E2D\u62EC\u53F7\u5185\u7684\u4EFB\u610F\u5B57\u7B26'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '[^...]'
+                    ),
+                    '\uFF1A\u5339\u914D\u9664\u4E86\u4E2D\u62EC\u53F7\u5185\u7684\u4EFB\u610F\u5B57\u7B26'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '^'
+                    ),
+                    '\uFF1A\u5339\u914D\u5B57\u7B26\u4E32\u7684\u8D77\u59CB\u4F4D\u7F6E'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '$'
+                    ),
+                    '\uFF1A\u5339\u914D\u5B57\u7B26\u4E32\u7684\u7ED3\u675F\u4F4D\u7F6E'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-comment' },
+                            '// \u8FD9\u4E2A\u82B1\u62EC\u53F7markdown\u8C8C\u4F3C\u7F16\u8BD1\u4E0D\u4E86\uFF0C\u62A5\u9519 - -'
+                        ),
+                        _react2.default.createElement('br', null),
+                        '{',
+                        'n',
+                        '}',
+                        '\uFF1A\u5339\u914Dn\u6B21',
+                        _react2.default.createElement('br', null),
+                        '{',
+                        'n,m',
+                        '}',
+                        '\uFF1A\u5339\u914Dn\u5230m\u6B21',
+                        _react2.default.createElement('br', null),
+                        '{',
+                        'n,',
+                        '}',
+                        '\uFF1A\u5339\u914Dn\u5230\u591A\u6B21',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '?'
+                    ),
+                    '\uFF1A\u5339\u914D0\u52301\u6B21'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '*'
+                    ),
+                    '\uFF1A\u5339\u914D0\u5230\u591A\u6B21'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '+'
+                    ),
+                    '\uFF1A\u5339\u914D1\u5230\u591A\u6B21'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\uFF08\uFF09\u5206\u7EC4'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5C0F\u62EC\u53F7\u7684\u610F\u601D\u662F\u5206\u7EC4\uFF0C\u628A\u62EC\u53F7\u4E2D\u7684\u5185\u5BB9\u8BA4\u5B9A\u4E3A\u56FA\u5B9A\u4E00\u7EC4\u53BB\u8FDB\u884C\u5339\u914D'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5728\u6B63\u5219\u4E2D \\1\u8868\u793A\u91CD\u590D\u5339\u914D\u7B2C\u4E00\u4E2A\u5206\u7EC4\uFF0C\\2\u8868\u793A\u7B2C\u4E8C\u4E2A\uFF0C\u4EE5\u6B64\u7C7B\u63A8\u3002\u5728 match  replace \u7B49\u65B9\u6CD5\u4E2D $1\u4EE3\u8868\u5339\u914D\u5230\u7684\u7B2C\u4E00\u4E2A\u5206\u7EC4\uFF0C$2\u4E3A\u7B2C\u4E8C\u4E2A\uFF0C\u4EE5\u6B64\u7C7B\u63A8'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'x(?=y)'
+                    ),
+                    '\uFF1A\u8868\u793Ax\u540E\u5FC5\u987B\u4E3Ay\u624D\u4F1A\u5339\u914D\u5230'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'x(?!y)'
+                    ),
+                    '\uFF1A\u8868\u793Ax\u540E\u5FC5\u987B\u4E0D\u4E3Ay\u624D\u4F1A\u5339\u914D\u5230'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '(?:y)'
+                    ),
+                    '\uFF1A\u8868\u793A\u4F1A\u6309\u7167\u5206\u7EC4\u8FDB\u884C\u5339\u914D\uFF0C\u4F46\u662F\u5206\u7EC4\u4E0D\u4F1A\u88AB\u5339\u914D\u5230'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5173\u4E8E\u6B63\u5219\u7684\u5185\u5BB9\u8FD8\u6709\u5F88\u591A\uFF0C\u6162\u6162\u5543\u3002'
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
+
+/***/ }),
+
+/***/ "./src/markdown/webpack.md":
+/*!*********************************!*\
+  !*** ./src/markdown/webpack.md ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'h1',
+                    { id: 'webpack' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#webpack', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' webpack'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u9996\u5148\u6765\u770B\u4E00\u4E0B',
+                        _react2.default.createElement(
+                            'a',
+                            { href: 'https://www.webpackjs.com/' },
+                            'webpack'
+                        ),
+                        '\u5B98\u7F51\u7ED9\u51FA\u7684\u4E00\u4E2A\u793A\u610F\u56FE'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement('img', { src: './static/img/webpack.png', alt: 'webpack' })
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5176\u5B9E\u4ED4\u7EC6\u7684\u770B\u770B\u5B98\u7F51\u8FD9\u4E2A\u56FE\u7247\u5C31\u53D1\u73B0\u57FA\u672C\u4E0A\u5DF2\u7ECF\u628Awebpack\u7ED9\u603B\u7ED3\u51FA\u6765\u4E86\u3002\u4E00\u4E2A\u4E00\u4E2A\u76F8\u4E92\u72EC\u7ACB\u5374\u53C8\u5173\u8054\u7684\u6A21\u5757\uFF08js\u3001img\u3001sass\uFF09\u901A\u8FC7webpack\u88AB\u6253\u5305\u6784\u5EFA\u6210\u4E3A\u4E86\u4E00\u4E2A\u4E2A\u6574\u4F53\u3002\u8FD9\u5BF9\u6211\u4EEC\u5F00\u53D1\u8005\u6765\u8BF4\u662F\u4E00\u79CD\u89E3\u653E\u3002\u8FD8\u8BB0\u5F97\u5F88\u4E45\u4EE5\u524D\u5B66\u4E60\u524D\u7AEF\uFF0C\u4E0D\u77E5\u9053\u6709\u6784\u5EFA\u5DE5\u5177\uFF0C\u4E00\u4E2Ainde.html\uFF0C\u82E5\u5E72\u4E2Acss\u3001js\u6587\u4EF6\u5C31\u5F00\u59CB\u6572\u4EE3\u7801\uFF08\u5C0F\u767D\u7684\u65F6\u5019\uFF09\uFF0C\u9875\u9762\u4E00\u591A\u8D77\u6765\u5C31\u4F1A\u53D1\u73B0\u968F\u4E4B\u800C\u6765\u7684\u662Fcss\u4E0Ejs\u7684\u81C3\u80BF\uFF0C\u65E0\u610F\u4E2D\u7ED9\u5F00\u53D1\u4EE5\u53CA\u65E5\u540E\u7EF4\u62A4\u5E26\u6765\u4E86\u5F88\u5927\u7684\u75DB\u82E6\u3002\u540E\u6765\u4F7F\u7528\u8FD9\u79CD\u6784\u5EFA\u5DE5\u5177\uFF0C\u5B83\u5C06\u6211\u4EEC\u7684\u4E00\u4E2A\u4E00\u4E2A\u6A21\u5757\u72EC\u7ACB\u62C6\u5206\u51FA\u6765\uFF0C\u5404\u4E2A\u6A21\u5757\u4E4B\u95F4\u72EC\u7ACB\uFF0C\u53EA\u9700\u8981\u5173\u6CE8\u6A21\u5757\u5185\u90E8\u7684\u4E1C\u897F\uFF0C\u5316\u7E41\u4E3A\u7B80\u3002\u5927\u5927\u63D0\u9AD8\u4E86\u5DE5\u4F5C\u6548\u7387\uFF0C\u7EF4\u62A4\u6210\u672C\u3002'
+                ),
+                _react2.default.createElement(
+                    'h3',
+                    { id: 'kai-shi-xue-xi' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#kai-shi-xue-xi', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' \u5F00\u59CB\u5B66\u4E60'
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u521B\u5EFA\u6587\u4EF6\u5939\u3002\u5728\u6587\u4EF6\u5939\u4E0B\u6267\u884C\u547D\u4EE4 ',
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                'npm init'
+                            ),
+                            '\uFF08\u9ED8\u8BA4\u5DF2\u7ECF\u5B89\u88C5npm\u3001node\u3001vscode\u3001chrome\u7B49\uFF09\uFF0C\u6765\u521D\u59CB\u5316package.json\u6587\u4EF6\u3002\u8FD9\u4E2A\u6587\u4EF6\u91CC\u63CF\u8FF0\u4E86\u4F60\u9879\u76EE\u4E2D\u7684\u7528\u5230\u7684\u4E00\u4E9B\u5F00\u53D1\u4F9D\u8D56\u9879\uFF0C\u4EE5\u53CA\u9879\u76EE\u5165\u53E3\u6267\u884C\u811A\u672C\u3001\u7248\u672C\uFF0C\u4F5C\u8005\u7B49\u7B49\u4E00\u7CFB\u5217\u5173\u4E8E\u8BE5\u9879\u76EE\u7684\u4FE1\u606F\u3002'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                'npm install webpack webpack-cli --save-dev'
+                            ),
+                            '\uFF0C install webpack \u76F8\u5173\u7684\u5305\u624D\u53EF\u4EE5\u6765\u4F7F\u7528webpack\u8FDB\u884C\u540E\u7EED\u7684\u5F00\u53D1\u914D\u7F6E\u7B49\u7B49\u3002 --save-dev\u7684\u4F5C\u7528\u662F\u5F00\u53D1\u65F6\u9700\u8981\u4F9D\u8D56\u7684\u5305\uFF0C\u4F1A\u5C06\u5305\u4FE1\u606F\u6DFB\u52A0\u5230package.json\u4E2DdevDependencies\u3002\u56E0\u4E3Awebpack\u662F\u5728\u5F00\u53D1\u65F6\u5019\u9700\u8981\u7684\u5DE5\u5177\uFF0C\u800C\u6253\u5305\u5B8C\u6210\u4E0A\u7EBF\u5E76\u4E0D\u9700\u8981webpack\u6240\u4EE5\u6211\u4EEC\u5C06\u5B83\u4FDD\u5B58\u5728\u5F00\u53D1\u73AF\u5883\u4F9D\u8D56\u4E2D\u3002'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u521B\u5EFAindex.htlm\u6587\u4EF6\u3002\u521B\u5EFAsrc\u6587\u4EF6\u5939\uFF0C\u6765\u5B58\u653E\u5177\u4F53\u7684\u9875\u9762\u7EC4\u4EF6\u76F8\u5173\u5185\u5BB9\u3002\u521B\u5EFAwebpack.config.js\u6587\u4EF6\uFF08\u4F7F\u7528webpack\u547D\u4EE4\u7684\u60C5\u51B5\u4E0B\uFF0Cwebpack\u4F1A\u9ED8\u8BA4\u5728\u9879\u76EE\u76EE\u5F55\u4E0B\u5BFB\u627Ewebpack.config.js\u6587\u4EF6\uFF0C\u628A\u5B83\u4F5C\u4E3A\u9ED8\u8BA4\u7684\u5165\u53E3\u6587\u4EF6\u6765\u8FD0\u884C\uFF09\u3002\u6211\u8FD9\u91CC\u624B\u52A8\u5C06webpack\u7684\u542F\u52A8\u4E0E\u6784\u5EFA\u547D\u4EE4\u5199\u5165\u4E86package.json\u7684script\u4E2D\u3002\u8FD9\u6837\u901A\u8FC7\u7B80\u6613\u7684',
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                'npm run dev'
+                            ),
+                            '\u4E0E',
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                'npm run build'
+                            ),
+                            '\u547D\u4EE4\u5C31\u53EF\u4EE5\u5B8C\u6210\u542F\u52A8\u4E0E\u6784\u5EFA\u3002'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        'webpack\u5177\u4F53\u76F8\u5173\u914D\u7F6E\u9879'
+                    )
+                ),
+                _react2.default.createElement(
+                    'h4',
+                    { id: 'entry' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#entry', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' entry\uFF1A'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u9879\u76EE\u7684\u5165\u53E3\u3002\u6709\u4E09\u79CD\u7C7B\u578B\u7684\u503C\u53EF\u4EE5\u9009\u62E9\uFF0C\u4E00\u79CD\u662Fstring\uFF0C\u4E5F\u5C31\u662F\u6307\u5B9A\u4E00\u4E2A\u5177\u4F53\u7684\u5165\u53E3\u6587\u4EF6\u3002\u7B2C\u4E8C\u79CD\u662F\u6570\u7EC4\uFF0C\u6307\u5B9A\u591A\u4E2A\u5165\u53E3\u6587\u4EF6\u3002\u7B2C\u4E09\u79CD\u662F\u5BF9\u8C61\uFF1A\u5BF9\u8C61\u7684key\u4EE3\u8868chunkName,value\u5C31\u662F\u4E00\u4E2A\u771F\u5B9E\u7684entry\uFF08\u5728\u591A\u9875\u9762\u5E94\u7528\u65F6\u4F1A\u7528\u5230\u7B2C\u4E09\u79CD\u65B9\u5F0F\uFF09\u3002\u8981\u6CE8\u610F\u7684\u662F\uFF0C\u4EE5\u5BF9\u8C61\u4E3A\u5165\u53E3\u65F6output\u4E2Dfilename\u4E5F\u8981\u76F8\u5E94\u7684\u505A\u51FA\u8C03\u6574\uFF0C\u53EF\u4EE5\u7528\u8FD9\u4E09\u79CD\u5360\u4F4D\u7B26\u6765\u8868\u8FBE\u4F60\u8F93\u51FA\u7684\u6587\u4EF6\u540D\u79F0[name]/[hash]/[chunkhash]\u3002\u5982\u679C\u4F9D\u65E7\u53EA\u6307\u5B9A\u4E00\u4E2A\u51FA\u53E3\u6587\u4EF6\u540D\u79F0\u7684\uFF0C\u6253\u5305\u51FA\u7684\u7ED3\u679C\u4F1A\u88AB\u8986\u76D6\u6389\u3002'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        'entry: path.join(__dirname, ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'src/main.js\''
+                        ),
+                        ')',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'h4',
+                    { id: 'output' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#output', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' output\uFF1A'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6587\u4EF6\u6253\u5305\u51FA\u53E3\u3002\u503C\u4E3A\u5BF9\u8C61\uFF0C\u5176\u4E2D\u5E38\u7528\u7684\u5C5E\u6027\u6709 filename\u3001path\u3002'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        'output: ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'path'
+                        ),
+                        ': path.join(__dirname, ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'dist\''
+                        ),
+                        '),',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'filename'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'js/main.[hash].js\''
+                        ),
+                        _react2.default.createElement('br', null),
+                        '}',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'h4',
+                    { id: 'devtool' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#devtool', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' devtool\uFF1A'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u4F7F\u7528\u6784\u5EFA\u5DE5\u5177\u540E\uFF0C\u9879\u76EE\u4E00\u65E6\u62A5\u9519\u5C31\u5F88\u96BE\u627E\u51FA\u5177\u4F53\u95EE\u9898\u6240\u5728\uFF0Cwebpack\u63D0\u4F9B\u4E86devtool\u6765\u5E2E\u52A9\u6211\u4EEC\u89E3\u51B3\u8FD9\u4E2A\u95EE\u9898\uFF08\u5F00\u53D1\u4E2D\u9047\u5230\u4E86\u8FD9\u4E2A\u95EE\u9898\u624D\u6DFB\u52A0\u5230\u914D\u7F6E\u4E2D\uFF09\u3002'
+                ),
+                _react2.default.createElement(
+                    'h4',
+                    { id: 'devserver' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#devserver', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' devServer\uFF1A'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'webpack-dev-server\u662F\u4E00\u4E2A\u5C0F\u578B\u7684Node.js Express\u670D\u52A1\u5668\u3002\u901A\u8FC7\u5B83\u6211\u4EEC\u53EF\u4EE5\u5728\u672C\u5730\u5FEB\u901F\u542F\u52A8\u9879\u76EE\u5F00\u53D1\u7B49\u3002'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        'devServer: ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'contentBase'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'./\''
+                        ),
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'inline'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-literal' },
+                            'true'
+                        ),
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'port'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-number' },
+                            '8080'
+                        ),
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'compress'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-literal' },
+                            'false'
+                        ),
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'hot'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-literal' },
+                            'true'
+                        ),
+                        _react2.default.createElement('br', null),
+                        '}',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'h4',
+                    { id: 'loader' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#loader', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' loader\uFF1A'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5BF9\u52A0\u8F7D\u7684\u6587\u4EF6\u8D44\u6E90\u8FDB\u884C\u8F6C\u6362\u3002\u6BD4\u5982\u5BF9\u56FE\u7247\u8FDB\u884C\u538B\u7F29\uFF0Ces6/es7\u8F6C\u4E3A\u6D4F\u89C8\u5668\u8BC6\u522B\u7684es5\uFF0C\u7F16\u8BD1less\u3001sass\u7B49\u3002\u6211\u5728\u8FD9\u4E2A\u9879\u76EE\u4E2D\u6253\u7B97\u4F7F\u7528reacr\u6240\u4EE5\u9700\u8981\u5BF9jsx\u6765\u8FDB\u884C\u7F16\u8BD1\u3002\u5728\u4F7F\u7528\u5404\u79CDlaoder\u7684\u65F6\u5019\u522B\u5FD8\u4E86\u63D0\u524Dinstall\u3002\u5173\u4E8E\u5404\u4E2Aloader\u5C31\u4E0D\u4ECB\u7ECD\u4E86\uFF0C\u57FA\u672C\u4E0A\u5B98\u7F51\u5C31\u5DF2\u7ECF\u7ED9\u51FA\u5F88\u597D\u7684\u89E3\u91CA\u4E86\u3002'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-built_in' },
+                            'module'
+                        ),
+                        ': ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'rules'
+                        ),
+                        ': [',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '            ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'test'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-regexp' },
+                            '/\\.(js|jsx)$/'
+                        ),
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '            ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'exclude'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-regexp' },
+                            '/node_modules/'
+                        ),
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '            ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'loader'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'babel-loader\''
+                        ),
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        '}',
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '            ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'test'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-regexp' },
+                            '/\\.(jpg|jpeg|gif|png|svg)$/'
+                        ),
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '            ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'loader'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'url-loader\''
+                        ),
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        '}',
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '            ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'test'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-regexp' },
+                            '/\\.css$/'
+                        ),
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '            ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'loader'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'style-loader!css-loader\''
+                        ),
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        '}',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-comment' },
+                            '// ...'
+                        ),
+                        _react2.default.createElement('br', null),
+                        '    ]',
+                        _react2.default.createElement('br', null),
+                        '}',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'h4',
+                    { id: 'plugins' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#plugins', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' plugins\uFF1A'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5BF9\u4E8E\u8FD9\u4E2A\u9009\u9879\u5B98\u7F51\u7ED9\u51FA\u7684\u89E3\u91CA\u662F',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '\u7528\u4E8E\u4EE5\u5404\u79CD\u65B9\u5F0F\u81EA\u5B9A\u4E49 webpack \u6784\u5EFA\u8FC7\u7A0B'
+                    ),
+                    '\u3002'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        'plugins: [',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'new'
+                        ),
+                        ' HtmlWebpackPlugin(',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'filename'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'index.html\''
+                        ),
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'template'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'index.html\''
+                        ),
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'inject'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'body\''
+                        ),
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        '}',
+                        ')',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-comment' },
+                            '// ...'
+                        ),
+                        _react2.default.createElement('br', null),
+                        '}',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u9A6C\u540E\u70AE\u4E00\u53D1\u3002\u5176\u5B9E\u6574\u4F53\u914D\u7F6E\u5B8C\u4E86\u540E\u53D1\u73B0\uFF0C\u914D\u7F6E\u9879\u5E76\u6CA1\u6709\u591A\u590D\u6742\uFF0C\u6309\u7167\u81EA\u5DF1\u7684\u9700\u8981\u9009\u62E9\u4E0D\u540C\u7684loader\u3001plugin\u6765\u6EE1\u8DB3\u9879\u76EE\u7684\u9700\u8981\u3002\u5F53\u7136\u4E86\uFF0Cvue-cli\u90A3\u79CD\u590D\u6742\u5E76\u4E14\u533A\u5206\u5F00\u53D1\u73AF\u5883\u751F\u4EA7\u73AF\u5883\u7684\u67B6\u5B50\u4E00\u65F6\u534A\u4F1A\u8FD8\u662F\u641E\u4E0D\u5B9A\u7684\uFF0C\u8FD8\u9700\u8981\u6162\u6162\u5B66\u4E60\u3001\u7ECF\u5386\u4E0E\u6C89\u6DC0\u3002'
+                    )
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
+
+/***/ }),
+
 /***/ "./src/pages/about/index.js":
 /*!**********************************!*\
   !*** ./src/pages/about/index.js ***!
@@ -69908,17 +71901,21 @@ var _index3 = __webpack_require__(/*! ../../components/footer/index.js */ "./src
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _index5 = __webpack_require__(/*! ../home/index.js */ "./src/pages/home/index.js");
+var _index5 = __webpack_require__(/*! ../../components/arrow-up/index.js */ "./src/components/arrow-up/index.js");
 
 var _index6 = _interopRequireDefault(_index5);
 
-var _index7 = __webpack_require__(/*! ../about/index.js */ "./src/pages/about/index.js");
+var _index7 = __webpack_require__(/*! ../home/index.js */ "./src/pages/home/index.js");
 
 var _index8 = _interopRequireDefault(_index7);
 
-var _index9 = __webpack_require__(/*! ../content-three/index.md */ "./src/pages/content-three/index.md");
+var _index9 = __webpack_require__(/*! ../about/index.js */ "./src/pages/about/index.js");
 
 var _index10 = _interopRequireDefault(_index9);
+
+var _index11 = __webpack_require__(/*! ../content-three/index.md */ "./src/pages/content-three/index.md");
+
+var _index12 = _interopRequireDefault(_index11);
 
 var _domevent = __webpack_require__(/*! ../../markdown/domevent.md */ "./src/markdown/domevent.md");
 
@@ -69931,6 +71928,26 @@ var _objectModel2 = _interopRequireDefault(_objectModel);
 var _http = __webpack_require__(/*! ../../markdown/http.md */ "./src/markdown/http.md");
 
 var _http2 = _interopRequireDefault(_http);
+
+var _cache = __webpack_require__(/*! ../../markdown/cache.md */ "./src/markdown/cache.md");
+
+var _cache2 = _interopRequireDefault(_cache);
+
+var _regexp = __webpack_require__(/*! ../../markdown/regexp.md */ "./src/markdown/regexp.md");
+
+var _regexp2 = _interopRequireDefault(_regexp);
+
+var _fePerformance = __webpack_require__(/*! ../../markdown/fe-performance.md */ "./src/markdown/fe-performance.md");
+
+var _fePerformance2 = _interopRequireDefault(_fePerformance);
+
+var _nvm = __webpack_require__(/*! ../../markdown/nvm.md */ "./src/markdown/nvm.md");
+
+var _nvm2 = _interopRequireDefault(_nvm);
+
+var _webpack = __webpack_require__(/*! ../../markdown/webpack.md */ "./src/markdown/webpack.md");
+
+var _webpack2 = _interopRequireDefault(_webpack);
 
 __webpack_require__(/*! ./index.scss */ "./src/pages/app/index.scss");
 
@@ -69973,16 +71990,22 @@ var App = function (_React$Component) {
                         _react2.default.createElement(
                             _reactRouterDom.Switch,
                             null,
-                            _react2.default.createElement(_reactRouterDom.Route, { path: '/home', component: _index6.default }),
-                            _react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _index8.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/home', component: _index8.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/about', component: _index10.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/object-model', component: _objectModel2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/dom-event', component: _domevent2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/http', component: _http2.default }),
-                            _react2.default.createElement(_reactRouterDom.Route, { path: '/three', component: _index10.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/cache', component: _cache2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/regexp', component: _regexp2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/fe-performance', component: _fePerformance2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/nvm', component: _nvm2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/three', component: _index12.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/webpack', component: _webpack2.default }),
                             _react2.default.createElement(_reactRouterDom.Redirect, { from: '/', to: '/home' })
                         )
                     ),
-                    _react2.default.createElement(_index4.default, null)
+                    _react2.default.createElement(_index4.default, null),
+                    _react2.default.createElement(_index6.default, null)
                 )
             );
         }
@@ -74807,4 +76830,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.5aeec6f454834ba8c53c.js.map
