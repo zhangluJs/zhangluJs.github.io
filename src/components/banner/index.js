@@ -19,8 +19,8 @@ export default class Banner extends React.Component {
                             Beijing, China
                         </span>
                         <span className="banner-icon">
-                            <span className="iconfont icon-github"></span>
-                            <a href="https://github.com/zhangluJs" target="_block">zhangluJs</a>
+                            <span className="iconfont icon-snail"></span>
+                            一步一步慢慢爬
                         </span>
                     </div>
                 </div>

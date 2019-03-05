@@ -11,12 +11,18 @@ import {
 } from 'react-router-dom';
 import Header from '../../components/header/index.js';
 import Footer from '../../components/footer/index.js';
+import Arrowup from '../../components/arrow-up/index.js';
 import Home from '../home/index.js';
 import About from '../about/index.js';
 import ContentThree from '../content-three/index.md';
 import DomEvent from '../../markdown/domevent.md';
 import objectModel from '../../markdown/object-model.md';
 import http from '../../markdown/http.md';
+import cache from '../../markdown/cache.md';
+import regExp from '../../markdown/regexp.md';
+import fePerformance from '../../markdown/fe-performance.md';
+import nvm from '../../markdown/nvm.md';
+import webpack from '../../markdown/webpack.md';
 
 import './index.scss';
 
@@ -36,11 +42,17 @@ export default class App extends React.Component {
                             <Route path='/object-model' component={objectModel}></Route>
                             <Route path='/dom-event' component={DomEvent}></Route>
                             <Route path='/http' component={http}></Route>
+                            <Route path='/cache' component={cache}></Route>
+                            <Route path='/regexp' component={regExp}></Route>
+                            <Route path='/fe-performance' component={fePerformance}></Route>
+                            <Route path='/nvm' component={nvm}></Route>
                             <Route path='/three' component={ContentThree}></Route>
+                            <Route path='/webpack' component={webpack}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>
                     <Footer></Footer>
+                    <Arrowup></Arrowup>
                 </div>
             </HashRouter>
         );

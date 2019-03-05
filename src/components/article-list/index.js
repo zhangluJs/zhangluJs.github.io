@@ -11,6 +11,39 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: 'webpack',
+                path: '/webpack',
+                description: `在刚开始工作时，接触到了一些构建工具，比如gulp、grunt还有webpack。但当时总是弄不明白它们的具体概念。
+                    后来通过在工作中的慢慢接触以及偶尔根据项目需要来修改其中的某些配置才渐渐明白了它们的作用。
+                    在工作时始自己始终没有完整负责过一个项目的从无到有，所以利用空余时间好好啃了啃目前相对较火的webpack。`,
+                date: '工具 / 学习'
+            }, {
+                name: 'NVM',
+                path: '/nvm',
+                description: `在日常工作中，我们手头经常会并行多个项目，而且各个项目之间所使用的node版本又是不同的，
+                    为了解决这个问题就需要我们使用不同版本的node来分别对应不同的项目进行工作，今天接触到了一个管理node版本的工具，nvm。`,
+                date: '工具 / 学习'
+            }, {
+                name: '前端性能优化',
+                path: '/fe-performance',
+                description: `对于前端的性能话题，从来都没有断绝过。因为这个东西没有最好，只有更好。而且往往也是业务的
+                    繁杂程度去决定优化程度的。作为一个前端开发者，性能是我们关注的指标。它直接影响着我们的用户，同时也影响着产品本身。`,
+                date: '个人笔记 / 学习'
+            }, {
+                name: '正则表达式',
+                path: '/regexp',
+                description: `RegExp 是正则表达式的缩写。当检索某个文本时，可以使用一种模式来描述要检索
+                    的内容。RegExp 就是这种模式。简单的模式可以是一个单独的字符。更复杂的模式包括了更多的字符，
+                    并可用于解析、格式检查、替换等等。可以规定字符串中的检索位置，以及要检索的字符类型等等。简单的学一学正则表达式`,
+                date: '个人笔记 / 学习'
+            }, {
+                name: '浏览器缓存',
+                path: '/cache',
+                description: `浏览器缓存就是把一个已经请求过的Web资源（如html页面，图片，js，数据等）拷贝一份副本储存在
+                    浏览器中。缓存会根据进来的请求保存输出内容的副本。当下一个请求来到的时候，如果是相同的URL，缓存会根据缓
+                    存机制决定是直接使用副本响应访问请求，还是向源服务器再次发送请求。`,
+                date: '个人笔记 / 学习'
+            }, {
                 name: 'HTTP',
                 path: '/http',
                 description: `HTTP--Hyper Text Transfer Protocol，超文本传输协议，是一种建立在TCP上的无状态连接，
@@ -31,10 +64,10 @@ export default class ArticleList extends React.Component {
                 description: 'HTML DOM 事件允许Javascript在HTML文档元素中注册不同事件处理程序。事件通常与函数结合使用，函数不会在事件发生前被执行！ (如用户点击按钮)。',
                 date: '个人笔记 / 技术'
             }, {
-                name: '第三年',
+                name: 'example',
                 path: '/three',
-                description: '这里先写点啥占个位置',
-                date: '2018/06/06'
+                description: 'example',
+                date: 'markdown'
             }]
         };
     }
@@ -52,7 +85,7 @@ export default class ArticleList extends React.Component {
                         {key.date}
                     </p>
                 </li>
-                );
+            );
         });
         return (
             <div className='container'>
@@ -60,6 +93,6 @@ export default class ArticleList extends React.Component {
                     {articleList}
                 </ul>
             </div>
-            );
+        );
     }
 }
