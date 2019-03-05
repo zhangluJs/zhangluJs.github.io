@@ -22,6 +22,7 @@ import cache from '../../markdown/cache.md';
 import regExp from '../../markdown/regexp.md';
 import fePerformance from '../../markdown/fe-performance.md';
 import nvm from '../../markdown/nvm.md';
+import webpack from '../../markdown/webpack.md';
 
 import './index.scss';
 
@@ -46,6 +47,7 @@ export default class App extends React.Component {
                             <Route path='/fe-performance' component={fePerformance}></Route>
                             <Route path='/nvm' component={nvm}></Route>
                             <Route path='/three' component={ContentThree}></Route>
+                            <Route path='/webpack' component={webpack}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>

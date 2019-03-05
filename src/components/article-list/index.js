@@ -11,6 +11,13 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: 'webpack',
+                path: '/webpack',
+                description: `在刚开始工作时，接触到了一些构建工具，比如gulp、grunt还有webpack。但当时总是弄不明白它们的具体概念。
+                    后来通过在工作中的慢慢接触以及偶尔根据项目需要来修改其中的某些配置才渐渐明白了它们的作用。
+                    在工作时始自己始终没有完整负责过一个项目的从无到有，所以利用空余时间好好啃了啃目前相对较火的webpack。`,
+                date: '工具 / 学习'
+            }, {
                 name: 'NVM',
                 path: '/nvm',
                 description: `在日常工作中，我们手头经常会并行多个项目，而且各个项目之间所使用的node版本又是不同的，
