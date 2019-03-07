@@ -11,6 +11,11 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: 'vue与react的异同',
+                path: '/vue-react-diff',
+                description: '记录一下vue与react这两大热门前端框架之间的异同',
+                date: '个人笔记 / 学习'
+            }, {
                 name: 'webpack',
                 path: '/webpack',
                 description: `在刚开始工作时，接触到了一些构建工具，比如gulp、grunt还有webpack。但当时总是弄不明白它们的具体概念。
