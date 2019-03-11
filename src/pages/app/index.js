@@ -24,6 +24,7 @@ import fePerformance from '../../markdown/fe-performance.md';
 import nvm from '../../markdown/nvm.md';
 import webpack from '../../markdown/webpack.md';
 import vueReactDiff from '../../markdown/vue-react-diff.md';
+import jsAsync from '../../markdown/js-async.md';
 
 import './index.scss';
 
@@ -50,6 +51,7 @@ export default class App extends React.Component {
                             <Route path='/three' component={ContentThree}></Route>
                             <Route path='/webpack' component={webpack}></Route>
                             <Route path='/vue-react-diff' component={vueReactDiff}></Route>
+                            <Route path='/js-async' component={jsAsync}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>
