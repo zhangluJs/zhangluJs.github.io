@@ -62,7 +62,7 @@ export default class ArticleList extends React.Component {
                 description: `因为JavaScript执行环境是单线程的，所以在某些情况下会由于某些事务的延迟造成浏览器或者服务器假死的状态，
                     这时候异步操作就显得尤为重要。这里就学习记录一下js中的一些异步操作。`,
                 date: '个人笔记 / 学习'
-            }, , {
+            }, {
                 name: 'BOM/DOM',
                 path: '/object-model',
                 description: `由于现代浏览器已经（几乎）实现了 JavaScript 交互性方面的相同方法和属性，因此常被认为是 BOM 的方法和属性，也因此称
