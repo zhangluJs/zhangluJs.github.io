@@ -26,7 +26,7 @@ class Header extends React.Component {
         return (
             <header className='nav-header'>
                 <div className='container'>
-                    <a href="/" className="logo" title="zhanglu">
+                    <a href="https://zhanglujs.github.io/blog/dist/index.html#/home" className="logo" title="zhanglu">
                         <img src='static/img/favicon.png'/>
                     </a>
                     <nav className="nav-list">

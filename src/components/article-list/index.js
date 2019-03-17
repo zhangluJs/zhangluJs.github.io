@@ -11,6 +11,11 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: 'vue与react的异同',
+                path: '/vue-react-diff',
+                description: '记录一下vue与react这两大热门前端框架之间的异同',
+                date: '个人笔记 / 学习'
+            }, {
                 name: 'webpack',
                 path: '/webpack',
                 description: `在刚开始工作时，接触到了一些构建工具，比如gulp、grunt还有webpack。但当时总是弄不明白它们的具体概念。
@@ -50,6 +55,12 @@ export default class ArticleList extends React.Component {
                     整个基本的工作流程是客户端发送一个HTTP请求，说明客户端想要访问的资源和请求的动作，服务端收到请求之后，
                     服务端开始处理请求，并根据请求做出相应的动作访问服务器资源，最后通过发送HTTP响应把结果返回给客户端。
                     其中一个请求的开始到一个响应的结束称为事务，当一个事物结束后还会在服务端添加一条日志条目。`,
+                date: '个人笔记 / 学习'
+            }, {
+                name: 'JavaScript异步操作',
+                path: '/js-async',
+                description: `因为JavaScript执行环境是单线程的，所以在某些情况下会由于某些事务的延迟造成浏览器或者服务器假死的状态，
+                    这时候异步操作就显得尤为重要。这里就学习记录一下js中的一些异步操作。`,
                 date: '个人笔记 / 学习'
             }, {
                 name: 'BOM/DOM',
