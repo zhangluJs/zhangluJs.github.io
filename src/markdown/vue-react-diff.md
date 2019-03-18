@@ -130,7 +130,7 @@ export default class Parent extends React.Component {
     }
     render() {
         return (
-            <Child msg={this.state.msg} callbank={this.changeMsg}></Child>
+            <Child msg={this.state.msg} callback={this.changeMsg}></Child>
         )
     }
 }
@@ -143,7 +143,7 @@ export default class Child extends React.Component {
     }
 
     changeMsg = () => {
-        this.props.callbank('对，我是子组件')
+        this.props.callback('对，我是子组件')
     }
     
     render() {
