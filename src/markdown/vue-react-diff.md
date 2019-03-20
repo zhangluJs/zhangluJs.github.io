@@ -54,7 +54,7 @@ constructor(props) {
 
 - componentDidUpdate 组件更新后调用，类似vue的update
 
-- componentWillMount 组件销毁前调用，类似vue的beforeDestory
+- componentWillUnmount 组件销毁前调用，类似vue的beforeDestory
 
 ## 父子通信
 
