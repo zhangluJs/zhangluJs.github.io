@@ -11,10 +11,11 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
-                name: 'vue与react的异同',
-                path: '/vue-react-diff',
-                description: '记录一下vue与react这两大热门前端框架之间的异同',
-                date: '个人笔记 / 学习'
+                name: '从0开始构建一个模拟商城的购物网站',
+                path: '/mall-demo',
+                description: `做前端已经两年了，越来越感觉遇到了些瓶颈。工作中总有些东西要往后端拓展，但是说来惭愧，自己对后端并不了解。
+                    所以就打算自己做一个购物商城网站，前端后端数据库都自己来完成。这篇文章就用做来慢慢记录吧。`,
+                date: '工具 / 学习'
             }, {
                 name: 'webpack',
                 path: '/webpack',
@@ -22,6 +23,11 @@ export default class ArticleList extends React.Component {
                     后来通过在工作中的慢慢接触以及偶尔根据项目需要来修改其中的某些配置才渐渐明白了它们的作用。
                     在工作时始自己始终没有完整负责过一个项目的从无到有，所以利用空余时间好好啃了啃目前相对较火的webpack。`,
                 date: '工具 / 学习'
+            }, {
+                name: 'vue与react的异同',
+                path: '/vue-react-diff',
+                description: '记录一下vue与react这两大热门前端框架之间的异同',
+                date: '个人笔记 / 学习'
             }, {
                 name: 'NVM',
                 path: '/nvm',
