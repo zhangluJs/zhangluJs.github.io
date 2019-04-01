@@ -25,6 +25,7 @@ import nvm from '../../markdown/nvm.md';
 import webpack from '../../markdown/webpack.md';
 import vueReactDiff from '../../markdown/vue-react-diff.md';
 import jsAsync from '../../markdown/js-async.md';
+import mall from '../../markdown/mall.md';
 
 import './index.scss';
 
@@ -52,6 +53,7 @@ export default class App extends React.Component {
                             <Route path='/webpack' component={webpack}></Route>
                             <Route path='/vue-react-diff' component={vueReactDiff}></Route>
                             <Route path='/js-async' component={jsAsync}></Route>
+                            <Route path='/mall-demo' component={mall}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>

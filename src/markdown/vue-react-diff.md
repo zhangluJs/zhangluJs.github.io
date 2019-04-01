@@ -54,7 +54,7 @@ constructor(props) {
 
 - componentDidUpdate 组件更新后调用，类似vue的update
 
-- componentWillMount 组件销毁前调用，类似vue的beforeDestory
+- componentWillUnmount 组件销毁前调用，类似vue的beforeDestory
 
 ## 父子通信
 
@@ -130,7 +130,7 @@ export default class Parent extends React.Component {
     }
     render() {
         return (
-            <Child msg={this.state.msg} callbank={this.changeMsg}></Child>
+            <Child msg={this.state.msg} callback={this.changeMsg}></Child>
         )
     }
 }
@@ -143,7 +143,7 @@ export default class Child extends React.Component {
     }
 
     changeMsg = () => {
-        this.props.callbank('对，我是子组件')
+        this.props.callback('对，我是子组件')
     }
     
     render() {
