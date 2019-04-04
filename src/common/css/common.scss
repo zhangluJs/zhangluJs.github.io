@@ -232,3 +232,15 @@
         border-left: none;
     }
 }
+
+@media screen and (max-width: 1020px) {
+    .container {
+        width: auto;
+    }
+    .doc {
+        width: auto;
+        h1 {
+            font-size: 1.4rem;
+        }
+    }
+}

@@ -31,3 +31,14 @@
         right: 20px;
     }
 }
+
+@media screen and (max-width: 1020px) {
+    .article-list-item {
+        .article-list-name {
+            font-size: 1rem;
+        }
+        .article-list-description {
+            font-size: .8rem;
+        }
+    }
+}

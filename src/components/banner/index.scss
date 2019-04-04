@@ -27,3 +27,16 @@
         }
     }
 }
+
+@media screen and (max-width: 1020px) {
+    .banner {
+        .collection-info {
+            .meta-title {
+                font-size: 1.6rem;
+            }
+            .banner-icon {
+                font-size: .8rem;
+            }
+        }
+    }
+}
