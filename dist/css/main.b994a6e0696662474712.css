@@ -265,6 +265,14 @@ h6 {
   .doc table td:first-child, .doc table th:first-child {
     border-left: none; }
 
+@media screen and (max-width: 1020px) {
+  .container {
+    width: auto; }
+  .doc {
+    width: auto; }
+    .doc h1 {
+      font-size: 1.4rem; } }
+
 .nav-header {
   width: 100%;
   height: 60px;
@@ -289,6 +297,12 @@ h6 {
     margin-top: 12px; }
   .nav-header .el-color-picker__panel {
     right: 20px; }
+
+@media screen and (max-width: 1020px) {
+  .article-list-item .article-list-name {
+    font-size: 1rem; }
+  .article-list-item .article-list-description {
+    font-size: .8rem; } }
 
 .nav-footer {
   position: relative;
@@ -322,6 +336,10 @@ h6 {
     .nav-footer .bank-top:hover {
       text-decoration: underline; }
 
+@media screen and (max-width: 1020px) {
+  .nav-footer {
+    padding: 20px; } }
+
 .arrow-up {
   position: fixed;
   right: 30px;
@@ -352,6 +370,12 @@ h6 {
       .banner .collection-info .banner-icon a {
         color: #fff; }
 
+@media screen and (max-width: 1020px) {
+  .banner .collection-info .meta-title {
+    font-size: 1.6rem; }
+  .banner .collection-info .banner-icon {
+    font-size: .8rem; } }
+
 .article-list-item {
   position: relative;
   padding: 20px 0;
@@ -380,7 +404,13 @@ h6 {
       top: 1px;
       margin-right: 3px; }
 
+@media screen and (max-width: 1020px) {
+  .article-list-item .article-list-name {
+    font-size: 1rem; }
+  .article-list-item .article-list-description {
+    font-size: .8rem; } }
 
 
 
-/*# sourceMappingURL=main.c3d774213eb3ebd9c6a1.css.map*/
+
+/*# sourceMappingURL=main.b994a6e0696662474712.css.map*/
