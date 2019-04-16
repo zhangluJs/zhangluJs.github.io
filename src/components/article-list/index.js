@@ -63,6 +63,12 @@ export default class ArticleList extends React.Component {
                     其中一个请求的开始到一个响应的结束称为事务，当一个事物结束后还会在服务端添加一条日志条目。`,
                 date: '个人笔记 / 学习'
             }, {
+                name: '一些简单的linux命令',
+                path: '/linux',
+                description: `折腾服务器的时候，因为对linux命令不是很熟悉，遇到要用命令来操作的一些行为，比如传送文件、配置软连接、
+                    切换目录等，每次都是打开度娘慢慢搜。现在把我整理出来的几个常用的命令放在这里，方便以后查询。`,
+                date: '个人笔记 / 学习'
+            }, {
                 name: 'JavaScript异步操作',
                 path: '/js-async',
                 description: `因为JavaScript执行环境是单线程的，所以在某些情况下会由于某些事务的延迟造成浏览器或者服务器假死的状态，
