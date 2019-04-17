@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "b994a6e0696662474712";
+/******/ 	var hotCurrentHash = "f3e139f52e26033323d0";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -68210,7 +68210,7 @@ var ArticleList = function (_React$Component) {
             list: [{
                 name: '从0开始构建一个模拟商城的购物网站',
                 path: '/mall-demo',
-                description: '\u505A\u524D\u7AEF\u5DF2\u7ECF\u4E24\u5E74\u4E86\uFF0C\u8D8A\u6765\u8D8A\u611F\u89C9\u9047\u5230\u4E86\u4E9B\u74F6\u9888\u3002\u5DE5\u4F5C\u4E2D\u603B\u6709\u4E9B\u4E1C\u897F\u8981\u5F80\u540E\u7AEF\u62D3\u5C55\uFF0C\u4F46\u662F\u8BF4\u6765\u60ED\u6127\uFF0C\u81EA\u5DF1\u5BF9\u540E\u7AEF\u5E76\u4E0D\u4E86\u89E3\u3002\n                    \u6240\u4EE5\u5C31\u6253\u7B97\u81EA\u5DF1\u505A\u4E00\u4E2A\u8D2D\u7269\u5546\u57CE\u7F51\u7AD9\uFF0C\u524D\u7AEF\u540E\u7AEF\u6570\u636E\u5E93\u90FD\u81EA\u5DF1\u6765\u5B8C\u6210\u3002\u8FD9\u7BC7\u6587\u7AE0\u5C31\u7528\u505A\u6765\u6162\u6162\u8BB0\u5F55\u5427\u3002',
+                description: '\u505A\u524D\u7AEF\u5DF2\u7ECF\u4E24\u5E74\u4E86\uFF0C\u8D8A\u6765\u8D8A\u611F\u89C9\u9047\u5230\u4E86\u4E9B\u74F6\u9888\u3002\u5DE5\u4F5C\u4E2D\u603B\u6709\u4E9B\u4E1C\u897F\u8981\u5F80\u540E\u7AEF\u62D3\u5C55\u3002\u4F46\u662F\u8BF4\u6765\u60ED\u6127\uFF0C\u81EA\u5DF1\u5BF9\u540E\u7AEF\u5E76\u4E0D\u4E86\u89E3\uFF0C\n                    \u521A\u597D\u6700\u8FD1\u8FD9\u6BB5\u65F6\u95F4\u624B\u5934\u4E0A\u7684\u9879\u76EE\u4E0D\u662F\u7279\u522B\u5FD9\uFF0C\u6240\u4EE5\u5C31\u6253\u7B97\u81EA\u5DF1\u505A\u4E00\u4E2A\u8D2D\u7269\u5546\u57CE\u7F51\u7AD9\uFF0C\u524D\u7AEF\u540E\u7AEF\u6570\u636E\u5E93\u90FD\u81EA\u5DF1\u6765\u5B8C\u6210\u3002\u8FD9\u7BC7\u6587\u7AE0\u5C31\u7528\u505A\u6765\u6162\u6162\u8BB0\u5F55\u5427\u3002',
                 date: '工具 / 学习'
             }, {
                 name: 'webpack',
@@ -68246,6 +68246,11 @@ var ArticleList = function (_React$Component) {
                 name: 'HTTP',
                 path: '/http',
                 description: 'HTTP--Hyper Text Transfer Protocol\uFF0C\u8D85\u6587\u672C\u4F20\u8F93\u534F\u8BAE\uFF0C\u662F\u4E00\u79CD\u5EFA\u7ACB\u5728TCP\u4E0A\u7684\u65E0\u72B6\u6001\u8FDE\u63A5\uFF0C\n                    \u6574\u4E2A\u57FA\u672C\u7684\u5DE5\u4F5C\u6D41\u7A0B\u662F\u5BA2\u6237\u7AEF\u53D1\u9001\u4E00\u4E2AHTTP\u8BF7\u6C42\uFF0C\u8BF4\u660E\u5BA2\u6237\u7AEF\u60F3\u8981\u8BBF\u95EE\u7684\u8D44\u6E90\u548C\u8BF7\u6C42\u7684\u52A8\u4F5C\uFF0C\u670D\u52A1\u7AEF\u6536\u5230\u8BF7\u6C42\u4E4B\u540E\uFF0C\n                    \u670D\u52A1\u7AEF\u5F00\u59CB\u5904\u7406\u8BF7\u6C42\uFF0C\u5E76\u6839\u636E\u8BF7\u6C42\u505A\u51FA\u76F8\u5E94\u7684\u52A8\u4F5C\u8BBF\u95EE\u670D\u52A1\u5668\u8D44\u6E90\uFF0C\u6700\u540E\u901A\u8FC7\u53D1\u9001HTTP\u54CD\u5E94\u628A\u7ED3\u679C\u8FD4\u56DE\u7ED9\u5BA2\u6237\u7AEF\u3002\n                    \u5176\u4E2D\u4E00\u4E2A\u8BF7\u6C42\u7684\u5F00\u59CB\u5230\u4E00\u4E2A\u54CD\u5E94\u7684\u7ED3\u675F\u79F0\u4E3A\u4E8B\u52A1\uFF0C\u5F53\u4E00\u4E2A\u4E8B\u7269\u7ED3\u675F\u540E\u8FD8\u4F1A\u5728\u670D\u52A1\u7AEF\u6DFB\u52A0\u4E00\u6761\u65E5\u5FD7\u6761\u76EE\u3002',
+                date: '个人笔记 / 学习'
+            }, {
+                name: '一些简单的linux命令',
+                path: '/linux',
+                description: '\u6298\u817E\u670D\u52A1\u5668\u7684\u65F6\u5019\uFF0C\u56E0\u4E3A\u5BF9linux\u547D\u4EE4\u4E0D\u662F\u5F88\u719F\u6089\uFF0C\u9047\u5230\u8981\u7528\u547D\u4EE4\u6765\u64CD\u4F5C\u7684\u4E00\u4E9B\u884C\u4E3A\uFF0C\u6BD4\u5982\u4F20\u9001\u6587\u4EF6\u3001\u914D\u7F6E\u8F6F\u8FDE\u63A5\u3001\n                    \u5207\u6362\u76EE\u5F55\u7B49\uFF0C\u6BCF\u6B21\u90FD\u662F\u6253\u5F00\u5EA6\u5A18\u6162\u6162\u641C\u3002\u73B0\u5728\u628A\u6211\u6574\u7406\u51FA\u6765\u7684\u51E0\u4E2A\u5E38\u7528\u7684\u547D\u4EE4\u653E\u5728\u8FD9\u91CC\uFF0C\u65B9\u4FBF\u4EE5\u540E\u67E5\u8BE2\u3002',
                 date: '个人笔记 / 学习'
             }, {
                 name: 'JavaScript异步操作',
@@ -70942,6 +70947,360 @@ var MarkdownItReactComponent = function (_React$Component) {
                         'Async/await\u5B66\u4E60'
                     ),
                     '\u3002'
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
+
+/***/ }),
+
+/***/ "./src/markdown/linux.md":
+/*!*******************************!*\
+  !*** ./src/markdown/linux.md ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'h1',
+                    { id: 'jian-dan-delinux-ming-ling' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#jian-dan-delinux-ming-ling', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' \u7B80\u5355\u7684linux\u547D\u4EE4'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'cd'
+                    ),
+                    ': \u5207\u6362\u76EE\u5F55\u3002\u8FD9\u91CC\u6709\u4E2A\u6211\u9047\u5230\u7684\u5C0F\u5751\uFF0C\u5728\u5F00\u59CB\u64CD\u4F5C\u670D\u52A1\u5668\u7684\u65F6\u5019\uFF0C\u56E0\u4E3A\u81EA\u5DF1\u7684\u64CD\u4F5C\u7684\u758F\u5FFD\uFF0C\u5728\u5207\u6362\u5230\u6839\u76EE\u5F55\u7684\u65F6\u5019\u6CA1\u6709\u5206\u6E05cd \uFF5E\u4E0Ecd/ \u4EE5\u81F3\u4E8E\u5B89\u88C5\u7684\u4E00\u4E9B\u4E1C\u897F\u627E\u4E0D\u5230\u3002 \u8FD9\u91CC\u4ED4\u7EC6\u533A\u5206\u4E00\u4E0B'
+                ),
+                _react2.default.createElement(
+                    'ul',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'cd ..'
+                        ),
+                        ': \u8FD4\u56DE\u4E0A\u4E00\u7EA7\u76EE\u5F55'
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'cd'
+                        ),
+                        ': \u8FDB\u5165\u7528\u6237\u4E3B\u76EE\u5F55'
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'cd ~'
+                        ),
+                        ': \u8FDB\u5165\u7528\u6237\u4E3B\u76EE\u5F55'
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'cd /'
+                        ),
+                        ': \u8FDB\u5165\u6839\u76EE\u5F55'
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'cd ../..'
+                        ),
+                        ': \u8FD4\u56DE\u4E0A\u4E24\u7EA7\u76EE\u5F55'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'll'
+                    ),
+                    ': \u5217\u51FA\u5F53\u524D\u76EE\u5F55\u4E0B\u7684\u6587\u4EF6\uFF0C\u5C55\u793A\u6587\u4EF6\u7684\u4E00\u4E9B\u8BE6\u7EC6\u4FE1\u606F\uFF0C\u5305\u62EC\u6587\u4EF6\u5927\u5C0F\u3001\u8BFB\u5199\u6743\u9650\u3001\u65E5\u671F\u7B49'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'ls'
+                    ),
+                    ': \u5217\u51FA\u5F53\u524D\u76EE\u5F55\u4E0B\u7684\u6587\u4EF6'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'vi [filename]'
+                    ),
+                    ': \u8FDB\u5165\u7F16\u8F91\u6A21\u5F0F\uFF0C\u7F16\u8F91\u5F53\u524D\u6587\u4EF6\u3002i\u5F00\u542F\u7F16\u8F91\uFF0Cesc\u9000\u51FA\u7F16\u8F91\uFF0C:wq\u4FDD\u5B58\u5E76\u9000\u51FA\uFF08\u60F3\u8D77\u4E86\u7B2C\u4E00\u6B21\u7528vim\u7F16\u8F91\u5668\u65F6\u88AB\u652F\u914D\u7684\u6050\u60E7...\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'whereis [filename]'
+                    ),
+                    ': \u67E5\u627E\u6587\u4EF6\uFF0C\u53EF\u4EE5\u67E5\u770B\u6587\u4EF6\u5728\u54EA\u4E2A\u6587\u4EF6\u5939\u4E0B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'scp'
+                    ),
+                    ': \u8FDB\u884C\u6587\u4EF6\u7684\u8FDC\u7A0B\u62F7\u8D1D\u3002\u8BE5\u547D\u4EE4\u53EF\u4EE5\u5728linux\u670D\u52A1\u5668\u4E4B\u95F4\u590D\u5236\u6587\u4EF6\u548C\u76EE\u5F55'
+                ),
+                _react2.default.createElement(
+                    'ul',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u590D\u5236\u6587\u4EF6: ',
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                'scp local_file remote_username@remote_ip:remote_folder'
+                            ),
+                            '\u6216\u8005 ',
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                'scp local_file remote_username@remote_ip:remote_file'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u590D\u5236\u76EE\u5F55: ',
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                'scp -r local_folder remote_username@remote_ip:remote_folder'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u4ECE\u8FDC\u5904\u590D\u5236\u6587\u4EF6\u5230\u672C\u5730\u76EE\u5F55: ',
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                'scp root@xxx.xxx.xxx.xxx:/opt/soft/nginx-0.5.38.tar.gz /opt/soft/'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u5C06\u672C\u5730\u6587\u4EF6\u590D\u5236\u5230\u8FDC\u7AEF: ',
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                'scp /learn/demo/app.js root@xx.x.xx.99:./workspace/demo/'
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'ln -s'
+                    ),
+                    ': \u521B\u5EFA\u8F6F\u8FDE\u63A5\u3002\u5177\u4F53\u7528\u6CD5\u662F\uFF1Aln -s \u6E90\u6587\u4EF6 \u76EE\u6807\u6587\u4EF6\u3002\u5B83\u7684\u529F\u80FD\u662F\u4E3A\u67D0\u4E00\u4E2A\u6587\u4EF6\u5728\u53E6\u5916\u4E00\u4E2A\u4F4D\u7F6E\u5EFA\u7ACB\u4E00\u4E2A\u540C\u4E0D\u7684\u94FE\u63A5\uFF0C\u8FD9\u4E2A\u547D\u4EE4\u6700\u5E38\u7528\u7684\u53C2\u6570\u662F-s\u3002'
+                ),
+                _react2.default.createElement(
+                    'ul',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'ln -s /mongodb/mongodb-linux-x86_64-ubuntu1404-3.4.4/bin/mongo /usr/local/bin/mongo'
+                        ),
+                        '\u8FD9\u4E2A\u4F8B\u5B50\u662F\u6211\u5728\u670D\u52A1\u5668\u4E0A\u914D\u7F6Emongodb\u7684\u8F6F\u8FDE\u63A5\uFF0C\u5176\u4ED6\u7684\u8BF8\u5982node\u3001npm\u4E5F\u662F\u5982\u6B64'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'rm -rf'
+                    ),
+                    ': \u5220\u9664\u8F6F\u8FDE\u63A5\uFF0C\u62FF\u4E0A\u9762\u7684\u4F8B\u5B50\u6765\u5220\u9664\u5C31\u662F',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'rm -rf /usr/local/bin/mongo'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'mkdir'
+                    ),
+                    ': \u521B\u5EFA\u76EE\u5F55',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'mkdir \u684C\u9762/demo'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'rm'
+                    ),
+                    ': \u5220\u9664\u76EE\u5F55\u3002',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '-r'
+                    ),
+                    '\u5220\u9664\u76EE\u5F55',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '-f'
+                    ),
+                    '\u5F3A\u5236'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'ssh root@xxx.xxx.xx.xx'
+                    ),
+                    ': \u94FE\u63A5\u670D\u52A1\u5668'
+                ),
+                _react2.default.createElement(
+                    'h3',
+                    { id: 'zhe-li-zhi-shi-jian-dan-de-ji-lu-liao-yi-xielinex-ming-ling-guan-yulinux-de-ming-ling-yi-ji-qi-ta-xiang-guan-zhi-shi-huan-you-hen-duo.-man-man-ji-lei-ba~' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#zhe-li-zhi-shi-jian-dan-de-ji-lu-liao-yi-xielinex-ming-ling-guan-yulinux-de-ming-ling-yi-ji-qi-ta-xiang-guan-zhi-shi-huan-you-hen-duo.-man-man-ji-lei-ba~', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' \u8FD9\u91CC\u53EA\u662F\u7B80\u5355\u7684\u8BB0\u5F55\u4E86\u4E00\u4E9Blinex\u547D\u4EE4\uFF0C\u5173\u4E8Elinux\u7684\u547D\u4EE4\u4EE5\u53CA\u5176\u4ED6\u76F8\u5173\u77E5\u8BC6\u8FD8\u6709\u5F88\u591A\u3002\u6162\u6162\u79EF\u7D2F\u5427\uFF5E'
                 )
             );
         }
@@ -74720,6 +75079,10 @@ var _mall = __webpack_require__(/*! ../../markdown/mall.md */ "./src/markdown/ma
 
 var _mall2 = _interopRequireDefault(_mall);
 
+var _linux = __webpack_require__(/*! ../../markdown/linux.md */ "./src/markdown/linux.md");
+
+var _linux2 = _interopRequireDefault(_linux);
+
 __webpack_require__(/*! ./index.scss */ "./src/pages/app/index.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -74775,6 +75138,7 @@ var App = function (_React$Component) {
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/vue-react-diff', component: _vueReactDiff2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/js-async', component: _jsAsync2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/mall-demo', component: _mall2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/linux', component: _linux2.default }),
                             _react2.default.createElement(_reactRouterDom.Redirect, { from: '/', to: '/home' })
                         )
                     ),
@@ -79604,4 +79968,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.b994a6e0696662474712.js.map
+//# sourceMappingURL=main.f3e139f52e26033323d0.js.map

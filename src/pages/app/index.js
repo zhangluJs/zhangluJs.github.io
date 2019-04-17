@@ -26,6 +26,7 @@ import webpack from '../../markdown/webpack.md';
 import vueReactDiff from '../../markdown/vue-react-diff.md';
 import jsAsync from '../../markdown/js-async.md';
 import mall from '../../markdown/mall.md';
+import linux from '../../markdown/linux.md';
 
 import './index.scss';
 
@@ -54,6 +55,7 @@ export default class App extends React.Component {
                             <Route path='/vue-react-diff' component={vueReactDiff}></Route>
                             <Route path='/js-async' component={jsAsync}></Route>
                             <Route path='/mall-demo' component={mall}></Route>
+                            <Route path='/linux' component={linux}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>
