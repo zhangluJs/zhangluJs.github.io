@@ -27,6 +27,7 @@ import vueReactDiff from '../../markdown/vue-react-diff.md';
 import jsAsync from '../../markdown/js-async.md';
 import mall from '../../markdown/mall.md';
 import linux from '../../markdown/linux.md';
+import git from '../../markdown/git.md';
 
 import './index.scss';
 
@@ -56,6 +57,7 @@ export default class App extends React.Component {
                             <Route path='/js-async' component={jsAsync}></Route>
                             <Route path='/mall-demo' component={mall}></Route>
                             <Route path='/linux' component={linux}></Route>
+                            <Route path='/git' component={git}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>
