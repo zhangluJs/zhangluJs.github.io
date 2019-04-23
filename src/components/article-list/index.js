@@ -75,6 +75,13 @@ export default class ArticleList extends React.Component {
                     这时候异步操作就显得尤为重要。这里就学习记录一下js中的一些异步操作。`,
                 date: '个人笔记 / 学习'
             }, {
+                name: 'GIT',
+                path: '/git',
+                description: `GIT是什么？它是一个分布式的版本控制系统。它对于程序猿来说就像编辑器一样，必不可少。它可以记录每次修改的内容
+                    并且可以知道各个版本之间的调整在哪里。而且还可以在不同版本中切换。大大降低了我们在日常开发中由于疏忽或者其他原因造成的代码损失。
+                    与之类似的还有SVN等等，不过当下git是主流。`,
+                date: '个人笔记 / 工具'
+            }, {
                 name: 'BOM/DOM',
                 path: '/object-model',
                 description: `由于现代浏览器已经（几乎）实现了 JavaScript 交互性方面的相同方法和属性，因此常被认为是 BOM 的方法和属性，也因此称
