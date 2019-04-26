@@ -28,6 +28,7 @@ import jsAsync from '../../markdown/js-async.md';
 import mall from '../../markdown/mall.md';
 import linux from '../../markdown/linux.md';
 import git from '../../markdown/git.md';
+import someUrl from '../../markdown/some-url.md';
 
 import './index.scss';
 
@@ -58,6 +59,7 @@ export default class App extends React.Component {
                             <Route path='/mall-demo' component={mall}></Route>
                             <Route path='/linux' component={linux}></Route>
                             <Route path='/git' component={git}></Route>
+                            <Route path='/some-url' component={someUrl}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>

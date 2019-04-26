@@ -11,6 +11,12 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: '保存我经常用到的一些网站',
+                path: '/some-url',
+                description: `有时候需要在其他设备上折腾一些东西，需要用到某些熟悉的东西时，谷歌又不一定能登录上去，所以就把自己的一些常用的网址保存在这里
+                    以备不时之需。`,
+                date: '学习'
+            }, {
                 name: '从0开始构建一个模拟商城的购物网站',
                 path: '/mall-demo',
                 description: `做前端已经两年了，越来越感觉遇到了些瓶颈。工作中总有些东西要往后端拓展。但是说来惭愧，自己对后端并不了解，
