@@ -1,9 +1,11 @@
-### 安装相关
+### 工具相关
 [30分钟利用oh-my-zsh打造漂亮的终端](https://www.jianshu.com/p/60a11f762f62)
 
 [精品MAC应用分享](https://xclient.info/)，墙裂推荐这个，mac的福音，里面好多软件都是破解掉的。
 
 [node](http://nodejs.cn/download/)
+
+[PDF爱好者的在线工具](https://www.ilovepdf.com/zh-cn)
 
 ### 学习相关
 [入门 Webpack，看这篇就够了](https://segmentfault.com/a/1190000006178770?utm_source=tag-newest)
