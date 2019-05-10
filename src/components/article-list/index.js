@@ -11,7 +11,7 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
-                name: '一些可以用来提升的网站网站',
+                name: '一些可以用来提升的网站',
                 path: '/some-url',
                 description: `有时候需要在其他设备上折腾一些东西，需要用到某些熟悉的东西时，谷歌又不一定能登录上去，所以就把自己的一些常用的网址保存在这里
                     以备不时之需。`,
