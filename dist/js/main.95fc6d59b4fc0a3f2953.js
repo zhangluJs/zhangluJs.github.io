@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "adbc50d7e8e1eeef6442";
+/******/ 	var hotCurrentHash = "95fc6d59b4fc0a3f2953";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -68208,6 +68208,11 @@ var ArticleList = function (_React$Component) {
 
         _this.state = {
             list: [{
+                name: '一些可以用来提升的网站',
+                path: '/some-url',
+                description: '\u6709\u65F6\u5019\u9700\u8981\u5728\u5176\u4ED6\u8BBE\u5907\u4E0A\u6298\u817E\u4E00\u4E9B\u4E1C\u897F\uFF0C\u9700\u8981\u7528\u5230\u67D0\u4E9B\u719F\u6089\u7684\u4E1C\u897F\u65F6\uFF0C\u8C37\u6B4C\u53C8\u4E0D\u4E00\u5B9A\u80FD\u767B\u5F55\u4E0A\u53BB\uFF0C\u6240\u4EE5\u5C31\u628A\u81EA\u5DF1\u7684\u4E00\u4E9B\u5E38\u7528\u7684\u7F51\u5740\u4FDD\u5B58\u5728\u8FD9\u91CC\n                    \u4EE5\u5907\u4E0D\u65F6\u4E4B\u9700\u3002',
+                date: '学习'
+            }, {
                 name: '从0开始构建一个模拟商城的购物网站',
                 path: '/mall-demo',
                 description: '\u505A\u524D\u7AEF\u5DF2\u7ECF\u4E24\u5E74\u4E86\uFF0C\u8D8A\u6765\u8D8A\u611F\u89C9\u9047\u5230\u4E86\u4E9B\u74F6\u9888\u3002\u5DE5\u4F5C\u4E2D\u603B\u6709\u4E9B\u4E1C\u897F\u8981\u5F80\u540E\u7AEF\u62D3\u5C55\u3002\u4F46\u662F\u8BF4\u6765\u60ED\u6127\uFF0C\u81EA\u5DF1\u5BF9\u540E\u7AEF\u5E76\u4E0D\u4E86\u89E3\uFF0C\n                    \u521A\u597D\u6700\u8FD1\u8FD9\u6BB5\u65F6\u95F4\u624B\u5934\u4E0A\u7684\u9879\u76EE\u4E0D\u662F\u7279\u522B\u5FD9\uFF0C\u6240\u4EE5\u5C31\u6253\u7B97\u81EA\u5DF1\u505A\u4E00\u4E2A\u8D2D\u7269\u5546\u57CE\u7F51\u7AD9\uFF0C\u524D\u7AEF\u540E\u7AEF\u6570\u636E\u5E93\u90FD\u81EA\u5DF1\u6765\u5B8C\u6210\u3002\u8FD9\u7BC7\u6587\u7AE0\u5C31\u7528\u505A\u6765\u6162\u6162\u8BB0\u5F55\u5427\u3002',
@@ -73666,6 +73671,407 @@ exports.default = MarkdownItReactComponent;
 
 /***/ }),
 
+/***/ "./src/markdown/some-url.md":
+/*!**********************************!*\
+  !*** ./src/markdown/some-url.md ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'h3',
+                    { id: 'gong-ju-xiang-guan' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#gong-ju-xiang-guan', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' \u5DE5\u5177\u76F8\u5173'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://www.jianshu.com/p/60a11f762f62' },
+                        '30\u5206\u949F\u5229\u7528oh-my-zsh\u6253\u9020\u6F02\u4EAE\u7684\u7EC8\u7AEF'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://xclient.info/' },
+                        '\u7CBE\u54C1MAC\u5E94\u7528\u5206\u4EAB'
+                    ),
+                    '\uFF0C\u5899\u88C2\u63A8\u8350\u8FD9\u4E2A\uFF0Cmac\u7684\u798F\u97F3\uFF0C\u91CC\u9762\u597D\u591A\u8F6F\u4EF6\u90FD\u662F\u7834\u89E3\u6389\u7684\u3002'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'http://nodejs.cn/download/' },
+                        'node'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://www.ilovepdf.com/zh-cn' },
+                        'PDF\u7231\u597D\u8005\u7684\u5728\u7EBF\u5DE5\u5177'
+                    )
+                ),
+                _react2.default.createElement(
+                    'h3',
+                    { id: 'xue-xi-xiang-guan' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#xue-xi-xiang-guan', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' \u5B66\u4E60\u76F8\u5173'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://segmentfault.com/a/1190000006178770?utm_source=tag-newest' },
+                        '\u5165\u95E8 Webpack\uFF0C\u770B\u8FD9\u7BC7\u5C31\u591F\u4E86'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers' },
+                        '\u524D\u7AEF\u5F00\u53D1\u9762\u8BD5\u9898'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://juejin.im/post/5c64d15d6fb9a049d37f9c20' },
+                        '\u8FD8\u662F\u524D\u7AEF\u9762\u8BD5\u9898'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://m.nowcoder.com/discuss/164925?headNav=www' },
+                        '\u53C8\u662F\u9762\u8BD5\u9898'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'http://xiaoqiang-zhao.github.io/#!/' },
+                        '\u540C\u4E8B\u5F3A\u54E5\u7684\u4E2A\u4EBA\u7AD9'
+                    ),
+                    '\uFF0C\u5B66\u4E60\u7684\u76EE\u6807\u4E4B\u4E00'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://segmentfault.com/q/1010000007889782?_ea=1483561' },
+                        '\u670D\u52A1\u5668\u4E0A\u7684Mongodb\u6570\u636E\u5E93\u670D\u52A1\u600E\u4E48\u9ED8\u8BA4\u4E00\u76F4\u5F00\u542F'
+                    ),
+                    '\uFF0C\u8FD9\u4E2A\u5C31\u662F\u6211\u5728\u6298\u817E\u670D\u52A1\u5668\u65F6\u9047\u5230\u7684\u4E00\u4E2A\u95EE\u9898\uFF0C\u4FDD\u5B58\u8D77\u6765'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://chenhuichao.com/' },
+                        '\u9648\u60E0\u8D85\u7684\u535A\u5BA2'
+                    ),
+                    '\uFF0C\u603B\u7ED3\u7684\u6BD4\u8F83\u7EC6\uFF0C\u4E2A\u4EBA\u611F\u89C9\u770B\u95EE\u9898\u7684\u89D2\u5EA6\u5DEE\u4E0D\u591A\uFF0C\u867D\u7136\u6211\u5F88\u83DC'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://zhuanlan.zhihu.com/p/49427912' },
+                        '\u672C\u5730\u52A8\u6001mock\u65B9\u6848\u63A2\u7D22'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://segmentfault.com/a/1190000011474522' },
+                        'Redux\u5165\u95E8\u6559\u7A0B\uFF08\u5FEB\u901F\u4E0A\u624B\uFF09'
+                    ),
+                    '\uFF0C\u901A\u4FD7\u6613\u61C2\uFF0C\u8BB2\u7684\u5F88\u68D2'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://juejin.im/post/5c11bf145188252704368b98' },
+                        '\u65B0\u5E74\u732E\u793C \u6280\u672F\u80D6262\u96C6\u524D\u7AEF\u514D\u8D39\u89C6\u9891 \u8BA9\u60A8\u8D70\u7684\u66F4\u5BB9\u6613\u4E9B'
+                    ),
+                    '\uFF0C\u6211\u4E00\u4E2A\u90FD\u6CA1\u770B\u8FC7\uFF0C\u8FD8\u662F\u5B58\u4E0B\u6765\u5427 - -'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://pegggy.github.io/#' },
+                        '\u5076\u7136\u53D1\u73B0\u7684\u4E00\u4E2A\u4EBA\u7684\u4E2A\u4EBA\u7AD9\u70B9'
+                    ),
+                    '\uFF0C\u8BBE\u8BA1\u98CE\u683C\u6BD4\u8F83\u5C0F\u6E05\u65B0\uFF0C\u6BD4\u8F83\u5BF9\u53E3\u5473'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://segmentfault.com/a/1190000011399153' },
+                        '\u7528react\u5B9E\u73B0\u4E00\u4E2A\u7B80\u5355\u7684\u4E2A\u4EBA\u535A\u5BA2'
+                    ),
+                    '\uFF0C\u6211\u8C8C\u4F3C\u662F\u5728\u6298\u817Emarkdown\u7684\u65F6\u5019\u53D1\u73B0\u7684\u8FD9\u4E2A\u6587\u7AE0'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://dongchuan.github.io/' },
+                        'I am Chuan'
+                    ),
+                    '\uFF0C\u672C\u7F51\u9875\u7684\u67D0\u4E9B\u5730\u65B9\u5C31\u662F\u53C2\u8003\u7684\u8FD9\u4E2A\u7AD9'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://github.com/mzlogin/markdown-intro/edit/master/README.md' },
+                        'markdown'
+                    ),
+                    '\uFF0C\u5173\u4E8Emarkdown\u7684\u4E00\u4E9B\u7F16\u8F91\u65B9\u6CD5'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://segmentfault.com/a/1190000013292562?utm_source=channel-newest' },
+                        'Async/await'
+                    ),
+                    '\uFF0C\u7814\u7A76async/await\u65F6\u53D1\u73B0\u7684\u4E00\u7BC7\u6211\u89C9\u5F97\u8FD8\u4E0D\u9519\u7684\u6587\u7AE0'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'http://www.ruanyifeng.com/blog/2014/10/event-loop.html' },
+                        'JavaScript \u8FD0\u884C\u673A\u5236\u8BE6\u89E3\uFF1A\u518D\u8C08Event Loop'
+                    ),
+                    '\uFF0C\u5BF9event loop\u4F9D\u7136\u662F\u4E00\u77E5\u534A\u89E3\uFF0C\u6211\u7684\u667A\u5546\u554A\u554A\u554A\u554A'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://www.jianshu.com/p/2ec6540a22bf' },
+                        '\u722C\u53D6\u97F3\u60A6\u53F0\u4EFB\u610F\u827A\u4EBA\u7684mv\uFF08\u6700\u9AD8\u753B\u8D28\uFF09+\u6279\u91CF\u4E0B\u8F7D'
+                    ),
+                    '\uFF0C\u60F3\u81EA\u5DF1\u505A\u4E2Aelectron\u684C\u9762\u5E94\u7528\uFF0C\u60F3\u7528\u97F3\u60A6\u53F0\u7684\u4E00\u4E9B\u6570\u636E'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://www.jb51.net/article/59287.htm' },
+                        'Nodejs\u4E2D\u8C03\u7528\u7CFB\u7EDF\u547D\u4EE4\u3001Shell\u811A\u672C\u548CPython\u811A\u672C\u7684\u65B9\u6CD5\u548C\u5B9E\u4F8B'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://www.cnblogs.com/jiangxifanzhouyudu/p/9517651.html' },
+                        '\u624B\u628A\u624B\u6559Electron+vue\u7684\u4F7F\u7528'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://juejin.im/post/5a572f26f265da3e513305f6' },
+                        'Electron-vue\u5F00\u53D1\u5B9E\u62180\u2014\u2014Electron-vue\u5165\u95E8'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://qishaoxuan.github.io/css_tricks/' },
+                        'CSS Tricks'
+                    ),
+                    '\uFF0C\u4E00\u4E9B\u6BD4\u8F83\u9AD8\u5927\u4E0A\u7684css\u6837\u5F0F\u6280\u5DE7'
+                ),
+                _react2.default.createElement(
+                    'h3',
+                    { id: 'wen-zhang' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#wen-zhang', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' \u6587\u7AE0'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://wubaiqing.github.io/zaobao/2019/01/21.html' },
+                        '\u6BCF\u65E5\u6587\u7AE0'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'http://www.ruanyifeng.com/blog/archives.html' },
+                        '\u962E\u4E00\u5CF0\u5927\u795E\u7684\u6587\u7AE0'
+                    ),
+                    '\uFF0C\u819C\u62DC...'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://www.liaoxuefeng.com/' },
+                        '\u5ED6\u96EA\u5CF0\u5927\u795E\u7684\u7F51\u7AD9'
+                    ),
+                    '\uFF0C\u819C\u62DC...'
+                ),
+                _react2.default.createElement(
+                    'h3',
+                    { id: 'qi-ta' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#qi-ta', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' \u5176\u4ED6'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://tinypng.com/' },
+                        '\u56FE\u7247\u538B\u7F29\u624B\u52A8\u538B\u7F29TinyPNG'
+                    ),
+                    '\uFF0C\u5076\u5C14\u4F1A\u7528\u5230'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'http://zhangluupup.top:3000/#/' },
+                        '\u6211\u7684\u6A21\u62DF\u8D2D\u7269\u5546\u57CE\u7684\u7F51\u7AD9'
+                    ),
+                    '\uFF0C\u5982\u679C\u6709\u4E00\u5929\u6253\u4E0D\u5F00\u4E86\uFF0C\u90A3\u4E00\u5B9A\u662F\u6211\u6CA1\u94B1\u7EED\u8D39\u670D\u52A1\u5668\u4E86...'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6301\u7EED\u66F4\u65B0\u3002\u3002\u3002'
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
+
+/***/ }),
+
 /***/ "./src/markdown/vue-react-diff.md":
 /*!****************************************!*\
   !*** ./src/markdown/vue-react-diff.md ***!
@@ -75486,6 +75892,10 @@ var _git = __webpack_require__(/*! ../../markdown/git.md */ "./src/markdown/git.
 
 var _git2 = _interopRequireDefault(_git);
 
+var _someUrl = __webpack_require__(/*! ../../markdown/some-url.md */ "./src/markdown/some-url.md");
+
+var _someUrl2 = _interopRequireDefault(_someUrl);
+
 __webpack_require__(/*! ./index.scss */ "./src/pages/app/index.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -75543,6 +75953,7 @@ var App = function (_React$Component) {
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/mall-demo', component: _mall2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/linux', component: _linux2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/git', component: _git2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/some-url', component: _someUrl2.default }),
                             _react2.default.createElement(_reactRouterDom.Redirect, { from: '/', to: '/home' })
                         )
                     ),
@@ -80372,4 +80783,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.adbc50d7e8e1eeef6442.js.map
+//# sourceMappingURL=main.95fc6d59b4fc0a3f2953.js.map

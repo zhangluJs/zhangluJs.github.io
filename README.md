@@ -45,4 +45,8 @@ $ npm run build
     ![vue-demo](./src/static/img/vue-demo-ordersuccess.png)
 
 * 2019/2/26
+<<<<<<< HEAD
     * 这几天不是很忙，又折腾了一下这个react项目，打算把以前写在乱七八糟地方的东西整理一下，放在这个项目中以markdown的形式保存下来。修改了一下项目里的配置还有一些明显的bug，比如head导航的activeClassName不激活的问题，使用这个文章的提供的方法修复了[https://www.cnblogs.com/wenruo/p/10321456.html](https://www.cnblogs.com/wenruo/p/10321456.html)。具体的样式就先这样吧，也没多余的时间折腾，有空了在好好改改。
+=======
+    * 这几天不是很忙，又折腾了一下这个react项目，打算把以前写在乱七八糟地方的东西整理一下，放在这个项目中以markdown的形式保存下来。修改了一下项目里的配置还有一些明显的bug，比如head导航的activeClassName不激活的问题，使用这个文章的提供的方法修复了[地址](https://www.cnblogs.com/wenruo/p/10321456.html)。具体的样式就先这样吧，也没多余的时间折腾，有空了在好好改改。
+>>>>>>> 17c396256f0262f3dd8ee926b51ac193bbfd3e35
