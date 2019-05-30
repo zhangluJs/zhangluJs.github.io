@@ -36,8 +36,8 @@
 
 **响应体的通用字段含义：**
 - Allow： 资源可支持的HTTP方法
-- Content-type： 定义了body体中的数据类型，值有application/x-www-form-urlencoded等
-- Content-Encoding： 告诉浏览器服务器端采用的怎样的编码格式传输了正文，值有gzip、deflte
+- Content-type： 定义了body体中的数据类型，常见的媒体格式类型有：text/html(HTML格式)、text/plain(纯文本格式)、image/gif(gif图片格式)，以application开头的媒体格式有：application/x-www-form-urlencoded，application/xml(XML数据格式)等
+- Content-Encoding： 告诉浏览器服务器端采用的怎样的编码格式传输了正文，值有gzip（采用GUN zip编码）、deflate(采用zilib格式压缩)、compress(采用Unix文件压缩程序)
 - Content-language： 响应体中使用的语言
 - Cookie： 服务器端设置或者浏览器端发送一些字符串信息，包括了用户的一些基本信息，用于两端通讯
 
