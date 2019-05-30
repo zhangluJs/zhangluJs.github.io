@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "95fc6d59b4fc0a3f2953";
+/******/ 	var hotCurrentHash = "56a7943d6d0f63a3e9d9";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -68208,6 +68208,11 @@ var ArticleList = function (_React$Component) {
 
         _this.state = {
             list: [{
+                name: 'Promise.all与race实现',
+                path: '/promise-all-race',
+                description: '简单的方法实现Promise.all & Promise.race',
+                date: '学习'
+            }, {
                 name: '一些可以用来提升的网站',
                 path: '/some-url',
                 description: '\u6709\u65F6\u5019\u9700\u8981\u5728\u5176\u4ED6\u8BBE\u5907\u4E0A\u6298\u817E\u4E00\u4E9B\u4E1C\u897F\uFF0C\u9700\u8981\u7528\u5230\u67D0\u4E9B\u719F\u6089\u7684\u4E1C\u897F\u65F6\uFF0C\u8C37\u6B4C\u53C8\u4E0D\u4E00\u5B9A\u80FD\u767B\u5F55\u4E0A\u53BB\uFF0C\u6240\u4EE5\u5C31\u628A\u81EA\u5DF1\u7684\u4E00\u4E9B\u5E38\u7528\u7684\u7F51\u5740\u4FDD\u5B58\u5728\u8FD9\u91CC\n                    \u4EE5\u5907\u4E0D\u65F6\u4E4B\u9700\u3002',
@@ -70220,12 +70225,12 @@ var MarkdownItReactComponent = function (_React$Component) {
                     _react2.default.createElement(
                         'li',
                         null,
-                        'Content-type\uFF1A \u5B9A\u4E49\u4E86body\u4F53\u4E2D\u7684\u6570\u636E\u7C7B\u578B\uFF0C\u503C\u6709application/x-www-form-urlencoded\u7B49'
+                        'Content-type\uFF1A \u5B9A\u4E49\u4E86body\u4F53\u4E2D\u7684\u6570\u636E\u7C7B\u578B\uFF0C\u5E38\u89C1\u7684\u5A92\u4F53\u683C\u5F0F\u7C7B\u578B\u6709\uFF1Atext/html(HTML\u683C\u5F0F)\u3001text/plain(\u7EAF\u6587\u672C\u683C\u5F0F)\u3001image/gif(gif\u56FE\u7247\u683C\u5F0F)\uFF0C\u4EE5application\u5F00\u5934\u7684\u5A92\u4F53\u683C\u5F0F\u6709\uFF1Aapplication/x-www-form-urlencoded\uFF0Capplication/xml(XML\u6570\u636E\u683C\u5F0F)\u7B49'
                     ),
                     _react2.default.createElement(
                         'li',
                         null,
-                        'Content-Encoding\uFF1A \u544A\u8BC9\u6D4F\u89C8\u5668\u670D\u52A1\u5668\u7AEF\u91C7\u7528\u7684\u600E\u6837\u7684\u7F16\u7801\u683C\u5F0F\u4F20\u8F93\u4E86\u6B63\u6587\uFF0C\u503C\u6709gzip\u3001deflte'
+                        'Content-Encoding\uFF1A \u544A\u8BC9\u6D4F\u89C8\u5668\u670D\u52A1\u5668\u7AEF\u91C7\u7528\u7684\u600E\u6837\u7684\u7F16\u7801\u683C\u5F0F\u4F20\u8F93\u4E86\u6B63\u6587\uFF0C\u503C\u6709gzip\uFF08\u91C7\u7528GUN zip\u7F16\u7801\uFF09\u3001deflate(\u91C7\u7528zilib\u683C\u5F0F\u538B\u7F29)\u3001compress(\u91C7\u7528Unix\u6587\u4EF6\u538B\u7F29\u7A0B\u5E8F)'
                     ),
                     _react2.default.createElement(
                         'li',
@@ -73150,6 +73155,397 @@ exports.default = MarkdownItReactComponent;
 
 /***/ }),
 
+/***/ "./src/markdown/promise_all_race.md":
+/*!******************************************!*\
+  !*** ./src/markdown/promise_all_race.md ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'ul',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'promise.all'
+                        ),
+                        ' \u6240\u6709promise\u5BF9\u8C61\u90FDthen\u5B8C\u6BD5\u540E\u624Dthen\uFF0C\u5F53\u6709\u4E00\u4E2Apromise\u5B9E\u4F8B\u4E3Areject\u65F6\uFF0C\u5219\u6574\u4E2A\u4E3Areject\u3002\u8FD4\u56DE\u503C\u662F\u4E00\u4E2A\u5305\u542B\u4E86\u6240\u6709\u7ED3\u679C\u7684\u6570\u7EC4\uFF0C\u5E76\u4E14\u4E0E\u4F20\u5165\u7684promise\u5B9E\u4F8B\u7684\u987A\u5E8F\u4E00\u81F4'
+                    )
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-comment' },
+                            '// Promise.all\u7684\u7B80\u5355\u5B9E\u73B0'
+                        ),
+                        _react2.default.createElement('br', null),
+                        'EasyPromise.all = ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-function' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-keyword' },
+                                'function'
+                            ),
+                            ' (',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-params' },
+                                'promises'
+                            ),
+                            ') '
+                        ),
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'let'
+                        ),
+                        ' count = ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-number' },
+                            '0'
+                        ),
+                        ';',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'let'
+                        ),
+                        ' result = [];',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'let'
+                        ),
+                        ' len = promises.length;',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'return'
+                        ),
+                        ' ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'new'
+                        ),
+                        ' ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-built_in' },
+                            'Promise'
+                        ),
+                        '(',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-function' },
+                            '(',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-params' },
+                                'resolve, reject'
+                            ),
+                            ') =>'
+                        ),
+                        ' ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'for'
+                        ),
+                        ' (',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'let'
+                        ),
+                        ' i = ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-number' },
+                            '0'
+                        ),
+                        '; i < len; i++) ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '            promises[i].then(',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-function' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-params' },
+                                'res'
+                            ),
+                            ' =>'
+                        ),
+                        ' ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '                count += ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-number' },
+                            '1'
+                        ),
+                        ';',
+                        _react2.default.createElement('br', null),
+                        '                result.push(res);',
+                        _react2.default.createElement('br', null),
+                        '                ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'if'
+                        ),
+                        ' (count === len) ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '                    resolve(result);',
+                        _react2.default.createElement('br', null),
+                        '                ',
+                        '}',
+                        _react2.default.createElement('br', null),
+                        '            ',
+                        '}',
+                        ', reject);',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        '}',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        '}',
+                        ')',
+                        _react2.default.createElement('br', null),
+                        '}',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'ul',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'promise.race'
+                        ),
+                        ' \u5F53\u524D\u961F\u5217\u4E2D\u8C01\u5148\u5B8C\u6210\u5373\u5B8C\u6210\uFF0C\u8FD4\u56DE\u503C\u4E3A\u5B8C\u6210\u7684promise\u7684\u7ED3\u679C'
+                    )
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-comment' },
+                            '// Promise.race\u7684\u7B80\u5355\u5B9E\u73B0'
+                        ),
+                        _react2.default.createElement('br', null),
+                        'EasyPromise.race = ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-function' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-keyword' },
+                                'function'
+                            ),
+                            ' (',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-params' },
+                                'promises'
+                            ),
+                            ') '
+                        ),
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'return'
+                        ),
+                        ' ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'new'
+                        ),
+                        ' ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-built_in' },
+                            'Promise'
+                        ),
+                        '(',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-function' },
+                            '(',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-params' },
+                                'resolve, reject'
+                            ),
+                            ') =>'
+                        ),
+                        ' ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'for'
+                        ),
+                        ' (',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'let'
+                        ),
+                        ' i = ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-number' },
+                            '0'
+                        ),
+                        '; i < promises.length; i++) ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '            promises[i].then(',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-function' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-params' },
+                                'res'
+                            ),
+                            ' =>'
+                        ),
+                        ' ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '                resolve(res);',
+                        _react2.default.createElement('br', null),
+                        '            ',
+                        '}',
+                        ', reject);',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        '}',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        '}',
+                        ')',
+                        _react2.default.createElement('br', null),
+                        '}',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5173\u4E8Epromise\u7684\u4E00\u4E9B\u57FA\u672C\u4ECB\u7ECD\uFF0C\u5728\u6587\u7AE0',
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://zhanglujs.github.io/blog/dist/index.html#/js-async' },
+                        'JavaScript\u5F02\u6B65\u64CD\u4F5C'
+                    ),
+                    '\u4E2D\u6709\u63D0\u5230\u3002'
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
+
+/***/ }),
+
 /***/ "./src/markdown/regexp.md":
 /*!********************************!*\
   !*** ./src/markdown/regexp.md ***!
@@ -74140,7 +74536,7 @@ var MarkdownItReactComponent = function (_React$Component) {
                 _react2.default.createElement(
                     'p',
                     null,
-                    'vue\u4E0Ereact\u90FD\u63D0\u4F9B\u4E86\u751F\u547D\u5468\u671F\u94A9\u5B50\uFF0C\u5728\u4F9B\u6211\u4EEC\u5728\u7EC4\u4EF6\u4E0D\u540C\u72B6\u6001\u65F6\u4F7F\u7528\uFF0C\u6765\u5B8C\u6210\u4E0D\u540C\u7684\u529F\u80FD\u3002\u8FD9\u91CC\u5C31\u5148\u4ECB\u7ECD\u4E00\u4E0Bvue\u4E0Ereact\u4E2D\u751F\u547D\u5468\u671F\u7684\u5F02\u540C\u4E4B\u5904\u3002'
+                    'vue\u4E0Ereact\u90FD\u63D0\u4F9B\u4E86\u751F\u547D\u5468\u671F\u94A9\u5B50\uFF0C\u4F9B\u6211\u4EEC\u5728\u7EC4\u4EF6\u4E0D\u540C\u72B6\u6001\u65F6\u4F7F\u7528\uFF0C\u5B8C\u6210\u4E0D\u540C\u7684\u529F\u80FD\u3002\u8FD9\u91CC\u5C31\u5148\u4ECB\u7ECD\u4E00\u4E0Bvue\u4E0Ereact\u4E2D\u751F\u547D\u5468\u671F\u7684\u5F02\u540C\u4E4B\u5904\u3002'
                 ),
                 _react2.default.createElement(
                     'p',
@@ -75896,6 +76292,10 @@ var _someUrl = __webpack_require__(/*! ../../markdown/some-url.md */ "./src/mark
 
 var _someUrl2 = _interopRequireDefault(_someUrl);
 
+var _promise_all_race = __webpack_require__(/*! ../../markdown/promise_all_race.md */ "./src/markdown/promise_all_race.md");
+
+var _promise_all_race2 = _interopRequireDefault(_promise_all_race);
+
 __webpack_require__(/*! ./index.scss */ "./src/pages/app/index.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -75954,6 +76354,7 @@ var App = function (_React$Component) {
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/linux', component: _linux2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/git', component: _git2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/some-url', component: _someUrl2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/promise-all-race', component: _promise_all_race2.default }),
                             _react2.default.createElement(_reactRouterDom.Redirect, { from: '/', to: '/home' })
                         )
                     ),
@@ -80783,4 +81184,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.95fc6d59b4fc0a3f2953.js.map
+//# sourceMappingURL=main.56a7943d6d0f63a3e9d9.js.map
