@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "56a7943d6d0f63a3e9d9";
+/******/ 	var hotCurrentHash = "e2f4212e2788dce087d4";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -68115,7 +68115,7 @@ var ArrowUp = function (_React$Component) {
                 });
             }
 
-            function throttle(method, context) {
+            function debounce(method, context) {
                 clearTimeout(method.tId);
                 method.tId = setTimeout(function () {
                     method.call(context);
@@ -68123,7 +68123,7 @@ var ArrowUp = function (_React$Component) {
             }
 
             window.addEventListener('scroll', function () {
-                throttle(scrollFn, window);
+                debounce(scrollFn, window);
             });
         }
     }, {
@@ -68282,6 +68282,11 @@ var ArticleList = function (_React$Component) {
                 path: '/dom-event',
                 description: 'HTML DOM 事件允许Javascript在HTML文档元素中注册不同事件处理程序。事件通常与函数结合使用，函数不会在事件发生前被执行！ (如用户点击按钮)。',
                 date: '个人笔记 / 技术'
+            }, {
+                name: 'javaScript中的defer与async的区别',
+                path: '/script-attr',
+                description: '在《javaScript高级程序设计》书中是这样介绍两者的。defer延迟脚本、async异步脚步。',
+                date: '个人笔记'
             }, {
                 name: 'example',
                 path: '/three',
@@ -69930,6 +69935,26 @@ var MarkdownItReactComponent = function (_React$Component) {
                             'git diff --cached'
                         ),
                         '\uFF1A\u67E5\u770B\u5DF2\u7ECFadd \u4F46\u6CA1\u6709commit\u7684\u6539\u52A8'
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'git tag -a v2019 -m \'my version 1.4\''
+                        ),
+                        '\uFF1A-a \u540E\u8DDF\u7248\u672C\u53F7 -m \u540E\u8DDF\u6B64\u6B21\u63D0\u4EA4\u7684\u63CF\u8FF0\u3002\u6211\u4E2A\u4EBA\u7406\u89E3\u8FD9\u6B21\u5C31\u76F8\u5F53\u4E8Ecommit'
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
+                            'git push origin --tags'
+                        ),
+                        '\uFF1A \u63A8\u9001\u6B64\u6B21tag'
                     )
                 ),
                 _react2.default.createElement(
@@ -74067,6 +74092,148 @@ exports.default = MarkdownItReactComponent;
 
 /***/ }),
 
+/***/ "./src/markdown/script-attr.md":
+/*!*************************************!*\
+  !*** ./src/markdown/script-attr.md ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'h3',
+                    { id: 'script-biao-qian-dedefer-yuasync-de-qu-bie' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#script-biao-qian-dedefer-yuasync-de-qu-bie', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' script\u6807\u7B7E\u7684defer\u4E0Easync\u7684\u533A\u522B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5728\u9875\u9762\u4E2D\u628A\u5916\u90E8\u811A\u672C\u63D2\u5165\u5230html\u4E2D\u9700\u8981\u7528\u5230<script>\u5143\u7D20\uFF0C\u8BE5\u5143\u7D20\u6709\u4E24\u4E2A\u5C5E\u6027defer\uFF08\u5EF6\u8FDF\u811A\u672C\uFF09/async\uFF08\u5F02\u6B65\u811A\u672C\uFF09\u3002'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'defer'
+                        ),
+                        '\u5C5E\u6027\u662F\u8868\u660E\uFF0C\u5728\u811A\u672C\u52A0\u8F7D\u8FC7\u7A0B\u4E2D\u4E0D\u4F1A\u5F71\u54CD\u9875\u9762\u6784\u9020\u3002\u4E5F\u5C31\u662F\u8BF4\uFF0C\u811A\u672C\u4F1A\u88AB\u5EF6\u8FDF\u5230\u6574\u4E2A\u6587\u6863\u52A0\u8F7D\u5B8C\u6BD5\u540E\u6267\u884C\u3002',
+                        _react2.default.createElement('br', null),
+                        '\u6D4F\u89C8\u5668\u6E32\u67D3\u9875\u9762\uFF0C\u5728\u9047\u5230\u6709',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'defer'
+                        ),
+                        '\u5C5E\u6027\u7684script\u6807\u7B7E\uFF0C\u4E0D\u4F1A\u505C\u6B62dom\u7684\u6E32\u67D3\uFF0C\u800C\u662F\u5F02\u6B65\u4E0B\u8F7D\uFF0C\u5E76\u4E14\u5728\u6574\u4E2A\u9875\u9762\u5185\u5BB9\u52A0\u8F7D\u5B8C\u6BD5\u540E\u624D\u4F1A\u5F00\u59CB\u6267\u884C\u8FD9\u4E2A\u811A\u672C\u3002',
+                        _react2.default.createElement('br', null),
+                        '\u6709\u591A\u4E2A',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'defer'
+                        ),
+                        '\u5C5E\u6027\u7684script\u6807\u7B7E\u65F6\uFF0C\u4F1A\u6309\u7167\u987A\u5E8F\u6267\u884C\u3002',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'async'
+                        ),
+                        '\u662F\u6D4F\u89C8\u5668\u7ACB\u5373\u5F02\u6B65\u4E0B\u8F7D\u811A\u672C\uFF0C\u4E0D\u540C\u4E8Edefer\u7684\u662F\uFF0C\u4E0B\u8F7D\u5B8C\u6BD5\u540E\u4F1A\u7ACB\u5373\u6267\u884C\uFF0C\u6B64\u65F6\u4F1A\u963B\u585Edom\u6E32\u67D3\uFF0C\u6240\u4EE5',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'async'
+                        ),
+                        '\u7684script\u6700\u597D\u4E0D\u8981\u64CD\u4F5Cdom\u3002',
+                        _react2.default.createElement('br', null),
+                        '\u56E0\u4E3A\u662F\u4E0B\u8F7D\u5B8C\u7ACB\u5373\u6267\u884C\uFF0C\u4E0D\u80FD\u4FDD\u8BC1\u6267\u884C\u987A\u5E8F\u3002',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement('img', { src: './static/img/async-script.jpg', alt: 'webpack' })
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
+
+/***/ }),
+
 /***/ "./src/markdown/some-url.md":
 /*!**********************************!*\
   !*** ./src/markdown/some-url.md ***!
@@ -74233,7 +74400,7 @@ var MarkdownItReactComponent = function (_React$Component) {
                         { href: 'https://segmentfault.com/q/1010000007889782?_ea=1483561' },
                         '\u670D\u52A1\u5668\u4E0A\u7684Mongodb\u6570\u636E\u5E93\u670D\u52A1\u600E\u4E48\u9ED8\u8BA4\u4E00\u76F4\u5F00\u542F'
                     ),
-                    '\uFF0C\u8FD9\u4E2A\u5C31\u662F\u6211\u5728\u6298\u817E\u670D\u52A1\u5668\u65F6\u9047\u5230\u7684\u4E00\u4E2A\u95EE\u9898\uFF0C\u4FDD\u5B58\u8D77\u6765'
+                    '\uFF0C\u5728\u6298\u817E\u670D\u52A1\u5668\u65F6\u9047\u5230\u7684\u4E00\u4E2A\u95EE\u9898\uFF0C\u4FDD\u5B58\u8D77\u6765'
                 ),
                 _react2.default.createElement(
                     'p',
@@ -76296,6 +76463,10 @@ var _promise_all_race = __webpack_require__(/*! ../../markdown/promise_all_race.
 
 var _promise_all_race2 = _interopRequireDefault(_promise_all_race);
 
+var _scriptAttr = __webpack_require__(/*! ../../markdown/script-attr.md */ "./src/markdown/script-attr.md");
+
+var _scriptAttr2 = _interopRequireDefault(_scriptAttr);
+
 __webpack_require__(/*! ./index.scss */ "./src/pages/app/index.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -76355,6 +76526,7 @@ var App = function (_React$Component) {
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/git', component: _git2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/some-url', component: _someUrl2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/promise-all-race', component: _promise_all_race2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/script-attr', component: _scriptAttr2.default }),
                             _react2.default.createElement(_reactRouterDom.Redirect, { from: '/', to: '/home' })
                         )
                     ),
@@ -81184,4 +81356,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.56a7943d6d0f63a3e9d9.js.map
+//# sourceMappingURL=main.e2f4212e2788dce087d4.js.map
