@@ -18,7 +18,7 @@
 
 [同事强哥的个人站](http://xiaoqiang-zhao.github.io/#!/)，学习的目标之一
 
-[服务器上的Mongodb数据库服务怎么默认一直开启](https://segmentfault.com/q/1010000007889782?_ea=1483561)，这个就是我在折腾服务器时遇到的一个问题，保存起来
+[服务器上的Mongodb数据库服务怎么默认一直开启](https://segmentfault.com/q/1010000007889782?_ea=1483561)，在折腾服务器时遇到的一个问题，保存起来
 
 [陈惠超的博客](https://chenhuichao.com/)，总结的比较细，个人感觉看问题的角度差不多，虽然我很菜
 

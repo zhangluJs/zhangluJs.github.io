@@ -105,6 +105,11 @@ export default class ArticleList extends React.Component {
                 description: 'HTML DOM 事件允许Javascript在HTML文档元素中注册不同事件处理程序。事件通常与函数结合使用，函数不会在事件发生前被执行！ (如用户点击按钮)。',
                 date: '个人笔记 / 技术'
             }, {
+                name: 'javaScript中的defer与async的区别',
+                path: '/script-attr',
+                description: '在《javaScript高级程序设计》书中是这样介绍两者的。defer延迟脚本、async异步脚步。',
+                date: '个人笔记'
+            }, {
                 name: 'example',
                 path: '/three',
                 description: 'example',

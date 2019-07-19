@@ -29,7 +29,7 @@ export default class ArrowUp extends React.Component {
             });
         }
 
-        function throttle(method, context) {
+        function debounce(method, context) {
             clearTimeout(method.tId);
             method.tId = setTimeout(() => {
                 method.call(context);
@@ -37,7 +37,7 @@ export default class ArrowUp extends React.Component {
         }
 
         window.addEventListener('scroll', () => {
-            throttle(scrollFn, window);
+            debounce(scrollFn, window);
         });
     }
 

@@ -32,6 +32,8 @@
 - `git reset --soft [hash]`：也是一种回滚方式 
 - `git diff`：查看代码的修改部分
 - `git diff --cached`：查看已经add 但没有commit的改动
+- `git tag -a v2019 -m 'my version 1.4'`：-a 后跟版本号 -m 后跟此次提交的描述。我个人理解这次就相当于commit
+- `git push origin --tags`： 推送此次tag
 
 推荐一个git的GUi工具，很好用。SourceTree。vscode中也集成了git的功能也很好用～
 
