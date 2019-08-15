@@ -11,6 +11,11 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: '黑客帝国数字雨',
+                path: '/matrix-digital-rain',
+                description: '浏览阮一峰大神周刊时发现的一个模仿黑客帝国数字雨的效果，很炫酷，做个搬运工～',
+                date: '炫酷'
+            }, {
                 name: 'Promise.all与race实现',
                 path: '/promise-all-race',
                 description: '简单的方法实现Promise.all & Promise.race',

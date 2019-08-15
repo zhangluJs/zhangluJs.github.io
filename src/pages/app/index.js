@@ -31,6 +31,7 @@ import git from '../../markdown/git.md';
 import someUrl from '../../markdown/some-url.md';
 import promiseAllRace from '../../markdown/promise_all_race.md';
 import scriptAttr from '../../markdown/script-attr.md';
+import matrixDigitalRain from '../../markdown/matrix-digital-rain/index.js';
 
 import './index.scss';
 
@@ -64,6 +65,7 @@ export default class App extends React.Component {
                             <Route path='/some-url' component={someUrl}></Route>
                             <Route path='/promise-all-race' component={promiseAllRace}></Route>
                             <Route path='/script-attr' component={scriptAttr}></Route>
+                            <Route path='/matrix-digital-rain' component={matrixDigitalRain}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>
