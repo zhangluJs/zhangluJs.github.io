@@ -50,6 +50,8 @@
 
 [CSS Tricks](https://qishaoxuan.github.io/css_tricks/)，一些比较高大上的css样式技巧
 
+[CSSFX](https://cssfx.dev/)，一些好看的css样式
+
 ### 文章
 [每日文章](https://wubaiqing.github.io/zaobao/2019/01/21.html)
 
