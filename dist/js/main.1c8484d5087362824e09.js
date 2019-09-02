@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "e2f4212e2788dce087d4";
+/******/ 	var hotCurrentHash = "1c8484d5087362824e09";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -68208,6 +68208,11 @@ var ArticleList = function (_React$Component) {
 
         _this.state = {
             list: [{
+                name: '黑客帝国数字雨',
+                path: '/matrix-digital-rain',
+                description: '浏览阮一峰大神周刊时发现的一个模仿黑客帝国数字雨的效果，很炫酷，做个搬运工～',
+                date: '炫酷'
+            }, {
                 name: 'Promise.all与race实现',
                 path: '/promise-all-race',
                 description: '简单的方法实现Promise.all & Promise.race',
@@ -68272,6 +68277,11 @@ var ArticleList = function (_React$Component) {
                 path: '/git',
                 description: 'GIT\u662F\u4EC0\u4E48\uFF1F\u5B83\u662F\u4E00\u4E2A\u5206\u5E03\u5F0F\u7684\u7248\u672C\u63A7\u5236\u7CFB\u7EDF\u3002\u5B83\u5BF9\u4E8E\u7A0B\u5E8F\u733F\u6765\u8BF4\u5C31\u50CF\u7F16\u8F91\u5668\u4E00\u6837\uFF0C\u5FC5\u4E0D\u53EF\u5C11\u3002\u5B83\u53EF\u4EE5\u8BB0\u5F55\u6BCF\u6B21\u4FEE\u6539\u7684\u5185\u5BB9\n                    \u5E76\u4E14\u53EF\u4EE5\u77E5\u9053\u5404\u4E2A\u7248\u672C\u4E4B\u95F4\u7684\u8C03\u6574\u5728\u54EA\u91CC\u3002\u800C\u4E14\u8FD8\u53EF\u4EE5\u5728\u4E0D\u540C\u7248\u672C\u4E2D\u5207\u6362\u3002\u5927\u5927\u964D\u4F4E\u4E86\u6211\u4EEC\u5728\u65E5\u5E38\u5F00\u53D1\u4E2D\u7531\u4E8E\u758F\u5FFD\u6216\u8005\u5176\u4ED6\u539F\u56E0\u9020\u6210\u7684\u4EE3\u7801\u635F\u5931\u3002\n                    \u4E0E\u4E4B\u7C7B\u4F3C\u7684\u8FD8\u6709SVN\u7B49\u7B49\uFF0C\u4E0D\u8FC7\u5F53\u4E0Bgit\u662F\u4E3B\u6D41\u3002',
                 date: '个人笔记 / 工具'
+            }, {
+                name: 'HTML占位符',
+                path: '/html-placeholder',
+                description: '记几个html中的占位符。因为不经常用，但是当用起来的时候又总是忘。整理一下，放在这里方便用～',
+                date: '个人笔记'
             }, {
                 name: 'BOM/DOM',
                 path: '/object-model',
@@ -69922,6 +69932,16 @@ var MarkdownItReactComponent = function (_React$Component) {
                         _react2.default.createElement(
                             'code',
                             null,
+                            'git reset --soft HEAD^'
+                        ),
+                        '\uFF1A\u4E0D\u5C0F\u5FC3commit\u540E\uFF0C\u60F3\u64A4\u56DEcommit'
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'code',
+                            null,
                             'git diff'
                         ),
                         '\uFF1A\u67E5\u770B\u4EE3\u7801\u7684\u4FEE\u6539\u90E8\u5206'
@@ -69981,6 +70001,197 @@ var MarkdownItReactComponent = function (_React$Component) {
                         '\xB6'
                     ),
                     ' \u5173\u4E8Egit\u7684\u4E1C\u897F\u8FD8\u6709\u5F88\u591A\u5F88\u591A\uFF0C\u751A\u81F3\u8FD8\u6709git\u77E5\u8BC6\u7684\u76F8\u5173\u4E66\u7C4D\u3002\u4EE5\u4E0A\u662F\u5DE5\u4F5C\u4E2D\u7ECF\u5E38\u7528\u5230\u7684\uFF0C\u5DEE\u4E0D\u591A\u5DF2\u7ECF\u8986\u76D6\u5168\u4E86\u3002\u6240\u4EE5\u5C31\u6682\u65F6\u5230\u8FD9\u91CC\u4E86\uFF0C\u4EE5\u540E\u6709\u673A\u4F1A\u5728\u8865\u5145\u3002'
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
+
+/***/ }),
+
+/***/ "./src/markdown/html-placeholder.md":
+/*!******************************************!*\
+  !*** ./src/markdown/html-placeholder.md ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'h1',
+                    { id: 'html-zhan-wei-fu' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#html-zhan-wei-fu', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' HTML\u5360\u4F4D\u7B26'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&#32;'
+                    ),
+                    ' \u666E\u901A\u7684\u82F1\u6587\u534A\u89D2\u7A7A\u683C'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&#160;'
+                    ),
+                    '  ',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&nbsp;'
+                    ),
+                    '  ',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&#xA0;'
+                    ),
+                    '  no-break space \uFF08\u666E\u901A\u7684\u82F1\u6587\u534A\u89D2\u7A7A\u683C\u4F46\u4E0D\u6362\u884C\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&#12288;'
+                    ),
+                    ' \u4E2D\u6587\u5168\u89D2\u7A7A\u683C \uFF08\u4E00\u4E2A\u4E2D\u6587\u5BBD\u5EA6\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&#8194;'
+                    ),
+                    '  ',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&ensp;'
+                    ),
+                    '  en\u7A7A\u683C \uFF08\u534A\u4E2A\u4E2D\u6587\u5BBD\u5EA6\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&#8195;'
+                    ),
+                    '  ',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&emsp;'
+                    ),
+                    '  em\u7A7A\u683C \uFF08\u4E00\u4E2A\u4E2D\u6587\u5BBD\u5EA6\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&#8197;'
+                    ),
+                    ' \u56DB\u5206\u4E4B\u4E00em\u7A7A\u683C \uFF08\u56DB\u5206\u4E4B\u4E00\u4E2D\u6587\u5BBD\u5EA6\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u76F8\u6BD4\u5E73\u65F6\u7684\u7A7A\u683C',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&#32;'
+                    ),
+                    ',',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&nbsp'
+                    ),
+                    '\u62E5\u6709\u4E0D\u95F4\u65AD\uFF08non-breaking\uFF09\u7279\u6027\u3002\u5373\u8FDE\u7EED\u7684',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&nbsp'
+                    ),
+                    '\u4F1A\u5728\u540C\u4E00\u884C\u5185\u663E\u793A\u3002\u5373\u4F7F\u6709100\u4E2A\u8FDE\u7EED\u7684',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        '&nbsp'
+                    ),
+                    '\uFF0C\u6D4F\u89C8\u5668\u4E5F\u4E0D\u4F1A\u628A\u5B83\u4EEC\u62C6\u6210\u4E24\u884C\u3002'
                 )
             );
         }
@@ -72731,6 +72942,243 @@ exports.default = MarkdownItReactComponent;
 
 /***/ }),
 
+/***/ "./src/markdown/matrix-digital-rain/index.js":
+/*!***************************************************!*\
+  !*** ./src/markdown/matrix-digital-rain/index.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @file 头部
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author zhanglu
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(/*! ./index.scss */ "./src/markdown/matrix-digital-rain/index.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function r(from, to) {
+    return ~~(Math.random() * (to - from + 1) + from);
+}
+function pick() {
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+    }
+
+    return args[r(0, args.length - 1)];
+}
+function getChar() {
+    return String.fromCharCode(pick(r(0x3041, 0x30ff), r(0x2000, 0x206f), r(0x0020, 0x003f)));
+}
+function loop(fn, delay) {
+    var stamp = Date.now();
+    function _loop() {
+        if (Date.now() - stamp >= delay) {
+            fn();
+            stamp = Date.now();
+        }
+
+        requestAnimationFrame(_loop);
+    }
+    requestAnimationFrame(_loop);
+}
+
+var Char = function () {
+    function Char() {
+        _classCallCheck(this, Char);
+
+        this.element = document.createElement('span');
+        this.mutate();
+    }
+
+    _createClass(Char, [{
+        key: 'mutate',
+        value: function mutate() {
+            this.element.textContent = getChar();
+        }
+    }]);
+
+    return Char;
+}();
+
+var Trail = function () {
+    function Trail() {
+        var list = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+        var options = arguments[1];
+
+        _classCallCheck(this, Trail);
+
+        this.list = list;
+        this.options = Object.assign({ size: 10, offset: 0 }, options);
+        this.body = [];
+        this.move();
+    }
+
+    _createClass(Trail, [{
+        key: 'traverse',
+        value: function traverse(fn) {
+            var _this = this;
+
+            this.body.forEach(function (n, i) {
+                var last = i === _this.body.length - 1;
+                if (n) {
+                    fn(n, i, last);
+                }
+            });
+        }
+    }, {
+        key: 'move',
+        value: function move() {
+            this.body = [];
+            var _options = this.options,
+                offset = _options.offset,
+                size = _options.size;
+
+            for (var i = 0; i < size; ++i) {
+                var item = this.list[offset + i - size + 1];
+                this.body.push(item);
+            }
+            this.options.offset = (offset + 1) % (this.list.length + size - 1);
+        }
+    }]);
+
+    return Trail;
+}();
+
+var Rain = function () {
+    function Rain(_ref) {
+        var target = _ref.target,
+            row = _ref.row;
+
+        _classCallCheck(this, Rain);
+
+        this.element = document.createElement('p');
+        this.build(row);
+        if (target) {
+            target.appendChild(this.element);
+        }
+
+        this.drop();
+    }
+
+    _createClass(Rain, [{
+        key: 'build',
+        value: function build() {
+            var row = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 20;
+
+            var root = document.createDocumentFragment();
+            var chars = [];
+
+            var _loop2 = function _loop2(i) {
+                var c = new Char();
+                root.appendChild(c.element);
+                chars.push(c);
+                if (Math.random() < .5) {
+                    loop(function () {
+                        return c.mutate();
+                    }, r(1e3, 5e3));
+                }
+            };
+
+            for (var i = 0; i < row; ++i) {
+                _loop2(i);
+            }
+            this.trail = new Trail(chars, {
+                size: r(10, 30),
+                offset: r(0, 100)
+            });
+            this.element.appendChild(root);
+        }
+    }, {
+        key: 'drop',
+        value: function drop() {
+            var trail = this.trail;
+            var len = trail.body.length;
+            var delay = r(10, 100);
+            loop(function () {
+                trail.move();
+                trail.traverse(function (c, i, last) {
+                    c.element.style = 'color: hsl(136, 100%, ' + 85 / len * (i + 1) + '%)';
+                    if (last) {
+                        c.mutate();
+                        c.element.style = '\n                    color: hsl(136, 100%, 85%);\n                    text-shadow: 0 0 .5em #fff, 0 0 .5em currentColor;\n                    ';
+                    }
+                });
+            }, delay);
+        }
+    }]);
+
+    return Rain;
+}();
+
+var MatrixDigitalRain = function (_React$Component) {
+    _inherits(MatrixDigitalRain, _React$Component);
+
+    function MatrixDigitalRain() {
+        _classCallCheck(this, MatrixDigitalRain);
+
+        return _possibleConstructorReturn(this, (MatrixDigitalRain.__proto__ || Object.getPrototypeOf(MatrixDigitalRain)).apply(this, arguments));
+    }
+
+    _createClass(MatrixDigitalRain, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var main = document.querySelector('.rain-main');
+            for (var i = 0; i < 50; ++i) {
+                new Rain({ target: main, row: 50 });
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'rain-box' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'rain-wrap' },
+                    _react2.default.createElement('main', { className: 'rain-main' })
+                )
+            );
+        }
+    }]);
+
+    return MatrixDigitalRain;
+}(_react2.default.Component);
+
+exports.default = MatrixDigitalRain;
+
+/***/ }),
+
+/***/ "./src/markdown/matrix-digital-rain/index.scss":
+/*!*****************************************************!*\
+  !*** ./src/markdown/matrix-digital-rain/index.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "./src/markdown/nvm.md":
 /*!*****************************!*\
   !*** ./src/markdown/nvm.md ***!
@@ -74387,6 +74835,15 @@ var MarkdownItReactComponent = function (_React$Component) {
                     null,
                     _react2.default.createElement(
                         'a',
+                        { href: 'https://www.cxymsg.com/' },
+                        '\u9762\u8BD5\u9898'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
                         { href: 'http://xiaoqiang-zhao.github.io/#!/' },
                         '\u540C\u4E8B\u5F3A\u54E5\u7684\u4E2A\u4EBA\u7AD9'
                     ),
@@ -74547,6 +75004,16 @@ var MarkdownItReactComponent = function (_React$Component) {
                         'CSS Tricks'
                     ),
                     '\uFF0C\u4E00\u4E9B\u6BD4\u8F83\u9AD8\u5927\u4E0A\u7684css\u6837\u5F0F\u6280\u5DE7'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://cssfx.dev/' },
+                        'CSSFX'
+                    ),
+                    '\uFF0C\u4E00\u4E9B\u597D\u770B\u7684css\u6837\u5F0F'
                 ),
                 _react2.default.createElement(
                     'h3',
@@ -76467,6 +76934,14 @@ var _scriptAttr = __webpack_require__(/*! ../../markdown/script-attr.md */ "./sr
 
 var _scriptAttr2 = _interopRequireDefault(_scriptAttr);
 
+var _index13 = __webpack_require__(/*! ../../markdown/matrix-digital-rain/index.js */ "./src/markdown/matrix-digital-rain/index.js");
+
+var _index14 = _interopRequireDefault(_index13);
+
+var _htmlPlaceholder = __webpack_require__(/*! ../../markdown/html-placeholder.md */ "./src/markdown/html-placeholder.md");
+
+var _htmlPlaceholder2 = _interopRequireDefault(_htmlPlaceholder);
+
 __webpack_require__(/*! ./index.scss */ "./src/pages/app/index.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -76527,6 +77002,8 @@ var App = function (_React$Component) {
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/some-url', component: _someUrl2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/promise-all-race', component: _promise_all_race2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/script-attr', component: _scriptAttr2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/matrix-digital-rain', component: _index14.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/html-placeholder', component: _htmlPlaceholder2.default }),
                             _react2.default.createElement(_reactRouterDom.Redirect, { from: '/', to: '/home' })
                         )
                     ),
@@ -81356,4 +81833,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.e2f4212e2788dce087d4.js.map
+//# sourceMappingURL=main.1c8484d5087362824e09.js.map
