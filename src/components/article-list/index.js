@@ -11,6 +11,11 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: '黑客帝国数字雨',
+                path: '/matrix-digital-rain',
+                description: '浏览阮一峰大神周刊时发现的一个模仿黑客帝国数字雨的效果，很炫酷，做个搬运工～',
+                date: '炫酷'
+            }, {
                 name: 'Promise.all与race实现',
                 path: '/promise-all-race',
                 description: '简单的方法实现Promise.all & Promise.race',
@@ -92,6 +97,11 @@ export default class ArticleList extends React.Component {
                     并且可以知道各个版本之间的调整在哪里。而且还可以在不同版本中切换。大大降低了我们在日常开发中由于疏忽或者其他原因造成的代码损失。
                     与之类似的还有SVN等等，不过当下git是主流。`,
                 date: '个人笔记 / 工具'
+            }, {
+                name: 'HTML占位符',
+                path: '/html-placeholder',
+                description: '记几个html中的占位符。因为不经常用，但是当用起来的时候又总是忘。整理一下，放在这里方便用～',
+                date: '个人笔记'
             }, {
                 name: 'BOM/DOM',
                 path: '/object-model',

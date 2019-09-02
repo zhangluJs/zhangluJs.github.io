@@ -16,6 +16,8 @@
 
 [又是面试题](https://m.nowcoder.com/discuss/164925?headNav=www)
 
+[面试题](https://www.cxymsg.com/)
+
 [同事强哥的个人站](http://xiaoqiang-zhao.github.io/#!/)，学习的目标之一
 
 [服务器上的Mongodb数据库服务怎么默认一直开启](https://segmentfault.com/q/1010000007889782?_ea=1483561)，在折腾服务器时遇到的一个问题，保存起来
@@ -49,6 +51,8 @@
 [Electron-vue开发实战0——Electron-vue入门](https://juejin.im/post/5a572f26f265da3e513305f6)
 
 [CSS Tricks](https://qishaoxuan.github.io/css_tricks/)，一些比较高大上的css样式技巧
+
+[CSSFX](https://cssfx.dev/)，一些好看的css样式
 
 ### 文章
 [每日文章](https://wubaiqing.github.io/zaobao/2019/01/21.html)
