@@ -54,6 +54,8 @@
 
 [CSSFX](https://cssfx.dev/)，一些好看的css样式
 
+[你未必知道的CSS知识点（第二季）](https://juejin.im/post/5d9ec8b0518825651b1dffa3)
+
 ### 文章
 [每日文章](https://wubaiqing.github.io/zaobao/2019/01/21.html)
 
