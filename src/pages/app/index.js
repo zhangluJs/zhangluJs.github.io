@@ -33,6 +33,7 @@ import promiseAllRace from '../../markdown/promise_all_race.md';
 import scriptAttr from '../../markdown/script-attr.md';
 import matrixDigitalRain from '../../markdown/matrix-digital-rain/index.js';
 import htmlPlaceholder from '../../markdown/html-placeholder.md';
+import renderwebPage from '../../markdown/render-web-page.md';
 
 import './index.scss';
 
@@ -68,6 +69,7 @@ export default class App extends React.Component {
                             <Route path='/script-attr' component={scriptAttr}></Route>
                             <Route path='/matrix-digital-rain' component={matrixDigitalRain}></Route>
                             <Route path='/html-placeholder' component={htmlPlaceholder}></Route>
+                            <Route path='/render-web-page' component={renderwebPage}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>
