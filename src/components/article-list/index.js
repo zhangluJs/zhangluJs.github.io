@@ -11,6 +11,11 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: '函数节流&函数防抖',
+                path: '/throttle-debounce',
+                description: '函数节流函数防抖都是日常中经常用到的，主要的作用是为了提升某些功能的性能，减少不必要的资源浪费。',
+                date: '学习'
+            }, {
                 name: '浏览器从输入url到页面渲染的整个过程',
                 path: '/render-web-page',
                 description: '从用户在浏览器中输入url敲下回车，到页面的渲染最终呈现，整个过程中经历的了哪些步骤。这里简单的进行个总结学习',
