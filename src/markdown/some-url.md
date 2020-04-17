@@ -52,7 +52,7 @@
 
 [CSS Tricks](http://css-tricks.neatbang.com/)，一些比较高大上的css样式技巧
 
-[CSSFX](https://cssfx.dev/)，一些好看的css样式
+[CSSFX](https://cssfx.netlify.com)，一些好看的css样式
 
 [你未必知道的CSS知识点（第二季）](https://juejin.im/post/5d9ec8b0518825651b1dffa3)
 
