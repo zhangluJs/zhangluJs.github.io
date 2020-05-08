@@ -11,6 +11,11 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: 'web存储',
+                path: '/web-storage',
+                description: '最近在开发项目时遇到了sessionStorage中一个没遇到的问题，简单记录一下加深一下印象',
+                date: '学习'
+            }, {
                 name: '函数节流&函数防抖',
                 path: '/throttle-debounce',
                 description: '函数节流函数防抖都是日常中经常用到的，主要的作用是为了提升某些功能的性能，减少不必要的资源浪费。',

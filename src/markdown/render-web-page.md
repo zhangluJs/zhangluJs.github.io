@@ -9,4 +9,4 @@
 7. 最终将页面呈现出来，整个过程结束。
 
 
-参考：http://www.nowamagic.net/librarys/veda/detail/2168、https://www.imooc.com/article/40004、https://blog.csdn.net/Crazypokerk_/article/details/89416546
+参考：[浏览器渲染过程中的reflow是什么](http://www.nowamagic.net/librarys/veda/detail/2168)、[浏览器渲染原理与过程](https://www.imooc.com/article/40004)、[从输入URL到按下回车的那一刻起](https://blog.csdn.net/Crazypokerk_/article/details/89416546)
