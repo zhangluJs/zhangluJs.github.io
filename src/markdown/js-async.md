@@ -90,7 +90,7 @@ async function f() {
 f();
 ```
 
-也是刚刚接触到这个东西，没在项目中实际的运用，还需要慢慢消化。查阅资料的时候发现了一篇写的不错的文章[Async/await学习](https://segmentfault.com/a/1190000013292562?utm_source=channel-newest)。
+关于async突然就理解了，而且发现好像就像它的语法一样，真的很简单（这是一开始接触时的观点：也是刚刚接触到这个东西，没在项目中实际的运用，还需要慢慢消化）。查阅资料的时候发现了一篇写的不错的文章[Async/await学习](https://segmentfault.com/a/1190000013292562?utm_source=channel-newest)。
 
 
 
