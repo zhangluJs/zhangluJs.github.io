@@ -18,7 +18,7 @@
 
 
 **报文头的通用字段含义（请求头与响应头都会用到的字段）：**
-- Data： 发送请求时的GMT时间。
+- Date： 发送请求时的GMT时间。
 - Connection： 告诉这个user agent（通常是指浏览器）使用什么样的连接方式。在http1.1中默认值是keep-alive。keep-alive是告诉浏览器与服务器的通讯会继续保持，也就是长链接，而close就会在response后马上关闭。这里需要注意的是，HTTP是无状态的，与keep-alive是没有任何关系的，不要认为keep-alive是对HTTP无状态的改进。
 - Cache-control： 告诉浏览器应该用什么缓存机制，在提高性能方面该字段十分重要，值有no-cache、no-store、max-age等
 - Transfer-Encoding： 值为chunked时，代表要把数据切割成一系列的块进行传输。为identity时不做任何处理。分块的目的是为了实现长连接，有了长连接后就可以实现连接池，长连接和连接池的作用可以提高http请求性能。HTTP运行是建立在TCP连接之上，每次http请求都要经过tcp三次握手，四次挥手，慢启动等特性。使用长连接可以减少三次握手、还可以避免遇到TCP慢启动的拥塞适应阶段时间，就达到了提高性能的目的。

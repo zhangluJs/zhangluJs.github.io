@@ -50,9 +50,11 @@
 
 [Electron-vue开发实战0——Electron-vue入门](https://juejin.im/post/5a572f26f265da3e513305f6)
 
-[CSS Tricks](https://qishaoxuan.github.io/css_tricks/)，一些比较高大上的css样式技巧
+[CSS Tricks](http://css-tricks.neatbang.com/)，一些比较高大上的css样式技巧
 
-[CSSFX](https://cssfx.dev/)，一些好看的css样式
+[CSSFX](https://cssfx.netlify.com)，一些好看的css样式
+
+[你未必知道的CSS知识点（第二季）](https://juejin.im/post/5d9ec8b0518825651b1dffa3)
 
 ### 文章
 [每日文章](https://wubaiqing.github.io/zaobao/2019/01/21.html)
