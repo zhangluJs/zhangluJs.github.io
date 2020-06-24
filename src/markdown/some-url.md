@@ -56,6 +56,8 @@
 
 [你未必知道的CSS知识点（第二季）](https://juejin.im/post/5d9ec8b0518825651b1dffa3)
 
+[一些开发用到的小技巧](https://www.dute.org/development)
+
 ### 文章
 [每日文章](https://wubaiqing.github.io/zaobao/2019/01/21.html)
 
