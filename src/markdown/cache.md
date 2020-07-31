@@ -24,6 +24,6 @@ http缓存分为两种，一种是协商缓存、另一种是强制缓存。
 
     Last-Modified/If-Modified-Since：二者的值都是GMT格式的时间字符串。在浏览器第一次发送请求时，response的头部会带上last-Modified，也就是资源最后一次修改时间。下次一次浏览器发送请求时，request头部会将这个时间上，服务器端进行判断来决定是否返回新的资源，如果该时间没有过期则返回304 Not Modified，浏览器收到304的响应后，就会从缓存中读取。如果过期了，服务器端返回新的资源，并且返回一个新的last-Modified时间。
 
-    Etag/If-None-Match：这两个值是由服务器生成的每个资源的唯一标识字符串，只要资源有变化就这个值就会改变；其判断过程与Last-Modified/If-Modified-Since类似，与Last-Modified不一样的是，当服务器返回304 Not Modified的响应时，由于ETag重新生成过，response header中还会把这个ETag返回，即使这个ETag跟之前的没有变化。
+    Etag/If-None-Match：这两个值是由服务器生成的每个资源的唯一标识字符串，只要资源有变化就这个值就会改变；其判断过程与Last-Modified/If-Modified-Since类似，与Last-Modified不一样的是，当服务器返回304 Not Modified的响应时，由于ETag重新生成过，response header中还会把这个ETag返回，即使这个ETag跟之前的没有变化。 
 
     `Last-Modified与ETag是可以一起使用的，服务器会优先验证ETag，一致的情况下，才会继续比对Last-Modified，最后才决定是否返回304。`
