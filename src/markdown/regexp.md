@@ -22,8 +22,7 @@ var reg = /abc/ig;
 /^\d+&/.test('123'); //true
 ```
 
-2. `exec/match`这两个方法在匹配成功时都会返回数组，在没有匹配上时返回的都是null，在没有深入了解两者使用规则时，会以为使用规则是一样的。主要的区别出现在分组与全局匹配上。
-    - `match`：str.match(reg)
+2. `exec`匹配成功时会返回数组，在没有匹配上时返回的都是null。
     - `exec`：reg.exec(reg)
 
 

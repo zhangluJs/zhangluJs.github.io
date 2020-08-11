@@ -33,3 +33,10 @@ web 存储机制包括两种：sessionStorage 和 localStorage 两种，一种�
 
     5.检索（查）：
         `sessionStorage.key();//检索key[n]的值`
+
+
+```html
+<audio controls="" loop="false" preload="none">
+    <source src="./media/Silent.mp3" type="audio/mp3">
+</audio>
+```
