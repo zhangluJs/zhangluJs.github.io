@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "ba5ec930750c6087ccd4";
+/******/ 	var hotCurrentHash = "ece89a1d899edf19f27f";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -68915,7 +68915,16 @@ var MarkdownItReactComponent = function (_React$Component) {
                         _react2.default.createElement(
                             'p',
                             null,
-                            'cache-control\uFF1A\u901A\u8FC7\u4E0D\u540C\u5B57\u6BB5\u6765\u54CD\u5E94\u4E0D\u540C\u7684\u7ED3\u679C\u3002pubilc\uFF08\u53EF\u4EE5\u88AB\u6240\u6709\u7684\u7528\u6237\u7F13\u5B58\uFF0C\u5305\u62EC\u7EC8\u7AEF\u7528\u6237\u548CCDN\u7B49\u4E2D\u95F4\u4EE3\u7406\u670D\u52A1\u5668\u3002\uFF09\u3001private\uFF08\u53EA\u7528\u88AB\u7528\u6237\u7EC8\u7AEF\u7684\u6D4F\u89C8\u5668\u7F13\u5B58\uFF0C\u4E0D\u80FD\u88ABCDN\u7B49\u4E2D\u7EE7\u7F13\u5B58\u670D\u52A1\u5668\u5BF9\u5176\u7F13\u5B58\uFF09\u3001no-store\uFF08\u7981\u6B62\u7F13\u5B58\uFF0C\u6BCF\u6B21\u90FD\u4F1A\u5411\u670D\u52A1\u5668\u91CD\u65B0\u53D1\u8D77\u8BF7\u6C42\uFF0C\u6BCF\u6B21\u90FD\u4F1A\u4E0B\u8F7D\u5B8C\u6574\u7684\u8D44\u6E90\uFF09\u3001max-age\uFF08\u8BA1\u7B97\u51FA\u4E00\u4E2A\u8D44\u6E90\u8FC7\u671F\u65F6\u95F4\uFF0C\u518D\u62FF\u8FD9\u4E2A\u8FC7\u671F\u65F6\u95F4\u4E0E\u5F53\u524D\u65F6\u95F4\u6BD4\u8F83\uFF0C\u5982\u679C\u5728\u8FC7\u671F\u65F6\u95F4\u4E4B\u524D\u5219\u4F7F\u7528\u7F13\u5B58\uFF0C\u5426\u5219\u91CD\u65B0\u8BF7\u6C42\uFF09\u3001no-cache\uFF08\u4E0D\u4F7F\u7528\u672C\u5730\u7F13\u5B58\u3002\u9700\u8981\u4F7F\u7528\u7F13\u5B58\u534F\u5546\uFF0C\u5148\u4E0E\u670D\u52A1\u5668\u786E\u8BA4\u8FD4\u56DE\u7684\u54CD\u5E94\u662F\u5426\u88AB\u66F4\u6539\uFF0C\u5982\u679C\u54CD\u5E94\u5B58\u5728ETag\uFF0C\u90A3\u4E48\u8BF7\u6C42\u7684\u65F6\u5019\u5C31\u4F1A\u4E0E\u670D\u52A1\u7AEF\u8FDB\u884C\u9A8C\u8BC1\uFF0C\u5982\u679C\u8D44\u6E90\u672A\u88AB\u4FEE\u6539\uFF0C\u5219\u53EF\u4EE5\u907F\u514D\u91CD\u65B0\u4E0B\u8F7D\uFF09\u3002'
+                            'cache-control\uFF1A\u901A\u8FC7\u4E0D\u540C\u5B57\u6BB5\u6765\u54CD\u5E94\u4E0D\u540C\u7684\u7ED3\u679C'
+                        ),
+                        _react2.default.createElement(
+                            'pre',
+                            null,
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                ' pubilc\uFF08\u53EF\u4EE5\u88AB\u6240\u6709\u7684\u7528\u6237\u7F13\u5B58\uFF0C\u5305\u62EC\u7EC8\u7AEF\u7528\u6237\u548CCDN\u7B49\u4E2D\u95F4\u4EE3\u7406\u670D\u52A1\u5668\u3002\uFF09 private\uFF08\u53EA\u7528\u88AB\u7528\u6237\u7EC8\u7AEF\u7684\u6D4F\u89C8\u5668\u7F13\u5B58\uFF0C\u4E0D\u80FD\u88ABCDN\u7B49\u4E2D\u7EE7\u7F13\u5B58\u670D\u52A1\u5668\u5BF9\u5176\u7F13\u5B58\uFF09 no-store\uFF08\u7981\u6B62\u7F13\u5B58\uFF0C\u6BCF\u6B21\u90FD\u4F1A\u5411\u670D\u52A1\u5668\u91CD\u65B0\u53D1\u8D77\u8BF7\u6C42\uFF0C\u6BCF\u6B21\u90FD\u4F1A\u4E0B\u8F7D\u5B8C\u6574\u7684\u8D44\u6E90\uFF09 max-age\uFF08\u8BA1\u7B97\u51FA\u4E00\u4E2A\u8D44\u6E90\u8FC7\u671F\u65F6\u95F4\uFF0C\u518D\u62FF\u8FD9\u4E2A\u8FC7\u671F\u65F6\u95F4\u4E0E\u5F53\u524D\u65F6\u95F4\u6BD4\u8F83\uFF0C\u5982\u679C\u5728\u8FC7\u671F\u65F6\u95F4\u4E4B\u524D\u5219\u4F7F\u7528\u7F13\u5B58\uFF0C\u5426\u5219\u91CD\u65B0\u8BF7\u6C42\uFF09 no-cache\uFF08\u4E0D\u4F7F\u7528\u672C\u5730\u7F13\u5B58\u3002\u9700\u8981\u4F7F\u7528\u7F13\u5B58\u534F\u5546\uFF0C\u5148\u4E0E\u670D\u52A1\u5668\u786E\u8BA4\u8FD4\u56DE\u7684\u54CD\u5E94\u662F\u5426\u88AB\u66F4\u6539\uFF0C\u5982\u679C\u54CD\u5E94\u5B58\u5728ETag\uFF0C\u90A3\u4E48\u8BF7\u6C42\u7684\u65F6\u5019\u5C31\u4F1A\u4E0E\u670D\u52A1\u7AEF\u8FDB\u884C\u9A8C\u8BC1\uFF0C\u5982\u679C\u8D44\u6E90\u672A\u88AB\u4FEE\u6539\uFF0C\u5219\u53EF\u4EE5\u907F\u514D\u91CD\u65B0\u4E0B\u8F7D\uFF09\u3002'
+                            )
                         )
                     ),
                     _react2.default.createElement(
@@ -74227,22 +74236,12 @@ var MarkdownItReactComponent = function (_React$Component) {
                         _react2.default.createElement(
                             'code',
                             null,
-                            'exec/match'
+                            'exec'
                         ),
-                        '\u8FD9\u4E24\u4E2A\u65B9\u6CD5\u5728\u5339\u914D\u6210\u529F\u65F6\u90FD\u4F1A\u8FD4\u56DE\u6570\u7EC4\uFF0C\u5728\u6CA1\u6709\u5339\u914D\u4E0A\u65F6\u8FD4\u56DE\u7684\u90FD\u662Fnull\uFF0C\u5728\u6CA1\u6709\u6DF1\u5165\u4E86\u89E3\u4E24\u8005\u4F7F\u7528\u89C4\u5219\u65F6\uFF0C\u4F1A\u4EE5\u4E3A\u4F7F\u7528\u89C4\u5219\u662F\u4E00\u6837\u7684\u3002\u4E3B\u8981\u7684\u533A\u522B\u51FA\u73B0\u5728\u5206\u7EC4\u4E0E\u5168\u5C40\u5339\u914D\u4E0A\u3002',
+                        '\u5339\u914D\u6210\u529F\u65F6\u4F1A\u8FD4\u56DE\u6570\u7EC4\uFF0C\u5728\u6CA1\u6709\u5339\u914D\u4E0A\u65F6\u8FD4\u56DE\u7684\u90FD\u662Fnull\u3002',
                         _react2.default.createElement(
                             'ul',
                             null,
-                            _react2.default.createElement(
-                                'li',
-                                null,
-                                _react2.default.createElement(
-                                    'code',
-                                    null,
-                                    'match'
-                                ),
-                                '\uFF1Astr.match(reg)'
-                            ),
                             _react2.default.createElement(
                                 'li',
                                 null,
@@ -75171,6 +75170,15 @@ var MarkdownItReactComponent = function (_React$Component) {
                         'a',
                         { href: 'https://juejin.im/post/5d9ec8b0518825651b1dffa3' },
                         '\u4F60\u672A\u5FC5\u77E5\u9053\u7684CSS\u77E5\u8BC6\u70B9\uFF08\u7B2C\u4E8C\u5B63\uFF09'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { href: 'https://www.dute.org/development' },
+                        '\u4E00\u4E9B\u5F00\u53D1\u7528\u5230\u7684\u5C0F\u6280\u5DE7'
                     )
                 ),
                 _react2.default.createElement(
@@ -76905,6 +76913,111 @@ var MarkdownItReactComponent = function (_React$Component) {
                             )
                         )
                     )
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-html' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-tag' },
+                            '<',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-name' },
+                                'audio'
+                            ),
+                            '\xA0',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-attr' },
+                                'controls'
+                            ),
+                            '=',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-string' },
+                                '""'
+                            ),
+                            '\xA0',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-attr' },
+                                'loop'
+                            ),
+                            '=',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-string' },
+                                '"false"'
+                            ),
+                            '\xA0',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-attr' },
+                                'preload'
+                            ),
+                            '=',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-string' },
+                                '"none"'
+                            ),
+                            '>'
+                        ),
+                        _react2.default.createElement('br', null),
+                        '\xA0\xA0\xA0\xA0',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-tag' },
+                            '<',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-name' },
+                                'source'
+                            ),
+                            '\xA0',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-attr' },
+                                'src'
+                            ),
+                            '=',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-string' },
+                                '"./media/Silent.mp3"'
+                            ),
+                            '\xA0',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-attr' },
+                                'type'
+                            ),
+                            '=',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-string' },
+                                '"audio/mp3"'
+                            ),
+                            '>'
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-tag' },
+                            '</',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-name' },
+                                'audio'
+                            ),
+                            '>'
+                        ),
+                        _react2.default.createElement('br', null)
+                    )
                 )
             );
         }
@@ -77581,6 +77694,8 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+__webpack_require__(/*! ./index.scss */ "./src/pages/about/index.scss");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -77594,10 +77709,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var About = function (_React$Component) {
     _inherits(About, _React$Component);
 
-    function About() {
+    function About(props) {
         _classCallCheck(this, About);
 
-        return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).call(this, props));
     }
 
     _createClass(About, [{
@@ -77605,8 +77720,19 @@ var About = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                null,
-                '\u8FD9\u91CC\u662F\u4E00\u4E2AAbout\u7684\u7EC4\u4EF6'
+                { className: 'container about-wrap' },
+                _react2.default.createElement('img', { className: 'hang-photo', src: './static/img/IMG_0453.JPG' }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'mp3-icon' },
+                    _react2.default.createElement(
+                        'audio',
+                        { controls: 'controls', autoPlay: 'autoplay' },
+                        _react2.default.createElement('source', { src: 'http://music.163.com/song/media/outer/url?id=1373002687.mp3', type: 'audio/mpeg' }),
+                        'Your browser does not support the audio element.'
+                    ),
+                    _react2.default.createElement('img', { src: './static/img/b.jpg' })
+                )
             );
         }
     }]);
@@ -77615,6 +77741,17 @@ var About = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = About;
+
+/***/ }),
+
+/***/ "./src/pages/about/index.scss":
+/*!************************************!*\
+  !*** ./src/pages/about/index.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -82642,4 +82779,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.ba5ec930750c6087ccd4.js.map
+//# sourceMappingURL=main.ece89a1d899edf19f27f.js.map
