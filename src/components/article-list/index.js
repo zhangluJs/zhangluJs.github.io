@@ -125,6 +125,11 @@ export default class ArticleList extends React.Component {
                     成文档的各种元素的应用程序接口（API）。通常所说的DOM是指W3C定义的标准的文档对象模型。`,
                 date: '个人笔记 / 学习'
             }, {
+                name: 'CSS',
+                path: '/css',
+                description: 'CSS对于页面布局来说是很重要的一部分。常用的东西虽然来来回回就那么几个，但里面的东西如果深入追究一下的话，水还是很深的。简单记录一下',
+                date: '个人笔记 / 技术 / 学习'
+            }, {
                 name: 'DOM事件',
                 path: '/dom-event',
                 description: 'HTML DOM 事件允许Javascript在HTML文档元素中注册不同事件处理程序。事件通常与函数结合使用，函数不会在事件发生前被执行！ (如用户点击按钮)。',
