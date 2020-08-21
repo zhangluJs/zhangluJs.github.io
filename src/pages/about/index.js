@@ -13,7 +13,7 @@ export default class About extends React.Component {
     render() {
         return (
             <div className="container about-wrap">
-                <img className="photo" src="./static/img/IMG_0453.JPG"/>
+                <img className="photo" src="./static/img/1.jpeg"/>
                 <div className="mp3-icon">
                     <audio controls="controls" autoPlay="autoplay">
                         <source src="http://music.163.com/song/media/outer/url?id=1373002687.mp3" type="audio/mpeg" />
