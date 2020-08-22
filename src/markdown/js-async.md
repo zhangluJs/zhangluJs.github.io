@@ -60,7 +60,9 @@ fn().then(msg => {
 
 ### Async/await
 
-async/awiat是es7中新增的api，通过async关键字定义一个函数，该函数总是返回一个promise，如果代码中有```return <非promise>```语句，javascript会自动把返回的值包装成promise的resolve。
+async/awiat是es7中新增的api。通过async关键字定义的函数总是返回一个promise，如果该函数有```return <非promise>```返回值的话，则该return的值会被包装成为promise的resolve。
+
+await一定要搭配async来使用。await可以等待任何语句，如果是promise对象的话，它会等待resolve后才继续向下执行，如果不是promise语句则立即执行。
 
 ```js
 async function f() {
@@ -73,8 +75,6 @@ async function f() {
 }
 f().then(alert) // 1
 ```
-
-关键词await可以让JavaScript进行等待，直到一个promise执行并返回它的结果，JavaScript才会继续往下执行。
 
 以下是一个promise在1s之后resolve的例子：
 
@@ -90,7 +90,4 @@ async function f() {
 f();
 ```
 
-关于async突然就理解了，而且发现好像就像它的语法一样，真的很简单（这是一开始接触时的观点：也是刚刚接触到这个东西，没在项目中实际的运用，还需要慢慢消化）。查阅资料的时候发现了一篇写的不错的文章[Async/await学习](https://segmentfault.com/a/1190000013292562?utm_source=channel-newest)。
-
-
-
+查阅资料的时候发现了一篇写的不错的文章[Async/await学习](https://segmentfault.com/a/1190000013292562?utm_source=channel-newest)。
