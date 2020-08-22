@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "83a69595a710490de76a";
+/******/ 	var hotCurrentHash = "6319b4c71b6edba45b99";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -69381,7 +69381,73 @@ var MarkdownItReactComponent = function (_React$Component) {
                 _react2.default.createElement(
                     'p',
                     null,
-                    '\u6807\u51C6\u76D2\u6A21\u578B\u5728\u5F00\u53D1\u4E2D\uFF0Cmargin padding border \u4F1A\u88AB\u8BA1\u7B97\u8FDBwidth\u4E2D\uFF0C\u6DFB\u52A0\u76F8\u5E94\u7684\u5BBD\u5EA6\u5C31\u8981\u4ECEwidth\u4E2D\u51CF\u53BB\u76F8\u5E94\u7684\u8DDD\u79BB\uFF0C\u800C\u602A\u5F02\u76D2\u6A21\u578B\u5219\u628A\u8FD9\u4E9B\u5168\u90E8\u8BA1\u7B97\u5728width\u4E2D'
+                    '\u5728\u6807\u51C6\u76D2\u6A21\u578B\u4E2D\uFF0Cpadding border \u4F1A\u88AB\u8BA1\u7B97\u8FDBwidth\u4E2D\uFF0C\u6DFB\u52A0\u76F8\u5E94\u7684\u5BBD\u5EA6\u5C31\u8981\u4ECEwidth\u4E2D\u51CF\u53BB\u76F8\u5E94\u7684\u8DDD\u79BB\uFF0C\u800C\u602A\u5F02\u76D2\u6A21\u578B\u5219\u628A\u8FD9\u4E9B\u5168\u90E8\u8BA1\u7B97\u5728width\u4E2D'
+                ),
+                _react2.default.createElement(
+                    'h3',
+                    { id: 'c3-dong-hua' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#c3-dong-hua', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' C3\u52A8\u753B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u4E3A\u4EC0\u4E48\u4F7F\u7528css\u6765\u505A\u52A8\u753B\uFF0C\u800C\u5C3D\u91CF\u5C11\u4F7F\u7528js\u63A7\u5236dom\u6539\u53D8left\u3001margin\u3002\u67E5\u5230\u7684\u76F8\u5173\u89E3\u91CA\u662F\uFF0C\u5B83\u5728\u6E32\u67D3\u8FC7\u7A0B\u4E2D\u8981\u6BD4\u4F7F\u7528left\u3001margin\u50CF\u7D20\u7EA7\u7684\u79FB\u52A8\u5355\u4F4D\u66F4\u5C0F\uFF0C\u4F7F\u52A8\u753B\u770B\u4E0A\u53BB\u66F4\u7EC6\u817B\uFF0C\u751A\u81F3\u53EF\u4EE5\u5229\u7528GPU\u8FDB\u884C\u52A0\u901F\u3002\u5E76\u4E14\u6700\u4E3B\u8981\u7684\u4E00\u70B9\u4F7F\uFF0C\u5B83\u4E0D\u4F1A\u89E6\u53D1\u91CD\u6392\u91CD\u7ED8\uFF0C\u76F8\u5BF9\u6765\u8BF4\u5BF9\u9875\u9762\u6027\u80FD\u5F71\u54CD\u8F83\u5C0F\u3002'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'animation\uFF1A\u4F7F\u7528@keyframes \u521B\u5EFA\u4E00\u4E2A\u52A8\u753B\uFF0C\u5176\u4E2D\u53EF\u4EE5\u5B9A\u4E49from\u3001to\u52A8\u753B\u7684\u8D77\u70B9\u4EE5\u53CA\u7EC8\u70B9\u7684\u6837\u5F0F\uFF0C\u8FD8\u53EF\u4EE5\u4F7F\u7528\u767E\u5206\u6BD4\u6765\u5B9A\u4E49\u4E00\u4E9B\u7EC6\u8282\uFF0C\u4E24\u8005\u642D\u914D\u6765\u8FDB\u884C\u4F7F\u7528\u3002animation\u8FD8\u6709\u4E00\u4E9B\u5C5E\u6027\u6765\u5B9A\u4E49\u52A8\u753B\u8FDB\u884C\u8FC7\u7A0B\u4E2D\u7684\u901F\u5EA6\u3001\u662F\u5426\u91CD\u590D\u3001\u64AD\u653E\u65F6\u95F4\u7B49\u7B49\u3002'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'transition\uFF1A\u8FC7\u6E21\u67D0\u4E2A\u5C5E\u6027\u5230\u6307\u5B9A\u7684\u6837\u5F0F\u3002\u53EF\u4EE5\u8BBE\u7F6E\u8FC7\u6E21\u7684\u65F6\u95F4\u3001\u901F\u5EA6\u66F2\u7EBF\u3001\u8FC7\u6E21\u6548\u679C\u5982\u4F55\u5F00\u59CB\u3002'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'transform\uFF1A\u8BE5\u5C5E\u6027\u53EF\u4EE5\u5BF9\u5143\u7D20\u8FDB\u884C\u7F29\u653E\u3001\u53D8\u5F62\u3001\u79FB\u52A8\u3001\u65CB\u8F6C\u7B49\u64CD\u4F5C\u3002rotale\u3001scale\u3001translate\u7B49\u3002'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'requestAnimationFrame\uFF1A\u67D0\u4E00\u6B21\u9762\u8BD5\u4E2D\u88AB\u95EE\u5230\u8FD9\u73A9\u610F\u4E86\uFF0C\u95EE\u7684\u6211\u4E00\u8138\u61F5\u903C\uFF0C\u4E4B\u524D\u7B80\u5355\u770B\u8FC7\u4E00\u773C\u77E5\u9053\u4E5F\u662F\u505A\u52A8\u753B\u76F8\u5173\u7684\u4E1C\u897F\uFF0C\u4F46\u662F\u5177\u4F53\u70B9\u5C31\u4E0D\u884C\u4E86\uFF08\u5929\u5929\u505A\u540E\u53F0\u7BA1\u7406\u7CFB\u7EDF\uFF0C\u52A8\u753B\u5B9E\u5728\u7528\u4E0D\u5230\uFF09\u3002\u8FD9\u5C31\u8BB0\u5F55\u4E00\u4E0B\u5427\u3002'
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'CPU\u8282\u80FD\uFF1A\u4F7F\u7528setTimeout\u5B9E\u73B0\u7684\u52A8\u753B\uFF0C\u5F53\u9875\u9762\u88AB\u9690\u85CF\u6216\u6700\u5C0F\u5316\u65F6\uFF0C\u5B83\u4F9D\u7136\u5728\u540E\u53F0\u6267\u884C\u52A8\u753B\u4EFB\u52A1\uFF0C\u7531\u4E8E\u6B64\u65F6\u9875\u9762\u5904\u4E8E\u4E0D\u53EF\u89C1\u6216\u9690\u85CF\u72B6\u6001\uFF0C\u5237\u65B0\u52A8\u753B\u6CA1\u6709\u610F\u4E49\uFF0C\u5B8C\u5168\u662F\u6D6A\u8D39CPU\u8D44\u6E90\u3002\u800CrequestAnimationFrame\u5219\u5B8C\u5168\u4E0D\u540C\uFF0C\u5F53\u9875\u9762\u5904\u4E8E\u672A\u6FC0\u6D3B\u7684\u72B6\u6001\u4E0B\u65F6\uFF0C\u8BE5\u9875\u9762\u7684\u5C4F\u5E55\u5237\u65B0\u4EFB\u52A1\u4E5F\u4F1A\u88AB\u7CFB\u7EDF\u6682\u505C\uFF0C\u56E0\u6B64\u8DDF\u7740\u7CFB\u7EDF\u6B65\u4F10\u8D70\u7684requestAnimationFrame\u4E5F\u4F1A\u505C\u6B62\u6E32\u67D3\uFF0C\u5F53\u9875\u9762\u88AB\u6FC0\u6D3B\u65F6\uFF0C\u52A8\u753B\u5C31\u4ECE\u4E0A\u6B21\u505C\u7559\u7684\u5730\u65B9\u7EE7\u7EED\u6267\u884C\uFF0C\u8282\u7701\u4E86CPU\u5F00\u9500\u3002'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u5B9A\u65F6\u5668\u5728\u5B8C\u6210\u52A8\u753B\u65F6\u5BB9\u6613\u51FA\u73B0\u5361\u987F\u3001\u6389\u5E27\u7684\u73B0\u8C61\u3002\u539F\u56E0\u662F\uFF1A1. setTimeout\u4EFB\u52A1\u88AB\u653E\u5165\u5F02\u6B65\u961F\u5217\u4E2D\uFF0C\u4E3B\u7EBF\u4EFB\u52A1\u5B8C\u6210\u540E\u624D\u4F1A\u6267\u884C\uFF0C\u56E0\u6B64\u5B9E\u9645\u6267\u884C\u7684\u65F6\u95F4\u6BD4\u5B9A\u4E49\u7684\u8981\u665A\u30022. \u5B9A\u65F6\u5668\u5237\u65B0\u7684\u9891\u7387\u4E0E\u5C4F\u5E55\u5237\u65B0\u65F6\u95F4\u4E0D\u4E00\u81F4\uFF0C\u4F1A\u5F15\u8D77\u4E22\u5E27\u3002'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'requestAnimationFrame\uFF1A\u7531\u7CFB\u7EDF\u51B3\u5B9A\u56DE\u8C03\u51FD\u6570\u7684\u6267\u884C\u65F6\u673A\uFF0C60Hz\u7684\u5237\u65B0\u9891\u7387\uFF0C\u90A3\u4E48\u6BCF\u6B21\u5237\u65B0\u7684\u95F4\u9694\u90FD\u4F1A\u6267\u884C\u4E00\u6B21\u56DE\u8C03\u51FD\u6570\uFF0C\u4E0D\u4F1A\u5F15\u8D77\u4E22\u5E27\u3001\u4E0D\u4F1A\u5361\u987F'
+                        )
+                    )
                 )
             );
         }
@@ -71757,13 +71823,18 @@ var MarkdownItReactComponent = function (_React$Component) {
                 _react2.default.createElement(
                     'p',
                     null,
-                    'async/awiat\u662Fes7\u4E2D\u65B0\u589E\u7684api\uFF0C\u901A\u8FC7async\u5173\u952E\u5B57\u5B9A\u4E49\u4E00\u4E2A\u51FD\u6570\uFF0C\u8BE5\u51FD\u6570\u603B\u662F\u8FD4\u56DE\u4E00\u4E2Apromise\uFF0C\u5982\u679C\u4EE3\u7801\u4E2D\u6709',
+                    'async/awiat\u662Fes7\u4E2D\u65B0\u589E\u7684api\u3002\u901A\u8FC7async\u5173\u952E\u5B57\u5B9A\u4E49\u7684\u51FD\u6570\u603B\u662F\u8FD4\u56DE\u4E00\u4E2Apromise\uFF0C\u5982\u679C\u8BE5\u51FD\u6570\u6709',
                     _react2.default.createElement(
                         'code',
                         null,
                         'return <\u975Epromise>'
                     ),
-                    '\u8BED\u53E5\uFF0Cjavascript\u4F1A\u81EA\u52A8\u628A\u8FD4\u56DE\u7684\u503C\u5305\u88C5\u6210promise\u7684resolve\u3002'
+                    '\u8FD4\u56DE\u503C\u7684\u8BDD\uFF0C\u5219\u8BE5return\u7684\u503C\u4F1A\u88AB\u5305\u88C5\u6210\u4E3Apromise\u7684resolve\u3002'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'await\u4E00\u5B9A\u8981\u642D\u914Dasync\u6765\u4F7F\u7528\u3002await\u53EF\u4EE5\u7B49\u5F85\u4EFB\u4F55\u8BED\u53E5\uFF0C\u5982\u679C\u662Fpromise\u5BF9\u8C61\u7684\u8BDD\uFF0C\u5B83\u4F1A\u7B49\u5F85resolve\u540E\u624D\u7EE7\u7EED\u5411\u4E0B\u6267\u884C\uFF0C\u5982\u679C\u4E0D\u662Fpromise\u8BED\u53E5\u5219\u7ACB\u5373\u6267\u884C\u3002'
                 ),
                 _react2.default.createElement(
                     'pre',
@@ -71881,11 +71952,6 @@ var MarkdownItReactComponent = function (_React$Component) {
                         ),
                         _react2.default.createElement('br', null)
                     )
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    '\u5173\u952E\u8BCDawait\u53EF\u4EE5\u8BA9JavaScript\u8FDB\u884C\u7B49\u5F85\uFF0C\u76F4\u5230\u4E00\u4E2Apromise\u6267\u884C\u5E76\u8FD4\u56DE\u5B83\u7684\u7ED3\u679C\uFF0CJavaScript\u624D\u4F1A\u7EE7\u7EED\u5F80\u4E0B\u6267\u884C\u3002'
                 ),
                 _react2.default.createElement(
                     'p',
@@ -72026,7 +72092,7 @@ var MarkdownItReactComponent = function (_React$Component) {
                 _react2.default.createElement(
                     'p',
                     null,
-                    '\u5173\u4E8Easync\u7A81\u7136\u5C31\u7406\u89E3\u4E86\uFF0C\u800C\u4E14\u53D1\u73B0\u597D\u50CF\u5C31\u50CF\u5B83\u7684\u8BED\u6CD5\u4E00\u6837\uFF0C\u771F\u7684\u5F88\u7B80\u5355\uFF08\u8FD9\u662F\u4E00\u5F00\u59CB\u63A5\u89E6\u65F6\u7684\u89C2\u70B9\uFF1A\u4E5F\u662F\u521A\u521A\u63A5\u89E6\u5230\u8FD9\u4E2A\u4E1C\u897F\uFF0C\u6CA1\u5728\u9879\u76EE\u4E2D\u5B9E\u9645\u7684\u8FD0\u7528\uFF0C\u8FD8\u9700\u8981\u6162\u6162\u6D88\u5316\uFF09\u3002\u67E5\u9605\u8D44\u6599\u7684\u65F6\u5019\u53D1\u73B0\u4E86\u4E00\u7BC7\u5199\u7684\u4E0D\u9519\u7684\u6587\u7AE0',
+                    '\u67E5\u9605\u8D44\u6599\u7684\u65F6\u5019\u53D1\u73B0\u4E86\u4E00\u7BC7\u5199\u7684\u4E0D\u9519\u7684\u6587\u7AE0',
                     _react2.default.createElement(
                         'a',
                         { href: 'https://segmentfault.com/a/1190000013292562?utm_source=channel-newest' },
@@ -78148,7 +78214,7 @@ var About = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'container about-wrap' },
-                _react2.default.createElement('img', { className: 'photo', src: './static/img/IMG_0453.JPG' }),
+                _react2.default.createElement('img', { className: 'photo', src: './static/img/1.jpeg' }),
                 _react2.default.createElement(
                     'div',
                     { className: 'mp3-icon' },
@@ -83211,4 +83277,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.83a69595a710490de76a.js.map
+//# sourceMappingURL=main.6319b4c71b6edba45b99.js.map
