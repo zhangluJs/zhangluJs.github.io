@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "6319b4c71b6edba45b99";
+/******/ 	var hotCurrentHash = "0549f14e158364f0c185";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -68248,6 +68248,11 @@ var ArticleList = function (_React$Component) {
                 description: '\u5728\u521A\u5F00\u59CB\u5DE5\u4F5C\u65F6\uFF0C\u63A5\u89E6\u5230\u4E86\u4E00\u4E9B\u6784\u5EFA\u5DE5\u5177\uFF0C\u6BD4\u5982gulp\u3001grunt\u8FD8\u6709webpack\u3002\u4F46\u5F53\u65F6\u603B\u662F\u5F04\u4E0D\u660E\u767D\u5B83\u4EEC\u7684\u5177\u4F53\u6982\u5FF5\u3002\n                    \u540E\u6765\u901A\u8FC7\u5728\u5DE5\u4F5C\u4E2D\u7684\u6162\u6162\u63A5\u89E6\u4EE5\u53CA\u5076\u5C14\u6839\u636E\u9879\u76EE\u9700\u8981\u6765\u4FEE\u6539\u5176\u4E2D\u7684\u67D0\u4E9B\u914D\u7F6E\u624D\u6E10\u6E10\u660E\u767D\u4E86\u5B83\u4EEC\u7684\u4F5C\u7528\u3002\n                    \u5728\u5DE5\u4F5C\u65F6\u59CB\u81EA\u5DF1\u59CB\u7EC8\u6CA1\u6709\u5B8C\u6574\u8D1F\u8D23\u8FC7\u4E00\u4E2A\u9879\u76EE\u7684\u4ECE\u65E0\u5230\u6709\uFF0C\u6240\u4EE5\u5229\u7528\u7A7A\u4F59\u65F6\u95F4\u597D\u597D\u5543\u4E86\u5543\u76EE\u524D\u76F8\u5BF9\u8F83\u706B\u7684webpack\u3002',
                 date: '工具 / 学习'
             }, {
+                name: 'React',
+                path: '/react',
+                description: 'react学习笔记',
+                date: '个人笔记 / 学习'
+            }, {
                 name: 'vue与react的异同',
                 path: '/vue-react-diff',
                 description: '记录一下vue与react这两大热门前端框架之间的异同',
@@ -74536,6 +74541,595 @@ exports.default = MarkdownItReactComponent;
 
 /***/ }),
 
+/***/ "./src/markdown/react.md":
+/*!*******************************!*\
+  !*** ./src/markdown/react.md ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u72B6\u6001\u63D0\u5347'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5C3D\u91CF\u628A\u6570\u636E\u7ED1\u5B9A\u5728\u7236\u7EA7\u4E0A\uFF0C\u5206\u53D1\u7ED9\u5404\u4E2A\u5B50\u7EC4\u4EF6'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u81EA\u4E0A\u800C\u4E0B\u7684\u6570\u636E\u6D41\uFF08\u5355\u5411\u6570\u636E\u6D41\uFF0C\u53CC\u5411\u6570\u636E\u7ED1\u5B9A\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        'context(\u73AF\u5883\u4E0A\u4E0B\u6587)'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u7528\u6765\u5B58\u653E\u6570\u636E\uFF0C\u6211\u7406\u89E3\u5B83\u5C06\u6570\u636E\u653E\u5728\u9876\u7EA7\u4F5C\u7528\u57DF\uFF0C\u7136\u540E\u8BE5\u4F5C\u7528\u57DF\u4E0B\u7684\u6240\u6709\u7EC4\u4EF6\u90FD\u53EF\u4EE5\u62FF\u5230\u5B9A\u4E49\u5728context\u4E2D\u7684\u6570\u636E\u3002\u4E0D\u7528\u5728\u628A\u6570\u636E\u4ECE\u7236\u7EC4\u4EF6\u4E00\u7EA7\u4E00\u7EA7\u7684\u4F20\u9012\u5230\u5B59\u5B50\u7EC4\u4EF6\u4E2D\uFF0C\u53CD\u4E4B\u4E5F\u4E0D\u7528\u4E00\u7EA7\u4E00\u7EA7\u7684\u5411\u4E0A\u4F20\u9012\u3002'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        '// React.createContext()\u63A5\u6536\u6570\u636E\uFF0C\u7528\u6765\u5F53\u4F5C\u9ED8\u8BA4\u6570\u636E',
+                        _react2.default.createElement('br', null),
+                        'let ',
+                        '{',
+                        'Provider, Consumer',
+                        '}',
+                        ' = React.createContext();',
+                        _react2.default.createElement('br', null),
+                        '// value\u63A5\u6536\u6570\u636E',
+                        _react2.default.createElement('br', null),
+                        '/**',
+                        _react2.default.createElement('br', null),
+                        ' * \u7236',
+                        _react2.default.createElement('br', null),
+                        ' * value\u5B58\u653E\u516C\u7528\u6570\u636E',
+                        _react2.default.createElement('br', null),
+                        '*/',
+                        _react2.default.createElement('br', null),
+                        '<Provider value=',
+                        '{',
+                        'params',
+                        '}',
+                        '>',
+                        _react2.default.createElement('br', null),
+                        '  <son></son>',
+                        _react2.default.createElement('br', null),
+                        '</Provider>',
+                        _react2.default.createElement('br', null),
+                        '/**',
+                        _react2.default.createElement('br', null),
+                        ' * \u5B50',
+                        _react2.default.createElement('br', null),
+                        ' * Consumer \u8FD4\u56DE\u4E00\u4E2A\u8868\u8FBE\u5F0F\uFF0C\u8868\u8FBE\u5F0F\u63A5\u6536\u4E00\u4E2A\u51FD\u6570\uFF0C\u51FD\u6570\u7684\u7B2C\u4E00\u4E2A\u53D8\u91CF\u5C31\u662F\u6211\u4EEC\u4F20\u5165\u7684\u503C',
+                        _react2.default.createElement('br', null),
+                        '*/',
+                        _react2.default.createElement('br', null),
+                        '<Consumer>',
+                        _react2.default.createElement('br', null),
+                        '  ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '    params => ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '        console.log(parms)',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        '}',
+                        _react2.default.createElement('br', null),
+                        '  ',
+                        '}',
+                        _react2.default.createElement('br', null),
+                        '</Consumer>',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        'JSX \u662F\u4EC0\u4E48\uFF1F'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'JSX\u5176\u5B9E\u662FReact.createElement\u7684\u4E00\u79CD\u8BED\u6CD5\u7CD6\uFF0C\u5B83\u770B\u4E0A\u53BB\u50CF\u662F\u67D0\u79CDhtml\u7684\u8BED\u6CD5\u6A21\u7248\uFF0C\u5176\u5B9E\u8FD9\u6837\u7406\u89E3\u6211\u89C9\u5F97\u4E5F\u6CA1\u9519\u3002\u5B83\u88ABbabel\u8F6C\u4E49\u540E\u5176\u5B9E\u8C03\u7528\u4E86React.createElement\u65B9\u6CD5\uFF0C\u8BE5\u65B9\u6CD5\u63A5\u6536\u4E09\u4E2A\u53C2\u6570\uFF0C\u7B2C\u4E00\u4E2A\u53C2\u6570\u662F\u6807\u7B7Ename\uFF0C\u7B2C\u4E8C\u4E2A\u53C2\u6570\u662F\u6807\u7B7E\u4E0A\u7684\u5C5E\u6027\uFF08value\u3001class...\uFF09\uFF0C\u7B2C\u4E09\u4E2A\u53C2\u6570\u662F\u6807\u7B7E\u5185\u5BB9\u3002\u5982\u679C\u6807\u7B7E\u5185\u8FD8\u5D4C\u5957\u4E86\u5176\u4ED6\u6807\u7B7E\uFF0C\u5219\u4F5C\u4E3A\u7B2C\u56DB\u4E2A\u53C2\u6570\u7EE7\u7EED\u8C03\u7528React.createElement\u3002'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-html' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-comment' },
+                            '<!-- \u8FD9\u6BB5html\u6807\u7B7E\u88ABbabel\u8F6C\u4E49 -->'
+                        ),
+                        ' ',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-tag' },
+                            '<',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-name' },
+                                'h1'
+                            ),
+                            ' ',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-attr' },
+                                'className'
+                            ),
+                            '=',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-string' },
+                                '"aaa"'
+                            ),
+                            ' ',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-attr' },
+                                'value'
+                            ),
+                            '=',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-string' },
+                                '"123"'
+                            ),
+                            ' ',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-attr' },
+                                'onClick'
+                            ),
+                            '=',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-string' },
+                                '{',
+                                '()'
+                            ),
+                            ' =>'
+                        ),
+                        ' ',
+                        '{',
+                        'this.fun()',
+                        '}',
+                        '}',
+                        '>123',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-tag' },
+                            '</',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-name' },
+                                'h1'
+                            ),
+                            '>'
+                        ),
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'var'
+                        ),
+                        ' _this = ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'void'
+                        ),
+                        ' ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-number' },
+                            '0'
+                        ),
+                        ';',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-comment' },
+                            '/*#__PURE__*/'
+                        ),
+                        _react2.default.createElement('br', null),
+                        'React.createElement(',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '"h1"'
+                        ),
+                        ', ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '  ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'className'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '"aaa"'
+                        ),
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '  ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'value'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '"123"'
+                        ),
+                        ',',
+                        _react2.default.createElement('br', null),
+                        '  ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-attr' },
+                            'onClick'
+                        ),
+                        ': ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-function' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-keyword' },
+                                'function'
+                            ),
+                            ' ',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-title' },
+                                'onClick'
+                            ),
+                            '(',
+                            _react2.default.createElement('span', { className: 'hljs-params' }),
+                            ') '
+                        ),
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '    _this.fun();',
+                        _react2.default.createElement('br', null),
+                        '  ',
+                        '}',
+                        _react2.default.createElement('br', null),
+                        '}',
+                        ', ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '"123"'
+                        ),
+                        ');',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u7531JSX\u5EF6\u4F38\u51FA\u6765\u7684\u9700\u8981\u77E5\u9053\u7684\u70B9\u662F'
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u89E3\u91CA\u4E86\u4E3A\u4EC0\u4E48\u7ED1\u5B9A\u7684\u4E8B\u4EF6this\u6307\u5411\u4F1A\u4E22\u5931\u7684\u539F\u56E0\u3002\u5728babel\u7F16\u8BD1\u540E\uFF0Cthis\u5176\u5B9E\u5DF2\u7ECF\u6307\u5411\u4E86\u53E6\u4E00\u4E2A\u5BF9\u8C61\uFF0C\u6240\u4EE5\u5728\u8C03\u7528\u7684\u65F6\u5019this\u65E0\u6CD5\u6307\u5411\u5F53\u524D\u6784\u9020\u51FD\u6570\u3002\u9700\u8981\u6211\u4EECbind\u5C06\u6307\u9488\u6307\u56DE\u6765\uFF0C\u6216\u8005\u7528\u7BAD\u5934\u51FD\u6570\u4FDD\u7559\u5176\u4F5C\u7528\u57DF\u3002'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u4E3A\u4EC0\u4E48\u81EA\u5DF1\u521B\u5EFA\u7684\u81EA\u5B9A\u4E49\u7EC4\u4EF6\u9700\u8981\u9996\u5B57\u6BCD\u5927\u5199\uFF0C\u8FD9\u662F\u4E3A\u4E86\u533A\u5206\u5B83\u662F\u81EA\u5B9A\u4E49\u7EC4\u4EF6\u8FD8\u662F\u539F\u751F\u7684html\u8282\u70B9\u3002\u5982\u679C\u662F\u81EA\u5B9A\u4E49\u7EC4\u4EF6\u5219React.createElement\u7B2C\u4E00\u4E2A\u53C2\u6570\u662F\u6784\u9020\u51FD\u6570\u3002'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            '\u4E3A\u4EC0\u4E48\u6837\u5F0F\u540D\u8981\u5199\u6210 className \uFF0C\u56E0\u4E3A\u7F16\u8BD1\u540E\u4E0E\u5173\u952E\u5B57class\u51B2\u7A81'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        'map\u65F6\u7684key\u6709\u4EC0\u4E48\u4F5C\u7528\uFF1F'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u65E0\u8BBA\u5728vue\u8FD8\u662Freact\u4E2D\u53EA\u8981\u7528\u5230\u904D\u5386\u7684\u5730\u65B9\uFF0C\u5B98\u65B9\u7ED9\u7684\u5EFA\u8BAE\u662F\u9700\u8981\u6DFB\u52A0key\uFF0C\u5E76\u4E14\u8FD9\u4E2Akey\u662F\u552F\u4E00\u503C\u3002\u5B83\u7684\u4F5C\u7528\u662F\u53EF\u4EE5\u4F18\u5316\u865A\u62DFdom\u7B97\u6CD5\uFF0C\u6BCF\u4E2A\u7EC4\u4EF6\u901A\u8FC7key\u6765\u8BC6\u522B\uFF0C\u7C7B\u4F3C\u6570\u636E\u4E2D\u7684id\u3002'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u53D7\u63A7\u7EC4\u4EF6\u4E0E\u975E\u53D7\u63A7\u7EC4\u4EF6'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u53D7\u63A7\u7EC4\u4EF6\u662F\u6307\uFF0C\u8868\u5355\u5143\u7D20\u7684\u503C\u7531state\u7ED1\u5B9A\uFF0C\u901A\u8FC7setState\u6539\u53D8\u6765\u63A7\u5236\u8868\u5355\u5143\u7D20'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u975E\u53D7\u63A7\u7EC4\u4EF6\u662F\u6307\uFF0C\u76F4\u63A5\u901A\u8FC7dom\u5143\u7D20\u83B7\u53D6\u503C\uFF0C\u6574\u4E2A\u8FC7\u7A0B\u4E2D\u4E0D\u4E0E state \u53D1\u751F\u4EFB\u4F55\u5173\u7CFB\uFF08ref\uFF09'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        '<input type=',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '"text"'
+                        ),
+                        ' ref=',
+                        '{',
+                        '(text) => ',
+                        '{',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'this'
+                        ),
+                        '.textInput = text',
+                        '}',
+                        '}',
+                        '>',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-built_in' },
+                            'console'
+                        ),
+                        '.log(',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'this'
+                        ),
+                        '.textInput.value)',
+                        _react2.default.createElement('br', null),
+                        '<input type=',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '"text"'
+                        ),
+                        ' value=',
+                        '{',
+                        'value',
+                        '}',
+                        ' onChange=',
+                        '{',
+                        '}',
+                        '>',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-built_in' },
+                            'console'
+                        ),
+                        '.log(',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'this'
+                        ),
+                        '.state.value)',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u7EAF\u51FD\u6570\u7EC4\u4EF6'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u67D0\u4E9B\u7EC4\u4EF6\u5982\u679C\u53EA\u7528\u6765\u5C55\u793A\u6570\u636E\uFF0C\u800C\u4E0D\u5BF9\u6570\u636E\u8FDB\u884C\u4EFB\u4F55\u4FEE\u6539\uFF0C\u8FD9\u65F6\u5019\u5C31\u53EF\u4EE5\u4F7F\u7528\u51FD\u6570\u6765\u5F53\u4F5C\u4E00\u4E2A\u7EC4\u4EF6\uFF0C\u8BED\u6CD5\u4E0A\u8981\u6BD4class\u7EC4\u4EF6\u7CBE\u7B80\u7684\u591A'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement(
+                        'strong',
+                        null,
+                        '\u7B80\u5355\u7684\u751F\u547D\u5468\u671F'
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    _react2.default.createElement('img', { src: './static/img/react.png', alt: '\u751F\u547D\u5468\u671F' })
+                ),
+                _react2.default.createElement(
+                    'ol',
+                    null,
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'constructor \u7EC4\u4EF6\u521B\u5EFA\u65F6\u8C03\u7528'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'render \u7EC4\u4EF6\u66F4\u65B0\u65F6\u8C03\u7528'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'componentDidMount dom\u6E32\u67D3\u540E\u8C03\u7528'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'componentUpdate \u7EC4\u4EF6\u66F4\u65B0'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'li',
+                        null,
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'componentWillunmont \u7EC4\u4EF6\u5378\u8F7D'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u7EC4\u4EF6\u89E6\u53D1\u66F4\u65B0\uFF08DOM\u3001refs\uFF09\u7684\u6761\u4EF6\uFF0C\u4F20\u5165\u4E86\u65B0\u7684props\u3001 setState()\u3001 forceUpdate()// \u5F3A\u5236\u8C03\u7528render\u65B9\u6CD5'
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
+
+/***/ }),
+
 /***/ "./src/markdown/regexp.md":
 /*!********************************!*\
   !*** ./src/markdown/regexp.md ***!
@@ -78382,6 +78976,10 @@ var _css = __webpack_require__(/*! ../../markdown/css.md */ "./src/markdown/css.
 
 var _css2 = _interopRequireDefault(_css);
 
+var _react3 = __webpack_require__(/*! ../../markdown/react.md */ "./src/markdown/react.md");
+
+var _react4 = _interopRequireDefault(_react3);
+
 __webpack_require__(/*! ./index.scss */ "./src/pages/app/index.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -78448,6 +79046,7 @@ var App = function (_React$Component) {
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/throttle-debounce', component: _throttleDebounce2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/web-storage', component: _webStorage2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/css', component: _css2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/react', component: _react4.default }),
                             _react2.default.createElement(_reactRouterDom.Redirect, { from: '/', to: '/home' })
                         )
                     ),
@@ -83277,4 +83876,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.6319b4c71b6edba45b99.js.map
+//# sourceMappingURL=main.0549f14e158364f0c185.js.map
