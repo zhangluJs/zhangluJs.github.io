@@ -37,6 +37,7 @@ import renderwebPage from '../../markdown/render-web-page.md';
 import throttleDebounce from '../../markdown/throttle-debounce.md';
 import webStorage from '../../markdown/web-storage.md';
 import css from '../../markdown/css.md';
+import react from '../../markdown/react.md';
 
 import './index.scss';
 
@@ -76,6 +77,7 @@ export default class App extends React.Component {
                             <Route path='/throttle-debounce' component={throttleDebounce}></Route>
                             <Route path='/web-storage' component={webStorage}></Route>
                             <Route path='/css' component={css}></Route>
+                            <Route path='/react' component={react}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>
