@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "0549f14e158364f0c185";
+/******/ 	var hotCurrentHash = "0113f48f6d68fadfbdc8";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -68327,6 +68327,16 @@ var ArticleList = function (_React$Component) {
                 path: '/three',
                 description: 'example',
                 date: 'markdown'
+            }, {
+                name: '企业文化试题',
+                path: '/courseStudy',
+                description: 'test',
+                date: 'markdown'
+            }, {
+                name: '垃圾分类试题',
+                path: '/lajifenlei',
+                description: 'test',
+                date: 'markdown'
             }]
         };
         return _this;
@@ -68965,6 +68975,144 @@ var MarkdownItReactComponent = function (_React$Component) {
                             )
                         )
                     )
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
+
+/***/ }),
+
+/***/ "./src/markdown/courseStudy.md":
+/*!*************************************!*\
+  !*** ./src/markdown/courseStudy.md ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'h3',
+                    { id: 'qi-ye-wen-hua-ce-shi-ti' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#qi-ye-wen-hua-ce-shi-ti', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' \u4F01\u4E1A\u6587\u5316\u6D4B\u8BD5\u9898'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u4EA7\u54C1\u9500\u552E\u4F53\u7CFB\u3001\u5BA2\u6237\u670D\u52A1\u4F53\u7CFB\u3001\u98CE\u9669\u63A7\u5236\u4F53\u7CFB\u3001\u8D44\u4EA7\u8FD0\u8425\u4F53\u7CFB'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '2018\u5E74\uFF0C\u4E2D\u56FD\u65C5\u6E38\u8F66\u8239\u534F\u4F1A\u65C5\u6E38\u79DF\u8D41\u5206\u4F1A\u6210\u7ACB\uFF0C\u9996\u6C7D\u79DF\u8F66\u6210\u4E3A\u4F1A\u5458\u5355\u4F4D\u3002 \uFF08\u5BF9\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u9996\u6C7D\u79DF\u8F66\u516C\u53F8\u6218\u7565\uFF1A\u805A\u7126B\u7AEF \uFF08\u5BF9\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u9996\u6C7D\u79DF\u8F66\u5B9E\u65BD\'\u56FD\u9645\u5316\u3001\u4E92\u8054\u7F51\u5316\u4EE5\u53CA\u6DF7\u5408\u6240\u6709\u5236\'\u6218\u7565\u53D1\u5C55\u7684\u65F6\u95F4\u662F\uFF082014\u5E74\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '2020\u5E743\u6708 \u516C\u53F8\u81EA\u4E3B\u7814\u53D1 \uFF08\u7EFC\u5408\u7BA1\u7406\u5E73\u53F0\uFF09 \u7CFB\u7EDF\u6B63\u5F0F\u4E0A\u7EBF'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u4ECE\u5BA2\u6237\u7684\u884C\u4E1A\u7EF4\u5EA6\u6765\u770B\u3001\u516C\u53F8\u4E1A\u52A1\u5360\u6BD4\u7B2C\u4E00 \uFF08\u901A\u4FE1\u884C\u4E1A\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u4F01\u4E1A\u613F\u666F \uFF08\u7528\u5FC3\u6253\u9020\u4E2D\u56FD\u7528\u8F66\u670D\u52A1\u9886\u5BFC\u54C1\u724C\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u9996\u6C7D\u79DF\u8D41\u6709\u9650\u8D23\u4EFB\u516C\u53F8\u662F\u65B0\u4E2D\u56FD\u7B2C\u4E00\u5BB6\u4E13\u4E1A\u6027\u3001\u7EFC\u5408\u6027\u6C7D\u8F66\u670D\u52A1\u4F01\u4E1A \uFF08\u9519\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u9996\u6C7D\u79DF\u8F66\u7684\u521D\u5FC3\u548C\u4F7F\u547D\u662F \uFF08\u4E3AB\u7AEF\u5BA2\u6237\u63D0\u4F9B\u5168\u9762\u3001\u7ECF\u6D4E\u3001\u5468\u5230\u7684\u7528\u8F66\u670D\u52A1\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u9996\u6C7D\u79DF\u8F66\u5B9E\u65BD\'\u56FD\u9645\u5316\u3001\u4E92\u8054\u7F51\u5316\u4EE5\u53CA\u6DF7\u5408\u6240\u6709\u5236\'\u6218\u7565\u53D1\u5C55\u7684\u65F6\u95F4\u662F\uFF082014\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '2017\u5E74\uFF0C\u9996\u6C7D\u79DF\u8F66\u7684\u6CE8\u518C\u8D44\u672C\u589E\u52A0\u81F3\uFF0810\u4EBF\u5143\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u957F\u79DF\u4E1A\u52A1\u4E00\u76F4\u662F\u9996\u6C7D\u79DF\u8F66\u7684\u6838\u5FC3\u4E1A\u52A1\uFF0C2014-2017\u5E74\u4FDD\u6301\u4E86\u76F8\u5BF9\u5E73\u7A33\u7684\u589E\u957F\uFF0C\u4ECE2018\u5E74\u5F00\u59CB\uFF0C\u4FDD\u6301\u4E8620%\u4EE5\u4E0A\u7684\u6DA8\u5E45\uFF0C2019\u5E74\uFF0C\u6DA8\u5E45\u6BD4\u4F8B\u66F4\u8FBE\uFF0833%\uFF09'
                 )
             );
         }
@@ -72104,6 +72252,494 @@ var MarkdownItReactComponent = function (_React$Component) {
                         'Async/await\u5B66\u4E60'
                     ),
                     '\u3002'
+                )
+            );
+        }
+    }]);
+
+    return MarkdownItReactComponent;
+}(_react2.default.Component);
+
+;
+
+exports.default = MarkdownItReactComponent;
+
+/***/ }),
+
+/***/ "./src/markdown/lajifenlei.md":
+/*!************************************!*\
+  !*** ./src/markdown/lajifenlei.md ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+undefined;
+
+var MarkdownItReactComponent = function (_React$Component) {
+    _inherits(MarkdownItReactComponent, _React$Component);
+
+    function MarkdownItReactComponent(props) {
+        _classCallCheck(this, MarkdownItReactComponent);
+
+        var _this = _possibleConstructorReturn(this, (MarkdownItReactComponent.__proto__ || Object.getPrototypeOf(MarkdownItReactComponent)).call(this, props));
+
+        _this.state = {};
+        return _this;
+    }
+
+    _createClass(MarkdownItReactComponent, [{
+        key: 'handleToggleCode',
+        value: function handleToggleCode(flag) {
+            var state = {};
+            state['showCode' + flag] = !this.state['showCode' + flag];
+            this.setState(state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'doc' },
+                _react2.default.createElement(
+                    'h3',
+                    { id: 'la-ji-fen-lei-ti' },
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'header-anchor', href: '#la-ji-fen-lei-ti', 'aria-hidden': 'true' },
+                        '\xB6'
+                    ),
+                    ' \u5783\u573E\u5206\u7C7B\u9898'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u7528\u5B8C\u7684\u7B14\u82AF\u5C5E\u4E8E\uFF08\u6709\u6BD2\u6709\u5BB3\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5851\u6599\u62C9\u6746\u5C5E\u4E8E\u53EF\u56DE\u6536\u5783\u573E\uFF08\u9519\u8BEF\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u788E\u7EB8\u673A\u5904\u7406\u8FC7\u7684\u788E\u7EB8\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F\uFF08\u5176\u4ED6\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u8BA2\u4E66\u9489\u5C5E\u4E8E\u53EF\u56DE\u6536\u5783\u573E\uFF08\u9519\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5FEB\u9012\u7684\u5305\u88C5\u7EB8\u888B\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F\uFF08\u53EF\u56DE\u6536\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u53EF\u56DE\u6536\u7269\u5E94\u6295\u5165\uFF08\u84DD\u8272\uFF09\u989C\u8272\u7684\u5783\u573E\u5206\u7C7B\u6876\u3002'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u80F6\u6C34\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F\uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u725B\u5976\u76D2\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F \uFF08\u53EF\u56DE\u6536\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5FEB\u9012\u7684\u5305\u88C5\u7EB8\u76D2\u5C5E\u4E8E\u54EA\u7C7B\u5783\uFF08\u53EF\u56DE\u6536\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5B9E\u884C\u5783\u573E\u5206\u7C7B\u7684\u5783\u573E\u5206\u7C7B\u4E13\u7528\u5783\u573E\u6876\u989C\u8272\u5206\u522B\u4E3A\uFF08\u84DD\u3001\u7EFF\u3001\u7EA2\u3001\u7070\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6CE1\u8FC7\u7684\u8336\u53F6\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F\uFF08 \u53A8\u4F59\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u7259\u7B7E\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F \uFF08\u4E0D\u53EF\u56DE\u6536\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5E9F\u5F03\u7684\u6253\u706B\u673A\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F \uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u94A8\u4E1D\u706F\u6CE1\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F\uFF08\u53EF\u56DE\u6536\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u542B\u9549\u954D\u7535\u6C60\u3001\u6C27\u5316\u6C5E\u7535\u6C60\u3001\u94C5\u84C4\u7535\u6C60\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F\uFF08\u6709\u6BD2\u6709\u5BB3\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6C34\u94F6\u6E29\u5EA6\u8BA1\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F\uFF08\u6709\u6BD2\u6709\u5BB3\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5E9F\u65E7\u7684\u5E03\u9762\u9F20\u6807\u57AB\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F\uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u94A8\u4E1D\u706F\u6CE1\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F \uFF08\u53EF\u56DE\u6536\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u7528\u6765\u88C5\u9970\u7684\u5047\u82B1\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF08\u53EF\u56DE\u6536\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5E9F\u5F03\u80F6\u5E26\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F\uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u57CE\u5E02\u751F\u6D3B\u5783\u573E\u5206\u4E3A(\u53EF\u56DE\u6536\u7269\u3001\u53A8\u4F59\u5783\u573E\u3001\u6709\u5BB3\u5783\u573E\u3001\u5176\u4ED6\u5783\u573E)'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u96F6\u98DF\u5305\u88C5\u888B\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u7528\u5B8C\u7684\u7B14\u6746\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F\uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u85AF\u7247\u5305\u88C5\u888B\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F\uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5E9F\u65E7\u7684\u80F6\u5377\u3001\u80F6\u7247\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F \uFF08\u6709\u6BD2\u6709\u5BB3\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5BB6\u7528\u68C9\u7B7E\u5C5E\u4E8E\u6BD2\u6709\u5BB3\u5783\u573E \uFF08\u9519\u8BEF\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u635F\u574F\u7684\u7F51\u7EBF\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\uFF08\u9519\u8BEF\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u635F\u574F\u7684\u5145\u7535\u7EBF\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\u3002 \uFF08\u9519\u8BEF\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u7528\u5B8C\u7684\u6D88\u6BD2\u7EB8\u5DFE\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\u3002 \uFF08\u6B63\u786E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u62A5\u7EB8\u5C5E\u4E8E\u53EF\u56DE\u6536\u5783\u573E\u3002\uFF08\u6B63\u786E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u635F\u574F\u7684\u8BA2\u4E66\u673A\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\uFF08\u9519\u8BEF\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u4F7F\u7528\u8FC7\u7684\u53E3\u7F69\u6295\u653E\u5230\u53E3\u7F69\u4E13\u7528\u6876\u3002 \uFF08\u6B63\u786E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u533B\u7528\u68C9\u7B7E\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\uFF08\u9519\u8BEF\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u9F20\u6807\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\u3002\uFF08\u9519\u8BEF\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u67AF\u840E\u7684\u82B1\u3001\u7EFF\u690D\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\u3002\uFF08\u9519\u8BEF\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u788E\u7EB8\u673A\u5904\u7406\u8FC7\u7684\u788E\u7EB8\u5C5E\u4E8E\uFF08\u5176\u4ED6\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u725B\u5976\u76D2\u5C5E\u4E8E\uFF08\u53EF\u56DE\u6536\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6CE1\u8FC7\u7684\u8336\u53F6\u5C5E\u4E8E\uFF08\u53A8\u4F59\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u7528\u6765\u88C5\u9970\u7684\u5047\u82B1\u5C5E\u4E8E\uFF08\u53EF\u56DE\u6536\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u542B\u9549\u954D\u7535\u6C60\u3001\u6C27\u5316\u6C5E\u7535\u6C60\u3001\u94C5\u84C4\u7535\u6C60\u5C5E\u4E8E\uFF08\u6709\u6BD2\u6709\u5BB3\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u4E00\u6B21\u6027\u7EB8\u676F\u5C5E\u4E8E\uFF08\u53EF\u56DE\u6536\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u88C5\u5496\u5561\u3001\u5976\u8336\u7684\u7EB8\u676F\u5C5E\u4E8E\uFF08\u5176\u4ED6\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5E9F\u65E7\u7684\u80F6\u5377\u3001\u80F6\u7247\u5C5E\u4E8E\uFF08\u6709\u6BD2\u6709\u5BB3\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u8FC7\u671F\u7684\u611F\u5192\u836F\u5C5E\u4E8E\uFF08\u6709\u6BD2\u6709\u5BB3\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5305\u4E86\u53E3\u9999\u7CD6\u7684\u7EB8\u5DFE\u5C5E\u4E8E\uFF08\u5176\u4ED6\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6CA1\u6CE1\u8FC7\u7684\u5E72\u8336\u53F6\u5C5E\u4E8E\uFF08\u53A8\u4F59\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u73BB\u7483\u74F6\u5C5E\u4E8E\uFF08\u53EF\u56DE\u6536\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5496\u5561\u7684\u6405\u68D2\u5C5E\u4E8E\uFF08\u5176\u4ED6\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u4E00\u6B21\u6027\u7B77\u5B50\u5C5E\u4E8E\uFF08\u5176\u4ED6\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u80F6\u6C34\u5C5E\u4E8E\uFF08\u5176\u4ED6\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u57CE\u5E02\u751F\u6D3B\u5783\u573E\u5206\u4E3A\uFF08\u53EF\u56DE\u6536\u7269\u3001\u53A8\u4F59\u5783\u573E\u3001\u6709\u5BB3\u5783\u573E\u3001\u5176\u4ED6\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6CA1\u7528\u5B8C\u7684\u94C5\u7B14\u5C5E\u4E8E\uFF08\u5176\u4ED6\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u53A8\u4F59\u5783\u573E\u5E94\u6295\u5165\uFF08\u7EFF\u8272\uFF09\u989C\u8272\u7684\u5783\u573E\u5206\u7C7B\u6876\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5355\u4F4D\u548C\u4E2A\u4EBA\u5E94\u5F53\u51CF\u5C11\u4F7F\u7528\u6216\u8005\u6309\u7167\u89C4\u5B9A\u4E0D\u4F7F\u7528\uFF08\u4E00\u6B21\u6027\u7528\u54C1\uFF09\uFF0C\u4F18\u5148\u91C7\u8D2D\uFF08\u53EF\u91CD\u8BFB\u4F7F\u7528\u548C\u518D\u5229\u7528\uFF09\u4EA7\u54C1\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u62A5\u7EB8\u5C5E\u4E8E\u53EF\u56DE\u6536\u5783\u573E\uFF08\u6B63\u786E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6F31\u53E3\u6C34\u5305\u88C5\u74F6\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\uFF08\u9519\u8BEF\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5927\u5934\u9488\u5C5E\u4E8E\u53EF\u6536\u56DE\u5783\u573E\uFF08\u9519\u8BEF\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u65E7\u6863\u6848\u76D2\u5C5E\u4E8E\u53EF\u56DE\u6536\u5783\u573E\uFF08\u6B63\u786E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u635F\u574F\u7684\u7F51\u7EBF\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\uFF08\u9519\u8BEF\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u67AF\u840E\u7684\u82B1\u3001\u7EFF\u690D\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\uFF08\u9519\u8BEF\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u672A\u7528\u5B8C\u7684\u5507\u818F\u5C5E\u4E8E\u6709\u6BD2\u6709\u5BB3\u5783\u573E\uFF08\u9519\u8BEF\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u62A4\u80A4\u971C\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\uFF08\u6B63\u786E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u635F\u574F\u7684\u5145\u7535\u7EBF\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\uFF08\u9519\u8BEF\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5851\u6599\u62C9\u6746\u5939\u5C5E\u4E8E\u53EF\u56DE\u6536\u5783\u573E\uFF08\u9519\u8BEF\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6D82\u6539\u6DB2\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E \uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6E7F\u7EB8\u5DFE\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F \uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '1\u30013\u30015\u53F7\u5E9F\u65E7\u7535\u6C60\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6709\u6B8B\u6E23\u7684\u4E00\u6B21\u6027\u7EB8\u676F\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E \uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5E9F\u65E7\u7684\u5438\u94C1\u77F3\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E \uFF08\u53EF\u56DE\u6536\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6613\u62C9\u7F50\u5305\u88C5\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\uFF08\u9519\u8BEF\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u66F2\u522B\u9488\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\uFF08\u6B63\u786E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u9999\u6C34\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F\uFF08\u6709\u6BD2\u6709\u5BB3\u5783\u573E\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6CA1\u7528\u5B8C\u7684\u6D17\u624B\u6DB2\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\uFF08\u9519\u8BEF\uFF09\uFF1B'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u65E7\u53F0\u5386\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E\uFF1F \uFF08\u9519\u8BEF\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u4F7F\u7528\u8FC7\u7684\u536B\u751F\u7EB8\u3001\u7EB8\u5DFE\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F \uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5E9F\u65E7\u96E8\u4F1E\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F \uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u53EF\u56DE\u6536\u7269\u5E94\u6295\u5165\uFF08\u84DD\u8272\uFF09\u989C\u8272\u7684\u5783\u573E\u5206\u7C7B\u6876'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u725B\u5976\u76D2\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF08\u53EF\u56DE\u6536\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u7834\u788E\u7684\u7897\u789F\u5C5E\u4E8E\u54EA\u7C7B \uFF08\u5176\u4ED6\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u533B\u7528\u68C9\u7B7E\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E \uFF08\u9519\u8BEF\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6587\u4EF6\u888B\u5C5E\u4E8E\u53EF\u56DE\u6536\u5783\u573E\uFF08\u6B63\u786E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u65E7\u5370\u6CE5\u5C5E\u4E8E\u6709\u6BD2\u6709\u5BB3\u5783\u573E \uFF08\u9519\u8BEF\uFF09'
                 )
             );
         }
@@ -75310,7 +75946,18 @@ var MarkdownItReactComponent = function (_React$Component) {
                     _react2.default.createElement(
                         'code',
                         { className: 'language-js' },
-                        '/^\\d+&/.test(\'123\'); //true',
+                        '/^\\d+$/.test(',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'123\''
+                        ),
+                        '); ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-comment' },
+                            '//true'
+                        ),
                         _react2.default.createElement('br', null)
                     )
                 ),
@@ -78980,6 +79627,14 @@ var _react3 = __webpack_require__(/*! ../../markdown/react.md */ "./src/markdown
 
 var _react4 = _interopRequireDefault(_react3);
 
+var _courseStudy = __webpack_require__(/*! ../../markdown/courseStudy.md */ "./src/markdown/courseStudy.md");
+
+var _courseStudy2 = _interopRequireDefault(_courseStudy);
+
+var _lajifenlei = __webpack_require__(/*! ../../markdown/lajifenlei.md */ "./src/markdown/lajifenlei.md");
+
+var _lajifenlei2 = _interopRequireDefault(_lajifenlei);
+
 __webpack_require__(/*! ./index.scss */ "./src/pages/app/index.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -79047,6 +79702,8 @@ var App = function (_React$Component) {
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/web-storage', component: _webStorage2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/css', component: _css2.default }),
                             _react2.default.createElement(_reactRouterDom.Route, { path: '/react', component: _react4.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/courseStudy', component: _courseStudy2.default }),
+                            _react2.default.createElement(_reactRouterDom.Route, { path: '/lajifenlei', component: _lajifenlei2.default }),
                             _react2.default.createElement(_reactRouterDom.Redirect, { from: '/', to: '/home' })
                         )
                     ),
@@ -83876,4 +84533,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.0549f14e158364f0c185.js.map
+//# sourceMappingURL=main.0113f48f6d68fadfbdc8.js.map
