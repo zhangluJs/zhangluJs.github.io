@@ -149,6 +149,16 @@ export default class ArticleList extends React.Component {
                 path: '/three',
                 description: 'example',
                 date: 'markdown'
+            }, {
+                name: '企业文化试题',
+                path: '/courseStudy',
+                description: 'test',
+                date: 'markdown'
+            }, {
+                name: '垃圾分类试题',
+                path: '/lajifenlei',
+                description: 'test',
+                date: 'markdown'
             }]
         };
     }

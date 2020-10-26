@@ -95,11 +95,11 @@ console.log(this.state.value)
 
 2. render 组件更新时调用
 
-2. componentDidMount dom渲染后调用
+3. componentDidMount dom渲染后调用
 
-3. componentUpdate 组件更新
+4. componentUpdate 组件更新
 
-4. componentWillunmont 组件卸载
+5. componentWillunmont 组件卸载
 
 组件触发更新（DOM、refs）的条件，传入了新的props、 setState()、 forceUpdate()// 强制调用render方法
 
