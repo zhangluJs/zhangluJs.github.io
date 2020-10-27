@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "8e8e0edae322d8575cd2";
+/******/ 	var hotCurrentHash = "6942254e2a4fe32792b2";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -72765,6 +72765,16 @@ var MarkdownItReactComponent = function (_React$Component) {
                     'p',
                     null,
                     '\u6742\u5FD7 \uFF08\u53EF\u56DE\u6536\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u98DF\u54C1\u888B\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E \uFF08\u5176\u4ED6\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u8FC7\u671F\u7684\u9152\u7CBE\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E \uFF08\u9519\u8BEF\uFF09'
                 )
             );
         }
@@ -84558,4 +84568,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.8e8e0edae322d8575cd2.js.map
+//# sourceMappingURL=main.6942254e2a4fe32792b2.js.map
