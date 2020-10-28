@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "6942254e2a4fe32792b2";
+/******/ 	var hotCurrentHash = "a5b7aaf89e6ba141576d";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -69460,8 +69460,12 @@ var MarkdownItReactComponent = function (_React$Component) {
                             'p',
                             null,
                             '\u884C\u5185 ',
-                            _react2.default.createElement('div', { style: 'xxxx:xxxx' }),
-                            '  1000'
+                            _react2.default.createElement(
+                                'code',
+                                null,
+                                '<div style="xxxx:xxxx"></div>'
+                            ),
+                            ' 1000'
                         )
                     ),
                     _react2.default.createElement(
@@ -72775,6 +72779,16 @@ var MarkdownItReactComponent = function (_React$Component) {
                     'p',
                     null,
                     '\u8FC7\u671F\u7684\u9152\u7CBE\u5C5E\u4E8E\u5176\u4ED6\u5783\u573E \uFF08\u9519\u8BEF\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u5403\u5269\u7684\u7F50\u5934\u98DF\u54C1\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F \uFF08\u53A8\u4F59\u5783\u573E\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u6C34\u679C\u7684\u58F3\u548C\u6838\u5C5E\u4E8E\u54EA\u7C7B\u5783\u573E\uFF1F \uFF08\u53A8\u4F59\u5783\u573E\uFF09'
                 )
             );
         }
@@ -84568,4 +84582,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.6942254e2a4fe32792b2.js.map
+//# sourceMappingURL=main.a5b7aaf89e6ba141576d.js.map
