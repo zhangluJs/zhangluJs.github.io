@@ -76,7 +76,7 @@ display: flex; align-items: centerl; 弹性盒属性
 
 1. !important 选中最高
 
-2. 行内 <div style="xxxx:xxxx"></div>  1000
+2. 行内 `<div style="xxxx:xxxx"></div> ` 1000
 
 3. id选择器 100
 
