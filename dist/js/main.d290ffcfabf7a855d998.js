@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "24d5ed74141d9ff318e7";
+/******/ 	var hotCurrentHash = "d290ffcfabf7a855d998";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -69113,6 +69113,11 @@ var MarkdownItReactComponent = function (_React$Component) {
                     'p',
                     null,
                     '\u957F\u79DF\u4E1A\u52A1\u4E00\u76F4\u662F\u9996\u6C7D\u79DF\u8F66\u7684\u6838\u5FC3\u4E1A\u52A1\uFF0C2014-2017\u5E74\u4FDD\u6301\u4E86\u76F8\u5BF9\u5E73\u7A33\u7684\u589E\u957F\uFF0C\u4ECE2018\u5E74\u5F00\u59CB\uFF0C\u4FDD\u6301\u4E8620%\u4EE5\u4E0A\u7684\u6DA8\u5E45\uFF0C2019\u5E74\uFF0C\u6DA8\u5E45\u6BD4\u4F8B\u66F4\u8FBE\uFF0833%\uFF09'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '2019\u5E74\uFF0C\u9996\u79DF\u503A\u5238\u878D\u8D44\u89C4\u6A21\u8FBE\u5230\uFF0815\u4EBF\uFF09'
                 )
             );
         }
@@ -84627,4 +84632,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.24d5ed74141d9ff318e7.js.map
+//# sourceMappingURL=main.d290ffcfabf7a855d998.js.map
