@@ -18,7 +18,7 @@ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | 
 ```
 
 1. 下载完毕后查看nvm版本号。如果显示版本号则代表成功，否则失败。我这里很顺利，没有遇到官网上说的一些问题。
-> ```command -v nvm```
+> ```nvm --version```
 
 
 2. 开始安装node

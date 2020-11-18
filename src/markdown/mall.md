@@ -28,7 +28,7 @@ vue-cli 构建SPA单页应用
 
 1. 直接通过命令```vue init webpack mall-demo```（默认已经安装node/npm/vue-cli）来自动生成一个基于webpack构建工具的vue项目（这里还有其他的工具可以选择，不是重点，就不介绍了）。
 
-2. npm install/yarn install，下载项目依赖的一些包。
+2. npm install/yarn install，下载项目依赖的一些包。(yarn的淘宝源配置：yarn config set registry https://registry.npm.taobao.org -g、 yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g)
 
 3. 对cli生成的前端项目文件进行一个简单的概述
 

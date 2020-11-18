@@ -40,6 +40,7 @@ import css from '../../markdown/css.md';
 import react from '../../markdown/react.md';
 import courseStudy from '../../markdown/courseStudy.md';
 import lajifenlei from '../../markdown/lajifenlei.md';
+import typescript from '../../markdown/typescript.md';
 
 import './index.scss';
 
@@ -82,6 +83,7 @@ export default class App extends React.Component {
                             <Route path='/react' component={react}></Route>
                             <Route path='/courseStudy' component={courseStudy}></Route>
                             <Route path='/lajifenlei' component={lajifenlei}></Route>
+                            <Route path='/typescript' component={typescript}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>

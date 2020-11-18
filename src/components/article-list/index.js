@@ -11,6 +11,11 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: 'typescript',
+                path: '/typescript',
+                description: '等完了在补这个描述，先学',
+                date: '学习'
+            }, {
                 name: 'web存储',
                 path: '/web-storage',
                 description: '最近在开发项目时遇到了sessionStorage中一个没遇到的问题，简单记录一下加深一下印象',
