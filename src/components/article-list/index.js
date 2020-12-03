@@ -150,6 +150,11 @@ export default class ArticleList extends React.Component {
                 description: '在《javaScript高级程序设计》书中是这样介绍两者的。defer延迟脚本、async异步脚步。',
                 date: '个人笔记'
             }, {
+                name: 'js中的变量提升与一等公民函数',
+                path: '/variable',
+                description: '简单记录一下关于变量提升与函数提升之间互相的影响',
+                date: '个人笔记 / 学习'
+            }, {
                 name: 'example',
                 path: '/three',
                 description: 'example',
