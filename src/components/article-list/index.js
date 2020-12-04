@@ -151,7 +151,7 @@ export default class ArticleList extends React.Component {
                 date: '个人笔记'
             }, {
                 name: 'js中的变量提升与一等公民函数',
-                path: '/variable',
+                path: '/varAndFunVariable',
                 description: '简单记录一下关于变量提升与函数提升之间互相的影响',
                 date: '个人笔记 / 学习'
             }, {
