@@ -11,6 +11,11 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: 'typescript',
+                path: '/typescript',
+                description: '等完了在补这个描述，先学',
+                date: '学习'
+            }, {
                 name: 'web存储',
                 path: '/web-storage',
                 description: '最近在开发项目时遇到了sessionStorage中一个没遇到的问题，简单记录一下加深一下印象',
@@ -144,6 +149,11 @@ export default class ArticleList extends React.Component {
                 path: '/script-attr',
                 description: '在《javaScript高级程序设计》书中是这样介绍两者的。defer延迟脚本、async异步脚步。',
                 date: '个人笔记'
+            }, {
+                name: 'js中的变量提升与一等公民函数',
+                path: '/variable',
+                description: '简单记录一下关于变量提升与函数提升之间互相的影响',
+                date: '个人笔记 / 学习'
             }, {
                 name: 'example',
                 path: '/three',
