@@ -20,7 +20,7 @@ a = 10;
 
 
 
-##### 看一下函数提升
+#### 看一下函数提升
 
 ```js
 console.log(a); // function a
@@ -39,28 +39,30 @@ console.log(a) // 10
 ```
 
 
-###### 下面几个思考的题
-
+#### 下面几个思考的题
+- 这里输出undefined。其实正确情况下这里由于a被声明在了一个块里，应该报错 is not defined。但是var声明没有块级作用域，所以就这样了。好消息是es6里有let，这个问题就没了。本章不讨论var与let。
 ```js
 if (!("a" in window)) {
     var a = 1;
 }
-console.log (a); // 这里输出undefined。其实正确情况下这里由于a被声明在了一个块里，应该报错 is not defined。但是var声明没有块级作用域，所以就这样了。好消息是es6里有let，这个问题就没了。本章不讨论var与let。
+console.log (a); // undefined
 ```
 
+- 打印1。这是因为这个函数其实是个具名函数，并且被赋值给了另一个变量b。所以并没有提升。
 ```js
 var a = 1,
     b = function a (x) {
         x && a (--x);
     };
-console.log(a); // 1。这是因为这个函数其实是个具名函数，并且被赋值给了另一个变量b。所以并没有提升。
+console.log(a); // 1
 ```
 
+- function a。上面解释过了“函数声明不仅被优先编译了，而且还会覆盖掉剩余的同名的变量声明”。其实写这个文章就是为了记录这句话。
 ```js
 function a (x) {
     return x * 2;
 }
 var a;
-console.log(a); // function a。上面解释过了“函数声明不仅被优先编译了，而且还会覆盖掉剩余的同名的变量声明”。其实写这个文章就是为了记录这句话。
+console.log(a); // function a
 ```
 
