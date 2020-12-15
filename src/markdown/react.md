@@ -104,3 +104,63 @@ console.log(this.state.value)
 组件触发更新（DOM、refs）的条件，传入了新的props、 setState()、 forceUpdate()// 强制调用render方法
 
 
+
+*** React Hooks ***
+今天学了React Hooks。我们都知道react组件分为类组件和函数组件，但是函数组件一般都只作为视图组件来使用（只用来展示），即其中不会掺杂逻辑，而且也无法掺杂逻辑。函数组件更符合react数据驱动视图的开发思路，但是函数组件一直都缺乏例如组件状态，生命周期等种种特性，函数组件没有收到开发者的青睐。而hooks的出现，就是为了使函数组件有类似类组件的一些特性。
+
+react提供了三个hooks特性：State Hooks、Effect Hooks、Custom Hooks。
+
+- useState：最基础的hooks。用来在函数组件中定义与管理状态。useState接收一个参数，用来作为状态的初始值，返回一个数组。下面上代码
+
+```js
+import React, {useState} from 'react';
+
+function app() {
+    /**
+     * 这里可以理解为从useState中声明了一个变量count，其中传入的值为初始值
+     * setCount用于专门更改状态的函数
+     * useState可以声明对象类型的状态，也可以多次声明
+     * const [count, setCount] = useState({
+     *    count1: 0,
+     *    count2: 0
+     * });
+     *  
+     * const [count1, setCount1] = useState(0);
+     * const [count2, setCount2] = useState(0);
+     */
+    const [count, setCount] = useState(0);
+
+    return (
+        <>
+            <button onClick={() => {setCount(count + 1)}}>{count}</button>
+        </>
+    )
+}
+```
+
+- useEffect：可以理解为函数组件的生命周期。在函数组件中，状态更新都会触发useEffect。每次组件更新前，都会执行useEffect return出来的函数，可以简单理解为componentWillUnmount。也用来进行一些卸载等操作。之所以在重绘前进行销毁操作，是为了避免造成内存泄露。（持续更新，还在学习中...）
+
+```js
+console.log('add', position.x);
+useEffect(() => {
+    console.log('add', position.x);
+    const getMousePosition = (e: MouseEvent) => {
+        setPosition({x: e.clientX, y: e.clientY})
+    }
+    document.addEventListener('click', getMousePosition);
+    return () => {
+        console.log('remove', position.x);
+        document.removeEventListener('click', getMousePosition);
+    }
+});
+
+
+useEffect(() => {
+    console.log('componentDidMount...')
+    console.log('componentDidUpdate...')
+    return () => {
+        console.log('componentWillUnmount...')
+    }
+});
+```
+
