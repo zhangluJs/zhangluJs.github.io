@@ -142,7 +142,7 @@ function app() {
 - useEffect（翻译为副作用）：可以理解为函数组件的生命周期。在函数组件中，组件挂载与状态更新每次都会触发useEffect。每次组件更新前，都会执行useEffect return出来的函数，可以简单理解为componentWillUnmount。也用来进行一些卸载等操作。之所以在重绘前进行销毁操作，是为了避免造成内存泄露。（持续更新，还在学习中...）
 
 ```js
-console.log('add', position.x);
+console.log('before', position.x);
 useEffect(() => {
     console.log('add', position.x);
     const getMousePosition = (e: MouseEvent) => {
