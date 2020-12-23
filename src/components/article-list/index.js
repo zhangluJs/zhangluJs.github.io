@@ -11,6 +11,16 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: 'LuDesign',
+                path: '/LuDesign',
+                description: '最近工作上的项目不是特别忙，所以得空就充充电。沉淀一下技术。使用React、React-hook、typescript做一个类似antdesign的组件库来玩玩',
+                date: '学习'
+            }, {
+                name: 'Sass',
+                path: '/sass',
+                description: '在做组件库的时候突然发现sass这种预编译十分的强大好用，专门开一篇文章记录一下，加深印象',
+                date: '学习'
+            }, {
                 name: 'typescript',
                 path: '/typescript',
                 description: '等完了在补这个描述，先学',
