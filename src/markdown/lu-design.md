@@ -50,3 +50,18 @@
 
 今天（2020/12/23）做了第一个组件button。主要从按钮的类型、大小入手进行需求分析。按钮类型有primary、danger、default、link，按钮大小large、small。用刚学的ts中 interface 来对button组件的props进行一个属性的约束，主要涉及到的参数有size, btnType, href, children, disabled。通过对类型的判断来决定使用不同的className样式或者是button还是a标签。之前开发react项目的时候className都是手动判断然后写在jsx的节点上，特别的不美观。今天知道了一个第三方库[classnames](https://github.com/JedWatson/classnames)，他可以单独的将classname的逻辑抽离出来，生成一个对象，直接供dom节点使用。在关于整个组件库样式定义方面觉得需要着重关注一下sass预编译。虽然用了几年了但是从来没有深入了解过，所以专门开了篇md简单记录一下。
 
+
+
+## 测试testing-library
+
+这两天在看单元测试这个东西。其实工作之后就听说过单元测试这类东西，但无论是在面试还是实际工作中都没有人问过关于单元测试的东西，自己对这玩意始终也是一头雾水。不懂一些功能单元测试怎么个测法。看了看教程之后才明白，他是通过方法来判断输入值与期望的返回值是否相等来进行判断代码逻辑是否有无问题。因为我这里用的react全家桶，他里面其实自带了`testing-library/jest-dom` `@testing-library/react` `@testing-library/user-event`这么几个包。
+
+- testing-library是react官方推荐的测试库，在react-script3.3.0版本已经被添加成为默认的测试工具，它可以通过render方法将compnents渲染或者挂载到测试用例上去。
+
+- jest应该算是最近比较火的一个通用测试框架（断言库）。jest-dom提供了针对dom的断言，更方便dom选择。
+
+- user-event可以模拟用户触发事件。全家桶中还提供了test命令供使用，他会自动去执行项目中的`.test.tsx(js)`或`.spec.tsx(js)`或者`__tests__`文件夹下的.js文件。在终端中显示执行结果。
+
+单元测试因为是第一次接触，虽然api用法比较容易上手，但感觉还是一知半解，需要慢慢深入了解。
+
+<!-- https://blog.csdn.net/weixin_26750481/article/details/108131405 -->
