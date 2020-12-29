@@ -54,7 +54,7 @@
 
 ## 测试testing-library
 
-这两天在看单元测试这个东西。其实工作之后就听说过单元测试这类东西，但无论是在面试还是实际工作中都没有人问过关于单元测试的东西，自己对这玩意始终也是一头雾水。不懂一些功能单元测试怎么个测法。看了看教程之后才明白，他是通过方法来判断输入值与期望的返回值是否相等来进行判断代码逻辑是否有无问题。因为我这里用的react全家桶，他里面其实自带了`testing-library/jest-dom` `@testing-library/react` `@testing-library/user-event`这么几个包。
+这两天在看单元测试这个东西。其实工作之后听说过单元测试这类东西，但无论是在面试还是实际工作中都没有人问过关于单元测试的东西，自己对这玩意始终也是一头雾水。不懂一些功能单元测试怎么个测法。看了看教程之后才明白，他是通过方法来判断输入值与期望的返回值是否相等来进行判断代码逻辑是否有无问题。因为我这里用的react全家桶，他里面其实自带了`testing-library/jest-dom` `@testing-library/react` `@testing-library/user-event`这么几个包。
 
 - testing-library是react官方推荐的测试库，在react-script3.3.0版本已经被添加成为默认的测试工具，它可以通过render方法将compnents渲染或者挂载到测试用例上去。
 
@@ -65,3 +65,26 @@
 单元测试因为是第一次接触，虽然api用法比较容易上手，但感觉还是一知半解，需要慢慢深入了解。
 
 <!-- https://blog.csdn.net/weixin_26750481/article/details/108131405 -->
+
+## Menu组件
+
+这两天（2020/12/28）在弄关于Menu组件相关的东西。组件本身开发起来的代码逻辑还好不是很复杂。个人觉得难点在于如何将初期的整个组件的思路捋顺。其实不只是这个组件，在工作或者学习时，动手初期应该仔细分析需求or实现的整个大的方向，顺着思路把细节打一个草稿出来(从什么方向入手、以什么方式实现、应该定义哪些参数/函数等等)，然后按照这个思路去实现，往往会比较顺利。比如这个Menu组件。他应该是什么格式的，是严格按照HTML节点那样调用，还是传入数据自己按照相应的规则渲染。组件都需要什么参数等等。最后看element、ant的组件库调用决定使用组件调用方式。因为相比较数据渲染实现，这种更接近HTML嵌套方式的调用方法，看上去更直观简洁明了一些，更符合语意化。
+
+参数方便从设计图需求分析看：
+- menu的类型：水平（horizontal） or 垂直（vertical）
+- menu默认项：defaultIndex
+- 回调函数：callback
+  - menu-item禁用：disabled
+  - menu-item高亮：avtive
+  - menu-item点击回调：返回点击index
+    - sub-menu-item：待补充...
+
+```HTML
+<Menu defaultIndex={0} onSelect={(i) => {alert(i)}}>
+    <MenuItem index={0}>Link 0</MenuItem>
+    <MenuItem index={1} disabled>Link 1</MenuItem>
+    <MenuItem index={2}>Link 2</MenuItem>
+    <MenuItem index={3}>Link 3</MenuItem>
+    <MenuItem index={4}>Link 4</MenuItem>
+</Menu>
+```
