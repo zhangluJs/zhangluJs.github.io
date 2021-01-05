@@ -77,13 +77,17 @@
   - menu-item禁用：disabled
   - menu-item高亮：avtive
   - menu-item点击回调：返回点击index
-    - sub-menu-item：待补充...
+    - sub-menu-item：submenu只需要考虑title，但是有一个需要注意的点，就是在不同类型（水平、垂直）下子菜单的展示的触发方式，在horizontal应该是鼠标进入、离开触发。vertical则是点击触发。
 
 ```HTML
 <Menu defaultIndex={0} onSelect={(i) => {alert(i)}}>
     <MenuItem index={0}>Link 0</MenuItem>
     <MenuItem index={1} disabled>Link 1</MenuItem>
     <MenuItem index={2}>Link 2</MenuItem>
+    <SubMenu title={'11111'}>
+        <MenuItem>1</MenuItem>
+        <MenuItem>2</MenuItem>
+    </SubMenu>
     <MenuItem index={3}>Link 3</MenuItem>
     <MenuItem index={4}>Link 4</MenuItem>
 </Menu>
