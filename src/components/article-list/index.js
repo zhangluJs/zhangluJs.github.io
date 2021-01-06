@@ -23,7 +23,7 @@ export default class ArticleList extends React.Component {
             }, {
                 name: 'typescript',
                 path: '/typescript',
-                description: '等完了在补这个描述，先学',
+                description: 'ts的官网说TypeScript是JavaScript类型的超集，它可以编译成纯JavaScript。我自己学习包括使用下来的感受是，typescript更像是一种约束。因为js的类型实在是太灵活了，你以为他是字符串其实他是数字。这对于新手来说简直是灾难。所以在对值进行比较时尽量用===等等一系列小技巧来规避这种灵活带来的风险。而ts则在变量、对象、或者函数声明阶段就规定了值的范围，很好的规避掉了这些问题',
                 date: '学习'
             }, {
                 name: 'web存储',
