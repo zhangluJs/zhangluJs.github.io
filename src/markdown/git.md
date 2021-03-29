@@ -59,4 +59,4 @@
 - save：单纯地保存记录
 - other：用于难以分类的类别（不建议使用，但一些如删除不必要的文件，更新.ignore之类的可以使用）
 
-[这篇文章写的挺好](https://www.cnblogs.com/deng-cc/p/6322122.html)
+git commit 的信息在某些情况下十分重要，必要一次错误的提交，或者需要查看某个版本的代码，这时候就显得尤为重要。我之前写commit都是很随意，其实现在也是，不过正在慢慢改正。在查看资料的时候发现了一个不错的文章，转载之～[如何写好git commit message](https://www.cnblogs.com/deng-cc/p/6322122.html)
