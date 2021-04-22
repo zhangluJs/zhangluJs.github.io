@@ -93,7 +93,11 @@
 </Menu>
 ```
 
-2021/04/22 update。今天更新了Menu组件的属性部分。在使用的时候去掉了MenuItem上的index属性。改为使用`React.Children.map`api来对节点遍历的。遍历时使用`React.cloneElement(childElement, {index: index.toString()});`来动态的添加index属性。同时index属性改为了string类型，因为SubMenu下的MenuItem无法使用number。在SubMenu下的MenuItem下的index为2-0、2-1等，这样方便添加avtive状态。同时增加了defaultSubMenus（默认打开的某项），他接收一个数组作为参数，在SubMenu组件中，通过判断defaultSubMenus.includes(index)来判断是否默认打开。更新后的组件使用如下。
+2021/04/22 update。今天更新了Menu组件的属性部分。在使用的时候去掉了MenuItem上的index属性。改为使用`React.Children.map`api来对节点遍历的。遍历时使用（看下面01js，这里markdown编译报错）来动态的添加index属性。同时index属性改为了string类型，因为SubMenu下的MenuItem无法使用number。在SubMenu下的MenuItem下的index为2-0、2-1等，这样方便添加avtive状态。同时增加了defaultSubMenus（默认打开的某项），他接收一个数组作为参数，在SubMenu组件中，通过判断defaultSubMenus.includes(index)来判断是否默认打开。更新后的组件使用如下。
+
+```js
+`React.cloneElement(childElement, {index: index.toString()});`
+```
 
 ```HTML
 <!-- 组件上的index属性可以不写，这里为了方便阅读 -->
