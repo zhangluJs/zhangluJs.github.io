@@ -99,6 +99,8 @@
 `React.cloneElement(childElement, {index: index.toString()});`
 ```
 
+2021/04/23 update。 昨天在更新文章的时候将上面的这行js代码写进了反引号里``，结果我运行项目时报错node_model缺包，起初我以为是我前不久重装了电脑系统导致环境缺失搞的，于是我装了8.+版本的node，又重新install，但是控制台还是报错。提示我Reactd的某个包缺失。前前后后折腾了两个小时才反映过来，两天前刚跑过这个项目，应该不是包的问题，于是我把上面这段js删除，果然跑起来。所以我就把它挪到下面了。个人估计应该是这段代码带了()被运行了。感觉和XSS攻击有异曲同工的地方，虽然工作以来没遇到过。记录一下这个小坑。
+
 ```HTML
 <!-- 组件上的index属性可以不写，这里为了方便阅读 -->
 <Menu defaultIndex="0" mode="vertical" defaultSubMenus={['1']}>
