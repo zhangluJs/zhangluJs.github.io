@@ -114,3 +114,6 @@
     <MenuItem index="4">Link 4</MenuItem>
 </Menu>
 ```
+2021/04/26 update。 今天完善了一下menu的单元测试。相比较之前的两个组件的单元测试，这个稍微复杂了一些。`describe`中用到了`beforeEach`，它在用例执行的时候都会执行一遍，在这里我执行了渲染组件、挂载节点、获取不同节点的状态。
+menu测试用例中需要重点讲一下的是`waitFor`。在水平menu中鼠标hover上后才会展示submenu里的item。而且这里用到了c3动画`transiton`来过渡显示/隐藏。当在显示后立刻判断节点上是否有对应的class名称时不会通过，因为这是一个异步的过程。这时候就用到了`waitFor`。可以简单理解为js中的 `async await`。
+当我初次判断子组件是否隐藏时，用例无法通过。是因为没有样式的控制，它认为子item是隐藏的。所以这时候就需要在测试用例中写上对应class名称的样式来对它进行一个初始化的操作。通过`wrapper.container.append`来追加到当前挂载的节点上。
