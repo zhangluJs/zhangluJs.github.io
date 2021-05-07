@@ -117,3 +117,18 @@
 2021/04/26 update。 今天完善了一下menu的单元测试。相比较之前的两个组件的单元测试，这个稍微复杂了一些。`describe`中用到了`beforeEach`，它在用例执行的时候都会执行一遍，在这里我执行了渲染组件、挂载节点、获取不同节点的状态。
 menu测试用例中需要重点讲一下的是`waitFor`。在水平menu中鼠标hover上后才会展示submenu里的item。而且这里用到了c3动画`transiton`来过渡显示/隐藏。当在显示后立刻判断节点上是否有对应的class名称时不会通过，因为这是一个异步的过程。这时候就用到了`waitFor`。可以简单理解为js中的 `async await`。
 当我初次判断子组件是否隐藏时，用例无法通过。是因为没有样式的控制，它认为子item是隐藏的。所以这时候就需要在测试用例中写上对应class名称的样式来对它进行一个初始化的操作。通过`wrapper.container.append`来追加到当前挂载的节点上。
+
+## Tabs组件
+
+2021/04/29 update。 这两天在尝试着弄tabs组件。最开始以为大概和Menu组件差不多一个思路，头部的nav部分很快就好了，但是在下面的内容部分确有点绕不出来的感觉（也许是因为没睡好的原因吧）。
+1. 最开始尝试将pane写进渲染li的TabItem组件里，用样式名来控制显示隐藏，但是发现，如果这样写进去的话样式控制起来不合理。比如由于写进了TabItem里。pane的宽度没法确定，如果定位脱离出来的话，宽度又没法确定。so放弃。
+2. 另一种思路是直接在tabs里写div再次渲染TabItem，利用currentActive === passedContext.index比较，但是发现有点思路有点跑偏了。
+3. 看了ant-deign的tab后发现它的nav与content是分开两个容器渲染的所以我又尝试在tabs中引入了tab-pane组件，但是这样好像也不太对，今天就先这样吧，需要上线的项目有点多，略忙。
+
+```HTML
+<Tabs defaultIndex={0} onSelect={(index) => {alert(index)}}>
+    <TabItem label="card1">this is card one</TabItem>
+    <TabItem label="card2">this is card two</TabItem>
+    <TabItem label="disabled" disabled>this is card three</TabItem>
+</Tabs>
+```
