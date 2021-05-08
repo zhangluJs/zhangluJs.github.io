@@ -132,3 +132,5 @@ menu测试用例中需要重点讲一下的是`waitFor`。在水平menu中鼠标
     <TabItem label="disabled" disabled>this is card three</TabItem>
 </Tabs>
 ```
+
+2021/05/07 更新。今天算是磕磕巴巴把tabs组件弄出来了。之前的思路2其实是正确的，只不过被Menu组件给绕进去了（认为Tabs里的children是自己定义的，其实是tabitem）。认为item和pane都要全部渲染出来，然后通过index来对比展示与否。item确实和Menu一样遍历出来就行，获取label和disabled属性。而pane则直接拿`<TabItem>`的children渲染即可。
