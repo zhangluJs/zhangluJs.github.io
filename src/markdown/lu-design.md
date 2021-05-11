@@ -136,3 +136,38 @@ menu测试用例中需要重点讲一下的是`waitFor`。在水平menu中鼠标
 2021/05/07 更新。今天算是磕磕巴巴把tabs组件弄出来了。之前的思路2其实是正确的，只不过被Menu组件给绕进去了（认为Tabs里的children是自己定义的，其实是tabitem）。认为item和pane都要全部渲染出来，然后通过index来对比展示与否。item确实和Menu一样遍历出来就行，获取label和disabled属性。而pane则直接拿`<TabItem>`的children渲染即可。
 
 2021/05/10 更新。tabs组件完事了，写了一下单元测试。它的单元测试写起来感觉没有Menu那么复杂。主要是查找节点、title点击、disable状态的点击。我这里由于是index === activeIndex来渲染的content，所以不像MenuItem那样创建个style塞进去，然后判断节点显示正常与否。其实这里我看了element和ant-design它们两个都是通过display:none来控制content的。这样做的好处可能是减少dom节点重排吧，而且里面的节点如果有什么初始化的东西，不需要每次切换就重新挂载。它比我这里这种操作节点的方法要好了很多，后面我可以考虑要换一下这里的做法了。
+
+## Icon组件
+
+2021/05/10 更新。添加了icon组件。这个组件是在`fontawesome/react-fontawesome`基础上又封装了一层。`fontawesome/react-fontawesome`字体图标库使用的是svg。svg相较于直接插入一个img来说要好很多了，首先加载方面要快的多不需要发送网络请求。svg是矢量图形，任意放大缩小图片质量都不会下降。在工作中的项目里也经常使用字体图标，很熟悉的阿里的icon-font，提供定制化的图标选择，选择完成后生成一份本地文件，就可以直接在css通过类名进行引用。
+
+`fontawesome`使用起来也很方便，从`@fortawesome/react-fontawesome`中结构出`FontAwesomeIcon`，就可以直接拿来当做标签使用。使用`fontawesome-svg-core`library.add`free-solid-svg-icons`中的fas来把它所有图标添加进来。
+
+这次封装因为添加了主题颜色theme-color，所以直接在_variables.scss定义了$theme-colors Map。使用scss语法@each进行遍历，生成了多个class样式（说来惭愧，这是我第一次用scss中的遍历，虽然scss已经用了好些年了）。
+
+```js
+/** 
+ * 核心 根本库
+*/
+import {library} from '@fortawesome/fontawesome-svg-core';
+
+/** 
+ * react fontawesome 组件
+*/
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
+/** 
+ * 安装的icon类型（还有许多其他类型）
+ * fas 添加所有图标
+*/
+import {fas} from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
+```
+
+```HTML
+<!-- FontAwesomeIcon使用方法 很简单 还支持很多属性 动画 旋转什么的 --->
+<FontAwesomeIcon icon={faCoffee} size="2x"></FontAwesomeIcon>
+
+<!-- 封装后的使用方法，只是在原组件的基础上拓展了theme -->
+<Icon icon={'apple-alt'} size="1x" theme="primary" ></Icon>
+```
