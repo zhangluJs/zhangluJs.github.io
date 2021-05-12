@@ -32,7 +32,7 @@
 
 - 产品色板：品牌色（可口可乐红、奥利奥蓝）、功能色（成功、失败、链接）
 
-- 样式方面还是考虑使用最常用的Sass/Less。这里选择了sass。create-react-app不支持sass，先`npm install node-sass --save`下
+- 样式方面还是考虑使用最常用的scss/Less。这里选择了scss。create-react-app不支持scss，先`npm install node-sass --save`下
 
 字体系统：字体大小，字体风格、字体粗细等等
 
@@ -48,7 +48,7 @@
 
 ## Button组件
 
-今天（2020/12/23）做了第一个组件button。主要从按钮的类型、大小入手进行需求分析。按钮类型有primary、danger、default、link，按钮大小large、small。用刚学的ts中 interface 来对button组件的props进行一个属性的约束，主要涉及到的参数有size, btnType, href, children, disabled。通过对类型的判断来决定使用不同的className样式或者是button还是a标签。之前开发react项目的时候className都是手动判断然后写在jsx的节点上，特别的不美观。今天知道了一个第三方库[classnames](https://github.com/JedWatson/classnames)，他可以单独的将classname的逻辑抽离出来，生成一个对象，直接供dom节点使用。在关于整个组件库样式定义方面觉得需要着重关注一下sass预编译。虽然用了几年了但是从来没有深入了解过，所以专门开了篇md简单记录一下。
+今天（2020/12/23）做了第一个组件button。主要从按钮的类型、大小入手进行需求分析。按钮类型有primary、danger、default、link，按钮大小large、small。用刚学的ts中 interface 来对button组件的props进行一个属性的约束，主要涉及到的参数有size, btnType, href, children, disabled。通过对类型的判断来决定使用不同的className样式或者是button还是a标签。之前开发react项目的时候className都是手动判断然后写在jsx的节点上，特别的不美观。今天知道了一个第三方库[classnames](https://github.com/JedWatson/classnames)，他可以单独的将classname的逻辑抽离出来，生成一个对象，直接供dom节点使用。在关于整个组件库样式定义方面觉得需要着重关注一下scss预编译。虽然用了几年了但是从来没有深入了解过，所以专门开了篇md简单记录一下。
 
 
 
@@ -118,6 +118,18 @@
 menu测试用例中需要重点讲一下的是`waitFor`。在水平menu中鼠标hover上后才会展示submenu里的item。而且这里用到了c3动画`transiton`来过渡显示/隐藏。当在显示后立刻判断节点上是否有对应的class名称时不会通过，因为这是一个异步的过程。这时候就用到了`waitFor`。可以简单理解为js中的 `async await`。
 当我初次判断子组件是否隐藏时，用例无法通过。是因为没有样式的控制，它认为子item是隐藏的。所以这时候就需要在测试用例中写上对应class名称的样式来对它进行一个初始化的操作。通过`wrapper.container.append`来追加到当前挂载的节点上。
 
+```HTML
+<CSSTransition
+    in={menuOpen}
+    timeout={300}
+    classNames="zoom-in-top"
+    appear>
+    <ul className={subMenuClass}>
+        {childrenComponent}
+    </ul>
+</CSSTransition>
+```
+
 ## Tabs组件
 
 2021/04/29 update。 这两天在尝试着弄tabs组件。最开始以为大概和Menu组件差不多一个思路，头部的nav部分很快就好了，但是在下面的内容部分确有点绕不出来的感觉（也许是因为没睡好的原因吧）。
@@ -171,3 +183,9 @@ library.add(fas);
 <!-- 封装后的使用方法，只是在原组件的基础上拓展了theme -->
 <Icon icon={'apple-alt'} size="1x" theme="primary" ></Icon>
 ```
+
+## Transition
+
+2021/05/11 更新。完善了submenu的展开/收起动画。如果单纯的在节点上通过opacity:0～1来控制显隐，通过transition过渡不会生效，因为display：none/block不支持过渡属性，其他动画就会失效。但是如果去掉display：none/block的话，节点确实是隐藏掉了，但是它依然是占位的。如果opacity和display同时生效的话就可以覆盖这个场景。[react刚好提供了这样的东西](https://zh-hans.reactjs.org/docs/faq-styling.html#how-do-i-add-css-classes-to-components)。这次用的是`react-transition-group`。使用CSSTransition标签包裹，定义in/timeout/className属性就可以达到预期的效果[API](http://reactcommunity.org/react-transition-group/transition)。
+
+创建了Transition组件，其实就是把CSSTransition拿了出来，在进行一次包裹。在Transition里定义了不同的AnimationName，以及把CSS的样式抽离出来定义到mixin中。提供了不同方法的一些过渡。
