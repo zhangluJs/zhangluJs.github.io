@@ -48,7 +48,7 @@
 
 ## Button组件
 
-今天（2020/12/23）做了第一个组件button。主要从按钮的类型、大小入手进行需求分析。按钮类型有primary、danger、default、link，按钮大小large、small。用刚学的ts中 interface 来对button组件的props进行一个属性的约束，主要涉及到的参数有size, btnType, href, children, disabled。通过对类型的判断来决定使用不同的className样式或者是button还是a标签。之前开发react项目的时候className都是手动判断然后写在jsx的节点上，特别的不美观。今天知道了一个第三方库[classnames](https://github.com/JedWatson/classnames)，他可以单独的将classname的逻辑抽离出来，生成一个对象，直接供dom节点使用。在关于整个组件库样式定义方面觉得需要着重关注一下scss预编译。虽然用了几年了但是从来没有深入了解过，所以专门开了篇md简单记录一下。
+2020/12/23 更新。做了第一个组件button。主要从按钮的类型、大小入手进行需求分析。按钮类型有primary、danger、default、link，按钮大小large、small。用刚学的ts中 interface 来对button组件的props进行一个属性的约束，主要涉及到的参数有size, btnType, href, children, disabled。通过对类型的判断来决定使用不同的className样式或者是button还是a标签。之前开发react项目的时候className都是手动判断然后写在jsx的节点上，特别的不美观。今天知道了一个第三方库[classnames](https://github.com/JedWatson/classnames)，他可以单独的将classname的逻辑抽离出来，生成一个对象，直接供dom节点使用。在关于整个组件库样式定义方面觉得需要着重关注一下scss预编译。虽然用了几年了但是从来没有深入了解过，所以专门开了篇md简单记录一下。
 
 
 
@@ -68,7 +68,7 @@
 
 ## Menu组件
 
-这两天（2020/12/28）在弄关于Menu组件相关的东西。组件本身开发起来的代码逻辑还好不是很复杂。个人觉得难点在于如何将初期的整个组件的思路捋顺。其实不只是这个组件，在工作或者学习时，动手初期应该仔细分析需求or实现的整个大的方向，顺着思路把细节打一个草稿出来(从什么方向入手、以什么方式实现、应该定义哪些参数/函数等等)，然后按照这个思路去实现，往往会比较顺利。比如这个Menu组件。他应该是什么格式的，是严格按照HTML节点那样调用，还是传入数据自己按照相应的规则渲染。组件都需要什么参数等等。最后看element、ant的组件库调用决定使用组件调用方式。因为相比较数据渲染实现，这种更接近HTML嵌套方式的调用方法，看上去更直观简洁明了一些，更符合语意化。
+2020/12/28 更新。在弄关于Menu组件相关的东西。组件本身开发起来的代码逻辑还好不是很复杂。个人觉得难点在于如何将初期的整个组件的思路捋顺。其实不只是这个组件，在工作或者学习时，动手初期应该仔细分析需求or实现的整个大的方向，顺着思路把细节打一个草稿出来(从什么方向入手、以什么方式实现、应该定义哪些参数/函数等等)，然后按照这个思路去实现，往往会比较顺利。比如这个Menu组件。他应该是什么格式的，是严格按照HTML节点那样调用，还是传入数据自己按照相应的规则渲染。组件都需要什么参数等等。最后看element、ant的组件库调用决定使用组件调用方式。因为相比较数据渲染实现，这种更接近HTML嵌套方式的调用方法，看上去更直观简洁明了一些，更符合语意化。
 
 参数方面从设计图需求分析看：
 - menu的类型：水平（horizontal） or 垂直（vertical）
@@ -189,3 +189,15 @@ library.add(fas);
 2021/05/11 更新。完善了submenu的展开/收起动画。如果单纯的在节点上通过opacity:0～1来控制显隐，通过transition过渡不会生效，因为display：none/block不支持过渡属性，其他动画就会失效。但是如果去掉display：none/block的话，节点确实是隐藏掉了，但是它依然是占位的。如果opacity和display同时生效的话就可以覆盖这个场景。[react刚好提供了这样的东西](https://zh-hans.reactjs.org/docs/faq-styling.html#how-do-i-add-css-classes-to-components)。这次用的是`react-transition-group`。使用CSSTransition标签包裹，定义in/timeout/className属性就可以达到预期的效果[API](http://reactcommunity.org/react-transition-group/transition)。
 
 创建了Transition组件，其实就是把CSSTransition拿了出来，在进行一次包裹。在Transition里定义了不同的AnimationName，以及把CSS的样式抽离出来定义到mixin中。提供了不同方法的一些过渡。
+
+## Alert
+
+2021/05/12 更新。 补充一下Alert组件的描述。这个组件是最开始就有的，但是忘记写了。功能很简单，提示一个标题，和展示的内容。有不同的主题包括警告、提示、成功等。今天将Icon和Transition组件添加进了Alert组件里。将右上角的关闭替换成了Icon，关闭的时候添加了动画效果。
+
+```HTML
+<Alert
+    type={AlertType.Warning}
+    title="这是一个alert组件标题">
+    this is a warning
+</Alert>
+```
