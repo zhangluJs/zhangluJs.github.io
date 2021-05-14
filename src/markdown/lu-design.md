@@ -201,3 +201,77 @@ library.add(fas);
     this is a warning
 </Alert>
 ```
+
+## StoryBook
+
+2021/05/12 更新。 组件已经开发了几个了，在调试运行的时候都是在App.tsx里运行，每次添加不同的组件、属性查看效果，非常的不直观。期望和其他组件库的api一样有书签什么的，属性查看相关的功能，所以就拿来用storybook了。而且最主要的一点是它可以用来当作组件文档，就想ant-deisgn/element-ui官网那样的文档，有组件展示，源代码示例等。这玩意好像还挺火，github上的star数有几十k，但是之前一直都没听过（有点闭塞了）。刚好趁这个机会试试它。
+
+首先 `npx -p @storybook/cli sb init` 。完成之后会在项目中生成如下目录，package.json中也会增加新的script命令。按照给出的示例，我将alert组件添加进去，在页面的目录中就出现了相对应的组件描述，很简单的配置规则，一目了然。
+
+- .storybook // 这是关于stroybook相关的配置
+    - main.js
+    - preview.js
+- src
+    - stories // 这个目录下面是相关的示例
+
+storybook中有很多addon，它可以额外的扩展一些功能，隐约能感觉到它的功能很多，但是文档是英文的，而且也没仔细看。慢慢来...
+
+2021/05/13 更新。Storybook插件系统。[addons](https://storybook.js.org/addons)，它分为两大类。目前已经提供了很多的addon了，我理解你需要某个addon就引入然后注册使用即可。
+    
+    一种是Decorators（装饰器）。它其实是一个funciton，最终返回的是其他节点包裹我们要展示的组件，这样就可以改变节点的外观和行为。在LuDesign/.storybook/preview.js中addDecorator了一些样式。
+
+    另一种是Native Addons。它除了改变显示组件本身以外，还能做更多的事。
+
+    还有关于add、addParameters是storiesOf的一些配置，支持链式调用。可以参考LuDesign/src/components/Button/Button.stories.tsx文件
+
+关于storybook文档的生成目前有两种方法，在*.stories.tsx文件一种是(storybook方法1)一种是(storybook方法2)。方法1是init后storybook中example中给出的示例，但是在Menu中嵌套MenuItem按照方法1我就不知道怎么写了，所以就用了方法2。方法1是storybook^6.+中的写法，方法2是5.+的写法新版本也兼容。但是我感觉方法1是可以写出来的。哎～。
+
+```js
+// storybook方法1
+import React from 'react';
+import { Story, Meta } from '@storybook/react';
+import Alert, {AlertType, close, AlertProps} from './Alert';
+export default {
+    type: AlertType.Default,
+    title: 'Alert',
+    showClose: close.Show
+} as Meta;
+
+const Template: Story<AlertProps> = (args) => <Alert {...args} />;
+export const DefaultAlert = Template.bind({});
+DefaultAlert.args = {
+    type: AlertType.Default,
+    title: '默认的提示',
+    showClose: close.Show,
+    children: '默认的提示内容'
+};
+
+// storybook方法2
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import Tabs from './Tabs';
+import TabItem from './TabItem';
+import Icon from '../Icon/index';
+const defaultTabs = () => (
+    <Tabs onSelect={action('selected')}>
+        <TabItem label="选项卡一">this is content one</TabItem>
+        <TabItem label="用户管理">this is content three</TabItem>
+    </Tabs>
+)
+
+const cardTabs = () => (
+    <Tabs onSelect={action('selected')} type="card">
+        <TabItem label='card1'>this is card one</TabItem>
+        <TabItem label="disabled" disabled>this is content three</TabItem>
+    </Tabs> 
+)
+storiesOf('Tabs', module)
+  .add('Tabs', defaultTabs)
+  .add('选项卡样式的Tabs', cardTabs)
+```
+
+#### react-docgen
+
+文档生成器，在StoryBook中已经自带了react-docgen，但是lu-design是typescript，所以需要额外的react-docgen-typescript-loader来让它工作。ps：在新版的storybook中已经不要这个了，它内置了addon-docs。
+
+
