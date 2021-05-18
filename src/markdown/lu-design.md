@@ -18,9 +18,9 @@
 
 - 文件结构有没有推荐或者强制的标准呢？答：没有。一般的主流文件结构有两种。第一种是按照功能或者路由来组织，第二种是按照文件类型。文件结构避免多层嵌套。[React官网给出了一些建议，可以供参考](https://react.docschina.org/docs/faq-structure.html)
 
- ![file type](./src/static/img/file1.png)![file type](./src/static/img/file2.png)
+ ![file type](./static/img/file1.png)![file type](./static/img/file2.png)
 
-   这是我这次用的文件结构目录，主要是以组件为粒度来区分，styles中存放一些公共的样式。![file type](./src/static/img/file3.png)
+   这是我这次用的文件结构目录，主要是以组件为粒度来区分，styles中存放一些公共的样式。![file type](./static/img/file3.png)
 
 - 代码规范还是遵循的ESlint。缩紧四个空格，=号两边带空格等
 
