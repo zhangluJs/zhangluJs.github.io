@@ -275,3 +275,29 @@ storiesOf('Tabs', module)
 文档生成器，在StoryBook中已经自带了react-docgen，但是lu-design是typescript，所以需要额外的react-docgen-typescript-loader来让它工作。ps：在新版的storybook中已经不要这个了，它内置了addon-docs。
 
 
+## Input
+
+2021/05/14 更新。 添加了Input组件，它和ant-design、element-ui的input组件一样，支持前后后缀的添加、支持添加icon。在实现的过程中，我给input绑定了onChange事件，并且把value return出来当作一个回调函数供外部使用，但是看了别人的例子后发现，根本不需要这样做。直接在Input组件上绑定onChange事件就可以，这是为什么呢？因为在实现中已经把所有的 props下的...restProps全部给了组件里的input框，也就是说其实组件上的onChange事件是直接作用在input元素上的。需要考虑的就是在interface onChange事件规定类型的时候需要`onChange?: (e: ChangeEvent<HTMLInputElement>) => void;`。将参数类型固定，否则外部e.target属性下没有value。还有一个需要注意的点就是在interface InputProps extends InputHTMLAttributes 在继承的时候需要Omit来忽略一下size属性。因为组件本身有size属性，而react上的input也有size属性，需要将它忽略掉，就需要用到Omit `interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'> {}`
+
+## AutoComplete 
+
+2021/05/17 更新。 添加了AutoComplete组件，它在Input基础上增加。在Input onChange的时候自己定义过滤数据的规则。并且通过组件内的方法`fetchSuggestions`来接收处理完的数组，它接收一个用户在Input框输入的字符串，并且返回一个符合过滤条件的DataSourceType数组。这个字符串数组用来渲染联想后的list。这里用ul li来渲染这个list，同时list上定义了onSelect方法，在点击后获取target的value，并作为input的value。需要注意的一点是，这里需用复杂类型来约束数据的类型，需要传入带有value的object。定义了新的组件方法`renderOption`，它允许用户传入自定义的list渲染规则，接收DataSourceType类型的参数，返回一段ReactElemenet。
+
+```js
+/**
+ * 因为有可能接收更复杂的数据类型，不能item只是一个string
+ * 所以需要将一开始定义的string类型全部更换为复杂的类型（object）
+ * 
+ */
+interface DataSuorctObject {
+    value: string
+}
+
+// 复杂类型
+export type DataSourceType<T = {}> = T & DataSuorctObject;
+```
+
+
+
+
+
