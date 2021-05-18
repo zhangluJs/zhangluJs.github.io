@@ -42,6 +42,8 @@ import courseStudy from '../../markdown/courseStudy.md';
 import lajifenlei from '../../markdown/lajifenlei.md';
 import typescript from '../../markdown/typescript.md';
 import varAndFunVariable from '../../markdown/varAndFunVariable.md';
+import luDesign from '../../markdown/lu-design.md';
+import sass from '../../markdown/sass.md';
 
 import './index.scss';
 
@@ -86,6 +88,8 @@ export default class App extends React.Component {
                             <Route path='/lajifenlei' component={lajifenlei}></Route>
                             <Route path='/typescript' component={typescript}></Route>
                             <Route path='/varAndFunVariable' component={varAndFunVariable}></Route>
+                            <Route path='/LuDesign' component={luDesign}></Route>
+                            <Route path='/sass' component={sass}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>

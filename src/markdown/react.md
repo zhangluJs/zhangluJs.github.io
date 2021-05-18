@@ -64,6 +64,7 @@ React.createElement("h1", {
 
 3. 为什么样式名要写成 className ，因为编译后与关键字class冲突
 
+2020/12/25 今天因为组件的首字母没有大写，结果页面上报错，但是这个错误提示又和这个毫不相干。找了半天原因才发现是组件名称小写了。
 
 **map时的key有什么作用？**
 
@@ -104,3 +105,164 @@ console.log(this.state.value)
 组件触发更新（DOM、refs）的条件，传入了新的props、 setState()、 forceUpdate()// 强制调用render方法
 
 
+
+**React Hooks**
+
+今天学了React Hooks。我们都知道react组件分为类组件和函数组件，但是函数组件一般都只作为视图组件来使用（只用来展示），即其中不会掺杂逻辑，而且也无法掺杂逻辑。函数组件更符合react数据驱动视图的开发思路，但是函数组件一直都缺乏例如组件状态，生命周期等种种特性，函数组件没有收到开发者的青睐。而hooks的出现，就是为了使函数组件有类似类组件的一些特性。
+
+react提供了三个hooks特性：State Hooks、Effect Hooks、Custom Hooks。
+
+- useState：最基础的hooks。用来在函数组件中定义与管理状态。useState接收一个参数，用来作为状态的初始值，返回一个数组。下面上代码
+
+```js
+import React, {useState} from 'react';
+
+function app() {
+    /**
+     * 这里可以理解为从useState中声明了一个变量count，其中传入的值为初始值
+     * setCount用于专门更改状态的函数
+     * useState可以声明对象类型的状态，也可以多次声明
+     * const [count, setCount] = useState({
+     *    count1: 0,
+     *    count2: 0
+     * });
+     *  
+     * const [count1, setCount1] = useState(0);
+     * const [count2, setCount2] = useState(0);
+     */
+    const [count, setCount] = useState(0);
+
+    return (
+        <>
+            <button onClick={() => {setCount(count + 1)}}>{count}</button>
+        </>
+    )
+}
+```
+
+- useEffect（翻译为副作用）：可以理解为函数组件的生命周期。在函数组件中，组件挂载与状态更新每次都会触发useEffect。每次组件更新前，都会执行useEffect return出来的函数，可以简单理解为componentWillUnmount。也用来进行一些卸载等操作。之所以在重绘前进行销毁操作，是为了避免造成内存泄露。（持续更新，还在学习中...）
+
+```js
+console.log('before', position.x);
+useEffect(() => {
+    console.log('add', position.x);
+    const getMousePosition = (e: MouseEvent) => {
+        setPosition({x: e.clientX, y: e.clientY})
+    }
+    document.addEventListener('click', getMousePosition);
+    return () => {
+        console.log('remove', position.x);
+        document.removeEventListener('click', getMousePosition);
+    }
+});
+
+/** 
+ * example
+ */
+useEffect(() => {
+    console.log('componentDidMount...')
+    console.log('componentDidUpdate...')
+    return () => {
+        console.log('componentWillUnmount...')
+    }
+});
+```
+- useEffect控制运行：在某些时候期望对组件的生命周期进行某些控制。比如特定的值才触发生命周期，某些值又不需要触发。可以通过给useEffect传入第二个参数来控制。第二个参数接收一个数组，当期望某个值修改时期望触发生命周期，就在数组中写入这个值。下面看例子
+
+```js
+const LikeButtons: React.FC = () => {
+    const [like, setLike] = useState(0);
+    const [on, setOn] = useState(true);
+    useEffect(() => {
+        console.log('add', position.x)
+        const getMousePosition = (e: MouseEvent) => {
+            setPosition({x: e.clientX, y: e.clientY})
+        }
+        document.addEventListener('click', getMousePosition);
+        return () => {
+            console.log('remove', position.x)
+            document.removeEventListener('click', getMousePosition);
+        }
+    /** 
+     * 如果想执行只运行一次的 effect（仅在组件挂载和卸载时执行），可以传递一个空数组（[]）作为第二个参数。
+     *
+     * 而期望在某个值更新时才触发更新，则将这个值直接写入数组中即可。
+     * 在like更改时才会触发Effect，而on更改的时候不触发
+     */
+    }, [like]);
+    return (
+        <>
+            <button onClick={() => {setLike(like + 1)}}>
+                {like} 👍
+            </button>
+            <button onClick={() => {setOn(!on)}}>
+                {on ? 'ON' : 'OFF'}
+            </button>
+        </>
+    )
+}
+```
+
+- useRef：这玩意看了大半天也没理解到底是干嘛的，先放着吧
+
+- useContext：子组件如何共享同一份数据，其实这个hook和React的Context几乎一样。先将数据从顶层灌进去，然后再从各个组件中拿出来使用。看代码吧⬇️一个简单的exempla
+
+```js
+// parent
+import React, {createContext} from 'react';
+
+// 定义需要共享的数据
+const theme = {
+    light: {
+        color: '#000',
+        background: '#eee'
+    },
+    dark: {
+        color: '#eee',
+        background: '#000'
+    }
+}
+
+/**
+ * 创建context，提供两个api
+ * Provider 提供者
+ * Consumer 使用者
+ * 将这个context抛出，供子组件使用
+ */ 
+export const ThemeContext = createContext(theme.light);
+
+class App {
+    return (
+        <div>
+            /**
+             * 将需要共享数据的子组件，使用context.Provider包裹，给value赋予一个初始值
+             * Provider 提供者
+             * Consumer 使用者
+            */ 
+            <ThemeContext.Provider value={theme.light}>
+                <chlidren1></chlidren1>
+                <chlidren2></chlidren2>
+            </ThemeContext.Provider>
+        </div>
+    )
+}
+
+
+// children
+import React, {useContext} from 'react';
+import ThemeContext from './Parent';
+function children() {
+    const theme = useContext(ThemeContext);
+    const style = {
+        color: theme.color
+        background: theme.background
+    }
+    renturn (
+        <>
+            <div style={style}>
+                exempla context
+            </div>
+        </>
+    )
+}
+```

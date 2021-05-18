@@ -11,9 +11,19 @@ export default class ArticleList extends React.Component {
         super(props);
         this.state = {
             list: [{
+                name: 'LuDesign',
+                path: '/LuDesign',
+                description: '最近工作上的项目不是特别忙，所以得空就充充电。沉淀一下技术。使用React、React-hook、typescript做一个类似antdesign的组件库来玩玩。并且要把这个组件库发到npm上去，install就可以用的那种。',
+                date: '个人笔记'
+            }, {
+                name: 'Sass',
+                path: '/sass',
+                description: '几年前学习前端的时候就知道了预编译这个东西，当时还是用的一个叫考拉的应用来将sass或者less文件丢进去生成一个css文件然后来使用，后来随着node火起来，前端大部分项目开发都运行在node环境下，预编译也被集成了进去。方便了许多。最开始使用的时候因为类名层级嵌套写起来简单明了，所以后来的工作中就基本都在使用预编译了，接触多了知道还可以定义变量、方法、甚至自己的api。在反复写一些样式、或者在某些已有的类上拓展样式特别的便捷。',
+                date: '个人笔记 / 学习'
+            }, {
                 name: 'typescript',
                 path: '/typescript',
-                description: '等完了在补这个描述，先学',
+                description: 'ts的官网说TypeScript是JavaScript类型的超集，它可以编译成纯JavaScript。我自己学习包括使用下来的感受是，typescript更像是一种约束。因为js的类型实在是太灵活了，你以为他是字符串其实他是数字。这对于新手来说简直是灾难。所以在对值进行比较时尽量用===等等一系列小技巧来规避这种灵活带来的风险。而ts则在变量、对象、或者函数声明阶段就规定了值的范围，很好的规避掉了这些问题',
                 date: '学习'
             }, {
                 name: 'web存储',
@@ -159,17 +169,20 @@ export default class ArticleList extends React.Component {
                 path: '/three',
                 description: 'example',
                 date: 'markdown'
-            }, {
-                name: '企业文化试题',
-                path: '/courseStudy',
-                description: 'test',
-                date: 'markdown'
-            }, {
-                name: '垃圾分类试题',
-                path: '/lajifenlei',
-                description: 'test',
-                date: 'markdown'
-            }]
+            },
+            // {
+            //     name: '企业文化试题',
+            //     path: '/courseStudy',
+            //     description: 'test',
+            //     date: 'markdown'
+            // },
+            // {
+            //     name: '垃圾分类试题',
+            //     path: '/lajifenlei',
+            //     description: 'test',
+            //     date: 'markdown'
+            // }
+            ]
         };
     }
 
