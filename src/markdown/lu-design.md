@@ -297,6 +297,29 @@ interface DataSuorctObject {
 export type DataSourceType<T = {}> = T & DataSuorctObject;
 ```
 
+2021/05/18 更新。 AutoComplete组件的`fetchSuggestions`添加联合类型Promise使它支持异步方法请求。并且添加`loading`状态，来作为在请求过程中的一个样式优化。增加了自定义hooks`useDebounce`。这是第一个正儿八经的hook，自从上次看了之后一直都没用过，都快忘了。
+
+```js
+import {useEffect, useState} from 'react';
+/**
+ * 接收两个参数 value，delay
+ * 返回定时器修改后的值
+ */
+function useDebounce(value: any, delay = 300) {
+    const [debounceValue, setDebounceValue] = useState(value);
+    useEffect(() => {
+        const handler = window.setTimeout(() => {
+            setDebounceValue(value);
+        }, delay)
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [value, delay]);
+    return debounceValue;
+}
+
+export default useDebounce;
+```
 
 
 
