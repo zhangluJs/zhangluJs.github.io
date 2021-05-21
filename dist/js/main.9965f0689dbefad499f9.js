@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "ab1f924763759d32dcb1";
+/******/ 	var hotCurrentHash = "9965f0689dbefad499f9";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -91407,14 +91407,14 @@ var MarkdownItReactComponent = function (_React$Component) {
                 _react2.default.createElement(
                     'p',
                     null,
-                    _react2.default.createElement('img', { src: './src/static/img/file1.png', alt: 'file type' }),
-                    _react2.default.createElement('img', { src: './src/static/img/file2.png', alt: 'file type' })
+                    _react2.default.createElement('img', { src: './static/img/file1.png', alt: 'file type' }),
+                    _react2.default.createElement('img', { src: './static/img/file2.png', alt: 'file type' })
                 ),
                 _react2.default.createElement(
                     'p',
                     null,
                     '\u8FD9\u662F\u6211\u8FD9\u6B21\u7528\u7684\u6587\u4EF6\u7ED3\u6784\u76EE\u5F55\uFF0C\u4E3B\u8981\u662F\u4EE5\u7EC4\u4EF6\u4E3A\u7C92\u5EA6\u6765\u533A\u5206\uFF0Cstyles\u4E2D\u5B58\u653E\u4E00\u4E9B\u516C\u5171\u7684\u6837\u5F0F\u3002',
-                    _react2.default.createElement('img', { src: './src/static/img/file3.png', alt: 'file type' })
+                    _react2.default.createElement('img', { src: './static/img/file3.png', alt: 'file type' })
                 ),
                 _react2.default.createElement(
                     'ul',
@@ -94192,6 +94192,208 @@ var MarkdownItReactComponent = function (_React$Component) {
                         '{',
                         '}',
                         '> = T & DataSuorctObject;',
+                        _react2.default.createElement('br', null)
+                    )
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '2021/05/18 \u66F4\u65B0\u3002 AutoComplete\u7EC4\u4EF6\u7684',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'fetchSuggestions'
+                    ),
+                    '\u6DFB\u52A0\u8054\u5408\u7C7B\u578BPromise\u4F7F\u5B83\u652F\u6301\u5F02\u6B65\u65B9\u6CD5\u8BF7\u6C42\u3002\u5E76\u4E14\u6DFB\u52A0',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'loading'
+                    ),
+                    '\u72B6\u6001\uFF0C\u6765\u4F5C\u4E3A\u5728\u8BF7\u6C42\u8FC7\u7A0B\u4E2D\u7684\u4E00\u4E2A\u6837\u5F0F\u4F18\u5316\u3002\u589E\u52A0\u4E86\u81EA\u5B9A\u4E49hooks',
+                    _react2.default.createElement(
+                        'code',
+                        null,
+                        'useDebounce'
+                    ),
+                    '\u3002\u8FD9\u662F\u7B2C\u4E00\u4E2A\u6B63\u513F\u516B\u7ECF\u7684hook\uFF0C\u81EA\u4ECE\u4E0A\u6B21\u770B\u4E86\u4E4B\u540E\u4E00\u76F4\u90FD\u6CA1\u7528\u8FC7\uFF0C\u90FD\u5FEB\u5FD8\u4E86\u3002'
+                ),
+                _react2.default.createElement(
+                    'pre',
+                    null,
+                    _react2.default.createElement(
+                        'code',
+                        { className: 'language-js' },
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'import'
+                        ),
+                        ' ',
+                        '{',
+                        'useEffect, useState',
+                        '}',
+                        ' ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'from'
+                        ),
+                        ' ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-string' },
+                            '\'react\''
+                        ),
+                        ';',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-comment' },
+                            '/**',
+                            _react2.default.createElement('br', null),
+                            ' * \u63A5\u6536\u4E24\u4E2A\u53C2\u6570 value\uFF0Cdelay',
+                            _react2.default.createElement('br', null),
+                            ' * \u8FD4\u56DE\u5B9A\u65F6\u5668\u4FEE\u6539\u540E\u7684\u503C',
+                            _react2.default.createElement('br', null),
+                            ' */'
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-function' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-keyword' },
+                                'function'
+                            ),
+                            ' ',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-title' },
+                                'useDebounce'
+                            ),
+                            '(',
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-params' },
+                                'value: any, delay = ',
+                                _react2.default.createElement(
+                                    'span',
+                                    { className: 'hljs-number' },
+                                    '300'
+                                )
+                            ),
+                            ') '
+                        ),
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'const'
+                        ),
+                        ' [debounceValue, setDebounceValue] = useState(value);',
+                        _react2.default.createElement('br', null),
+                        '    useEffect(',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-function' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-params' },
+                                '()'
+                            ),
+                            ' =>'
+                        ),
+                        ' ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'const'
+                        ),
+                        ' handler = ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-built_in' },
+                            'window'
+                        ),
+                        '.setTimeout(',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-function' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-params' },
+                                '()'
+                            ),
+                            ' =>'
+                        ),
+                        ' ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '            setDebounceValue(value);',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        '}',
+                        ', delay)',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'return'
+                        ),
+                        ' ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-function' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'hljs-params' },
+                                '()'
+                            ),
+                            ' =>'
+                        ),
+                        ' ',
+                        '{',
+                        _react2.default.createElement('br', null),
+                        '            clearTimeout(handler);',
+                        _react2.default.createElement('br', null),
+                        '        ',
+                        '}',
+                        ';',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        '}',
+                        ', [value, delay]);',
+                        _react2.default.createElement('br', null),
+                        '    ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'return'
+                        ),
+                        ' debounceValue;',
+                        _react2.default.createElement('br', null),
+                        '}',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'export'
+                        ),
+                        ' ',
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-keyword' },
+                            'default'
+                        ),
+                        ' useDebounce;',
                         _react2.default.createElement('br', null)
                     )
                 )
@@ -101549,6 +101751,12 @@ var MarkdownItReactComponent = function (_React$Component) {
                             ' =>'
                         ),
                         ' string;',
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'span',
+                            { className: 'hljs-comment' },
+                            '//  \u5B83\u6216\u8005\u662F\u4E00\u4E2A\u5B57\u7B26\u4E32\u6216\u8005\u662F\u4E00\u4E2A\u8FD4\u56DE\u5B57\u7B26\u4E32\u7684\u51FD\u6570'
+                        ),
                         _react2.default.createElement('br', null),
                         'type nameOrResolve = string | nameResolver;',
                         _react2.default.createElement('br', null),
@@ -109514,4 +109722,4 @@ exports.default = function (state, action) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.ab1f924763759d32dcb1.js.map
+//# sourceMappingURL=main.9965f0689dbefad499f9.js.map
