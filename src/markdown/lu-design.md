@@ -18,9 +18,9 @@
 
 - 文件结构有没有推荐或者强制的标准呢？答：没有。一般的主流文件结构有两种。第一种是按照功能或者路由来组织，第二种是按照文件类型。文件结构避免多层嵌套。[React官网给出了一些建议，可以供参考](https://react.docschina.org/docs/faq-structure.html)
 
- ![file type](./src/static/img/file1.png)![file type](./src/static/img/file2.png)
+ ![file type](./static/img/file1.png)![file type](./static/img/file2.png)
 
-   这是我这次用的文件结构目录，主要是以组件为粒度来区分，styles中存放一些公共的样式。![file type](./src/static/img/file3.png)
+   这是我这次用的文件结构目录，主要是以组件为粒度来区分，styles中存放一些公共的样式。![file type](./static/img/file3.png)
 
 - 代码规范还是遵循的ESlint。缩紧四个空格，=号两边带空格等
 
@@ -297,6 +297,29 @@ interface DataSuorctObject {
 export type DataSourceType<T = {}> = T & DataSuorctObject;
 ```
 
+2021/05/18 更新。 AutoComplete组件的`fetchSuggestions`添加联合类型Promise使它支持异步方法请求。并且添加`loading`状态，来作为在请求过程中的一个样式优化。增加了自定义hooks`useDebounce`。这是第一个正儿八经的hook，自从上次看了之后一直都没用过，都快忘了。
+
+```js
+import {useEffect, useState} from 'react';
+/**
+ * 接收两个参数 value，delay
+ * 返回定时器修改后的值
+ */
+function useDebounce(value: any, delay = 300) {
+    const [debounceValue, setDebounceValue] = useState(value);
+    useEffect(() => {
+        const handler = window.setTimeout(() => {
+            setDebounceValue(value);
+        }, delay)
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [value, delay]);
+    return debounceValue;
+}
+
+export default useDebounce;
+```
 
 
 

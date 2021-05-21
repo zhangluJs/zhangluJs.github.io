@@ -226,6 +226,7 @@ const sun2: PlusType = sum;
  * 需要用类型别名声明出来，然后在接着使用
  */
 type nameResolver = () => string;
+//  它或者是一个字符串或者是一个返回字符串的函数
 type nameOrResolve = string | nameResolver;
 function getName(n: nameOrResolve): string {
     if (typeof n === 'string') {
