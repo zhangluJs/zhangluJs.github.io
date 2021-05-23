@@ -321,6 +321,8 @@ function useDebounce(value: any, delay = 300) {
 export default useDebounce;
 ```
 
+2021/05/22 更新。 AutoComplete组件有一个非常明显的bug，在回车键按下或者鼠标点击某一项后又进行了一次搜索。这是因为inputValue的改变触发了自定义hook`deBounceValue`，解决方法是添加了一个tiggerSearch来对其行为进行约束，在`handleChange`时设置为true，在`handleSelect`时设置为false。完美解决。
+
 
 
 
