@@ -325,6 +325,7 @@ export default useDebounce;
 
 2021/05/24 更新。组件添加了点击空白区域收起suggestionsList的功能。逻辑上就是给document添加点击事件，判断你点击的节点是否为当前这个autoComplete组件，如果不是则收起List。看逻辑并不复杂，我自己觉得复杂的是useRef。以前用react的时候也用过ref，不过都是直接`this.refs.xxxx`拿节点然后对节点进行操作。其实useRef也差不多。用useRef声明一个变量后绑定到节点上，也可以用来获取这个DOM。这里还有一个用途，就是当某个值更新你不期望更新视图的时候也可以将这个值绑在useRef上。上面的tiggerSearch就是这样搞的。总的来说对这个useRef认识还是不深刻，继续吧～
 
+2021/05/26 更新。添加了autocomplete的单元测试。添加了select组件。这两天脑袋昏昏沉沉的，转不动～
 
 
 
