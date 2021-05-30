@@ -138,6 +138,11 @@ export default class ArticleList extends React.Component {
                 description: '记几个html中的占位符。因为不经常用，但是当用起来的时候又总是忘。整理一下，放在这里方便用～',
                 date: '个人笔记'
             }, {
+                name: '前端基础',
+                path: '/basics',
+                description: '记录一下平时常用但是又比较容易忽视的知识点，包涵各个前端的各个方面',
+                date: '沉淀'
+            }, {
                 name: 'BOM/DOM',
                 path: '/object-model',
                 description: `由于现代浏览器已经（几乎）实现了 JavaScript 交互性方面的相同方法和属性，因此常被认为是 BOM 的方法和属性，也因此称
