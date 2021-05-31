@@ -3,7 +3,7 @@
 - 变量类型和计算
 
 基本类型
-
+```js
 let a // undefined
 
 let s = 'abc' //string
@@ -13,9 +13,9 @@ let n = 100 // number
 let b = true // 布尔
 
 let s = Symbol('s') // symbol
-
+```
 引用类型
-
+```js
 const obj = {x: 100}
 
 const arr = ['a', 'b', 'c']
@@ -23,10 +23,11 @@ const arr = ['a', 'b', 'c']
 const n = null // 特殊的引用类型，指针指向为空地址
 
 function fn() {} // function 特殊引用类型，但不用于存储数据，所以没有拷贝、复制函数这一说
+```
 
 为什么引用类型赋值会拷贝引用地址？是因为考虑到性能或存储问题。值类型的占用空间比较少，而引用类型有可能是一个非常大的对象，而且如果直接复制的话会导致过程特别的慢。
 
-[引用类型存储](./static/img/引用类型的存储.png)
+![引用类型存储](./static/img/引用类型的存储.png)
 
 - typeof 运算符
 
@@ -44,6 +45,97 @@ function fn() {} // function 特殊引用类型，但不用于存储数据，所
 
  if语句和逻辑运算
 
+- 原型
+
+class 
+
+```js
+/** 父类 */
+class People {
+    constructor(name) {
+        this.name = name;
+    }
+    eat() {
+        console.log(`${this.name} eat something`);
+    }
+}
+
+/**
+ * 继承
+ * extends
+ * super 通过super来执行父类的构造函数
+ * 扩展或重写方法
+ */
+class Student extends People {
+    constructor(name, number) {
+        super(name); // 这里调用了父类的constructor
+        this.number = number;
+    }
+    sayHi() {
+        console.log(`姓名${this.name} 学号${this.number}`);
+    }
+}
+
+const xialuo = new Student('夏洛', 20);
+
+// 类型判断 instanceof 
+xialuo instanceof Student // true
+xialuo instanceof Prople // true
+xialuo instanceof Object // true
+
+// class 实际上是函数
+typeof People // 'function'
+typeof Student // 'function'
+
+// 隐式原型和显式原型
+console.log(xialuo.__proto__)
+console.log(Student.prototype)
+console.log(Student.prototype === xialuo.__proto__)
+```
+每个class都有显式原型 `prototype`
+
+每个实例都有隐式原型 `__proto__`
+
+实例的__proto__指向对应class的prototype
+
+- 原型链
+
+这里用下面这段代码来解释一下原型链。
+
+new 出来的实例“xialuo”可以访问sayHi方法，但是它本身是没有的，所以在访问的时候就在隐式原型`__proto__`属性上去找。而它的__proto__则指向了Student的prototype(`xialuo.__proto__ === Student.prototype`)。在`Student.prototype`上有sayHi方法，调用。
+
+实例“xialuo”访问eat方法，依然是按照刚才的步骤往上查找。首先自身没有，则沿着__proto__向上寻找，这时的__proto__是Student.prototype。但是Student.prototype也没有，则继续沿着隐式原型__proto__向上查找。`Student.prototype.__proto__`指向People的Prototype，这时候找到了方法eat，调用。
+
+如果我们访问一个没有被定义过的方法，则依然会沿着__proto__向上查找，直到访问`Object.prototype.__proto__`为null，会返回一个undefined。结合下面的代码和图片。
+
+```js
+class People {
+    constructor(name) {
+        this.name = name
+    }
+    eat() {
+
+    }
+}
+
+class Student extends People {
+    constructor(name, number) {
+        super(name);
+        this.number = number
+    }
+    sayHi() {
+
+    }
+}
+
+const xialuo = new Student('夏洛', 100);
+console.log(xialuo.name) // 夏洛
+console.log(xialuo.number) // 100
+console.log(xialuo.__proto__ === Student.prototype) // true
+```
+![原型链](./static/img/prototype.jpg)
+
+ 
 
 #### CSS
 
