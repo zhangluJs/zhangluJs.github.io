@@ -102,11 +102,11 @@ console.log(Student.prototype === xialuo.__proto__)
 
 这里用下面这段代码来解释一下原型链。
 
-new 出来的实例“xialuo”可以访问sayHi方法，但是它本身是没有的，所以在访问的时候就在隐式原型`__proto__`属性上去找。而它的__proto__则指向了Student的prototype(`xialuo.__proto__ === Student.prototype`)。在`Student.prototype`上有sayHi方法，调用。
+new 出来的实例`xialuo`可以访问`sayHi`方法，但是它本身是没有的，所以在访问的时候就在隐式原型`__proto__`属性上去找。而它的`__proto__`则指向了`Student`的`prototype`(`xialuo.__proto__ === Student.prototype`)。在`Student.prototype`上有sayHi方法，调用。
 
-实例“xialuo”访问eat方法，依然是按照刚才的步骤往上查找。首先自身没有，则沿着__proto__向上寻找，这时的__proto__是Student.prototype。但是Student.prototype也没有，则继续沿着隐式原型__proto__向上查找。`Student.prototype.__proto__`指向People的Prototype，这时候找到了方法eat，调用。
+实例`xialuo`访问`eat`方法，依然是按照刚才的步骤往上查找。首先自身没有，则沿着`__proto__`向上寻找，这时的`__proto__`是`Student.prototype`。但是`Student.prototype`也没有，则继续沿着隐式原型`__proto__`向上查找。`Student.prototype.__proto__`指向`People`的`Prototype`，这时候找到了方法`eat`，调用。
 
-如果我们访问一个没有被定义过的方法，则依然会沿着__proto__向上查找，直到访问`Object.prototype.__proto__`为null，会返回一个undefined。结合下面的代码和图片。
+如果我们访问一个没有被定义过的方法，则依然会沿着`__proto__`向上查找，直到访问`Object.prototype.__proto__`为`null`，会返回一个`undefined`。结合下面的代码和图片。
 
 ```js
 class People {
@@ -135,7 +135,131 @@ console.log(xialuo.__proto__ === Student.prototype) // true
 ```
 ![原型链](./static/img/prototype.jpg)
 
- 
+- 闭包
+
+自由变量的查找，是在函数定义的地方，向上级作用域查找，而不是在执行的地方！！！
+
+```js
+function create() {
+    let a = 100;
+    return function () {
+        console.log(a);
+    }
+}
+const fn = create();
+const a = 200;
+fn(); // 100
+
+
+function print(fn) {
+    let b = 200;
+    fn1();
+}
+
+let b = 100;
+function fn1() {
+    console.log(a)
+}
+
+print(fn);
+```
+
+实际开发中闭包的作用： 1.隐藏数据 2. 做一个简单的cache工具
+
+```js
+// 将变量保存在一个独立的区域内，不会被污染
+function createCache() {
+    const data = {};
+    return {
+        set(key, val) {
+            data[key] = val;
+        },
+        get(key) {
+            return data[key];
+        }
+    }
+}
+let c = createCache();
+c.set('a', 100);
+console.log(c.get('a'));
+```
+
+- this
+
+this取什么值，是在函数执行的时候确定的，不是定义的时候！！！
+  
+ 1. 作为普通函数
+ 2. 使用call apply bind
+ 3. 作为对象方法被调用
+ 4. 在class方法中被调用
+ 5. 箭头函数
+
+实现一个call、apply、bind。它们仨都是用来改变this的指向的。其实实现起来并不算难。
+ 1. 既然要将this指向指到传入的第一个参数里，那就将函数作为该对象的属性。
+ 2. 将传入的其他参数传入函数进行调用，也就是这里的this，此时已经是obj.fn了。
+ 3. 删除这个属性，否则会越来越多。
+ 4. 返回执行结果
+
+```js
+// 实现一个call
+Function.prototype.myCall = function (obj) {
+    // 判断是否为一个对象
+    obj ？ Object(obj) : window;
+    let arr = [];
+    // 拿到除了第一项的所有参数。注意i 从 1开始。因为第0项是对象。
+    // 也可以使用es6的结构 arr = [...argument].slice(1);
+    for (let i = 1; i < arguments.length; i++) {
+        arr.push(arguments[i]);
+    }
+    obj.fn = this;
+    let result = obj.fn(...arr);
+    delete obj.fn;
+    return result;
+}
+
+// 实现一个apply
+Function.prototype.myApply = function (obj, arr) {
+    obj ? Object(obj) : window;
+    obj.fn = this;
+    let result;
+    if (arr) {
+        result = obj.fn();
+    } else {
+        result = obj.fn(...arr);
+    }
+    delete obj.fn;
+    return result;
+}
+
+// 手写一个bind
+Function.prototype.myBind = function () {
+    // 获取所有的参数
+    let args = Array.prototype.slice.call(arguments);
+
+    // 拿出需要指向的this指向
+    let t = args.shift();
+
+    // 保持调用的this指向
+    let self = this;
+
+    // 返回一个函数
+    return function () {
+        // 将调用的函数this指向新传入的对象
+        return self.apply(t, args);
+    }
+}
+```
+
+- event loop JS如何执行 
+
+从前到后，一行一行执行
+
+如果某一行执行报错，则停止下面代码的执行
+
+先把同步代码执行完，再执行异步
+
+
+
 
 #### CSS
 
