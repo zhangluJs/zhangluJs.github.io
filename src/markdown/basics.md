@@ -1,6 +1,6 @@
 #### JS
 
-- 变量类型和计算
+**变量类型和计算**
 
 基本类型
 ```js
@@ -29,25 +29,17 @@ function fn() {} // function 特殊引用类型，但不用于存储数据，所
 
 ![引用类型存储](./static/img/引用类型的存储.png)
 
-- typeof 运算符
+**typeof 运算符**
 
-识别所有基本类型
+识别所有基本类型、识别函数、判断是否是引用类型（不可再细分 object）
 
-识别函数
+**类型转换**
 
-判断是否是引用类型（不可再细分 object）
+字符串拼接、if语句和逻辑运算（除了 == null 之外。其他一律用 ===）
 
-- 变量计算 - 类型转换
+**原型**
 
- 字符串拼接
-
- ==  // 除了 == null 之外。其他一律用 ===
-
- if语句和逻辑运算
-
-- 原型
-
-class 
+* class 
 
 ```js
 /** 父类 */
@@ -92,17 +84,15 @@ console.log(xialuo.__proto__)
 console.log(Student.prototype)
 console.log(Student.prototype === xialuo.__proto__)
 ```
-每个class都有显式原型 `prototype`
+    每个class都有显式原型 `prototype`
 
-每个实例都有隐式原型 `__proto__`
+    每个实例都有隐式原型 `__proto__`
 
-实例的__proto__指向对应class的prototype
+    实例的__proto__指向对应class的prototype
 
-- 原型链
+**原型链**
 
-这里用下面这段代码来解释一下原型链。
-
-new 出来的实例`xialuo`可以访问`sayHi`方法，但是它本身是没有的，所以在访问的时候就在隐式原型`__proto__`属性上去找。而它的`__proto__`则指向了`Student`的`prototype`(`xialuo.__proto__ === Student.prototype`)。在`Student.prototype`上有sayHi方法，调用。
+new 出来的实例`xialuo`可以访问`sayHi`方法，但是它本身是没有的，所以在访问的时候就在隐式原型`__proto__`属性上去找。而它的`__proto__`指向了`Student`的`prototype`(`xialuo.__proto__ === Student.prototype`)。在`Student.prototype`上有sayHi方法，调用。
 
 实例`xialuo`访问`eat`方法，依然是按照刚才的步骤往上查找。首先自身没有，则沿着`__proto__`向上寻找，这时的`__proto__`是`Student.prototype`。但是`Student.prototype`也没有，则继续沿着隐式原型`__proto__`向上查找。`Student.prototype.__proto__`指向`People`的`Prototype`，这时候找到了方法`eat`，调用。
 
@@ -114,7 +104,7 @@ class People {
         this.name = name
     }
     eat() {
-
+        // ...
     }
 }
 
@@ -124,7 +114,7 @@ class Student extends People {
         this.number = number
     }
     sayHi() {
-
+        // ...
     }
 }
 
@@ -135,9 +125,9 @@ console.log(xialuo.__proto__ === Student.prototype) // true
 ```
 ![原型链](./static/img/prototype.jpg)
 
-- 闭包
+**闭包**
 
-自由变量的查找，是在函数定义的地方，向上级作用域查找，而不是在执行的地方！！！
+**自由变量的查找，是在函数定义的地方，向上级作用域查找，而不是在执行的地方！！！**
 
 ```js
 function create() {
@@ -164,10 +154,10 @@ function fn1() {
 print(fn);
 ```
 
-实际开发中闭包的作用： 1.隐藏数据 2. 做一个简单的cache工具
+实际开发中闭包的作用： 常用于隐藏数据。下面是一个cache示例
 
 ```js
-// 将变量保存在一个独立的区域内，不会被污染
+// 将变量保存在一个独立的区域内，不会被污染，通过特定的api访问
 function createCache() {
     const data = {};
     return {
@@ -184,9 +174,9 @@ c.set('a', 100);
 console.log(c.get('a'));
 ```
 
-- this
+**this**
 
-this取什么值，是在函数执行的时候确定的，不是定义的时候！！！
+**this取什么值，是在函数执行的时候确定的，不是定义的时候！！！**
   
  1. 作为普通函数
  2. 使用call apply bind
@@ -250,7 +240,11 @@ Function.prototype.myBind = function () {
 }
 ```
 
-- event loop JS如何执行 
+**JS如何执行(event loop)**
+
+JS是单线程的
+
+异步要基于回调来实现
 
 从前到后，一行一行执行
 
@@ -258,6 +252,116 @@ Function.prototype.myBind = function () {
 
 先把同步代码执行完，再执行异步
 
+ event loop 过程1
+
+ 1. 同步代码，一行一行放在call stack执行
+ 2. 遇到异步，会先“记录”下，等待时机（定时、网络请求等）
+ 3. 时机到了，就移动到callback Queue
+ 
+ event loop2 
+
+ 1. 如果call stack为空（即同步任务执行完），开始执行callback queue中的任务
+ 2. 轮询查找 callback queue，如有则移动到 call stack 执行
+ 3. 然后继续轮询查找，重复2
+
+**promise**
+
+ 三种状态 pending(在过程中) resolved|fulfilled(解决) rejected(失败)
+
+ pending -> resolved|fulfilled 或 pending -> rejected。 变化不可逆
+ 
+ **new Promise传入的函数在js的主线程上，所以是同步的进行的。而.then.catch则进入了异步回调队列**
+
+- 状态的表现和变化
+ 1. pending 状态，不会触发then和catch
+ 2. resolved 状态，会触发then回调函数
+ 3. rejected 状态，会触发catch回调函数
+
+- then和catch对状态的改变
+
+ 1. then 正常返回resolved，里面有报错则返回reject
+ 2. catch 正常返回resolved，里面有报错返回reject
+
+ 大白话就是，then、catch都会返回resolved状态，除非里面的代码出了问题。才会被下一下catch捕获。rejected肯定会被catch捕获，但是这个catch不报错的话又会是resolved状态。
+
+- async / await和promise的关系
+
+ 同步语法，彻底消灭回调函数
+
+ 1. 执行async函数返回的时候一个状态为fulfilled的Promise对象
+ 2. await相当于Promise的then
+ 3. try catch相当于Promise的catch
+
+ 关于面试题里的一个东西
+
+下面这段代码，起初我认为的执行顺序是script start、script end、async1 start、async2、async1 end。结果跑出来大错特错，这也是我最怕的题。看了正确答案后慢慢顺着捋一下。
+
+第一步 输出script start没问题。
+
+第二步 其实是async1 start。**我开始以为被async声明过的函数进了异步队列里去了，其实不是的，它依然是一个正常的函数**。
+
+第三步 接着往下走await async2()。这里没问题输出async2了。**但是重点来了，在await下面的代码全部都进入了异步回调队列中。因为await后的代码需要等待执行**。也就是说
+
+第四步 它跑去执行了主进程上的script end，这时候call stack里已经没有任务了
+
+第五步 异步回调机制开始，event loop把async1 end拿出来执行。
+
+ ```js
+async function async1() {
+    // 执行
+    console.log('async1 start'); // 2
+    // 开始执行async2 
+    // 重点await下面的代码相当于全部进入了异步队列里
+    await async2(); // await 下面的代码相当于全部进入了异步回调。所以这时候回到了主任务里的，所以这里的下面是最后一步执行的
+    console.log('async1 end'); // 5
+}
+
+async function async2() {
+    console.log('async2'); // 3
+}
+
+console.log('script start') // 1
+async1(); // 遇到函数立刻执行，现在还没进入到异步里去
+console.log('script end') // 4
+ ```
+
+**for ... of**
+
+1. for...in (以及forEach for)是常规的同步遍历
+
+2. for...of 常用于异步的遍历
+
+**宏任务macroTask和微任务micorTask**
+
+异步回调队列里的任务分为微任务与宏任务
+
+```
+> 执行顺序是：
+    >> 1、同步代码按顺序执行一行一行执行，遇到异步任务推入异步队列，异步队列又分为微任务与宏任务。遇到像promise、async/awai推入微任务队列，像定时器这种推入宏任务队列。
+    >> 2、在主线程代码执行完成后，开始将微任务队列中的任务推入调用栈，一个一个执行，微任务队列为空后，开始尝试渲染DOM（如果DOM结构发生了改变）。
+    >> 3、微任务执行完之后开始执行宏任务队列中的任务，一个一个执行，将宏任务推入调用栈，执行中如果遇到微任务则执行微任务，微任务执行完成后尝试渲染DOM。完成后再执行下一个宏任务。如此循环
+```
+1. 宏任务：setTimeout、setInterval、Ajax、DOM事件
+2. 微任务：Promise、async/await、process.nextTick、setImmediate
+
+**为什么微任务执行时机比宏任务要早？**
+
+- 宏任务：DOM渲染后触发，如setTimeout
+
+- 微任务：DOM渲染前触发，如Promise
+
+**为什么微任务在前宏任务在后？**
+
+- 微任务：ES中的规范，不依赖于浏览器等载体，js引擎统一处理
+
+- 宏任务：ES语法没有，JS引擎不处理，需要靠浏览器来干预。
+
+综上所述，代码执行顺序如下：
+1. 执行call stack
+2. 执行微任务队列
+3. 尝试DOM渲染
+4. 触发event loop 执行宏任务队列
+5. 每执行完一个宏任务，都会从2开始再次循环，如此往复
 
 
 

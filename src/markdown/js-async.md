@@ -64,6 +64,8 @@ async/awiat是es7中新增的api。通过async关键字定义的函数总是返�
 
 await一定要搭配async来使用。await可以等待任何语句，如果是promise对象的话，它会等待resolve后才继续向下执行，如果不是promise语句则立即执行。
 
+2021/06/02 补充。await相当于Promise的then方法。返回的是resolve中定义的值。而如果await的是一个reject，则会报错。这时候需要用try catch捕获。
+
 ```js
 async function f() {
     return 1
