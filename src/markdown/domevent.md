@@ -9,9 +9,7 @@ DOM0级事件
 <h1 onclick="this.innerHTML='谢谢!'">请点击该文本</h1>
 ```
 ```js
-<script>
-    document.getElementById("myBtn").onclick=function(){displayDate()};
-</script>
+document.getElementById("myBtn").onclick=function(){displayDate()};
 ```
 
 DOM2级事件

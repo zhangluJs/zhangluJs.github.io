@@ -566,3 +566,118 @@ rem 是一个长度单位
     vw 网页视口宽度的 1/100
     
     vamx 取两者最大值 vmin 取两者最小值
+
+#### DOM
+
+**获取节点**
+
+- document.getElementById('div1');
+
+- document.getElementsByTagName('div');
+
+- document.getElementsByClassName('div-1');
+
+- document.querySelectorAll('p');
+
+**property**
+
+- document.getElementById('div1').style.width = '100px';
+
+- document.getElementById('div1').style.width;
+
+- document.getElementById('div1').className;
+
+**Attribute**
+
+直接作用于标签上，可以设置自定义属性
+
+- document.getElementById('div1').setAttribute('data-name', 'my-node');
+
+- document.getElementById('div1').getAttribute('data-name');
+
+**DOM结构操作**
+
+```js
+const div1 = document.getElementById('div1');
+// 新建节点
+const p1 = document.createElement('p');
+// 设置节点内容
+p1.innerHTML = 'this is p1';
+// 插入、追加节点（对已有节点进行插入操作，会移动已有节点）
+div1.appendChild(p1);
+// 获取父元素
+console.log(div1.parentNode);
+// 获取子元素(包涵文本元素 nodeType === 3)
+console.log(div1.childNodes);
+// 删除节点
+div1.removeChild(p1);
+```
+
+**优化DOM操作性能**
+
+DOM操作会导致浏览器的重绘(repaint)、重排(reflow)，尽量减少DOM的操作
+
+对DOM查询做缓存
+
+将频繁操作改为一次性操作。
+
+```js
+const div1 = document.getElementById('div1');
+
+// 创建一个文档片段
+let frag = document.createDocumentFragment();
+
+for (let i = 1; i <= 5; i++) {
+    let p = document.createElement('p');
+    p.innerHTML = `this is p${i}`;
+    // 将新建的节点统一插入这个文档片段中
+    frag.appendChild(p);
+}
+
+// 将这个文档片段插入节点中
+div1.appendChild(frag);
+```
+
+#### BOM
+
+- navigator 客户端信息 `window.navigator.userAgent`
+
+- screen 屏幕信息 `window.screen.width`
+
+- location 地址url信息 `window.location.host`
+
+- history 页面前进、后退的信息
+
+**事件**
+
+```js
+// 通用的事件代理函数
+function bindEvent(ele, type, selector, fn) {
+    if (fn == null) {
+        fn = selector;
+        selector = null
+    }
+    ele.addEventListener(type, e => {
+        let target = e.target;
+        if (selector) {
+            if (target.metches(selector)) {
+                fn.call(target, e); // fn(target, e)
+            }
+        } else {
+            fn.call(e);
+        }
+    })
+}
+
+const div1 = document.getElementById('div1');
+bindEvent(div1, 'click', function(e) {
+    console.log(this.innerHTML);
+})
+
+const uls = document.getElementById('ul1');
+bindEvent(uls, 'click', 'li', function(e) {
+    console.log(this.innerHTML); // e.innerHTML
+})
+```
+
+
