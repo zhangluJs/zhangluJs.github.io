@@ -60,7 +60,7 @@
 - 500：服务器端错误
 
 ```js
-function ajax(method, src, data = null) {
+function ajax(method, src, data = {}) {
     return new Promise((resolve, reject) => {
         let xhr;
         if (window.XMLHttpRequest) {
@@ -69,9 +69,8 @@ function ajax(method, src, data = null) {
             xhr = window.ActiveXObject('Microsoft XMLHTTP');
         }
         xhr.open(method, src);
-        xhr.send(data);
         xhr.onreadstatechange = function () {
-            if (xhr.readState === 4) {
+            if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     resolve(xhr.responseText);
                 } else {
@@ -81,6 +80,7 @@ function ajax(method, src, data = null) {
                 reject('请求失败');
             }
         }
+        xhr.send(data);
     })
 }
 

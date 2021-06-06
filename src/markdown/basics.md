@@ -680,4 +680,87 @@ bindEvent(uls, 'click', 'li', function(e) {
 })
 ```
 
+#### ajax
 
+网络请求
+
+**readyState的几个状态码**
+
+- 0: send还没发送
+- 1: send已经发送等待响应
+- 2: 响应完成，接收到了响应参数
+- 3: 解析参数
+- 4: 参数解析完成，可以供客户端使用
+
+```js
+function ajax(methods, url, data) {
+    return new Promise((resolve,reject) => {
+        // 这里就不考虑ie兼容的问题了 new ActiveXObject('Mi....')
+        let xhr = new XMLHttpRequest();
+        // 原生ajax支持异步
+        // true 异步 false同步
+        xhr.open(mtehods, url, true);
+        xhr.onreadyStateChange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    resolve(xhr.response);
+                } else {
+                    reject(new Error('....错误'));
+                }
+            }
+        }
+        xhr.send(data = '');
+    })
+}
+
+ajax('GET', 'xxxxx.json').then(res => {
+    console.log(res);
+}).catch(err => {
+    console.log(err);
+})
+```
+**跨域**
+
+浏览器出于安全的角度考虑，不可以进行跨域访问资源。如果客户端与server端，协议、域名、端口任意一项不同，则视为跨域。但是这只是浏览器的行为，在其他端则没有这样的限制。
+
+常见的跨域有两种方式
+
+1. jsonp。利用src可以跨域的特性来完成。服务端将函数作为返回，并将数据作为函数的参数。
+
+```html
+<!--
+    // server
+    getName({
+        userName: 'xxxx',
+        msg: 'xxxxx'
+    })
+-->
+<script>
+    window.callback = function(data) {
+        console.log(data);
+    }
+</script>  
+<script src="xxxxxx.js?callback=getName"></script>
+```
+
+2. CORS。这个则是在服务端设置相应的规则来完成。```Access-Control-Allow-origin: 'xxxx'```、```Access-Control-Allow-Methods: 'POST'``。需要注意的是CORS有可能会触发浏览器的复杂请求校验，也就是浏览器可能会自动的发送一次options请求，来和服务端进行一个合法性的校验，来查看请求规则是否和服务端匹配，如果校验通过了，才可以发送真正的请求。
+
+还有其他的如 document.domain、window.name等
+
+**其他的AJAX请求Api**
+
+fetch是新出的请求相关的api，但是浏览器的支持还需要考虑一下。不是很统一
+
+```js
+fetch('xxxxx.json').(res => {
+    console.log(res);
+})
+```
+
+axios。目前常用的一个api。也是基于XMLHttpRequest实现，同时也支持nodejs。目前主流吧
+
+```js
+axios.get('xxxx.json').then(res => {
+    console.log(res);
+})
+```
