@@ -764,3 +764,106 @@ axios.get('xxxx.json').then(res => {
     console.log(res);
 })
 ```
+
+#### HTTP
+
+**状态码分类**
+
+* 1xx 服务器收到请求
+
+* 2xx 请求成功，如200
+
+* 3xx 重定向，301，302
+
+    301：永久重定向，Location重定向到新的地址。比如服务器到期，更换域名。第一次重定向打开的时候会有一个跳转，之后浏览器会缓存，下次就直接打开重定向后的地址。
+
+    302：临时重定向，Location重定向到新的地址。
+
+    304：资源未被修改
+
+* 4xx 客户端错误，404
+    
+    404：资源没找到。
+
+    403：没有权限。未登录，账号权限
+
+* 5xx 服务端错误，500
+
+    500：服务器错误
+
+    504：网关超时
+
+**http-methods**
+
+* 传统的methdos
+
+    get： 获取服务器的数据
+
+    post：向服务器提交数据
+
+* 现在的methods
+
+    get：获取数据
+
+    post：新建数据
+
+    patch/put：更新数据
+
+    delete：删除数据
+
+**Restful-API**
+
+* 传统API设计：把每个url当做一个功能
+
+    获取数据： api/list?pageIndex=2
+
+    用methods表示参数类型（传统api）
+
+    post请求 /api/create-blog (创建)
+
+    post请求 /api/update-blo?id=100（更新）
+
+    get请求 /api/get-blog?id=100(获取)
+
+* Restful-API设计：把每个url当做一个唯一的资源
+
+    获取数据： api/list/2 (不使用参数)
+
+    用methods表示参数类型（restful api）
+
+    post 请求：/api/blog（创建）
+
+    patch 请求：/api/blog/100（更新）
+
+    get 请求：/api/blog/100（获取）
+
+    
+**HTTP header**
+
+* 常见的Request-headers（请求头）
+
+    Accept 浏览器可接收的数据格式
+
+    Accept-Encoding 浏览器可接收的压缩算法，如gzip
+
+    Accept-Language 浏览器可接收的语言类型，如 zh-CN
+
+    Connection：keep-alive 一次TCP链接重复使用
+
+    cookie
+
+    host
+
+    User-Agent 简称UA 浏览器信息
+
+    Content-type 发送数据的格式。如application/json
+
+* 常见的Response-headers（响应头）
+
+    content-type：返回的数据类型
+
+    content-language：返回的语言类型
+
+    content-Encoding：返回的数据压缩格式
+
+    cache-control：缓存规则
