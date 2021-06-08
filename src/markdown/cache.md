@@ -16,7 +16,7 @@ http缓存分为两种，一种是协商缓存、另一种是强制缓存。
 
 1. 强制缓存：浏览器发送网络请求，通过响应头的expires或cache-control字段来判断是否命中了强制缓存。如果命中，则本次请求就不会与服务器进行通信。`注意：如果同时存在expires与cache-control，cache-control优先级更高一些`。
 
-    expires：会设置一个过期时间，如果超过了该时间就会重亲请求服务器，否则使用缓存资源。expires是HTTP1.0中的标准，现在更倾向与使用HTTP1.1中的cache-control。
+    expires：会设置一个过期时间，如果超过了该时间就会重亲请求服务器，否则使用缓存资源。expires是HTTP1.0中的标准，现在更倾向于使用HTTP1.1中的cache-control。
 
     cache-control：通过不同字段来响应不同的结果
 

@@ -867,3 +867,59 @@ axios.get('xxxx.json').then(res => {
     content-Encoding：返回的数据压缩格式
 
     cache-control：缓存规则
+
+* 缓存相关的header
+
+    cache-contrcol
+
+    Exprice
+
+    Last-Modifined    If-Modifined-since
+
+    Etag              If-None-match
+
+**http缓存**
+
+* 什么是缓存？
+  
+    一些静态资源没必要重复获取
+
+* 为什么需要缓存？
+
+    让页面加载速度更快，优化用户体验、减少网络请求
+
+* 哪些资源可以被缓存？
+
+    静态资源：js、css、img
+  
+* 强制缓存
+
+    对资源第一次请求的时候，服务端会返回cache-control，来告诉客户端是否缓存该资源。
+
+    Cache-Control控制强制缓存的逻辑。例如Cache-Control: max-age=31536000（单位是秒）。意思是这个资源被缓存一年的时间。
+
+    Cache-Control
+
+        max-age：资源过期时间，单位秒
+
+        no-cache：不用本地缓存，正常的请求资源，其他的策略按照服务器处理的来
+
+        no-store：客户端、服务端都不走缓存。全部都请求新的资源
+
+        private：只允许最终用户缓存
+
+        pubilc：中间层，代理服务器都可以缓存
+
+    Expires：控制缓存过期时间，http1.0中的规范。已被cache-control代替
+
+* 协商缓存（对比缓存）304
+
+    服务端来判断这个文件是否使用本地缓存
+
+    服务端判断客户端资源，是否和服务端资源一样，如果一样则返回304，告诉客户端使用本地缓存，如果不一样，则返回200，重新请求新的资源
+
+    Last-Modifined：资源最后的修改时间
+
+    Etag：资源的唯一标识
+
+#### 开发环境
