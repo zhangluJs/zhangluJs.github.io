@@ -5,7 +5,7 @@
   "author": "zhanglu",
   "scripts": {
     "dev": "webpack-dev-server --inline",
-    "build": "webpack --config ./webpack.config.js --mode development"
+    "build": "webpack --config ./webpack.prod.js --mode production"
   },
   "dependencies": {
     "react": "^16.5.0",

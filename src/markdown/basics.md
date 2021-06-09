@@ -923,3 +923,95 @@ axios.get('xxxx.json').then(res => {
     Etag：资源的唯一标识
 
 #### 开发环境
+
+* 抓包
+
+    移动端h5页，查看网络请求，需要用工具抓包
+
+    windows一般用fiddler
+
+    Mac OS一般用charles
+
+    手机和电脑连同一个局域网
+
+    将手机代理到电脑上
+
+    手机浏览网页，即可抓包
+
+* webpack和babel
+
+    ES6模块化，浏览器暂不支持
+
+    ES6语法，浏览器并不完全支持
+
+    压缩代码，整合代码，让网页加载更快
+
+    @babel/core： core是babel核心，这个@babel是组的意思，这行意思是装@babel组下的core
+
+    @babel/preset-env：preset-env是babel配置集合
+
+    babel-loader：编译js代码，将es6编译为浏览器可以执行的js语法
+
+```js
+/**
+ * 开发环境的一个简单配置
+ * webpack.config.js
+ */
+const path = require('path');
+const HtmlWbpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    // 指定模式 prodution生产 ｜ development开发
+    mode: 'development',
+
+    // 入口文件
+    entry: path.join(__dirname, 'src', 'index.js'),
+
+    // 出口文件
+    output: {
+        filename: 'bundle.js',
+        path: path.join(__dirname, 'dist')
+    },
+
+    devServer: {
+        // 端口
+        port: 3000,
+        // 启动服务的目录
+        contentBase: path.join(__dirname, 'dist')
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                loader: ['babel-loader'],
+                include: path.join(__dirname, 'src'),
+                exclude: /node_modules/
+            }
+        ]
+    },
+
+    // 插件
+    plugins: [
+        // 解析html
+        new HtmlWbpackPlugin({
+            // 目标文件
+            template: path.join(__dirname, 'src', 'index.html'),
+            // 产出的html
+            filename: 'index.html'
+        })
+    ]
+};
+```
+
+* ES6 模块化规范是什么
+
+* webpack 生产环境配置
+
+    mode 需要修改成为production
+
+    devServer不需要了，因为是静态代码了，所以这个不需要了
+
+    修改package.json build命令`"build": "webpack --config webpack.prod.js"`
+
+    
