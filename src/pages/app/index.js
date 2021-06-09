@@ -44,6 +44,7 @@ import typescript from '../../markdown/typescript.md';
 import varAndFunVariable from '../../markdown/varAndFunVariable.md';
 import luDesign from '../../markdown/lu-design.md';
 import sass from '../../markdown/sass.md';
+import basics from '../../markdown/basics.md';
 
 import './index.scss';
 
@@ -90,6 +91,7 @@ export default class App extends React.Component {
                             <Route path='/varAndFunVariable' component={varAndFunVariable}></Route>
                             <Route path='/LuDesign' component={luDesign}></Route>
                             <Route path='/sass' component={sass}></Route>
+                            <Route path='/basics' component={basics}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>

@@ -16,11 +16,6 @@ export default class ArticleList extends React.Component {
                 description: '最近工作上的项目不是特别忙，所以得空就充充电。沉淀一下技术。使用React、React-hook、typescript做一个类似antdesign的组件库来玩玩。并且要把这个组件库发到npm上去，install就可以用的那种。',
                 date: '个人笔记'
             }, {
-                name: 'Sass',
-                path: '/sass',
-                description: '几年前学习前端的时候就知道了预编译这个东西，当时还是用的一个叫考拉的应用来将sass或者less文件丢进去生成一个css文件然后来使用，后来随着node火起来，前端大部分项目开发都运行在node环境下，预编译也被集成了进去。方便了许多。最开始使用的时候因为类名层级嵌套写起来简单明了，所以后来的工作中就基本都在使用预编译了，接触多了知道还可以定义变量、方法、甚至自己的api。在反复写一些样式、或者在某些已有的类上拓展样式特别的便捷。',
-                date: '个人笔记 / 学习'
-            }, {
                 name: 'typescript',
                 path: '/typescript',
                 description: 'ts的官网说TypeScript是JavaScript类型的超集，它可以编译成纯JavaScript。我自己学习包括使用下来的感受是，typescript更像是一种约束。因为js的类型实在是太灵活了，你以为他是字符串其实他是数字。这对于新手来说简直是灾难。所以在对值进行比较时尽量用===等等一系列小技巧来规避这种灵活带来的风险。而ts则在变量、对象、或者函数声明阶段就规定了值的范围，很好的规避掉了这些问题',
@@ -120,6 +115,11 @@ export default class ArticleList extends React.Component {
                     切换目录等，每次都是打开度娘慢慢搜。现在把我整理出来的几个常用的命令放在这里，方便以后查询。`,
                 date: '个人笔记 / 学习'
             }, {
+                name: 'Sass',
+                path: '/sass',
+                description: '几年前学习前端的时候就知道了预编译这个东西，当时还是用的一个叫考拉的应用来将sass或者less文件丢进去生成一个css文件然后来使用，后来随着node火起来，前端大部分项目开发都运行在node环境下，预编译也被集成了进去。方便了许多。最开始使用的时候因为类名层级嵌套写起来简单明了，所以后来的工作中就基本都在使用预编译了，接触多了知道还可以定义变量、方法、甚至自己的api。在反复写一些样式、或者在某些已有的类上拓展样式特别的便捷。',
+                date: '个人笔记 / 学习'
+            }, {
                 name: 'JavaScript异步操作',
                 path: '/js-async',
                 description: `因为JavaScript执行环境是单线程的，所以在某些情况下会由于某些事务的延迟造成浏览器或者服务器假死的状态，
@@ -137,6 +137,11 @@ export default class ArticleList extends React.Component {
                 path: '/html-placeholder',
                 description: '记几个html中的占位符。因为不经常用，但是当用起来的时候又总是忘。整理一下，放在这里方便用～',
                 date: '个人笔记'
+            }, {
+                name: '前端基础',
+                path: '/basics',
+                description: '记录一下平时常用但是又比较容易忽视的知识点，包涵各个前端的各个方面',
+                date: '沉淀'
             }, {
                 name: 'BOM/DOM',
                 path: '/object-model',

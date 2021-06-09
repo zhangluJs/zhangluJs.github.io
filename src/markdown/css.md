@@ -42,13 +42,21 @@ html元素中分块元素与行内元素，块元素独占一行。如果想让�
 
 块级格式化上下文是指一个独立的渲染区域，这个区域内的元素无论怎样都不会影响到区域外的元素。
 
-第一次听到BFC这个概念的时候一脸懵逼，这是啥玩意为什么从来没听过，仔细看了之后发现，其实无意间已经在日常开发中运用好久了。[张鑫旭对 BFC 的描述（这哥们的文章真的是通俗易懂）](https://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/)
+第一次听到BFC这个概念的时候一脸懵逼，这是啥玩意为什么从来没听过，仔细看了之后发现，其实无意间已经在日常开发中运用好久了。[张鑫旭对 BFC 的描述（这哥们的文章真的是通俗易懂）](https://www.zhangxinxu.com/wordpress/2015/02/css-deep-understand-flow-bfc-column-two-auto-layout/)；
 
-形成：
-1. overflow不为visivle的元素;
-2. 元素具有定位属性（position：absolute\fixed）;
-3. 内联块元素（display: inline-block）;
-4. 浮动元素（float不为none）；
+2021/05/29 更新
+
+Block Format Context(块级格式化上下文)。一个独立的渲染区域，内部的元素渲染不会影响边界以外的元素（其实大白话就是页面中的一个块，这个块里的样式还挺丰富，但是丰富归丰富，不会影响其他容器）。
+
+形成BFC的条件。
+
+1. float不是none的容器
+
+2. position是absolute、fixed
+
+3. overflow不是visible
+
+4. display是flex、inline-block等
 
 ### 水平居中的方法
 
