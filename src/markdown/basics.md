@@ -1014,4 +1014,130 @@ module.exports = {
 
     修改package.json build命令`"build": "webpack --config webpack.prod.js"`
 
+```js
+/**
+ * 生产环境与开发环境配置的不同
+ * mode为 production
+ * 不需要 devServer
+ * 不需要 devtool
+ * 不需要 HotModuleReplacementPlugin
+ * webpack.prod.js
+ * 我在把这个项目build改了之后特意看了一下dist文件的大小
+ * 之前的是12.6MB，修改后的为6.3MB。体积小了近一半
+ */
+const path = require('path');
+const HtmlWbpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    // 指定模式 prodution生产 ｜ development开发
+    mode: 'production',
+
+    // 入口文件
+    entry: path.join(__dirname, 'src', 'index.js'),
+
+    // 出口文件
+    output: {
+        filename: 'bundle.[contenthash].js',
+        path: path.join(__dirname, 'dist')
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                loader: ['babel-loader'],
+                include: path.join(__dirname, 'src'),
+                exclude: /node_modules/
+            }
+        ]
+    },
+
+    // 插件
+    plugins: [
+        // 解析html
+        new HtmlWbpackPlugin({
+            // 目标文件
+            template: path.join(__dirname, 'src', 'index.html'),
+            // 产出的html
+            filename: 'index.html'
+        })
+    ]
+};
+```
+
+
+#### 网页加载过程
+
+* 从输入url到渲染出页面的整个过程
+
+    资源形式：html代码、媒体文件（如图片、视频等）、javascript css
     
+    加载过程：
+    
+    1. DNS域名解析：域名 -> IP地址
+
+    2. 浏览器根据ip地址向服务器发起http请求。
+
+    3. 服务器处理http请求，并返回给浏览器
+
+    渲染过程1：
+
+    1. 根据html代码生成DOM Tree
+
+    2. 根据css代码生成CSSOM
+
+    3. 将DOM Tree 和 CSSOM整合形成Render Tree
+
+    渲染过程2：
+
+    1. 根据Render Tree渲染页面
+
+    2. 遇到`<script>`则暂停渲染，优先加载并执行js代码，完成在继续
+
+```js
+window.addEventListener('load', () => {
+    // 页面的全部资源加载完成才会执行，包括图片、视频等
+})
+document.addEventListener('DOMContentLoaded', () => {
+    // dom文档渲染完成执行，此时图片、视频等可能还没加载完
+})
+```
+
+* CSS为什么放在head里？
+
+    假设CSS放在了body的最下面。根据HTML文档构建DOM Tree，执行Render Tree。执行到下面的时候发现了CSS，解析CSSOM Tree。又重新将DOM Tree与CSSOM Tree合并生成新的 Render Tree，再次重新渲染。这又会引发页面的一次重排与重绘。
+
+    假设CSS放在了head里。根据HTML文档开始构建，发现了css生成了CSSOM Tree，根据html生成了DOM Tree。两者合并成为Render Tree，开始渲染页面。
+    
+    `需要注意的是，css的加载会阻塞html的渲染。`
+
+* JS代码为什么要放在body最下面？
+
+    假设JS代码放在了最上面。js代码的执行会阻塞dom的渲染，此时页面看上去可能是一片空白。而如果放在body最下面，可以先保证页面中重要的部分先展示出来，之后js代码涉及到的重绘、重排不会对页面造成太大的影响。
+
+    为什么会停止dom的渲染？如果不停止的话，dom继续渲染，渲染完成后js又对dom进行了修改，就浪费了一次不必要的渲染。
+
+
+#### 前端性能优化
+
+    原则：多使用内存、缓存或其他方法，减少cpu计算，减少网络加载耗时。
+    
+    - 让加载更快。减少资源体积（压缩代码，webpack，压缩图片）
+    
+    - 减少访问次数（合并代码，SSR服务端渲染，缓存）
+    
+    - 使用更快的网络CDN
+
+    - 让渲染更快。css放在head、js放在body最下面
+
+    - 尽早开始执行js，用DOMContentLoaded触发
+
+    - 懒加载（图片懒加载，上滑加载更多）
+
+    - 对DOM查询进行缓存
+
+    - 频繁DOM操作，合并到一起插入DOM结构
+
+    - 节流throttle 防抖debounce
+
+#### 防抖debounce

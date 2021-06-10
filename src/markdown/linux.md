@@ -13,6 +13,8 @@
 
 `ls`: 列出当前目录下的文件
 
+`ls -a`: 列出当前目录下的文件，在linux下.开头的文件都是隐藏文件，需要-a查看
+
 `vi [filename]`: 进入编辑模式，编辑当前文件。i开启编辑，esc退出编辑，:wq保存并退出（想起了第一次用vim编辑器时被支配的恐惧...）
 
 `whereis [filename]`: 查找文件，可以查看文件在哪个文件夹下
@@ -39,6 +41,22 @@
 
 `ssh root@xxx.xxx.xx.xx`: 链接服务器
 
-`curl`: http命令行工具，它支持文件的上传和下载。（我这里使用curl 拉取了一段音悦台的资源，使用node生成了一个json文件）
+`curl`: http命令行工具，它支持文件的上传和下载。（我这里使用  拉取了一段音悦台的资源，使用node生成了一个json文件）
+
+`mv`: 修改文件名或者移动文件
+
+- 修改文件名 mv index.html index1.html
+
+- 移动文件 mv index.html ../index.html 将index.html移动到上级目录下
+
+`cp`: 拷贝 cp a.js a1.js
+
+`touch`: 新建一个文件
+
+`vi`: 新建一个文件 并打开 i 输入，输入完成后按esc推出，:w保存，:q保存，:q!强制退出不保存
+
+`cat`: 查看文件内容
+
+`grep`: 查找内容  grep "babel" package.json。 在package.json中查找babel
 
 ### 这里只是简单的记录了一些linex命令，关于linux的命令以及其他相关知识还有很多。慢慢积累吧～
