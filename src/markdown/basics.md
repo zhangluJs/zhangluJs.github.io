@@ -1141,3 +1141,51 @@ document.addEventListener('DOMContentLoaded', () => {
     - 节流throttle 防抖debounce
 
 #### 防抖debounce
+
+    在input事件或者像scroll事件这种会在短时间内频繁触发的事件，如果在其中进行了网络请求等操作的话是非常浪费性能的。所以就需要在用户操作完成或者暂停后才执行，这样可以极大的节省资源。将多次操作合并
+
+    实现思路就是，每次触发的时候都抹掉上一次的操作`clearTimeout(timer)`，然后将本次的操作推入定时器，延迟执行。
+
+```js
+function debounce(fn, delay = 500) {
+    let timer = null;
+    return function () {
+        if (timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+            fn.apply(this, arguments);
+            timer = null;
+        }, delay);
+    }
+}
+
+input1.addEventListener('input', debounce((e) => {
+    console.log(e.target.value);
+}, 600))
+```
+
+#### 节流throttle
+
+    在监听某些频繁触发的事件时，不能频繁的触发，而是以某种频率来触发。不像防抖那样在结束后才触发。将操作频率降低
+
+    实现思路其实和防抖差不多。只是定时任务还没执行完的时候暂停执行，等上次的任务执行完成后才开始执行下次任务。
+
+```js
+function throttle(fn, delay = 100) {
+    let timer = null;
+    return function () {
+        if (timer) {
+            return false;
+        }
+        timer = setTimeout(() => {
+            fn.apply(this, arguments);
+            timer = null;
+        }, delay)
+    }
+}
+
+div1.addEventListener('darg', throttle(function(e) {
+    console.log(e.offsetX, e.offsetY);
+}, 100))
+```
