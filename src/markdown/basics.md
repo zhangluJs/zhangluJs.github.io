@@ -25,6 +25,28 @@ const n = null // 特殊的引用类型，指针指向为空地址
 function fn() {} // function 特殊引用类型，但不用于存储数据，所以没有拷贝、复制函数这一说
 ```
 
+* var let const的区别
+
+    var: 没有块级作用域，存在变量提升
+
+    let: 有块级作用域
+
+    const: 有块级作用域，常量声明后不可修改
+
+* typeof 可以查看哪些类型
+
+    基本类型: number、string、boolean、undefined、symbol
+
+    引用类型: object
+
+    其他: function
+
+* 类型转换
+
+    强制类型转换: parseInt、parseFloat、toString
+
+    隐式类型转换: if、 == 、 +字符串拼接、 逻辑运算符
+
 为什么引用类型赋值会拷贝引用地址？是因为考虑到性能或存储问题。值类型的占用空间比较少，而引用类型有可能是一个非常大的对象，而且如果直接复制的话会导致过程特别的慢。
 
 ![引用类型存储](./static/img/引用类型的存储.png)
@@ -155,6 +177,8 @@ print(fn);
 ```
 
 实际开发中闭包的作用： 常用于隐藏数据。下面是一个cache示例
+
+影响：变量会常驻内存，得不到释放。闭包不要乱用。
 
 ```js
 // 将变量保存在一个独立的区域内，不会被污染，通过特定的api访问
@@ -362,6 +386,51 @@ console.log('script end') // 4
 3. 尝试DOM渲染
 4. 触发event loop 执行宏任务队列
 5. 每执行完一个宏任务，都会从2开始再次循环，如此往复
+
+
+* 手写深度比较，模拟loadsh isEqual
+
+```js
+/**
+ * 1.判断是否为对象，如果不为对象则说明是普通的基本类型，直接比较。否则继续往下执行
+ * 2.判断传入的两个值是否为同一个值，如果是返回true，否则继续往下走
+ * 3.判断两个对象的keys是否一样，不一样则直接返回false，否则继续执行
+ * 4.以obj1为基准，和obj2依次递归比较
+ */
+let obj1 = {a: 100, c: '12', b: {x: 100, y: 200}};
+let obj2 = {a: 100, c: '12', b: {x: 100, y: 200}};
+
+function isObject(obj) {
+    return typeof obj === 'object' && obj !== null;
+}
+
+function isEqual(obj1, obj2) {
+    if (!isObject(obj1) || !isObject(obj2)) {
+        return obj1 === obj2;
+    }
+    if (obj1 === obj2) {
+        return true;
+    }
+    let obj1Keys = Object.keys(obj1);
+    let obj2Keys = Object.keys(obj2);
+    if (obj1keys.length !== obj2Keys.length) {
+        return false;
+    }
+    for (let key in obj1) {
+        let res = isEqual(obj1[key], obj2[key]);
+        if (!res) {
+            return false;
+        }
+    }
+    return true;
+}
+```
+
+* slice 和 splice的区别
+
+    slice（切片）不会改变原数组
+
+    splice（剪接）会改变原数组
 
 
 
@@ -1172,6 +1241,15 @@ input1.addEventListener('input', debounce((e) => {
     实现思路其实和防抖差不多。只是定时任务还没执行完的时候暂停执行，等上次的任务执行完成后才开始执行下次任务。
 
 ```js
+/**
+ * 1.开始执行timer为null
+ * 2.timer为null，不进入if继续往下执行
+ * 3.将定时器id赋值给timer
+ * 4.立刻又开始了频繁触发，此时因为闭包的关系开始执行return的函数，而此时因为定时器还未执行，timer有值为true
+ * 5.return false不往下执行，确保delay时长内只触发一次
+ * 6.定时时间到，触发定时任务。执行传入的回调函数，timer重置为null
+ * 7. 2 ～ 6重复
+ */
 function throttle(fn, delay = 100) {
     let timer = null;
     return function () {
@@ -1189,3 +1267,15 @@ div1.addEventListener('darg', throttle(function(e) {
     console.log(e.offsetX, e.offsetY);
 }, 100))
 ```
+
+#### 安全
+
+* 常见的web前端攻击方式有哪些？
+
+    XSS注入攻击：发表的评论、回复中带有恶意脚本代码，脚本代码内获取用户cookie，发送到别人的服务器中。用户访问带有这个回复的网页，就会执行恶意代码，信息就会被泄露。
+
+    XSS注入攻击预防：特殊字符转义。如"<" 转义为"&lt;"、">"转义为"&gt;"，转义后就成为`&lt;script&gt;&lt;/script&gt;`，直接当字符串显示，不会被执行。前端需要替换，后端也要替换。还有一个专门做预防的npm包([xss](https://www.npmjs.com/package/xss))。
+
+    CSRF跨站请求伪造：攻击者模拟用户，来进行恶意操作。诱导用户打开恶意网站，恶意网站中有窃取用户重要网站cookie的网络请求，从而达到模拟用户的目的。
+
+    CSRF预防：使用post接口，增加验证，例如密码、短信验证码、指纹等
