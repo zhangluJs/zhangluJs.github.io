@@ -284,9 +284,41 @@ JS是单线程的
  
  event loop2 
 
- 1. 如果call stack为空（即同步任务执行完），开始执行callback queue中的任务
+ 1. 如果call stack为空（即同步任务执行完），则开始event loop机制。开始执行callback queue中的任务
  2. 轮询查找 callback queue，如有则移动到 call stack 执行
  3. 然后继续轮询查找，重复2
+
+ **宏任务macroTask和微任务micorTask**
+
+异步回调队列里的任务分为微任务与宏任务
+
+```
+> 执行顺序是：
+    >> 1、同步代码按顺序执行一行一行执行，遇到异步任务推入异步队列，异步队列又分为微任务与宏任务。遇到像promise、async/awai推入微任务队列，像定时器这种推入宏任务队列。
+    >> 2、在主线程代码执行完成后，开始将微任务队列中的任务推入调用栈，一个一个执行，微任务队列为空后，开始尝试渲染DOM（如果DOM结构发生了改变）。
+    >> 3、微任务执行完之后开始执行宏任务队列中的任务，一个一个执行，将宏任务推入调用栈，执行中如果遇到微任务则执行微任务，微任务执行完成后尝试渲染DOM。完成后再执行下一个宏任务。如此循环
+```
+1. 宏任务：setTimeout、setInterval、Ajax、DOM事件
+2. 微任务：Promise、async/await、process.nextTick、setImmediate
+
+**为什么微任务执行时机比宏任务要早？**
+
+- 宏任务：DOM渲染后触发，如setTimeout
+
+- 微任务：DOM渲染前触发，如Promise
+
+**为什么微任务在前宏任务在后？**
+
+- 微任务：ES中的规范，不依赖于浏览器等载体，js引擎统一处理
+
+- 宏任务：ES语法没有，JS引擎不处理，需要靠浏览器来干预。
+
+综上所述，代码执行顺序如下：
+1. 执行call stack
+2. 执行微任务队列
+3. 尝试DOM渲染
+4. 触发event loop 执行宏任务队列
+5. 每执行完一个宏任务，都会从2开始再次循环，如此往复
 
 **promise**
 
@@ -354,38 +386,6 @@ console.log('script end') // 4
 1. for...in (以及forEach for)是常规的同步遍历
 
 2. for...of 常用于异步的遍历
-
-**宏任务macroTask和微任务micorTask**
-
-异步回调队列里的任务分为微任务与宏任务
-
-```
-> 执行顺序是：
-    >> 1、同步代码按顺序执行一行一行执行，遇到异步任务推入异步队列，异步队列又分为微任务与宏任务。遇到像promise、async/awai推入微任务队列，像定时器这种推入宏任务队列。
-    >> 2、在主线程代码执行完成后，开始将微任务队列中的任务推入调用栈，一个一个执行，微任务队列为空后，开始尝试渲染DOM（如果DOM结构发生了改变）。
-    >> 3、微任务执行完之后开始执行宏任务队列中的任务，一个一个执行，将宏任务推入调用栈，执行中如果遇到微任务则执行微任务，微任务执行完成后尝试渲染DOM。完成后再执行下一个宏任务。如此循环
-```
-1. 宏任务：setTimeout、setInterval、Ajax、DOM事件
-2. 微任务：Promise、async/await、process.nextTick、setImmediate
-
-**为什么微任务执行时机比宏任务要早？**
-
-- 宏任务：DOM渲染后触发，如setTimeout
-
-- 微任务：DOM渲染前触发，如Promise
-
-**为什么微任务在前宏任务在后？**
-
-- 微任务：ES中的规范，不依赖于浏览器等载体，js引擎统一处理
-
-- 宏任务：ES语法没有，JS引擎不处理，需要靠浏览器来干预。
-
-综上所述，代码执行顺序如下：
-1. 执行call stack
-2. 执行微任务队列
-3. 尝试DOM渲染
-4. 触发event loop 执行宏任务队列
-5. 每执行完一个宏任务，都会从2开始再次循环，如此往复
 
 
 * 手写深度比较，模拟loadsh isEqual
@@ -1279,3 +1279,104 @@ div1.addEventListener('darg', throttle(function(e) {
     CSRF跨站请求伪造：攻击者模拟用户，来进行恶意操作。诱导用户打开恶意网站，恶意网站中有窃取用户重要网站cookie的网络请求，从而达到模拟用户的目的。
 
     CSRF预防：使用post接口，增加验证，例如密码、短信验证码、指纹等
+
+* new Object() 与 Object.create()的区别
+
+    {} 等同于new Object()，原型是Object.prototype。一般用字面量来声明的情况比较多
+
+    Object.create(null) 创建一个空对象。传入null没有原型。如果传入其他对象，则隐式原型指向被传入的对象
+
+    new Object() 与 Object.create()都是创建对象，但是new Object这种形式创建的对象它的原型指向object。而Object.create()如果传入的null，则它不会指向object，没有原型，只是一个空的对象
+
+* 捕获js中的异常
+
+```js
+    try {
+        // todo
+    } catch(ex) {
+        // 手动捕获 catch
+        console.error(ex);
+    } finally {
+        // todo
+    }
+
+    // 自动捕获
+    window.onerror = function () {}
+```
+
+* 获取url参数
+
+```js
+function query(name) {
+    // https://www.baidu.com/s?ie=UTF-8&wd=asdasdasd
+    // ?ie=UTF-8&wd=asdasdasd
+    // ie=UTF-8&wd=asdasdasd
+    let str = window.location.search.substr(1);
+    // 1.匹配开始或者&符号(^|&)
+    // 2.${name}=匹配传入的名称跟随着一个等号
+    // 3.等号后面匹配除了&符号的任意字符，1到多次，因为要捕捉所要用括号包起来
+    // 4.匹配结尾或者&符号
+    // i 忽略大小写 g全局匹配 m多行匹配
+    let reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, 'i');
+    let res = str.match(reg);
+    let (!res) {
+        return null;
+    }
+    return res[2];
+}
+```
+
+* flatern 数组拍平
+
+```js
+// concat 这个方法最多只可以拍平两层数组
+// 如果是三层或者四层就没法在拍了，所以就要判断每个元素的数据类型，递归
+function flat(arr) {
+    // 先判断该数组是否是多维的，如果不是多维直接返回
+    let isDeep = arr.some(item => item instanceof Array);
+    if (!isDeep) {
+        return arr;
+    }
+    // 利用数组的concat方法递归拍平
+    let res = Array.prototype.concat.apply([], arr);
+    return flat(res);
+}
+```
+
+* unique 数组去重
+
+```js
+function unique(arr) {
+    let res = [];
+    arr.forEach(item => {
+        if (res.indexOf(item) === -1) {
+            res.push(item);
+        }
+    })
+    return unique
+}
+function unique1(arr) {
+    // return [...new Set(arr)];
+    return Array.from(new Set(arr));
+}
+```
+
+* Object.assign
+
+    Object.assign不是深拷贝，严格意义上来看，它是一层浅拷贝
+
+```js
+let obj = {x: 1, b: {x: 2}, c: 3};
+let obj1 = Object.assign({}, obj);
+obj.b.x = 100;
+console.log(obj.b.x); // 100 
+console.log(obj1.b.x); // 100 
+```
+
+*  requestAnimationFrame
+
+    要想动画流畅，更新频率要60帧/s，即16.17ms更新一次视图。一秒钟动画能动60次，和屏幕刷新的频率一样。
+
+    setTimeout要手动控制频率，而RAF浏览器会自动控制
+
+    后台标签或页面隐藏，RAF会暂停，而setTimeout依然执行
