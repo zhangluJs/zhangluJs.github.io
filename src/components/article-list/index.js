@@ -41,9 +41,9 @@ export default class ArticleList extends React.Component {
                 description: '浏览阮一峰大神周刊时发现的一个模仿黑客帝国数字雨的效果，很炫酷，做个搬运工～',
                 date: '炫酷'
             }, {
-                name: 'Promise.all与race实现',
-                path: '/promise-all-race',
-                description: '简单的方法实现Promise.all & Promise.race',
+                name: '手写一个简单的Promise',
+                path: '/promise',
+                description: '最近仔细看了关于js执行相关的东西，像异步队列、微任务宏任务、event-loop后感觉对js的理解又稍微深了一些，所以学习一下实现一个promise',
                 date: '学习'
             }, {
                 name: '一些可以用来提升的网站',

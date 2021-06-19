@@ -29,7 +29,7 @@ import mall from '../../markdown/mall.md';
 import linux from '../../markdown/linux.md';
 import git from '../../markdown/git.md';
 import someUrl from '../../markdown/some-url.md';
-import promiseAllRace from '../../markdown/promise_all_race.md';
+import promise from '../../markdown/promise.md';
 import scriptAttr from '../../markdown/script-attr.md';
 import matrixDigitalRain from '../../markdown/matrix-digital-rain/index.js';
 import htmlPlaceholder from '../../markdown/html-placeholder.md';
@@ -76,7 +76,7 @@ export default class App extends React.Component {
                             <Route path='/linux' component={linux}></Route>
                             <Route path='/git' component={git}></Route>
                             <Route path='/some-url' component={someUrl}></Route>
-                            <Route path='/promise-all-race' component={promiseAllRace}></Route>
+                            <Route path='/promise' component={promise}></Route>
                             <Route path='/script-attr' component={scriptAttr}></Route>
                             <Route path='/matrix-digital-rain' component={matrixDigitalRain}></Route>
                             <Route path='/html-placeholder' component={htmlPlaceholder}></Route>
