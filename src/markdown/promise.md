@@ -6,9 +6,11 @@
 
 3. then 方法接收两个函数作为参数，并且可以拿到result。调用then方法时，判断state来执行不同的回调，但是发现在执行then的时候，state还是pending的状态。这个回调函数不应该由then来触发，而是应该在resolve，rejected时触发。
 
-4. 先将then方法的回调函数保存起来，然后在resolve，rejected时触发。但是这时候有新的问题出现，在执行保存回调函数的时候会报错，因为此时它还是undefined。我们可以写一个定时器，将它放在最后执行，这个问题解决。但是另一个问题是，promise的resolve是微任务，而我们使用定时器是宏任务。
+4. 先将then方法的回调函数保存起来，然后在resolve，rejected时触发。但是这时候有新的问题出现，在执行保存的回调函数的时候会报错，因为此时它还是undefined。我们可以写一个定时器，将它放在最后执行，这个问题解决。但是另一个问题是，promise的异步是微任务，而我们使用定时器是宏任务。还是会有问题，所以我们需要换个微任务来做同样的事情
 
-5. 稍后继续...
+5. 这里可以把setTimeout换成MutationObserver，让它监听body属性的时候我们修改body的属性，以达到同样的效果。
+
+6. 其实到这里最基本的功能已经实现了，接下来实现一些稍微复杂的功能。
 
 ```js
 class MyPromise {
@@ -41,17 +43,39 @@ class MyPromise {
     resolved() {
         this['[[PromiseState]]'] = 'fulfilled';
         this['[[PromiseResult]]'] = res;
-        setTimeout(() => {
+        // 这里换成使用MutationObserver，因为setTimeout是宏任务。而promise.then是微任务
+        // setTimeout(() => {
+        //     this.resolveFn(res);
+        // })
+
+        let run = () => {
             this.resolveFn(res);
-        })
-        
+        };
+
+        let ob = new MutationObserver(run);
+        ob.observe(document.body, {
+            attributes: true
+        });
+        document.body.setAttribute('my-promise': 'true');
+
     }
     rejected() {
         this['[[PromiseState]]'] = 'rejected';
         this['[[PromiseResult]]'] = err;
-        setTimeout(() => {
-            this.rejectFn(err);
-        })
+        // 这里换成使用MutationObserver，因为setTimeout是宏任务。而promise.then是微任务
+        // setTimeout(() => {
+        //     this.rejectFn(err);
+        // })
+
+        let run = () => {
+            this.rejectFn(res);
+        };
+
+        let ob = new MutationObserver(run);
+        ob.observe(document.body, {
+            attributes: true
+        });
+        document.body.setAttribute('my-promise': 'true');
     }
     then(onResolved, onRejected) {
         // 最开始的思路是，调用then方法时判断状态，执行不同的回调函数，但是发现在执行then的时候，state还是pending的状态
