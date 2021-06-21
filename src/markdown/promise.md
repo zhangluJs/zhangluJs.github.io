@@ -12,6 +12,12 @@
 
 6. 其实到这里最基本的功能已经实现了，接下来实现一些稍微复杂的功能。
 
+7. 多个then，目前这个写法如果调用多个then的话，只会执行最后一个，因为在给this.resolveFn赋值的时候，永远只拿到了最后一个。那么就需要用一个数组来保留所有的then，然后挨个执行。
+
+8. 关于链式调用，在promise中then返回一个fulfilled状态的promise对象。所以这里实现就直接return一个新的实例对象。拿到上一个resolve的结果，将这个结果赋给新promise的resolve。
+
+9. 新的问题，如果then中手动return了一个new Mypromise，这时他的result又嵌套了一层promise。而真实的情况应该是result为手动return的new Promise的resolve的值，所以我们这里需要判断一下，它是否是一个promise，如果是则执行then。
+
 ```js
 class MyPromise {
     constructor (handle) {
@@ -24,9 +30,12 @@ class MyPromise {
 
         /**
          * 用来保存then的两个回调函数
+         * 这里改成了数组
          */
-        this.resolveFn = undefined;
-        this.rejectFn = undefined;
+        // this.resolveFn = undefined;
+        // this.rejectFn = undefined;
+        this.resolveQueue= [];
+        this.rejectQueue = [];
 
         // 传入的函数接收两个回调函数作为参数
         // 为了代码简洁，将两个回调函数抽离出来
@@ -48,8 +57,14 @@ class MyPromise {
         //     this.resolveFn(res);
         // })
 
+        // let run = () => {·
+        //     this.resolveFn(res);
+        // };
         let run = () => {
-            this.resolveFn(res);
+            let cb;
+            while(cb = this.resolveQueue.shift()) {
+                cb && cb(res)
+            }
         };
 
         let ob = new MutationObserver(run);
@@ -67,8 +82,14 @@ class MyPromise {
         //     this.rejectFn(err);
         // })
 
+        // let run = () => {
+        //     this.rejectFn(res);
+        // };
         let run = () => {
-            this.rejectFn(res);
+            let cb;
+            while(cb = this.rejectQueue.shift()) {
+                cb && cb(res)
+            }
         };
 
         let ob = new MutationObserver(run);
@@ -84,8 +105,33 @@ class MyPromise {
         //     onResolved(this['[[PromiseResult]]']);
         // }
 
-        this.resolveFn = onResolved;
-        this.rejectFn = onRejected;
+        // this.resolveFn = onResolved;
+        // this.rejectFn = onRejected;
+        // this.resolveQueue.push(onResolved);
+        // this.rejectQueue.push(onRejected);
+
+        // 链式调用实现
+        return new MyPromise((resolve, reject) => {
+            // 这里的val是上面执行resolveQueue传入的res
+            let rejectFn = (val) => {
+                // 这个res是执行then后返回的
+                // 判断res是否为一个MyPromise，如果是则调用
+                let res = onResolved && onResolved(val);
+                if (res instanceof MyPromise) {
+                    res.then(result => {
+                        resolve(result);
+                    })
+                } else {
+                    resolve(res);
+                }   
+            }
+            this.resolveQueue.push(rejectFn);
+            let rejectFn = (err) => {
+                onRejected && onRejected(err);
+                reject(err);
+            }
+            this.rejectQueue.push(rejectFn);
+        })
     }
 }
 ```
