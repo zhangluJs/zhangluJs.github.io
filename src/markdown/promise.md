@@ -18,7 +18,9 @@
 
 9. 新的问题，如果then中手动return了一个new Mypromise，这时他的result又嵌套了一层promise。而真实的情况应该是result为手动return的new Promise的resolve的值，所以我们这里需要判断一下，它是否是一个promise，如果是则执行then。
 
-```js
+10. 更新静态方法，resolve、reject、all、allSettled、race
+
+```JS
 class MyPromise {
     constructor (handle) {
         /**
@@ -47,9 +49,9 @@ class MyPromise {
         //     this['[[PromiseState]]'] = 'rejected';
         //     this['[[PromiseResult]]'] = err;
         // })
-        handle(this.resolved.bind(this), this.rejected.bind(this));
+        handle(this.#resolved.bind(this), this.#rejected.bind(this));
     }
-    resolved() {
+    #resolved() {
         this['[[PromiseState]]'] = 'fulfilled';
         this['[[PromiseResult]]'] = res;
         // 这里换成使用MutationObserver，因为setTimeout是宏任务。而promise.then是微任务
@@ -74,7 +76,7 @@ class MyPromise {
         document.body.setAttribute('my-promise': 'true');
 
     }
-    rejected() {
+    #rejected() {
         this['[[PromiseState]]'] = 'rejected';
         this['[[PromiseResult]]'] = err;
         // 这里换成使用MutationObserver，因为setTimeout是宏任务。而promise.then是微任务
@@ -131,6 +133,84 @@ class MyPromise {
                 reject(err);
             }
             this.rejectQueue.push(rejectFn);
+        })
+    }
+    catch(cb) {
+        this.then(undefined, cb);
+    }
+    static resolve(val) {
+        return new MyPromise((resolve, reject) => {
+            resolve(val);
+        })
+    }
+    static reject(err) {
+        return new MyPromise((resolve, reject) => {
+            reject(err);
+        })
+    }
+    /**
+     * 有一项成功或失败直接返回
+     */
+    static race(list) {
+        return new MyPromise((resolve, reject) => {
+            list.forEach(item => {
+                item.then(res => {
+                    resolve(res);
+                }, err => {
+                    reject(err);
+                })
+            })
+        })
+    }
+    /**
+     * 无论失败与否都将结果存起来
+     */
+    static allSettled(list) {
+        let len = list.length;
+        let count = 0;
+        let resArr = new Array(len);
+        return new MyPromise((resolve, reject) => {
+            list.forEach((item, index) => {
+                let obj = {};
+                item.then(res => {
+                    obj['state'] = 'fulfilled';
+                    obj['value'] = res;
+                    resArr[index] = obj;
+                    count++;
+                    if (count === len) {
+                        resolve(resArr);
+                    }
+                }, err => {
+                    obj['state'] = 'rejected';
+                    obj['reason'] = err;
+                    resArr[index] = obj;
+                    count++;
+                    if (count === len) {
+                        resolve(resArr);
+                    }
+                })
+            })
+        })
+    }
+    /**
+     * 所有项目resolve，返回resolve，如果一项失败则reject
+     */
+    static all(list) {
+        let count = 0;
+        let len = list.length;
+        let resArr = [];
+        return new MyPromise((resolve, reject) => {
+            list.forEach((item, index) => {
+                item.then(res => {
+                    resArr[index] = res
+                    count++;
+                    if (count === len) {
+                        resolve(resArr);
+                    }
+                }, err => {
+                    reject(err);
+                })
+            })
         })
     }
 }
