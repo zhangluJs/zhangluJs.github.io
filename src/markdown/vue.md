@@ -192,6 +192,7 @@ updated() {
     对model这个options进行配置，prop需要v-model的值，这里是text1。以及触发的自定义事件event，这里是change1。表单元素上进行相应的事件触发，以及需要使用:value而不是v-model
 
 ```js
+
 // 父
 <p>v-model高级特性{{name}}</p>
 <custom-model v-model="name" />
