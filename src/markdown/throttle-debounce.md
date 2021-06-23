@@ -1,47 +1,45 @@
 # 函数节流 & 函数防抖
 
-**函数节流：函数在某段时间内只触发一次，比如resize，mousemove事件等。如果不做处理短时间内触发多次，而函数内部的功能没有执行完毕（比如操作DOM）这样是十分耗费性能的，甚至造成浏览器卡死、崩溃。**
+**函数节流throttle：减少高频触发事件的频率**
 
-除此之外，重复的 ajax 调用不仅可能会造成请求数据的混乱，还会造成网络拥塞，占用服务器带宽，增加服务器压力，显然这个问题也是需要解决的。
+**函数节流debounce：多次触发的事件只执行最后一次**
+
+节流与防抖主要是为了提高用户体验与页面性能。
 
 ```js
-// 定时器版
-function throttle(fn, wait) {
+// 节流 throttle
+function throttle(fn, delay) {
     let timer = null;
     return function () {
-        let context = this;
-        let args = arguments;
-        if (!timer) {
-            timer = setTimeout(() => {
-                fn.apply(content, args);
-                timer = null;
-            }, wait);
+        if (timer) {
+            return false;
         }
+        timer = setTimeout(() => {
+            fn.apply(this, arguments);
+            timer = null;
+        }, delay);
     }
 }
 
-function handle() {
-    console.log(Math.random());
+function handle(e) {
+    console.log(e.offsetY);
 }
 
-window.addEventListener('mousemove', throttle(handle, 500));
+window.addEventListener('mousemove', throttle(handle, 100));
 ```
-
 
 ```js
-// 时间戳版
-function throttle(fn, wait) {
-    let previous = 0;
-    return function () {
-        let now = Date.now();
-        let context = this;
-        let args = arguments;
-        if (now - previous > wait) {
-            fn.apply(content, args);
-            previous = now;
+// 防抖 debounce
+function debounce(fn, delay) {
+    let timer = null;
+    return function() {
+        if(timer) {
+            clearTimeout(timer);
         }
+        timer = setTimeout(() => {
+            fn.apply(this, arguments);
+            timer = null;
+        }, delay);
     }
 }
 ```
-
-未完待续...

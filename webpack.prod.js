@@ -78,9 +78,6 @@
              chunkFilename: 'css/[id].[hash].css'
          }),
  
-         // webpack热更新，不需要手动刷新页面
-         new webpack.HotModuleReplacementPlugin(),
- 
          // 清除dist文件
          new CleanWebpackPlugin(['dist']),
  

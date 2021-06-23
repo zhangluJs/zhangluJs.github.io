@@ -25,6 +25,28 @@ const n = null // 特殊的引用类型，指针指向为空地址
 function fn() {} // function 特殊引用类型，但不用于存储数据，所以没有拷贝、复制函数这一说
 ```
 
+* var let const的区别
+
+    var: 没有块级作用域，存在变量提升
+
+    let: 有块级作用域
+
+    const: 有块级作用域，常量声明后不可修改
+
+* typeof 可以查看哪些类型
+
+    基本类型: number、string、boolean、undefined、symbol
+
+    引用类型: object
+
+    其他: function
+
+* 类型转换
+
+    强制类型转换: parseInt、parseFloat、toString
+
+    隐式类型转换: if、 == 、 +字符串拼接、 逻辑运算符
+
 为什么引用类型赋值会拷贝引用地址？是因为考虑到性能或存储问题。值类型的占用空间比较少，而引用类型有可能是一个非常大的对象，而且如果直接复制的话会导致过程特别的慢。
 
 ![引用类型存储](./static/img/引用类型的存储.png)
@@ -156,6 +178,8 @@ print(fn);
 
 实际开发中闭包的作用： 常用于隐藏数据。下面是一个cache示例
 
+影响：变量会常驻内存，得不到释放。闭包不要乱用。
+
 ```js
 // 将变量保存在一个独立的区域内，不会被污染，通过特定的api访问
 function createCache() {
@@ -260,9 +284,47 @@ JS是单线程的
  
  event loop2 
 
- 1. 如果call stack为空（即同步任务执行完），开始执行callback queue中的任务
+ 1. 如果call stack为空（即同步任务执行完），则开始event loop机制。开始执行callback queue中的任务
  2. 轮询查找 callback queue，如有则移动到 call stack 执行
  3. 然后继续轮询查找，重复2
+
+ **宏任务macroTask和微任务micorTask**
+
+异步回调队列里的任务分为微任务与宏任务
+
+```
+> 执行顺序是：
+    >> 1、同步代码按顺序执行一行一行执行，遇到异步任务推入异步队列，异步队列又分为微任务与宏任务。遇到像promise、async/awai推入微任务队列，像定时器这种推入宏任务队列。
+    >> 2、在主线程代码执行完成后，开始将微任务队列中的任务推入调用栈，一个一个执行，微任务队列为空后，开始尝试渲染DOM（如果DOM结构发生了改变）。
+    >> 3、微任务执行完之后开始执行宏任务队列中的任务，一个一个执行，将宏任务推入调用栈，执行中如果遇到微任务则执行微任务，微任务执行完成后尝试渲染DOM。完成后再执行下一个宏任务。如此循环
+```
+1. 宏任务：setTimeout、setInterval、Ajax、DOM事件
+2. 微任务：Promise、async/await、process.nextTick、setImmediate
+
+**为什么微任务执行时机比宏任务要早？**
+
+2021/06/19 更新。微任务的精度要高一些，实时性也需要高一些，因此微任务看上去需要先执行。比如MutatioObserver为什么是个微任务？因为它需要第一时间获取dom最新的信息。
+
+- 宏任务：DOM渲染后触发，如setTimeout
+
+- 微任务：DOM渲染前触发，如Promise
+
+**为什么微任务在前宏任务在后？**
+
+2021/06/19 更新。这两天看了新的资料，资料里说宏任务其实是要先于微任务执行的，其实script标签就相当于一个大的宏任务，微任务总是排在当前宏任务的队尾。当前宏任务中的同步代码执行完成后，执行当前宏任务中的微任务。执行完成后执行下一个宏任务，依次执行。看下面的这个示意。
+
+【这是大的宏任务1  [...这里是微任务]】 --event loop-- 【这是大的宏任务2   [...这里是微任务]】--event loop-- 【这是大的宏任务3  [...这里是微任务]】
+
+- 微任务：ES中的规范，不依赖于浏览器等载体，js引擎统一处理
+
+- 宏任务：ES语法没有，JS引擎不处理，需要靠浏览器来干预。
+
+综上所述，代码执行顺序如下：
+1. 执行call stack
+2. 执行微任务队列
+3. 尝试DOM渲染
+4. 触发event loop 执行宏任务队列
+5. 每执行完一个宏任务，都会从2开始再次循环，如此往复
 
 **promise**
 
@@ -331,37 +393,50 @@ console.log('script end') // 4
 
 2. for...of 常用于异步的遍历
 
-**宏任务macroTask和微任务micorTask**
 
-异步回调队列里的任务分为微任务与宏任务
+* 手写深度比较，模拟loadsh isEqual
 
+```js
+/**
+ * 1.判断是否为对象，如果不为对象则说明是普通的基本类型，直接比较。否则继续往下执行
+ * 2.判断传入的两个值是否为同一个值，如果是返回true，否则继续往下走
+ * 3.判断两个对象的keys是否一样，不一样则直接返回false，否则继续执行
+ * 4.以obj1为基准，和obj2依次递归比较
+ */
+let obj1 = {a: 100, c: '12', b: {x: 100, y: 200}};
+let obj2 = {a: 100, c: '12', b: {x: 100, y: 200}};
+
+function isObject(obj) {
+    return typeof obj === 'object' && obj !== null;
+}
+
+function isEqual(obj1, obj2) {
+    if (!isObject(obj1) || !isObject(obj2)) {
+        return obj1 === obj2;
+    }
+    if (obj1 === obj2) {
+        return true;
+    }
+    let obj1Keys = Object.keys(obj1);
+    let obj2Keys = Object.keys(obj2);
+    if (obj1keys.length !== obj2Keys.length) {
+        return false;
+    }
+    for (let key in obj1) {
+        let res = isEqual(obj1[key], obj2[key]);
+        if (!res) {
+            return false;
+        }
+    }
+    return true;
+}
 ```
-> 执行顺序是：
-    >> 1、同步代码按顺序执行一行一行执行，遇到异步任务推入异步队列，异步队列又分为微任务与宏任务。遇到像promise、async/awai推入微任务队列，像定时器这种推入宏任务队列。
-    >> 2、在主线程代码执行完成后，开始将微任务队列中的任务推入调用栈，一个一个执行，微任务队列为空后，开始尝试渲染DOM（如果DOM结构发生了改变）。
-    >> 3、微任务执行完之后开始执行宏任务队列中的任务，一个一个执行，将宏任务推入调用栈，执行中如果遇到微任务则执行微任务，微任务执行完成后尝试渲染DOM。完成后再执行下一个宏任务。如此循环
-```
-1. 宏任务：setTimeout、setInterval、Ajax、DOM事件
-2. 微任务：Promise、async/await、process.nextTick、setImmediate
 
-**为什么微任务执行时机比宏任务要早？**
+* slice 和 splice的区别
 
-- 宏任务：DOM渲染后触发，如setTimeout
+    slice（切片）不会改变原数组
 
-- 微任务：DOM渲染前触发，如Promise
-
-**为什么微任务在前宏任务在后？**
-
-- 微任务：ES中的规范，不依赖于浏览器等载体，js引擎统一处理
-
-- 宏任务：ES语法没有，JS引擎不处理，需要靠浏览器来干预。
-
-综上所述，代码执行顺序如下：
-1. 执行call stack
-2. 执行微任务队列
-3. 尝试DOM渲染
-4. 触发event loop 执行宏任务队列
-5. 每执行完一个宏任务，都会从2开始再次循环，如此往复
+    splice（剪接）会改变原数组
 
 
 
@@ -1014,4 +1089,300 @@ module.exports = {
 
     修改package.json build命令`"build": "webpack --config webpack.prod.js"`
 
+```js
+/**
+ * 生产环境与开发环境配置的不同
+ * mode为 production
+ * 不需要 devServer
+ * 不需要 devtool
+ * 不需要 HotModuleReplacementPlugin
+ * webpack.prod.js
+ * 我在把这个项目build改了之后特意看了一下dist文件的大小
+ * 之前的是12.6MB，修改后的为6.3MB。体积小了近一半
+ */
+const path = require('path');
+const HtmlWbpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+    // 指定模式 prodution生产 ｜ development开发
+    mode: 'production',
+
+    // 入口文件
+    entry: path.join(__dirname, 'src', 'index.js'),
+
+    // 出口文件
+    output: {
+        filename: 'bundle.[contenthash].js',
+        path: path.join(__dirname, 'dist')
+    },
+
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                loader: ['babel-loader'],
+                include: path.join(__dirname, 'src'),
+                exclude: /node_modules/
+            }
+        ]
+    },
+
+    // 插件
+    plugins: [
+        // 解析html
+        new HtmlWbpackPlugin({
+            // 目标文件
+            template: path.join(__dirname, 'src', 'index.html'),
+            // 产出的html
+            filename: 'index.html'
+        })
+    ]
+};
+```
+
+
+#### 网页加载过程
+
+* 从输入url到渲染出页面的整个过程
+
+    资源形式：html代码、媒体文件（如图片、视频等）、javascript css
     
+    加载过程：
+    
+    1. DNS域名解析：域名 -> IP地址
+
+    2. 浏览器根据ip地址向服务器发起http请求。
+
+    3. 服务器处理http请求，并返回给浏览器
+
+    渲染过程1：
+
+    1. 根据html代码生成DOM Tree
+
+    2. 根据css代码生成CSSOM
+
+    3. 将DOM Tree 和 CSSOM整合形成Render Tree
+
+    渲染过程2：
+
+    1. 根据Render Tree渲染页面
+
+    2. 遇到`<script>`则暂停渲染，优先加载并执行js代码，完成在继续
+
+```js
+window.addEventListener('load', () => {
+    // 页面的全部资源加载完成才会执行，包括图片、视频等
+})
+document.addEventListener('DOMContentLoaded', () => {
+    // dom文档渲染完成执行，此时图片、视频等可能还没加载完
+})
+```
+
+* CSS为什么放在head里？
+
+    假设CSS放在了body的最下面。根据HTML文档构建DOM Tree，执行Render Tree。执行到下面的时候发现了CSS，解析CSSOM Tree。又重新将DOM Tree与CSSOM Tree合并生成新的 Render Tree，再次重新渲染。这又会引发页面的一次重排与重绘。
+
+    假设CSS放在了head里。根据HTML文档开始构建，发现了css生成了CSSOM Tree，根据html生成了DOM Tree。两者合并成为Render Tree，开始渲染页面。
+    
+    `需要注意的是，css的加载会阻塞html的渲染。`
+
+* JS代码为什么要放在body最下面？
+
+    假设JS代码放在了最上面。js代码的执行会阻塞dom的渲染，此时页面看上去可能是一片空白。而如果放在body最下面，可以先保证页面中重要的部分先展示出来，之后js代码涉及到的重绘、重排不会对页面造成太大的影响。
+
+    为什么会停止dom的渲染？如果不停止的话，dom继续渲染，渲染完成后js又对dom进行了修改，就浪费了一次不必要的渲染。
+
+
+#### 前端性能优化
+
+    原则：多使用内存、缓存或其他方法，减少cpu计算，减少网络加载耗时。
+    
+    - 让加载更快。减少资源体积（压缩代码，webpack，压缩图片）
+    
+    - 减少访问次数（合并代码，SSR服务端渲染，缓存）
+    
+    - 使用更快的网络CDN
+
+    - 让渲染更快。css放在head、js放在body最下面
+
+    - 尽早开始执行js，用DOMContentLoaded触发
+
+    - 懒加载（图片懒加载，上滑加载更多）
+
+    - 对DOM查询进行缓存
+
+    - 频繁DOM操作，合并到一起插入DOM结构
+
+    - 节流throttle 防抖debounce
+
+#### 防抖debounce
+
+    在input事件或者像scroll事件这种会在短时间内频繁触发的事件，如果在其中进行了网络请求等操作的话是非常浪费性能的。所以就需要在用户操作完成或者暂停后才执行，这样可以极大的节省资源。将多次操作合并
+
+    实现思路就是，每次触发的时候都抹掉上一次的操作`clearTimeout(timer)`，然后将本次的操作推入定时器，延迟执行。
+
+```js
+function debounce(fn, delay = 500) {
+    let timer = null;
+    return function () {
+        if (timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+            fn.apply(this, arguments);
+            timer = null;
+        }, delay);
+    }
+}
+
+input1.addEventListener('input', debounce((e) => {
+    console.log(e.target.value);
+}, 600))
+```
+
+#### 节流throttle
+
+    在监听某些频繁触发的事件时，不能频繁的触发，而是以某种频率来触发。不像防抖那样在结束后才触发。将操作频率降低
+
+    实现思路其实和防抖差不多。只是定时任务还没执行完的时候暂停执行，等上次的任务执行完成后才开始执行下次任务。
+
+```js
+/**
+ * 1.开始执行timer为null
+ * 2.timer为null，不进入if继续往下执行
+ * 3.将定时器id赋值给timer
+ * 4.立刻又开始了频繁触发，此时因为闭包的关系开始执行return的函数，而此时因为定时器还未执行，timer有值为true
+ * 5.return false不往下执行，确保delay时长内只触发一次
+ * 6.定时时间到，触发定时任务。执行传入的回调函数，timer重置为null
+ * 7. 2 ～ 6重复
+ */
+function throttle(fn, delay = 100) {
+    let timer = null;
+    return function () {
+        if (timer) {
+            return false;
+        }
+        timer = setTimeout(() => {
+            fn.apply(this, arguments);
+            timer = null;
+        }, delay)
+    }
+}
+
+div1.addEventListener('darg', throttle(function(e) {
+    console.log(e.offsetX, e.offsetY);
+}, 100))
+```
+
+#### 安全
+
+* 常见的web前端攻击方式有哪些？
+
+    XSS注入攻击：发表的评论、回复中带有恶意脚本代码，脚本代码内获取用户cookie，发送到别人的服务器中。用户访问带有这个回复的网页，就会执行恶意代码，信息就会被泄露。
+
+    XSS注入攻击预防：特殊字符转义。如"<" 转义为"&lt;"、">"转义为"&gt;"，转义后就成为`&lt;script&gt;&lt;/script&gt;`，直接当字符串显示，不会被执行。前端需要替换，后端也要替换。还有一个专门做预防的npm包([xss](https://www.npmjs.com/package/xss))。
+
+    CSRF跨站请求伪造：攻击者模拟用户，来进行恶意操作。诱导用户打开恶意网站，恶意网站中有窃取用户重要网站cookie的网络请求，从而达到模拟用户的目的。
+
+    CSRF预防：使用post接口，增加验证，例如密码、短信验证码、指纹等
+
+* new Object() 与 Object.create()的区别
+
+    {} 等同于new Object()，原型是Object.prototype。一般用字面量来声明的情况比较多
+
+    Object.create(null) 创建一个空对象。传入null没有原型。如果传入其他对象，则隐式原型指向被传入的对象
+
+    new Object() 与 Object.create()都是创建对象，但是new Object这种形式创建的对象它的原型指向object。而Object.create()如果传入的null，则它不会指向object，没有原型，只是一个空的对象
+
+* 捕获js中的异常
+
+```js
+    try {
+        // todo
+    } catch(ex) {
+        // 手动捕获 catch
+        console.error(ex);
+    } finally {
+        // todo
+    }
+
+    // 自动捕获
+    window.onerror = function () {}
+```
+
+* 获取url参数
+
+```js
+function query(name) {
+    // https://www.baidu.com/s?ie=UTF-8&wd=asdasdasd
+    // ?ie=UTF-8&wd=asdasdasd
+    // ie=UTF-8&wd=asdasdasd
+    let str = window.location.search.substr(1);
+    // 1.匹配开始或者&符号(^|&)
+    // 2.${name}=匹配传入的名称跟随着一个等号
+    // 3.等号后面匹配除了&符号的任意字符，1到多次，因为要捕捉所要用括号包起来
+    // 4.匹配结尾或者&符号
+    // i 忽略大小写 g全局匹配 m多行匹配
+    let reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, 'i');
+    let res = str.match(reg);
+    let (!res) {
+        return null;
+    }
+    return res[2];
+}
+```
+
+* flatern 数组拍平
+
+```js
+// concat 这个方法最多只可以拍平两层数组
+// 如果是三层或者四层就没法在拍了，所以就要判断每个元素的数据类型，递归
+function flat(arr) {
+    // 先判断该数组是否是多维的，如果不是多维直接返回
+    let isDeep = arr.some(item => item instanceof Array);
+    if (!isDeep) {
+        return arr;
+    }
+    // 利用数组的concat方法递归拍平
+    let res = Array.prototype.concat.apply([], arr);
+    return flat(res);
+}
+```
+
+* unique 数组去重
+
+```js
+function unique(arr) {
+    let res = [];
+    arr.forEach(item => {
+        if (res.indexOf(item) === -1) {
+            res.push(item);
+        }
+    })
+    return unique
+}
+function unique1(arr) {
+    // return [...new Set(arr)];
+    return Array.from(new Set(arr));
+}
+```
+
+* Object.assign
+
+    Object.assign不是深拷贝，严格意义上来看，它是一层浅拷贝
+
+```js
+let obj = {x: 1, b: {x: 2}, c: 3};
+let obj1 = Object.assign({}, obj);
+obj.b.x = 100;
+console.log(obj.b.x); // 100 
+console.log(obj1.b.x); // 100 
+```
+
+*  requestAnimationFrame
+
+    要想动画流畅，更新频率要60帧/s，即16.17ms更新一次视图。一秒钟动画能动60次，和屏幕刷新的频率一样。
+
+    setTimeout要手动控制频率，而RAF浏览器会自动控制
+
+    后台标签或页面隐藏，RAF会暂停，而setTimeout依然执行
