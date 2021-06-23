@@ -61,3 +61,253 @@ methods: {
 <!-- number限制只能输入数字 -->
 <input v-model.number="num"/>
 ```
+
+* 自定义事件
+
+    可以直接把事件绑定在Vue的实例上，通过$emit注册，$on来触发，$off解绑。无论是什么层级都可以触发。相当于绑定在了全局上
+
+```js
+// event.js
+import Vue from 'vue';
+export default new Vue();
+
+// index.vue
+import event from './event';
+import iNdex from './index2.vue';
+export default {
+    data() {
+        return {
+            num: 0
+        }
+    },
+    methods: {
+        changeinput() {
+            // 注册了自定义事件handleTitle
+            event.$emit('handleTitle', this.num);
+        }
+    }
+}
+
+// index2.vue
+import event from './event';
+export default {
+    name: 'demo',
+    data() {
+        return {
+            title: '',
+        };
+    },
+    mounted() {
+        // 将自定义事件绑定在自身实例的方法上。
+        event.$on('handleTitle', this.setTitle);
+    },
+    methods: {
+        setTitle(title) {
+            this.title = title;
+        }
+    },
+    beforeDestroy() {
+        // 及时销毁，将自定义事件解绑，否则会造成内存泄露
+        event.$off('handleTitle', this.setTitle);
+    }
+};
+```
+
+* 生命周期
+
+    create与mounted有什么不同？ create是当前实例刚刚声明，组件还没渲染，正在初始化实例。mounted是组件渲染完成了，
+
+挂载阶段
+
+    beforeCreate
+
+    created：刚把vue实例初始化完成，还没有开始渲染。
+
+    beforeMount
+
+    mounted：页面已经渲染完毕
+
+更新阶段
+
+    beforeUpdate
+
+    updated
+
+销毁阶段
+
+    beforeDestroy：解除绑定 销毁子组件以及事件监听
+
+    destroy
+
+* 父子组件生命周期调用顺序
+
+    如果一个组件里包涵了一个子组件，那么它们的生命周期是如何触发的？是穿插进行。
+
+    渲染时。父beforeCreate -> 父created -> 父beforeMount -> 子beforeCreate -> 子create -> 子beforeMount -> 子mounted -> 父mounted
+
+    更新时。影响父组件 父beforeUpdate -> 子beforeUpdate -> 子updated -> 父updated
+
+    更新时。不影响父组件 子beforeUpdate -> 子updated
+
+    销毁时。父beforeDestroy -> 子beforeDestroy -> 子destroyed -> 父destroyed
+
+```js
+// parent Components
+created() {
+    console.log('index created');
+},
+mounted() {
+    console.log('index mounted');
+},
+beforeUpdate() {
+    console.log('index beforeUpdate');
+},
+updated() {
+    console.log('index updated');
+}
+
+// children Components
+created() {
+    console.log('index2 created');
+},
+mounted() {
+    console.log('index2 mounted');
+},
+beforeUpdate() {
+    console.log('index2 beforeUpdate');
+},
+updated() {
+    console.log('index2 updated');
+}
+
+//  console
+// index created
+// index2 created
+// index2 mounted
+// index mounted
+```
+
+* 自定义 v-model
+
+    对model这个options进行配置，prop需要v-model的值，这里是text1。以及触发的自定义事件event，这里是change1。表单元素上进行相应的事件触发，以及需要使用:value而不是v-model
+
+```js
+// 父
+<p>v-model高级特性{{name}}</p>
+<custom-model v-model="name" />
+
+// 子custom-model
+// html节点
+// <input
+//     type="text"
+//     :value="text1"
+//     @input="$emit('change1', $event.target.value)">
+export default {
+    model: {
+        prop: 'text1',
+        event: 'change1'
+    },
+    props: {
+        text1: {
+            default: '',
+            type: String
+        }
+    }
+}
+```
+
+* $nextTick
+
+    Vue是异步渲染的，data改变了之后，DOM不会立刻渲染。$nextTick是在DOM渲染后被触发，获取最新的DOM节点。
+
+```
+<div v-if="showDiv" ref="myDiv"></div>
+this.showDiv = true;
+// this.$refs.myDiv false
+```
+
+* slot
+
+    slot：插槽。父组件可以自定义的往子组件里插入一段内容，子组件通过`<slot>`标签来接收。
+
+    作用域插槽。获取子组件的数据来供父组件调用。关键字v-slot。子组件上需要自定义属性
+
+    具名插槽。 子name=“header”  父v-slot：header
+
+```html
+<!--父-->
+<custom-model v-model="name" >
+    <p>这是个slot{{num}}</p>
+</custom-model>
+<!--子-->
+<div>
+    <slot>默认内容，如果没有设置内容时，显示这些内容</slot>
+</div>
+```
+
+* 动态组件
+
+    无法确定要渲染的组件，就可以用动态组件
+
+```html
+<component :is="component-name"></component>
+```
+
+* 如何加载异步组件/按需加载
+
+    在页面中，有可能会引用一个比较大的组件，比如echarts等等，如果一次性全部加载的话会非常影响体验。需要等所有的组件加载完成。异步组件就是通过import方法，在使用这个组件的时候才开始加载进来。
+
+```html
+<form-demo v-if="showFormDemo"></form-demo>
+<button @click="showFormDemo = true;">shou form demo</button>
+```
+```js
+export default {
+    components: {
+        formDemo: () => import('../../formDemo')
+    }
+}
+```
+
+* keep-alive
+
+    组件缓存。频繁切换但是不需要重新渲染的时候，需要用把组件缓存起来。
+
+* mixin
+
+    多个组件有相同的逻辑，抽离出来复用。可以理解为一个公共的options配置文件。需要用mixins来注册。可以有多个，它们之间会合并。
+
+    缺点：变量来源不明确，不利于阅读。 多mixin命名冲突。mixin和组件可能出现多对多的关系，复杂度较高。
+
+```js
+// file mixin.js
+export default {
+    data() {
+        return {
+            city: '北京'
+        }
+    },
+    methods: {
+        showName() {
+            console.log(this.city)
+        }
+    },
+    mounted() {
+        console.log('mixin mounted', this.name);
+    }
+}
+// file common.vue
+<div>{{name}}{{city}}</div>
+import mixins from './mixin.js';
+export default {
+    mixins: [mixins],
+    data() {
+        return {
+            name: '夏洛'
+        }
+    },
+    mounted() {
+        console.log('mixin mounted', this.name);
+    }
+}
+```

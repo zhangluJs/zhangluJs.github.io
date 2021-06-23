@@ -45,6 +45,7 @@ import varAndFunVariable from '../../markdown/varAndFunVariable.md';
 import luDesign from '../../markdown/lu-design.md';
 import sass from '../../markdown/sass.md';
 import basics from '../../markdown/basics.md';
+import vue from '../../markdown/vue.md';
 
 import './index.scss';
 
@@ -92,6 +93,7 @@ export default class App extends React.Component {
                             <Route path='/LuDesign' component={luDesign}></Route>
                             <Route path='/sass' component={sass}></Route>
                             <Route path='/basics' component={basics}></Route>
+                            <Route path='/vue' component={vue}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>
