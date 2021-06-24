@@ -231,7 +231,7 @@ this.showDiv = true;
 
     slot：插槽。父组件可以自定义的往子组件里插入一段内容，子组件通过`<slot>`标签来接收。
 
-    作用域插槽。获取子组件的数据来供父组件调用。关键字v-slot。子组件上需要自定义属性
+    作用域插槽。获取子组件的数据来供父组件调用。关键字v-slo`<template v-slot="data">{{data.name}}</template>`t。子组件上需要自定义属性`<slot :data="myDate"></slot>`
 
     具名插槽。 子name=“header”  父v-slot：header
 
@@ -312,3 +312,159 @@ export default {
     }
 }
 ```
+
+* Vue性能优化
+
+    keep-alive、动态组件、异步组件
+
+### Vuex
+
+*基本概念*
+
+    state
+
+    getters
+
+    action 
+
+    mutation
+
+用于vue组件
+
+    dispatch
+
+    commit
+
+    mapState
+
+    mapGetters
+
+    mapActions
+
+    mapMutations
+
+### Vue-router使用
+
+* 路由模式
+
+    hash模式（默认）。如http://www.baidu.com/#/user/10。#号后面的就是hash
+
+    h5 history模式，如http://www.baidu.com/user/10。没有#号
+
+    h5 history需要server端支持，因此没有特殊的需求可选择前者。 
+
+* 路由配置
+
+    动态路由：动态路径参数以冒号开头。能命中'/user/10' 'user/20'等格式的路由。获取参数$route.params.id
+
+```js
+// file router.js
+const routes = [
+    {
+        path: '/user/:id',
+        components: User
+    }
+]
+// template
+{{$route.params.id}}
+```
+    
+    懒加载：按需加载
+
+```js
+const routes = [
+    {
+        path: '/',
+        components: () => import('./../xxxx')
+    },
+    {
+        path: '/feedback',
+        components: () => import('./../xxxx')
+    }
+]
+```
+
+### Vue原理
+
+* Vue响应式
+
+    核心API - Object.defineProperty
+
+    `Object.defineProperty`：接收三个参数，要监听的对象，要监听的对象的属性名称，关于这个属性的配置对象。
+
+    Object.deineProperty缺点：1.深度监听，递归到底，一次计算量大。2.无法监听新增属性/删除属性（Vue.set Vue.delete）;3.无法监听数组
+
+```js
+let obj = {};
+let name = 'zhangsan';
+Object.defineProperty(data, 'name', {
+    get() {
+        console.log('get');
+        return name;
+    }
+    set(newVal) {
+        console.log('set');
+        name = newVal;
+    }
+})
+```
+
+* 虚拟DOM（Vitrual DOM）和 diff
+
+    Vitrual DOM用js模拟DOM结构，可以把dom结构看作是一段数据，通过操作这段数据，来完成对dom的操作(通过snabbdom学习vdom)。
+
+    新旧vnode对比，得出最小的更新范围，最后更新DOM
+
+    数据驱动视图的模式下，有效控制DOM操作
+
+```js
+<div id="div1" class="container">
+    <p>vdom</p>
+    <ul style="font-size:12px">
+        <li>a</li>
+    </ul>
+</div>
+let vdom = {
+    tag: 'div',
+    props: {
+        id: 'div1',
+        className: 'container',
+    },
+    children: [
+        {
+            tag: 'p',
+            children: 'vdom'
+        },
+        {
+            tag: 'ul',
+            props: {style: 'font-size:12px'},
+            children: {
+                tag: 'li',
+                children: 'a'
+            }
+        }
+    ]
+}
+```
+
+* diff算法
+
+时间复杂度O(n)
+
+1. 只比较同一层级
+
+2. tag不同，则直接删掉重建
+
+3. tag和key相同，则认为相同
+
+* snabbdom 细节
+
+1. 新旧vnode对比是否有children，如果两者都有children，并且不相等，则updatechildren
+
+2. 如果新的vnode有children，旧的vnode没有children，则直接添加addVnodes
+
+3. 如果新的vnode没有children，旧的vnode有children，则直接删除removeVnodes
+
+    updatechildren方法对比细节。old start === new start、old end === new end、old start === new end、 new start === old end。如果都没有匹配到，则拿新节点的key匹配老的节点，如果没匹配到，则插入。如果匹配到了则patchVnode。
+
+    v-for中key的使用。因为diff算法中需要拿key来对比，所以key必须要有，而且必须是唯一值。如果用index作为key，其中新插入了一个节点，那么之后的节点因为index的改变都会认为自己有更新，就会重新创建dom渲染。
