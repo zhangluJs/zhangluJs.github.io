@@ -234,7 +234,9 @@ this.showDiv = true;
     作用域插槽。获取子组件的数据来供父组件调用。关键字v-slot。子组件上需要自定义属性
 
 ```html
+<!-- 父 -->
 <template v-slot="data">{{data.name}}</template>
+<!-- 子 -->
 <slot :data="myDate"></slot>
 ```
 
@@ -452,24 +454,105 @@ let vdom = {
 }
 ```
 
-* diff算法
+* diff算法概括。描述一下～
 
 时间复杂度O(n)
 
-1. 只比较同一层级
+1. 只比较同一层级，不跨级比较
 
-2. tag不同，则直接删掉重建
+2. tag不同，则直接删掉重建，不再深度比较
 
-3. tag和key相同，则认为相同
+3. tag和key相同，则认为是相同节点，不再深度比较
 
 * snabbdom 细节
 
-1. 新旧vnode对比是否有children，如果两者都有children，并且不相等，则updatechildren
+h函数生成一段vnode虚拟dom结构数据。
 
-2. 如果新的vnode有children，旧的vnode没有children，则直接添加addVnodes
+patch函数功能，将vnode渲染到空的dom元素中，或更新已有dom元素。
 
-3. 如果新的vnode没有children，旧的vnode有children，则直接删除removeVnodes
+patchVnode函数。下面这几条
+
+1. 判断vnode.text是否为空，如果text有值，则说明children为空。并且两个old.text !== vnode.text。则移除oldnode。
+
+2. 如果vnode.text为空。则新旧vnode对比是否有children，如果两者都有children，并且不相等，则updatechildren
+
+3. 如果新的vnode有children，旧的vnode没有children，则直接添加addVnodes
+
+4. 如果新的vnode没有children，旧的vnode有children，则直接删除removeVnodes
 
     updatechildren方法对比细节。old start === new start、old end === new end、old start === new end、 new start === old end。如果都没有匹配到，则拿新节点的key匹配老的节点，如果没匹配到，则插入。如果匹配到了则patchVnode。
 
     v-for中key的使用。因为diff算法中需要拿key来对比，所以key必须要有，而且必须是唯一值。如果用index作为key，其中新插入了一个节点，那么之后的节点因为index的改变都会认为自己有更新，就会重新创建dom渲染。
+
+* 模版编译
+
+```js
+// 模版
+let template = `<p>{{message}}</p>`;
+// 编译后
+with(this) {return _c('p', [_v(_s(message))])};
+// 去掉简写
+with(this) {return createElement('p', [createTextNode(toString(message))])};
+
+let template1 = '<input type="text" v-model="name">';
+let msg = "关于双向数据绑定的节点，比如这个input，在编译后自动添加了input事件，在触发事件的时候重新赋值。这时结合Object.defineProperty就可以实现双向数据绑定。"
+// 编译后
+with(this) {
+    return createElement('input',{directives:[{name: "model", rawName:"v-model"}.....],on:{
+        "input": function($event){
+            if ($event.target.composing) return;
+            name=$event.target.value;
+        }
+    }})
+}
+
+```
+
+    模版编译为render函数，执行render函数返回vnode。
+
+    基于vnode在执行patch和diff。
+
+    vue组件可以用render代替template。render是比较高级的写法，但是比较难读。
+
+```js
+export default {
+    // template: '<div>xxxxx</div>',
+    render(createElemenet) {
+        return createElemenet('div', [createTextNode(toString(message))])
+    }
+}
+```
+
+总结
+
+1. 响应式：Object.definedProperty，监听对象。getter，setter进行某些操作。
+
+2. vue模版编译：编译为类似于h函数的一种写法。只不过在vue中是createElement。执行render函数返回vnode，虚拟dom。
+
+3. vdom：patch(ele, vnode)和patch(vnode, newVNode);
+
+Vue组件渲染/更新过程
+
+初次渲染
+
+1. 将模版解析成为render函数（vue-loader）；
+
+2. 触发响应式，监听data属性getter，setter；
+
+3. 执行render函数，生成vnode，patch(ele, vnode)；
+
+更新过程
+
+1. 修改data，触发setter；
+
+2. 重新执行render函数，生成newnode；
+
+3. patch(vnode, newnode)；
+
+![渲染/更新过程](./static/img/vue-exec.png)
+
+* 异步渲染
+
+    vue的视图渲染是异步的。
+
+    多次date修改汇总，只渲染一次，减少DOM操作，提高性能
