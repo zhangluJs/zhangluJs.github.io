@@ -231,7 +231,14 @@ this.showDiv = true;
 
     slot：插槽。父组件可以自定义的往子组件里插入一段内容，子组件通过`<slot>`标签来接收。
 
-    作用域插槽。获取子组件的数据来供父组件调用。关键字v-slo`<template v-slot="data">{{data.name}}</template>`t。子组件上需要自定义属性`<slot :data="myDate"></slot>`
+    作用域插槽。获取子组件的数据来供父组件调用。关键字v-slot。子组件上需要自定义属性
+
+```html
+<!-- 父 -->
+<template v-slot="data">{{data.name}}</template>
+<!-- 子 -->
+<slot :data="myDate"></slot>
+```
 
     具名插槽。 子name=“header”  父v-slot：header
 
