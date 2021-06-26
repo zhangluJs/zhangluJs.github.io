@@ -1,0 +1,90 @@
+.resume-container {
+    width: 1024px;
+    margin: 50px auto 30px;
+    padding-bottom: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 15px #c0c0c0;
+    overflow: hidden;
+    color: #333;
+    font-family: 'Lucida Grande','Hiragino Sans GB','Hiragino Sans GB W3','Helvetica Neue',Helvetica,'PingFang SC','Microsoft YaHei','微软雅黑',Arial,sans-serif;
+    &-head {
+        padding: 30px 50px;
+        overflow: hidden;
+        &-title {
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #ccc;
+            overflow: hidden;
+            h1 {
+                width: 50%;
+                display: inline-block;
+                font-weight: 500;
+                font-size: 36px;
+                letter-spacing: 5px;
+            }
+            .job {
+                display: inline-block;
+                width: 50%;
+                text-align: right;
+                h2 {
+                    font-weight: 300;
+                    font-size: 22px;
+                }
+            }
+        }
+        &-info {
+            width: 50%;
+            display: inline-block;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+        &-contact {
+            width: 50%;
+            margin-top: 5px;
+            display: inline-block;
+            text-align: right;
+            font-size: 12px;
+            line-height: 16px;
+            .iconfont {
+                padding-left: 5px;
+            }
+            a {
+                transition: all .2s ease-in;
+            }
+            a:hover {
+                color: #afaeae;
+            }
+        }
+    }
+    &-body {
+        padding: 0 50px;
+        overflow: hidden;
+
+    }
+    .title {
+        display: inline-block;
+        margin: 10px 0;
+        padding: 5px 10px;
+        background: #eee;
+        font-size: 16px;
+        border-radius: 5px;
+        font-weight: 900;
+    }
+    .info {
+        &-item {
+            font-size: 14px;
+            line-height: 28px;
+            font-weight: 500;
+            &-time {
+                width: 160px;
+                display: inline-block;
+            }
+            &-name {
+            }
+            &-desc {
+                padding-left: 160px;
+            }
+        }
+    }
+}

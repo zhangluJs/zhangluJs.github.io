@@ -46,6 +46,7 @@ import luDesign from '../../markdown/lu-design.md';
 import sass from '../../markdown/sass.md';
 import basics from '../../markdown/basics.md';
 import vue from '../../markdown/vue.md';
+import resume from '../resume/index';
 
 import './index.scss';
 
@@ -94,10 +95,11 @@ export default class App extends React.Component {
                             <Route path='/sass' component={sass}></Route>
                             <Route path='/basics' component={basics}></Route>
                             <Route path='/vue' component={vue}></Route>
+                            <Route path='/resume' component={resume}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>
-                    <Footer></Footer>
+                    <Route path="/:place" component={Footer} />
                     <Arrowup></Arrowup>
                 </div>
             </HashRouter>
