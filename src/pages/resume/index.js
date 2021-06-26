@@ -25,7 +25,7 @@ export default class Resume extends React.Component {
                         <li>
                             <a href="https://zhanglujs.github.io/blog" target="_blank">
                                 https://zhanglujs.github.io/blog
-                                <span className="iconfont icon-snail"></span>
+                                <span className="iconfont icon-Homehomepagemenu"></span>
                             </a>
                         </li>
                         <li>
@@ -37,13 +37,13 @@ export default class Resume extends React.Component {
                         <li>
                             <a href="mailto:zhangluecma@163.com" target="_blank">
                                 zhangluecma@163.com
-                                <span className="iconfont icon-huidaodingbu"></span>
+                                <span className="iconfont icon-emailFilled"></span>
                             </a>
                         </li>
                         <li>
                             <a href="tel:15210205880" target="_blank">
                                 15210205880
-                                <span className="iconfont icon-github-copy"></span>
+                                <span className="iconfont icon-phone"></span>
                             </a>
                         </li>
                     </ul>
@@ -54,25 +54,25 @@ export default class Resume extends React.Component {
                     </h3>
                     <ul className="info">
                         <li className="info-item">
-                            熟练使用<strong>H5</strong>、<strong>CSS3</strong>、<strong>页面布局</strong>、<strong>响应式布局</strong>等，重视<strong>页面交互</strong>与<strong>用户体验</strong>。
+                            <span className="iconfont icon-dian"></span>熟练使用<strong>H5</strong>、<strong>CSS3</strong>、<strong>页面布局</strong>、<strong>响应式布局</strong>等，重视<strong>页面交互</strong>与<strong>用户体验</strong>。
                         </li>
                         <li className="info-item">
-                            熟练使用<strong>ES6</strong>语法编程，追求代码<strong>高质量可维护性</strong>。熟悉<strong>异步</strong>、<strong>网络请求</strong>等基本内容。
+                            <span className="iconfont icon-dian"></span>熟练使用<strong>ES6</strong>语法编程，追求代码<strong>高质量可维护性</strong>。熟悉<strong>异步</strong>、<strong>网络请求</strong>等基本内容。
                         </li>
                         <li className="info-item">
-                            熟练使用<strong>Vue</strong>。注重代码的<strong>复用性</strong>，能够将其抽离出来为<strong>公共的组件</strong>供团队使用。
+                            <span className="iconfont icon-dian"></span>熟练使用<strong>Vue</strong>。注重代码的<strong>复用性</strong>，能够将其抽离出来为<strong>公共的组件</strong>供团队使用。
                         </li>
                         <li className="info-item">
-                            熟悉<strong>React</strong>以及<strong>React Hooks</strong>等相关特性。
+                            <span className="iconfont icon-dian"></span>熟悉<strong>React</strong>以及<strong>React Hooks</strong>等相关特性。
                         </li>
                         <li className="info-item">
-                            对<strong>Node.js</strong>、<strong>模块化规范</strong>、<strong>CSS预处理器</strong>、<strong>数据可视化</strong>、<strong>性能优化</strong>、<strong>前端安全</strong>等也有一定的应用。
+                            <span className="iconfont icon-dian"></span>对<strong>Node.js</strong>、<strong>模块化规范</strong>、<strong>CSS预处理器</strong>、<strong>数据可视化</strong>、<strong>性能优化</strong>、<strong>前端安全</strong>等也有一定的应用。
                         </li>
                         <li className="info-item">
-                            熟练使用<strong>Git</strong>进行版本控制和代码管理、了解项目常规<strong>开发流程</strong>、<strong>开发调试技巧</strong>，了解简单的<strong>Linux</strong>命令。
+                            <span className="iconfont icon-dian"></span>熟练使用<strong>Git</strong>进行版本控制和代码管理、了解项目常规<strong>开发流程</strong>、<strong>开发调试技巧</strong>，了解简单的<strong>Linux</strong>命令。
                         </li>
                         <li className="info-item">
-                            工作上<strong>积极执行</strong><strong>有责任心</strong>，具有良好的<strong>团队沟通合作</strong>能力以及<strong>学习能力</strong>。
+                            <span className="iconfont icon-dian"></span>工作上<strong>积极执行</strong><strong>有责任心</strong>，具有良好的<strong>团队沟通合作</strong>能力以及<strong>学习能力</strong>。
                         </li>
                     </ul>
                     <h3 className="title">
@@ -98,15 +98,6 @@ export default class Resume extends React.Component {
                         项目经历
                     </h3>
                     <li className="info-item">
-                        <span className="info-item-time"><strong>2019.10 ～ 2019.11</strong></span>
-                        <span className="info-item-name"><strong>短租自驾移动端项目开发</strong></span>
-                        <p className="info-item-desc">
-                            主要负责首页、城市选择页面开发。主要使用技术栈<strong>React全家桶</strong>、<strong>antd-mobile</strong>。
-                            调用高德api获取当前用户经纬度，请求接口推送距离最近的门店方便用户租车。
-                            城市选择页面将输入搜索、城市列表、右侧字母导航拆分成独立的组件。通过自定义属性、自定义事件来完成组件间通信。
-                        </p>
-                    </li>
-                    <li className="info-item">
                         <span className="info-item-time"><strong>2019.08 ～ 至今</strong></span>
                         <span className="info-item-name"><strong>综合管理平台、短租管理平台</strong></span>
                         <p className="info-item-desc">
@@ -116,6 +107,15 @@ export default class Resume extends React.Component {
                             通过监听visibilitychange事件+visibilityState+localStorage，修复了系统多页签中用户登录信息错误的bug。
                         </p>
                     </li>
+                    <li className="info-item">
+                        <span className="info-item-time"><strong>2019.10 ～ 2019.11</strong></span>
+                        <span className="info-item-name"><strong>短租自驾移动端项目开发</strong></span>
+                        <p className="info-item-desc">
+                            主要负责首页、城市选择页面开发。主要使用技术栈<strong>React全家桶</strong>、<strong>antd-mobile</strong>。
+                            调用高德api获取当前用户经纬度，请求接口推送距离最近的门店方便用户租车。
+                            城市选择页面将输入搜索、城市列表、右侧字母导航拆分成独立的组件。通过自定义属性、自定义事件来完成组件间通信。
+                        </p>
+                    </li>
                     <h3 className="title">
                         个人项目
                     </h3>
@@ -123,9 +123,9 @@ export default class Resume extends React.Component {
                         <span className="info-item-time"><strong>2018.09</strong></span>
                         <span className="info-item-name">
                             <strong>
-                                个人博客
                                 <a href="https://zhanglujs.github.io/blog" target="_blank">
-                                    <span className="iconfont icon-snail"></span>
+                                    个人博客
+                                    <span className="iconfont icon-lianjie"></span>
                                 </a>
                             </strong>
                         </span>

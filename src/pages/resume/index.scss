@@ -9,7 +9,7 @@
     color: #333;
     font-family: 'Lucida Grande','Hiragino Sans GB','Hiragino Sans GB W3','Helvetica Neue',Helvetica,'PingFang SC','Microsoft YaHei','微软雅黑',Arial,sans-serif;
     &-head {
-        padding: 30px 50px;
+        padding: 30px 50px 20px;
         overflow: hidden;
         &-title {
             padding-bottom: 5px;
@@ -86,5 +86,8 @@
                 padding-left: 160px;
             }
         }
+    }
+    .iconfont {
+        font-size: 14px;
     }
 }
