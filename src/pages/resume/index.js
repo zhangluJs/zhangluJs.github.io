@@ -158,9 +158,9 @@ export default class Resume extends React.Component {
                     </li>
                 </div>
                 <footer className="resume-container-footer">
-                    <a href="https://zhanglujs.github.io/blog/#/resume" target="_blank">
+                    <a href="https://zhanglujs.github.io/blog/index.html#/resume" target="_blank">
                         <span className="iconfont icon-lianjie"></span>
-                        &nbsp;&nbsp;网页版简历 https://zhanglujs.github.io/blog/#/resume
+                        &nbsp;&nbsp;网页版简历 https://zhanglujs.github.io/blog/index.html#/resume
                     </a>
                 </footer>
             </div>
