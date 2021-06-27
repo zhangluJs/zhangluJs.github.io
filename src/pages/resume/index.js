@@ -101,40 +101,68 @@ export default class Resume extends React.Component {
                         <span className="info-item-time"><strong>2019.08 ～ 至今</strong></span>
                         <span className="info-item-name"><strong>综合管理平台、短租管理平台</strong></span>
                         <p className="info-item-desc">
-                            负责系统前期迭代，后期维保，BI数据可视化、CRM、计算器等模块的开发。技术栈主要使用<strong>Vue-cli</strong>、<strong>Element-ui</strong>。
-                            开发系统中关于电子围栏的公共组件，调用高德地图api，完成圆形、多边形的电子围栏绘制，以及切换城市时地图及围栏中心点的初始化。
+                            技术栈主要使用<strong>Vue-cli</strong>、<strong>Element-ui</strong>。
+                        </p>
+                        <p className="info-item-desc">
+                            负责系统迭代更新。维保，BI数据可视化、CRM、计算器等模块的开发。
+                        </p>
+                        <p className="info-item-desc">
+                            开发系了统中关于电子围栏的公共组件，调用高德地图api，完成圆形、多边形的电子围栏绘制，以及切换城市时地图及围栏中心点的初始化。
                             开发文件上传后回显list组件开发，暴露出删除文件、查看当前文件等回调函数。
-                            通过监听visibilitychange事件+visibilityState+localStorage，修复了系统多页签中用户登录信息错误的bug。
+                            通过监听visibilitychange事件+visibilityState+localStorage，修复了系统多页签中用户登录信息错误的bug等。
                         </p>
                     </li>
                     <li className="info-item">
                         <span className="info-item-time"><strong>2019.10 ～ 2019.11</strong></span>
-                        <span className="info-item-name"><strong>短租自驾移动端项目开发</strong></span>
+                        <span className="info-item-name"><strong>移动端短租自驾项目开发</strong></span>
                         <p className="info-item-desc">
-                            主要负责首页、城市选择页面开发。主要使用技术栈<strong>React全家桶</strong>、<strong>antd-mobile</strong>。
+                            技术栈<strong>React全家桶</strong>、<strong>antd-mobile</strong>。
+                        </p>
+                        <p className="info-item-desc">
+                            主要负责了项目中首页、城市选择页面开发。
+                        </p>
+                        <p className="info-item-desc">
                             调用高德api获取当前用户经纬度，请求接口推送距离最近的门店方便用户租车。
+                        </p>
+                        <p className="info-item-desc">
                             城市选择页面将输入搜索、城市列表、右侧字母导航拆分成独立的组件。通过自定义属性、自定义事件来完成组件间通信。
+                            包括当前城市定位、联想输入、右侧点击字母跳转到对应的城市列表等
                         </p>
                     </li>
                     <h3 className="title">
                         个人项目
                     </h3>
                     <li className="info-item">
-                        <span className="info-item-time"><strong>2018.09</strong></span>
+                        <span className="info-item-time"><strong>2018.09 ～ 至今</strong></span>
                         <span className="info-item-name">
                             <strong>
-                                <a href="https://zhanglujs.github.io/blog" target="_blank">
+                                <a className="link" href="https://zhanglujs.github.io/blog" target="_blank">
                                     个人博客
                                     <span className="iconfont icon-lianjie"></span>
                                 </a>
                             </strong>
                         </span>
                         <p className="info-item-desc">
-                            起初是为了学习React，以及webpack搭建的一个项目，后来又引入了markdown，就把这个项目当作个人工作、生活的记事本来用。
-                            全部从0开始配置，包括其中的babel-loader、sass-loader以及后来引入fontface的file-loader等，打包前后的文件处理（删除旧文件、更新文件等）。技术栈包括<strong>React</strong>、<strong>webpack</strong>。
+                            前端部分使用<strong>React</strong>开发。
+                        </p>
+                        <p className="info-item-desc">
+                            构建工具使用<strong>webpack</strong>进行配置。其中配置了<strong>babel-loader</strong>用于兼容ES6语法、<strong>file-loader</strong>解析字体文件、<strong>babel-loader!markdown-it-react-loader</strong>解析md文件等。
+                            plugins部分使用<strong>HtmlWebpackPlugin</strong>、<strong>CleanWebpackPlugin</strong>、<strong>CopyWebpackPlugin</strong>等完成build后文件的处理。
+                        </p>
+                        <p className="info-item-desc">
+                            文档部分使用<strong>markdown</strong>进行编辑。
+                        </p>
+                        <p className="info-item-desc">
+                            使用<strong>gitpage</strong>通过访问静态文件的方式完成部署。
                         </p>
                     </li>
                 </div>
+                <footer className="resume-container-footer">
+                    <a href="https://zhanglujs.github.io/blog/dist/#/resume" target="_blank">
+                        <span className="iconfont icon-lianjie"></span>
+                        &nbsp;&nbsp;网页版简历 https://zhanglujs.github.io/blog/dist/#/resume
+                    </a>
+                </footer>
             </div>
         );
     }
