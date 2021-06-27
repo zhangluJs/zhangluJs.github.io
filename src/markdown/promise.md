@@ -255,4 +255,4 @@ EasyPromise.race = function (promises) {
 }
 ```
 
-关于promise的一些基本介绍，在文章[JavaScript异步操作](https://zhanglujs.github.io/blog/dist/index.html#/js-async)中有提到。
+关于promise的一些基本介绍，在文章[JavaScript异步操作](https://zhanglujs.github.io/blog/#/js-async)中有提到。

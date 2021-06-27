@@ -5,6 +5,7 @@
 import React from 'react';
 import './common/css/index.scss';
 import 'highlight.js/styles/atom-one-dark.css';
+import './common/font/iconfont.css';
 
 import ReactDOM from 'react-dom';
 import App from './pages/app/index.js';

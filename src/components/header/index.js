@@ -23,10 +23,12 @@ class Header extends React.Component {
     }
 
     render() {
+        let {pathname} = this.props.location;
         return (
-            <header className='nav-header'>
+            pathname === '/resume' ? '' : <header
+                className='nav-header'>
                 <div className='container'>
-                    <a href="https://zhanglujs.github.io/blog/dist/index.html#/home" className="logo" title="zhanglu">
+                    <a href="https://zhanglujs.github.io/blog/#/home" className="logo" title="zhanglu">
                         <img src='static/img/favicon.png'/>
                     </a>
                     <nav className="nav-list">

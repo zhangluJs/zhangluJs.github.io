@@ -29,20 +29,30 @@ export default class ArrowUp extends React.Component {
             });
         }
 
-        function debounce(method, context) {
-            clearTimeout(method.tId);
-            method.tId = setTimeout(() => {
-                method.call(context);
-            }, 500);
+        function debounce(fn, delay) {
+            let timer = null;
+            return function() {
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(() => {
+                    fn.apply(this, [...arguments]);
+                    timer = null;
+                }, delay);
+            }
         }
 
-        window.addEventListener('scroll', () => {
-            debounce(scrollFn, window);
-        });
+        window.addEventListener('scroll', debounce(scrollFn, 300));
     }
 
     scrollTop() {
-        window.scrollTo(0, 0);
+        (function smoothscroll(){
+            var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            if (currentScroll > 0) {
+                window.requestAnimationFrame(smoothscroll);
+                window.scrollTo(0,currentScroll - (currentScroll/5));
+            }
+        })();
     }
 
     render() {
