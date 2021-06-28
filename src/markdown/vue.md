@@ -322,7 +322,9 @@ export default {
 
 * Vue性能优化
 
-    keep-alive、动态组件、异步组件
+    v-if 与 v-show的区别使用、computed与watch的合理使用、v-for时使用唯一值作为key，尽量不要使用index
+
+    keep-alive、动态组件、异步组件、路由懒加载（访问时才加载）
 
 ### Vuex
 
@@ -556,3 +558,60 @@ Vue组件渲染/更新过程
     vue的视图渲染是异步的。
 
     多次date修改汇总，只渲染一次，减少DOM操作，提高性能
+
+* JS实现hash路由
+
+```
+to B（中后台）的系统推荐使用hash，简单易用。对url不敏感。
+
+to C系统，可以考虑选择H5 history，但需要服务端支持。
+
+考虑到SEO、搜索引擎优化的建议使用H5 history，但是需要服务端支持。
+```
+
+hash变化会触发页面跳转。即前进、后退
+
+hash变化不会刷新页面，spa必需的点
+
+hash不会提交到server端
+
+监听`hashchange`事件
+
+```js
+// 按钮点击修改hash
+btn.addEventListener('click', () => {
+    location.href = '#/abc'
+});
+// hash修改时会触发hashchange事件
+window.addEventListener('hashchange', (e) => {
+    console.log(e.oldURL);
+    console.log(e.newURL);
+});
+```
+
+* H5 History
+
+用url规范的路由，但跳转时不刷新页面
+
+history.pushState：为浏览器添加一个状态（修改路由）。它接收三个参数，第一个参数是当前路由对应的状态对象。第二个参数是title
+
+    第一个参数：当前路由对应的状态对象
+
+    第二个参数：title 新页面的标题，但是所有浏览器目前都忽略这个值，因此这里可以填null
+
+    第三个参数：新的路由
+
+window.onpopstate：该事件可以监听浏览器的前进、后退。修改对应的页面。
+
+```js
+// 按钮点击为浏览器添加历史状态
+btn.addEventListener('click', () => {
+    const state = {
+        name: 'page1'
+    };
+    history.pushState(state, '', 'page1');
+})
+window.addEventListener('popstate', (e) => {
+    console.log(111, e);
+})
+```
