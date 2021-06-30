@@ -47,6 +47,7 @@ import sass from '../../markdown/sass.md';
 import basics from '../../markdown/basics.md';
 import vue from '../../markdown/vue.md';
 import resume from '../resume/index';
+import vue3 from '../../markdown/vue3.md';
 
 import './index.scss';
 
@@ -96,6 +97,7 @@ export default class App extends React.Component {
                             <Route path='/basics' component={basics}></Route>
                             <Route path='/vue' component={vue}></Route>
                             <Route path='/resume' component={resume}></Route>
+                            <Route path='/vue3' component={vue3}></Route>
                             <Redirect from='/' to='/home'></Redirect>
                         </Switch>
                     </main>
