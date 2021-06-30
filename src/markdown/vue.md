@@ -322,7 +322,9 @@ export default {
 
 * Vue性能优化
 
-    keep-alive、动态组件、异步组件
+    v-if 与 v-show的区别使用、computed与watch的合理使用、v-for时使用唯一值作为key，尽量不要使用index
+
+    keep-alive、动态组件、异步组件、路由懒加载（访问时才加载）
 
 ### Vuex
 
@@ -466,23 +468,33 @@ let vdom = {
 
 * snabbdom 细节
 
-h函数生成一段vnode虚拟dom结构数据。
+- h函数生成一段vnode（虚拟dom结构数据）。
 
-patch函数功能，将vnode渲染到空的dom元素中，或更新已有dom元素。
+- patch函数功能，将vnode渲染到空的dom元素中，或更新已有dom元素。
 
-patchVnode函数。下面这几条
+1. 接受两个参数，如果第一个参数是字符串，则认为是一个容器，将节点挂载上去（也就是第二个参数）。如果两个参数都是vnode，则判断是否相同。如果第二个参数是null，则认为是销毁节点。
 
-1. 判断vnode.text是否为空，如果text有值，则说明children为空。并且两个old.text !== vnode.text。则移除oldnode。
+2. 如果两个参数都是vnode，则用sameVnode函数进行判断。sameVnode函数利用新旧节点的sel（节点名称div等） 和 key（v-for时的:key，key的重要性）进行比较，如果不相等则直接用newVnode重建。如果都相同则认为是同样的节点。进行patchVnode。
 
-2. 如果vnode.text为空。则新旧vnode对比是否有children，如果两者都有children，并且不相等，则updatechildren
+- patchVnode函数。oldvnode\newvnode对比
 
-3. 如果新的vnode有children，旧的vnode没有children，则直接添加addVnodes
+1. 将oldvnode.ele赋给newvnode.ele。这样才能知道要去更新哪个节点。
 
-4. 如果新的vnode没有children，旧的vnode有children，则直接删除removeVnodes
+2. 判断old与new，这两个vnode是否相等。如果相等则停止执行。
 
-    updatechildren方法对比细节。old start === new start、old end === new end、old start === new end、 new start === old end。如果都没有匹配到，则拿新节点的key匹配老的节点，如果没匹配到，则插入。如果匹配到了则patchVnode。
+4. 判断vnode.text是否为空，如果text有值，则说明children为空。并且两个old.text !== vnode.text。则用text去更新，并且移除oldnode.children，
 
-    v-for中key的使用。因为diff算法中需要拿key来对比，所以key必须要有，而且必须是唯一值。如果用index作为key，其中新插入了一个节点，那么之后的节点因为index的改变都会认为自己有更新，就会重新创建dom渲染。
+5. 如果vnode.text为空。则新旧vnode对比是否有children，如果两者都有children，并且不相等，则updatechildren
+
+6. 如果新的vnode有children，旧的vnode没有children，则直接添加addVnodes
+
+7. 如果新的vnode没有children，旧的vnode有children，则直接删除removeVnodes
+
+- updatechildren方法对比细节。
+
+1. 先从四个维度对比。old start === new start、old end === new end、old start === new end、 new start === old end。如果都没有匹配到，则拿新节点的key匹配老的节点，如果没匹配到，则插入。如果匹配到了则patchVnode。
+
+    **v-for中key的使用。因为diff算法中需要拿key来对比，所以key必须要有，而且必须是唯一值。如果用index作为key，其中新插入了一个节点，那么之后的节点因为index的改变都会认为自己有更新，就会全部重新更新。**
 
 * 模版编译
 
@@ -556,3 +568,60 @@ Vue组件渲染/更新过程
     vue的视图渲染是异步的。
 
     多次date修改汇总，只渲染一次，减少DOM操作，提高性能
+
+* JS实现hash路由
+
+```
+to B（中后台）的系统推荐使用hash，简单易用。对url不敏感。
+
+to C系统，可以考虑选择H5 history，但需要服务端支持。
+
+考虑到SEO、搜索引擎优化的建议使用H5 history，但是需要服务端支持。
+```
+
+hash变化会触发页面跳转。即前进、后退
+
+hash变化不会刷新页面，spa必需的点
+
+hash不会提交到server端
+
+监听`hashchange`事件
+
+```js
+// 按钮点击修改hash
+btn.addEventListener('click', () => {
+    location.href = '#/abc'
+});
+// hash修改时会触发hashchange事件
+window.addEventListener('hashchange', (e) => {
+    console.log(e.oldURL);
+    console.log(e.newURL);
+});
+```
+
+* H5 History
+
+用url规范的路由，但跳转时不刷新页面
+
+history.pushState：为浏览器添加一个状态（修改路由）。它接收三个参数，第一个参数是当前路由对应的状态对象。第二个参数是title
+
+    第一个参数：当前路由对应的状态对象
+
+    第二个参数：title 新页面的标题，但是所有浏览器目前都忽略这个值，因此这里可以填null
+
+    第三个参数：新的路由
+
+window.onpopstate：该事件可以监听浏览器的前进、后退。修改对应的页面。
+
+```js
+// 按钮点击为浏览器添加历史状态
+btn.addEventListener('click', () => {
+    const state = {
+        name: 'page1'
+    };
+    history.pushState(state, '', 'page1');
+})
+window.addEventListener('popstate', (e) => {
+    console.log(111, e);
+})
+```
