@@ -285,3 +285,78 @@ vue3不需要再像vue2中每个模版只能有一个根节点。vue3中可以�
     <p></p>
 </template>
 ```
+
+5. 移除.sync
+
+```html
+<!-- vue 2.x -->
+<my-component :title.sync="title"></my-component>
+<!-- vue3 -->
+<my-component v-model="title"></my-component>
+```
+
+6. 异步组件语法调整
+
+```js
+// vue2.x
+new Vue({
+    // ...
+    components: {
+        'my-components': () => import('./my-async-components.vue')
+    }
+})
+// vue3
+import {createApp, definedAsyncComponent} from 'vue';
+createApp({
+    components: {
+        'my-components': definedAsyncComponent(() => {
+            import('./my-async-components.vue')
+        })
+    }
+})
+```
+
+7. 移除filter
+
+8. teleport
+
+    新增内置组件teleport，可以将该组件插入根节点(#app)以外的容器中。在实际项目中有很多dialog（弹框）的功能。如果根节点的样式有调整，那么dialog的遮罩层将不能完全覆盖，这时就可以用teleport将节点插入其他不受影响的节点中如body。我们可以通过定义它的to属性来指定插入的容器。
+
+```html
+<teleport to="body" or to="#container">
+    <div>假设这是一个弹框</div>
+</teleport>
+```
+
+9. Suspense
+
+    新增内置组件Suspense，它内部接受两个具名slot，一个slot为异步组件，另一个为异步组件加载完成前的展示组件（loading）。下面就是suspense的一个简单使用方式，在`async-componens`异步组件没有加载完成时，会展示fallback中的内容，当异步组件加载完成时会显示组件。
+
+> 其实这个功能类似于element-ui中的`v-loading`
+
+```html
+<suspense>
+    <template #default>
+        <async-componens />
+    </template>
+    <template #fallback>
+        loading
+    </template>
+</suspense>
+```
+
+10. Composition API
+
+    reactive：创建一个具有响应式的对象
+
+    ref：创建一个具有响应式的值类型数据
+
+    readonly
+
+    watch和watchEffect
+
+    setup：代表了breforeCreate和created生命周期，也是composition API的入口函数
+
+    生命周期钩子函数
+
+11. 生命周期
