@@ -22,7 +22,7 @@
 
     destoryed 改为 unmounted
 
-* Composition API生命周期。其实和vue2也差不多一样，只是需要在setup生命周期中调用
+* Composition API生命周期。和vue2也差不多一样，只是需要在setup生命周期中调用
 
     setup等价于 beforeCreate和created。
 
@@ -188,7 +188,7 @@ return toRefs(state);
 
 - ref变量命名都使用Ref后缀`const ageRef = ref(20)`
 
-- 合成函数返回响应式对象时，使用toRefs。这样有助于使用方解构。
+- **合成函数返回响应式对象时，尽量使用ref或者toRefs。这样有助于解构使用。**
 
 ### 为什么需要ref？
 
@@ -360,3 +360,29 @@ createApp({
     生命周期钩子函数
 
 11. 生命周期
+
+### Vue3如何实现响应式
+
+> Vue2.x的实现是通过Object.defineProPerty()，Vue3则是通过Proxy。
+
+* Proxy
+
+    Proxy接受两个参数，第一个参数是要代理的数据（对象or数组），第二个参数是一个对象（handle)，通过这个handle来完成对代理对象属性的监听，返回一个proxy对象。看下面代码。Reflect后面再说。
+
+```js
+let data = {a: 1, b: 2};
+let proxyData = new Proxy(data, {
+    get(target, key, receiver) {
+        let result = Reflect.get(target, key, receiver);
+        return result; // 返回属性值
+    }
+    set(target, key, value, receiver) {
+        let result = Reflect.set(target, key, value, receiver);
+        return result; // 是否设置成功 true false
+    }
+    deleteProperty(target, key) {
+        let result = Reflect.delateProperty(target, key);
+        return result; // 是否删除成功 true false
+    }
+})
+```
