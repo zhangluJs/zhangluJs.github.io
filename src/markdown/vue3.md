@@ -365,18 +365,31 @@ createApp({
 
 > Vue2.x的实现是通过Object.defineProPerty()，Vue3则是通过Proxy。
 
+    Object.defineProperty缺点：深度监听需要一次性递归，data属性嵌套越多，就需要更多递归。无法监听删除/新增属性。无法监听原生数组，需要特殊处理（重写一遍原生数组方法）。
+
 * Proxy
 
-    Proxy接受两个参数，第一个参数是要代理的数据（对象or数组），第二个参数是一个对象（handle)，通过这个handle来完成对代理对象属性的监听，返回一个proxy对象。看下面代码。Reflect后面再说。
+    Proxy接受两个参数，第一个参数是要代理的数据（对象or数组），第二个参数是一个对象（handle)，通过这个handle来完成对代理对象属性的监听。返回一个proxy对象。看下面代码。Reflect后面再说。
+
+更新。又把Proxy和Reflect看了一遍，之前有点混淆了。Proxy handle里的set、deleteProperty并不能修改目标对象，而是目标对象被修改时可以被监听到，真正起到修改作用的是Reflect。proxy只是通过set、deleteProperty等handle通知是否操作成功。看developer.mozilla上解释说，Reflect和Proxy handle methods的命名相同，而且也有地方说他俩就是成对出现的，我就暂时理解为这俩绑定使用。
 
 ```js
 let data = {a: 1, b: 2};
 let proxyData = new Proxy(data, {
     get(target, key, receiver) {
+        let ownKeys = Reflect.ownKeys(target);
+        // 只处理原型上的属性
+        if (ownKeys.includes(key)) {
+            // do something
+        }
         let result = Reflect.get(target, key, receiver);
         return result; // 返回属性值
     }
     set(target, key, value, receiver) {
+        // 重复的值不做处理
+        if (val === target[key]) {
+            return true
+        }
         let result = Reflect.set(target, key, value, receiver);
         return result; // 是否设置成功 true false
     }
@@ -386,3 +399,77 @@ let proxyData = new Proxy(data, {
     }
 })
 ```
+
+* Reflect
+
+和 proxy能力一一对应，参数api都是对应。规范化、标准化、函数式。替代掉Object上的工具函数。
+
+> Reflect的出现是为了让js更加规范，其实Reflect的很多方法js中是有的，比如判断某个属性是否来自某个对象可以in关键字。Reflect上则对应有has静态方法。两者完全等价。
+
+```js
+let obj = {a: 1};
+'a' in obj;
+Reflect.has(obj, 'a');
+delete obj.a;
+Reflect.deleteProperty(obj, 'a');
+```
+
+* Proxy如何实现响应式
+
+> Vue2.x的响应式是深度递归（一次性获取所有属性）。Vue3是get的时候触发递归（什么时候访问什么时候触发）
+
+```js
+function reactive(target) {
+    if (typeof target !== 'object' || target == null) {
+        return target;
+    }
+    let handle = {
+        get(target, key, receiver) {
+            let ownKeys = Reflect.ownKeys(target);
+            if (ownKeys.includes(key)) {
+                console.log('get', key);
+            }
+            let result = Reflect.get(target, key, receiver);
+            // return result;
+            return reactive(result); // 深度监听。没有访问不触发
+        },
+        set(target, key, val, receiver) {
+            if (val === target[key]) {
+                return true;
+            }
+
+            let ownKeys = Reflect.ownKeys(target);
+            if (ownKeys.includes(key)) {
+                // 已有的属性
+            } else {
+                // 新增的属性
+            }
+
+            let result = Reflect.set(target, key, val, receiver);
+            return result;
+        }
+        deleteProperty(target, key, receiver) {
+            let result = Reflect.deleteProperty(target, key, receiver);
+            return result;
+        }
+    }
+    let observe = new Proxy(target, handle);
+    return observe;
+}
+let obj = {
+    a: 1,
+    b: 'str',
+    info: {
+        city: 'beijing'
+    }
+}
+const proxyData = reactive(obj);
+```
+
+Proxy实现响应式的优点
+
+- 深度监听，性能更好（不用一次性递归完成）
+
+- 可监听新增/删除属性
+
+- 可监听数组变化

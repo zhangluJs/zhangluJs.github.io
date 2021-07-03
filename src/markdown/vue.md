@@ -404,18 +404,41 @@ const routes = [
     Object.deineProperty缺点：1.深度监听，递归到底，一次计算量大。2.无法监听新增属性/删除属性（Vue.set Vue.delete）;3.无法监听数组
 
 ```js
-let obj = {};
-let name = 'zhangsan';
-Object.defineProperty(data, 'name', {
-    get() {
-        console.log('get');
-        return name;
+function observer(target) {
+    if (typeof target !== 'object' || target ==null) {
+        return target;
     }
-    set(newVal) {
-        console.log('set');
-        name = newVal;
+
+    for (let key in target) {
+        defineProperty(target, key, target[key]);
     }
-})
+}
+// 一次性递归到底完成监听
+function defineProperty(target, key, value) {
+    observer(value);// 深度监听
+    Object.defineProperty(target, key, {
+        get() {
+            return value;
+        },
+        set(newVal) {
+            if (newVal !== value) {
+                observer(newVal);// 深度监听
+                value = newVal;
+                console.log('视图更新')
+            }
+        }
+    })
+}
+
+let obj = {
+    name: 'zhangsan',
+    age: 21,
+    info: {
+        num: 100
+    }
+}
+
+observer(obj);
 ```
 
 * 虚拟DOM（Vitrual DOM）和 diff
