@@ -473,3 +473,204 @@ Proxy实现响应式的优点
 - 可监听新增/删除属性
 
 - 可监听数组变化
+
+### 组件中v-model的使用方法
+
+> vue3中移除了.sync。这个修饰符我从来都没用过。看vue3 v-model的时候，才发现有这么个东西。而且感觉.sync的写法其实并不是那么的好，虽然语法上简写了，但是可读性上并没有那么的直观。反观vue3的v-model很直观的看上去就知道是父子组件直接的双向数据绑定。
+
+    父级只需要指定v-model:dataName="dataName"即可。
+
+    子组件可以理解为$emit事件触发了一个叫update:dataName的事件，并且将value传递给了父组件。
+
+```js
+// 父
+<child v-model:name="name" v-model:age="age">
+setup() {
+    let state = reactive({
+        name: 'zhangsan',
+        age: 20
+    })
+}
+// 子
+<input type="text" :value="name" @input="$emit('update:name', $event.target.value)" />
+<input type="text" :value="age" @input="$emit('update:age', $event.target.value)" />
+props: {
+    name: String,
+    age: String
+}
+```
+
+### Computed
+
+接收一个参数作为参数，返回一个`不变的`具有响应式的ref对象
+
+```js
+setup() {
+    let count = ref(0);
+    let plusOne = computed(() => {
+        return count.value + 1;
+    })
+    console.log(plusOne.value); // 1 
+}
+```
+
+或者，它也可以使用具有get和set函数的对象来创建可写的ref对象
+```js
+setup() {
+    let count = ref(0);
+    let plusOne = computed({
+        get: () => {
+            return count.value + 1;
+        },
+        set: val => {
+            count.value = val - 1;
+        }
+    })
+    plueOne.value = 1;
+    console.log(count.value) // 0
+}
+```
+
+### watch 与 watchEffect
+
+* watch监听与vue2中的watch功能一样。它接收三个参数
+
+    1: 第一个参数是一个ref或者是一个return reactive data的函数；
+
+    2. 第二个参数是一个函数，它用于被监听data改变时的回调函数；
+
+    3. 第三个可选参数是一个对象，它有immediate（组件初始化时触发一次），deep（深度监听）
+
+```js
+setup() {
+    const name = ref('zhangsan');
+    // 监听一个ref
+    watch(name, (newVal, oldVal) => {
+        console.log(newVal, oldVal);
+    }, {
+        // 组件初始化时触发一次
+        immediate: true,
+        // 深度监听
+        deep: true
+    });
+    const state = reactive({
+        name: 'zhangsan'
+    });
+    // 监听一个reactive
+    watch(() => state.name, (newVal, oldVal) => {
+        console.log(newVal, oldVal);
+    })
+}
+```
+
+* watchEffect
+
+    watchEffect接收一个函数作为参数，它在组件初始化时会自动的触发一次。之后当其内部使用的响应式数据发生变化时都会触发。
+
+```js
+setup() {
+    const state = reactive({
+        name: 'zhangsan'
+    });
+    const age = ref(20);
+    // watchEffect会触发三次，第一次初始化时自动调用，第二次state.name的修改。第三次age.value的修改
+    watchEffect(() => {
+        // state.name 与 age的修改都会触发watchEffect
+        cosnole.log('this is watchEffect', state.name);
+        console.log(age);
+    });
+    setTimeout(() => {
+        state.name = 'lisi';
+    }, 3000);
+    setTimeout(() => {
+        age.value = 25;
+    }, 6000);
+}
+```
+
+### 获取当前组件实例
+
+    Vue3的composition API中是没有this的，如果查看this，返回的是undeifned，而vue2.x中this则指向了当前组件的实例。Vue3提供了getCurrentInstance()方法，这个方法返回当前组件的实例。需要注意的是getCurrentInstance只能在setup或生命周期钩子中调用。
+
+
+## Vue3为何比Vue2快？
+
+* proxy响应式
+
+    深度监听，性能更好（不用一次性递归完成）
+
+    可监听新增/删除属性
+
+    可监听数组变化
+    
+* patchFlag
+
+> patchFlag给每个节点打上标记，用于区分不同类类型的节点。比如静态、动态节点，动态节点又有哪些类型（prop、class、text...）。可以简单理解为如果当前节点是个静态节点（值或属性没有引用任何变量），就不去做比较如下图。通过改变传入的vnode，达到了优化diff算法的目的。
+
+    编译模版时，动态节点做标记。
+
+    标记分为不同的类型，如 TEXT PROPS CLASS
+
+    diff算法时，可以区分静态节点，以及不同类型的动态节点。
+
+![file type](./static/img/patchflag.jpg)
+
+* hoistStatic
+
+    将静态节点的定义提升到父作用域，缓存起来
+
+    多个相邻的静态节点，会被合并
+
+[可以在这里看一下模版编译后的样子](https://vue-next-template-explorer.netlify.app)
+
+* cacheHandler
+
+    缓存事件。将事件缓存起来
+
+* SSR优化
+
+    静态节点直接输入，绕过了vdom
+
+    动态节点，还是需要动态渲染
+
+* tree-shaking
+
+    需要什么引入什么。import {} from 'vue';
+
+### Vite？
+
+> Vite是一个web构建工具，由于其原生ES模块导入方式，可以实现闪电般的冷服务启动（vite官网说的）。
+
+* Vite是什么？
+
+    Vite是一个前端打包工具，Vue作者发起的项目。
+
+    优势：开发环境下无需打包，启动快
+
+* 为什么启动非常快？
+
+    开发环境使用ES6 Module，无需打包 -- 非常快。(动态引入（需要使用async await）、外链)
+
+    生产环境使用rollup，并不会快很多。
+
+```html
+<!-- 指定type为module，就可以使用es6 module -->
+<script type="module">
+    import add from './src/add.js';
+    console.log(add(1, 2));
+</script>
+
+<!-- 外链 -->
+<script type="module" src="./src/test2.js"></script>
+```
+
+```js
+// 动态引入注意要使用async await。add需要default，因为export的时候指定了default
+document.getElementById('btn1').addEventListener('click', async () => {
+    const add = await import('./src/add.js');
+    console.log(add.default(10, 50));
+});
+```
+
+### Composition API 与 React Hooks对比
+
