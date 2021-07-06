@@ -1,3 +1,34 @@
+# React
+
+
+* 事件绑定
+
+在使用react绑定事件的时候，一般都需要bind的绑定一下this，下面就来说一下三种不同的事件调用方式。以及区别。
+
+下面这种方式可以成功的调用定义的方法，但是有一个小的缺点，就是每点击一次，都会重新绑定一下bind。
+所以这里建议改写为 `this.changeName = this.changeName.bind(this);`。这样只是绑定一次，每次触发即可。或使用箭头函数来定，箭头函数中的this不会改变。
+
+```js
+<p onClick={this.changeName.bind(this)}>{this.state.name}</p>
+// 或使用箭头函数
+changeName = () => {
+    // todo something
+}
+```
+
+1. React事件中event并不是原生的event对象，而是react封装后的event对象(SyntheticEvent)。
+
+2. React中想要获取原生event可以通过event.nativeEvent。原生Event对象是MouseEvent。
+
+3. React16中所有的事件都是被挂载在document上。 React17中事件绑定在了Root节点上（<div id="root"></div>）。
+
+4. 它不是原生DOM事件。可以通过event.nativeEvent.currentTarget来查看。
+
+
+* 受控组件
+
+
+
 **状态提升**
 
 尽量把数据绑定在父级上，分发给各个子组件
