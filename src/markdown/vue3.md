@@ -593,7 +593,7 @@ setup() {
     Vue3的composition API中是没有this的，如果查看this，返回的是undeifned，而vue2.x中this则指向了当前组件的实例。Vue3提供了getCurrentInstance()方法，这个方法返回当前组件的实例。需要注意的是getCurrentInstance只能在setup或生命周期钩子中调用。
 
 
-## Vue3为何比Vue2快？
+### Vue3为何比Vue2快？
 
 * proxy响应式
 
@@ -602,6 +602,8 @@ setup() {
     可监听新增/删除属性
 
     可监听数组变化
+
+#### 编译优化部分
     
 * patchFlag
 

@@ -1,3 +1,329 @@
+# React
+
+
+### 事件绑定
+
+在使用react绑定事件的时候，一般都需要bind的绑定一下this，下面就来说一下三种不同的事件调用方式。以及区别。
+
+下面这种方式可以成功的调用定义的方法，但是有一个小的缺点，就是每点击一次，都会重新绑定一下bind。
+所以这里建议改写为 `this.changeName = this.changeName.bind(this);`。这样只是绑定一次，每次触发即可。或使用箭头函数来定，箭头函数中的this不会改变。
+
+```js
+<p onClick={this.changeName.bind(this)}>{this.state.name}</p>
+// 或使用箭头函数
+changeName = () => {
+    // todo something
+}
+```
+
+1. React事件中event并不是原生的event对象，而是react封装后的event对象(SyntheticEvent)。
+
+2. React中想要获取原生event可以通过event.nativeEvent。原生Event对象是MouseEvent。
+
+3. React16中所有的事件都是被挂载在document上。 React17中事件绑定在了Root节点上（`<div id="root"></div>`）。
+
+4. 它不是原生DOM事件。可以通过event.nativeEvent.currentTarget来查看。
+
+
+### 受控组件
+
+- 个人理解，受控组件就是直接通过修改this.state来完成数据的修改，就是受控组件。（类似双向数据绑定）
+
+### 父子组件通讯
+
+- 父组件传入自定义属性、事件，子组件中通过props接收事件与属性。
+
+### setState
+
+* 不可变值
+
+    为什么要用不可变值？
+
+    为了性能优化。在react中有shouldComponentUpdate钩子，这个钩子决定了视图需不需要更新。返回true更新，否则不更新。`一般优化的场景都是通过shouldComponentUpdate对比新旧的props或state来完成，如果两者一致则不重新渲染，否则就重新渲染。但是如果使用了push、pop等对原数据有破坏性操作的方法后，它在对比时两者的值是相同的，则视图就不会更新。所以对引用类型进行修改时，一定要使用不可变值`
+
+    不要直接对state的值进行修改，什么时候需要修改再通过setState来修改!!!setState时不要修改原state的值，而是直接返回一个全新的值!!!
+
+```js
+// 不可变值（函数式变成，纯函数） - 数组
+let list4Copy = this.state.list4.slice();
+list4Copy.splice(2, 0, 'a');
+this.setState({
+    // 追加，使用concat是因为concat不会修改原数组，而且是返回一个全新的数组。这就是不可变值的意思
+    list1: this.state.list1.concat(100),
+    // 另一种追加方式
+    list1: [...this.state.list1, 100],
+    // 截取，slice也不会改变原数组，而且返回一个新的数组
+    list2: this.state.list2.slice(0, 3),
+    // 筛选。不会改变原数组，返回一个新的数组
+    list3: this.state.list3.filter(item => item >= 100),
+    // 其他操作。深拷贝一个新的数组，然后对数组进行操作，这样依然不会影响原数组
+    list4: list4Copy
+});
+// 不能直接对this.state.list 进行push、pop、shift、unshift等具有破坏性的操作，这样违反不可变值
+
+// 不可变值 - 对象
+this.setState({
+    // 通过Object.assign生成一个新的对象，来修改obj1.a的值，达到不可变值的目的
+    obj1: Object.assign({}, this.state.obj1, {a: 100}),
+    // 解构生成一个新的对象，来修改obj2的a属性
+    obj2: {...this.state.boj2, a: 100}
+});
+```
+
+* 可能是异步更新
+
+    为什么它会是异步的？
+
+    为了提升性能而进行批量处理。这是因为setState改变了状态会导致重新渲染，这是非常耗费性能的。所以就需要异步以及批量处理。其实这里和vue的$nextTick一个道理
+
+    在自定义DOM事件、setTimeout定时器中，setState是同步的（我猜想可能因为它们是宏任务所以在执行的时候就同步了）。如果直接使用可能是异步的。
+
+```js
+// 异步输出
+this.setState({
+    count: this.state.count + 1
+});
+cosnole.log(this.state.count); // 0
+
+bodyClickHandler = () => {
+    // 同步输出
+    this.setState({
+        count: this.state.count + 1
+    });
+    cosnole.log(this.state.count); // 1
+}
+componentDidMount() {
+    document.body.addEventListener('click', this.bodyClickHandler);
+}
+```
+
+* 可能会被合并
+
+    为什么会被合并？
+
+    因为setState是异步，而异步处理时以下面的例子为例，这是count还是0，所以它们都是0+1，所以都是1。
+
+    传入对象，会被合并。
+
+    传入函数，不会被合并。
+
+```js
+// 传入对象，会被合并。执行结果 只+一次1。 输出 1
+this.state = {count: 0}; 
+this.setState({
+    count: this.state.count + 1
+});
+this.setState({
+    count: this.state.count + 1
+});
+this.setState({
+    count: this.state.count + 1
+});
+
+// 传入函数，不会被合并。输出3
+this.setState((prevState, props) => {
+    return {count: prevState.count + 1}
+});
+this.setState((prevState, props) => {
+    return {count: prevState.count + 1}
+});
+this.setState((prevState, props) => {
+    return {count: prevState.count + 1}
+});
+```
+
+* 生命周期
+
+    挂载时
+
+1. constructor
+
+2. render
+
+    React更新DOM和refs
+
+3. componentDidMount
+
+    更新时 setState forceUpde
+
+1. render
+
+    React更新DOM和refs
+
+2. componentDidUpdate
+
+    卸载时
+
+1. componentWillUnmount
+
+
+
+* 父子组件生命周期调用顺序
+
+    如果一个组件里包涵了一个子组件，那么它们的生命周期是如何触发的？是穿插进行。
+
+    挂载时： 父constructor -> 父render -> 子constructor -> 子render -> 子componentDidMount -> 父componentDidMounted
+
+    更新时：父render -> 子render -> 子componentDidUpdate -> 父componentDidUpdate
+
+
+### 高级特性
+
+* 函数组件
+
+    纯函数，输入props，输出jsx。对值没有任何的修改
+
+    没有实例，没有生命周期，没有state
+
+    如果只是一个纯展示的组件，没有任何逻辑就可以使用函数组件
+
+* 非受控组件
+
+    非受控组件的值不受state的控制，需要从DOM上来获取。通过React.createRef()创建，使用ref与节点绑定。
+
+    哪些场景需要使用非受控组件？一定要操作DOM才能获取信息的时候，比如 input type="file"的时候，必须拿DOM上的files属性，才可以获取到文件信息。
+
+    优先使用受控组件，符合React设计原则。
+
+```js
+this.state = {
+    name: 'zhangsan'
+}
+// 创建ref
+this.nameInputRef = React.createRef();
+// 指定默认值 绑定ref
+<input defaultValue={this.state.name} ref={this.nameInputRef}/>
+// 通过value获取当前ref的值
+this.nameInputRef.current.value
+
+// 或
+
+<input type="text" ref={(text) => {this.nameInputRef = text}} />
+// this.nameInputRef.value
+```
+    ref
+
+    defaultValue defaultChecked
+
+    手动操作DOm元素
+
+* Portals
+
+    可以指定某个节点或者组件插入的位置，和Vue3的Teleport功能类似。
+
+    它接收两个参数，第一个是正常的节点，第二个是你要插入的节点。如下面的代码。`题外话，下面代码中的{this.props.children}类似于vue中的slot。可以在父节点中写入其他任意内容。会在这里展示出来。`
+
+    使用场景：父组件z-index值太小、position:fixed需要放在body第一层级
+
+```js
+// 需要使用react-dom下的recate-portals
+import ReactDOM from 'react-dom';
+render() {
+    return ReactDOM.createPortals(
+        <div calssName="model">
+            {this.props.children}
+        </div>,
+        document.body // document.getElementById('xxxx')
+    )
+}
+```
+
+* context
+
+    状态提升的另一种表现吧。把多个子级需要使用的值提到最外层。通过创建context，将值灌入。之后所有子级组件都可以使用。
+
+    使用场景。主题、语言设置等。 通过React.createContext()定义。provider注入、Consumer消费（获取这个值）
+
+```js
+// 定义context
+const ThemeColo = React.createContext('light');
+// 父
+this.state = {
+    theme: 'light'
+}
+<ThemeColo.provider value={this.state.theme}>
+    <Toolbar></Toobar>
+</ThemeColo.provider>
+
+// 子 函数组件获取方式
+function Toolbar(props) {
+    return <ThemeColo.Consumer>
+        {value => <p>this is then {value}</p>}
+    </ThemeColo.Consumer>
+}
+// 子 class组件获取方式
+class ToolBar extends React.Component {
+    redner() {
+        const theme = this.context;
+        return <div>
+            {theme}
+        </div>
+    }
+}
+```
+
+* 异步组件
+
+    React的异步组件大体上和vue类似。通过React.lazy方法来完成。该方法接收一个函数，这个函数返回一个import。需要搭配Suspense使用。这个Suspense和Vue3的Suspense类似。组件没有加载完成时会先显示fallback中的内容。fallback可以是一个组件，用来展示组件未加载完成时的默认样式。
+
+```js
+import React from 'react';
+
+const LazyDemo = React.lazy(() => import('./xxxx.js'));
+
+render() {
+    return <div>
+        <React.Suspense fallback={<div>loading...</div>}>
+            <LazyDemo />
+        </React.Suspense>
+    </div>
+}
+
+```
+
+* 性能优化
+
+SCU 
+
+> 在React中只要父组件有更新。子组件默认的就全部更新。无论该子组件状态是否有修改。shouldComponentUpdate默认返回true(渲染)。
+
+父组件有更新会触发render的渲染，render又会触发所有子组件的渲染。所以无论子组件的状态有没有修改，都会重新触发渲染。所以性能优化对于React更加重要！！！
+
+可以通过对比前后的props或state来决定是否渲染。SCU 一定要每次都用吗？需要的时候才优化，不需要的时候就不优化。
+
+- PureComponent class组件的做了浅比较的SCU
+
+- memo 函数组件SCU
+
+```js
+shouldComponentUpdate(nextProps, nextState) {
+    if (nextState.data !== this.state.data) {
+        return true; // 如果两次的值不一致就渲染
+    }
+    return false; // 不重复渲染
+}
+
+// 错误的用法。push会将原先的list修改，这样在shouldComponentUpdate对比时新旧的值就会相同
+this.setState({
+    // 直接修改了原数组
+    list: this.state.list.push({}) 
+})
+// 正确的用法
+this.setState({
+    // 不会对原数组有影响 不可变值 
+    list: this.state.list.concat({}) 
+})
+```
+
+
+
+
+
+
+    高阶组件HOC
+
+    Render Props
+
 **状态提升**
 
 尽量把数据绑定在父级上，分发给各个子组件
