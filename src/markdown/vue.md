@@ -217,6 +217,14 @@ export default {
 }
 ```
 
+* 所有属性传递给子组件
+
+    通过$props将所有属性传递给子组件。如果传递的属性过多的话，可以用这种方式。
+
+```html
+<my-children v-bind="$props">
+```
+
 * $nextTick
 
     Vue是异步渲染的，data改变了之后，DOM不会立刻渲染。$nextTick是在DOM渲染后被触发，获取最新的DOM节点。

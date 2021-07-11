@@ -295,6 +295,8 @@ SCU
 
 - memo 函数组件SCU
 
+- immutable.js 类似于深拷贝的一种对值的引用方式，比较适合react里setState不可变值的应用。
+
 ```js
 shouldComponentUpdate(nextProps, nextState) {
     if (nextState.data !== this.state.data) {
@@ -315,14 +317,109 @@ this.setState({
 })
 ```
 
+* 高阶组件HOC
 
+    高阶组件是指组件接收另一个组件，进行加工后返回一个新的组件。类似于工厂模式。可以实现逻辑的抽离、复用。
 
+```js
+// 这个组件接收一个组件作为参数，对传入的组件进行加工后，返回一个新的组件。
+function withMouse(Component) {
+    // 这个组件里定义了一些公共的逻辑，这些逻辑会被多个组件使用
+    class MouseEvent extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                x: 0, y: 0
+                /* 公共的属性 */
+            };
+        }
+        /* 公共的逻辑 */
+        getMouse = (e) => {
+            this.setState({
+                x: e.clientX,
+                y: e.clientY
+            })
+        }
+        componentDidMount() {
+            window.addEventListener('mousemove', this.getMouse);
+        }
+        componentWillUnmount() {
+            window.removeEventListener('mousemove', this.getMouse);
+        }
+        render() {
+            return (
+                // 这里返回传入的组件。并且要将props，state全部透穿下去。
+                <Component {...this.props} {...this.state}></Component>
+            )
+        }
+    }
+    // 返回新的加工后的组件
+    return MouseEvent;
+}
 
+function App(props) {
+    const {x, y} = props;
+    return (
+        <div>
+            <p>x: {x}</p>
+            <p>y: {y}</p>
+        </div>
+    )
+}
+/* 最后使用的其实是App组件，但是逻辑全部都在withMouse组件中 */
+export default withMouse(App);
+```
 
+* Render Props
 
-    高阶组件HOC
+    Render Props的想法其实和HOC差不多，都是将逻辑抽离在某个组件内，然后其他组件对其进行调用。renderProps其实就想当于给公共组件传入了一个方法，这个方法会使用公共组件内部的属性，并且这个方法会返回个组件。
 
-    Render Props
+```js
+// 逻辑抽离
+class Factory extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            x: 0,
+            y: 0
+            /* 公共的属性 */
+        }
+    }
+    /* 公共的方法 */
+    getMouse = (e) => {
+        this.setState({
+            x: e.clientX,
+            y: e.clientY,
+        })
+    }
+    componentDidMount() {
+        window.addEventListener('mousemove', this.getMouse);
+    }
+    componentWillUnmount() {
+        window.removeEventListener('mousemove', this.getMouse);
+    }
+    render() {
+        return (
+            <div>{this.props.render(this.state)}</div>
+        )
+    }
+}
+
+function App() {
+    // 这里给公共的组件传入了一个render函数，这个函数返回一个组件。返回的这个组件使用了公共组件内部的属性与逻辑
+    return (
+        <Factory render={(props) => 
+            <div>
+                <p>x: {props.x}</p>
+                <p>y: {props.y}</p>
+            </div>
+        }>
+        </Factory>
+    )
+}
+
+export default App;
+```
 
 **状态提升**
 
